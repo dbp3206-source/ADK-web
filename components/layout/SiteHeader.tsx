@@ -4,26 +4,38 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { StaticLink as Link } from "@/components/layout/StaticLink";
-import navigation from "@/content/navigation.json";
+import { getDictionary, localeFromPath, localizedPath } from "@/lib/i18n";
 import { getOwnerName, getUtilityLinks } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const locale = localeFromPath(pathname);
+  const dict = getDictionary(locale);
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const ownerName = getOwnerName();
   const utilityLinks = getUtilityLinks();
+  const nav = [
+    [dict.nav.home, "/"],
+    [dict.nav.projects, "/projects"],
+    [dict.nav.system, "/system"],
+    [dict.nav.learn, "/learn"],
+    [dict.nav.evidence, "/evidence"],
+    [dict.nav.about, "/about"]
+  ] as const;
+  const cleanPath = pathname.replace(/^\/(vi|en)/, "") || "/";
+  const otherLocale = locale === "vi" ? "en" : "vi";
+
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => { document.documentElement.lang = locale; }, [locale]);
 
   useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const focusable = menuRef.current?.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    );
+    const focusable = menuRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
     focusable?.[0]?.focus();
-
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
@@ -40,7 +52,6 @@ export function SiteHeader() {
         first.focus();
       }
     };
-
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
@@ -49,78 +60,56 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const primaryLinks = navigation.primary;
+  const isCurrent = (href: string) => {
+    const target = localizedPath(locale, href);
+    return pathname === target || (href !== "/" && pathname.startsWith(`${target}/`));
+  };
+  const preserveLocaleQuery = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    window.location.assign(`${localizedPath(otherLocale, cleanPath)}${window.location.search}${window.location.hash}`);
+  };
 
   return (
-    <header className="site-header">
-      <div className="header-issue">
-        <span>ADK AGENT ECOSYSTEM</span>
-        <span>STATIC EVIDENCE EDITION · V0.1</span>
+    <header className="site-header site-header-v2">
+      <div className="header-signal">
+        <span>ADK AGENT ECOSYSTEM</span><span>{dict.common.simulation}</span>
       </div>
       <div className="header-main">
-        <Link className="wordmark" href="/" aria-label="ADK Agent Ecosystem home">
+        <Link className="wordmark" href={localizedPath(locale, "/")} aria-label={`ADK / ECOSYSTEM — ${dict.nav.home}`}>
           {ownerName || "ADK / ECOSYSTEM"}
         </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {primaryLinks.map((item) => (
-            <Link
-              href={item.href}
-              key={item.href}
-              aria-current={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
+        <nav className="desktop-nav" aria-label={dict.nav.primary}>
+          {nav.map(([label, href]) => (
+            <Link href={localizedPath(locale, href)} key={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>
           ))}
-          <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>
-            Contact
-          </Link>
         </nav>
-        <button
-          className="menu-trigger"
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen(true)}
-          ref={triggerRef}
-        >
-          Menu
-        </button>
+        <div className="header-actions">
+          <button type="button" className="command-trigger" onClick={() => window.dispatchEvent(new CustomEvent("adk:command-open"))} aria-label={dict.command.title}>
+            <span>{dict.command.short}</span><kbd>⌘K</kbd>
+          </button>
+          <Link className="locale-toggle" href={localizedPath(otherLocale, cleanPath)} onClick={preserveLocaleQuery} aria-label={locale === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt"}>
+            {otherLocale.toUpperCase()}
+          </Link>
+          <button className="menu-trigger" type="button" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(true)} ref={triggerRef}>
+            {dict.common.menu}
+          </button>
+        </div>
       </div>
-
       {open ? (
         <div className="mobile-menu-backdrop" role="presentation" onMouseDown={() => setOpen(false)}>
-          <div
-            className="mobile-menu"
-            id="mobile-menu"
-            ref={menuRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site navigation"
-            onMouseDown={(event) => event.stopPropagation()}
-          >
-            <div className="mobile-menu-head">
-              <span className="mono">SYSTEM MAP</span>
-              <button type="button" onClick={() => setOpen(false)}>
-                Close
-              </button>
-            </div>
-            <nav aria-label="Mobile navigation">
-              {[...primaryLinks, { label: "Contact", href: "/contact" }].map((item, index) => (
-                <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
-                  <span className="mono">{String(index + 1).padStart(2, "0")}</span>
-                  {item.label}
-                </Link>
+          <div className="mobile-menu" id="mobile-menu" ref={menuRef} role="dialog" aria-modal="true" aria-label={dict.nav.primary} onMouseDown={(event) => event.stopPropagation()}>
+            <div className="mobile-menu-head"><span className="mono">SYSTEM MAP / {locale.toUpperCase()}</span><button type="button" onClick={() => setOpen(false)}>{dict.common.close}</button></div>
+            <nav aria-label={dict.nav.primary}>
+              {[...nav, [dict.nav.contact, "/contact"] as const].map(([label, href], index) => (
+                <Link href={localizedPath(locale, href)} key={href}><span className="mono">{String(index + 1).padStart(2, "0")}</span>{label}</Link>
               ))}
             </nav>
-            {utilityLinks.length > 0 ? (
-              <div className="mobile-utility">
-                {utilityLinks.map((item) => (
-                  <a href={item.href} key={item.label} target="_blank" rel="noreferrer">
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            ) : null}
+            <div className="mobile-utility">
+              <Link href={localizedPath(otherLocale, cleanPath)} onClick={preserveLocaleQuery}>{otherLocale.toUpperCase()}</Link>
+              <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("adk:command-open"))}>{dict.command.title}</button>
+              {utilityLinks.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
+            </div>
           </div>
         </div>
       ) : null}

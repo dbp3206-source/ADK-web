@@ -1,7 +1,7 @@
 {
   "projectName": "ADK Agent Ecosystem Portfolio",
-  "primaryLocale": "en",
-  "secondaryLocaleRoadmap": "vi",
+  "primaryLocale": "vi",
+  "secondaryLocaleRoadmap": "en",
   "owner": {
     "name": "__REPLACE_WITH_YOUR_NAME__",
     "headline": "AI/ML Engineering Intern Candidate",

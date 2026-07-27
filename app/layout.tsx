@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
+import { CommandDeck } from "@/components/command/CommandDeck";
+import { LegacyRouteRedirect } from "@/components/layout/LegacyRouteRedirect";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
 import "./globals.css";
+import "./v2.css";
 
 const displayFont = Space_Grotesk({
   subsets: ["latin"],
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
     title: "ADK Agent Ecosystem Portfolio",
     description: "Not six chatbots. Six architectural steps toward an agent ecosystem.",
     type: "website",
-    locale: "en"
+    locale: "vi_VN"
   }
 };
 
@@ -47,17 +50,19 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#F7F9FC"
+  themeColor: "#F4F7FA"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
+    <html lang="vi" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
       <body>
-        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+        <LegacyRouteRedirect />
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <CommandDeck />
       </body>
     </html>
   );

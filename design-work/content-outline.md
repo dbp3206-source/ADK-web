@@ -1,25 +1,25 @@
-# Content Outline
+# Content Outline — Interactive V2
 
 ## Global
-Editorial masthead, primary navigation, conditional utility links, dense evidence colophon, source policy, limitations and contact routes.
+Vietnamese-first locale routes with route/query-preserving toggle; discovery mode; accessible mobile drawer; Command Deck; local progress; conditional owner links; statement footer; visible focus and reduced motion.
 
 ## Home
-Asymmetric thesis and simulated trace; proof strip; six-step ladder; dominant Dashboard Insights; tall A2A panel; four editorial project rows; request anatomy; engineering honesty; contact terminal.
+Static thesis plus audience switcher, honest stats, mini trace and voice entry; discovery modes; interactive ladder; recruiter snapshot; featured Dashboard and A2A labs; four editorial project rows; artifact gallery; pattern comparator; evidence bridge; guarded owner/contact close.
 
 ## Projects
-Intro; AND-based pattern filters; result announcement; six ordered rows; approved empty state.
+Localized search and AND filters; ladder/comparison views; explicit Pattern, Maturity and Evidence fields; result announcement; approved empty state.
 
 ## Six case studies
-Masthead and thesis; problem; unique project interaction; architecture and text alternative; trace; pending code evidence; decisions; limitations; roadmap; evidence footer; previous/next.
+Masthead, thesis and sticky TOC; problem; one project-specific internal timeline; one deterministic micro-lab with fallback/empty/error/reset; architecture and text alternative; artifact; decisions; limitations; roadmap; pending verified-code state; evidence footer; previous/next; voice guide and print mode.
 
 ## System
-Five trace presets; Play/Pause/Previous/Next/Restart; visible simulation notice; topology; inspector; text alternative; routing reason; specialist workflow; artifact; related case study.
+Five localized presets; Play/Pause/Previous/Next/Restart; step list and deep links; visible Vietnamese/English simulation notice; topology; routing reason; Agent Card; internal workflow; tool/data contract; validation; artifact/fallback; text alternative; voice narration; related case study.
 
 ## Learn
-Four lessons with 60-second and 5-minute views, glossary tooltips, evidence-pending state, three-question self-check and related project.
+Four localized lessons with 60-second and 5-minute views; searchable glossary without duplicated accessibility text; evidence-pending state; three-question local self-check; related project.
 
 ## Evidence
-Source policy; allowed states; layer matrix; per-project verification; consolidated limitations; documentation mismatches; hardening roadmap; accessibility and privacy.
+Five allowed statuses: documented, located, verified, proposed and pending; layer matrix; UI checks that really ran; per-project verification; consolidated limitations; documentation mismatches; hardening roadmap; accessibility/privacy; print paper mode.
 
 ## About, Contact and 404
-Approved generic journey only; grouped skills; internship target; hidden missing links; approved contact empty state; route recovery links.
+Approved generic journey only; grouped skills; hidden missing owner fields; real contact actions only; no fake form and no “owner pending” public headline; localized route recovery.

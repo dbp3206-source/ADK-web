@@ -7,5 +7,15 @@
     "vibe": "cobalt technical editorial, evidence-led",
     "enrichment": "Tier B hand-built SVG",
     "brief": "ADK agent ecosystem technical portfolio"
+  },
+  {
+    "date": "2026-07-27",
+    "macrostructure": "Workbench + Split Diptych",
+    "theme": "Signal Editorial V3",
+    "theme_axes": "dark control-plane / paper evidence / cobalt signal",
+    "vibe": "interactive architecture explorer with project-specific editorial labs",
+    "enrichment": "deterministic request traces, micro-labs and browser voice",
+    "brief": "ADK Agent Ecosystem interactive bilingual V2",
+    "slop_test": "pass after rendered contrast, mobile, nav and footer review"
   }
 ]

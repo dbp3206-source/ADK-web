@@ -1,0 +1,39 @@
+{
+  "projectName": "ADK Agent Ecosystem Portfolio",
+  "primaryLocale": "en",
+  "secondaryLocaleRoadmap": "vi",
+  "owner": {
+    "name": "__REPLACE_WITH_YOUR_NAME__",
+    "headline": "AI/ML Engineering Intern Candidate",
+    "location": "__OPTIONAL__",
+    "email": "",
+    "githubProfile": "",
+    "linkedin": "",
+    "cvUrl": "",
+    "dossierUrl": ""
+  },
+  "links": {
+    "hallmarkReference": "https://www.usehallmark.com",
+    "hallmarkRepository": "https://github.com/nutlope/hallmark",
+    "awwwardsReference": "https://www.awwwards.com/websites/"
+  },
+  "featureFlags": {
+    "liveAgentBackend": false,
+    "simulatedSystemTrace": true,
+    "projectFilters": true,
+    "learningLayer": true,
+    "analytics": false,
+    "notionEmbedMode": false
+  },
+  "publishingRules": {
+    "hideEmptyExternalLinks": true,
+    "neverRenderPlaceholderAsRealData": true,
+    "simulatedTraceLabel": "Simulated trace from repository architecture",
+    "allowedEvidenceStatuses": [
+      "Implemented in source",
+      "Verified locally",
+      "Proposed upgrade",
+      "Needs verification"
+    ]
+  }
+}

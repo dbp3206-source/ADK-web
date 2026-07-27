@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Cobalt Technical Editorial",
+  "color": {
+    "canvas": "#F7F9FC",
+    "surface": "#FFFFFF",
+    "surfaceMuted": "#F0F4F8",
+    "ink": "#0B0F19",
+    "inkMuted": "#536071",
+    "border": "#D6DEEA",
+    "borderStrong": "#9AA9BC",
+    "cobalt": "#155EEF",
+    "cobaltHover": "#0F4BC4",
+    "cobaltActive": "#0B3B9E",
+    "focus": "#155EEF",
+    "success": "#176B3A",
+    "warning": "#8A4B00",
+    "danger": "#B42318",
+    "project": {
+      "tripPlanner": "#007A8A",
+      "scriptTeam": "#B42318",
+      "worldCup": "#176B3A",
+      "loveAdvisor": "#7A3E75",
+      "dashboardInsights": "#8A4B00",
+      "a2aOrchestrator": "#155EEF"
+    },
+    "projectSurface": {
+      "tripPlanner": "#E8F7F8",
+      "scriptTeam": "#FFF0EE",
+      "worldCup": "#ECF8F0",
+      "loveAdvisor": "#F8EFF7",
+      "dashboardInsights": "#FFF5E8",
+      "a2aOrchestrator": "#EDF3FF"
+    }
+  },
+  "typography": {
+    "display": {
+      "family": "Space Grotesk, Segoe UI, Arial, sans-serif",
+      "weight": [
+        500,
+        600,
+        700
+      ]
+    },
+    "body": {
+      "family": "Inter, Segoe UI, Arial, sans-serif",
+      "weight": [
+        400,
+        500,
+        600
+      ]
+    },
+    "mono": {
+      "family": "JetBrains Mono, Cascadia Code, Consolas, monospace",
+      "weight": [
+        400,
+        500,
+        600
+      ]
+    },
+    "scaleRem": {
+      "xs": 0.75,
+      "sm": 0.875,
+      "base": 1,
+      "lg": 1.125,
+      "xl": 1.25,
+      "2xl": 1.5,
+      "3xl": 2,
+      "4xl": 2.75,
+      "5xl": 4,
+      "6xl": 5.5
+    },
+    "lineHeight": {
+      "tight": 1.05,
+      "heading": 1.15,
+      "body": 1.6,
+      "code": 1.55
+    }
+  },
+  "spacingPx": {
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 20,
+    "6": 24,
+    "8": 32,
+    "10": 40,
+    "12": 48,
+    "16": 64,
+    "20": 80,
+    "24": 96,
+    "32": 128
+  },
+  "radiusPx": {
+    "none": 0,
+    "sm": 4,
+    "md": 6,
+    "lg": 8,
+    "pill": 999
+  },
+  "border": {
+    "default": "1px solid #D6DEEA",
+    "strong": "1px solid #9AA9BC",
+    "active": "2px solid #155EEF"
+  },
+  "shadow": {
+    "none": "none",
+    "subtle": "0 8px 24px rgba(11, 15, 25, 0.06)",
+    "focus": "0 0 0 2px #F7F9FC, 0 0 0 4px #155EEF"
+  },
+  "grid": {
+    "maxWidthPx": 1440,
+    "contentWidthPx": 1180,
+    "textWidthPx": 760,
+    "columnsDesktop": 12,
+    "gutterPx": {
+      "mobile": 16,
+      "tablet": 24,
+      "desktop": 32
+    }
+  },
+  "breakpointsPx": {
+    "xs": 320,
+    "sm": 375,
+    "md": 768,
+    "lg": 1024,
+    "xl": 1440
+  },
+  "motion": {
+    "fastMs": 140,
+    "baseMs": 220,
+    "slowMs": 420,
+    "traceStepMs": 1100,
+    "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "reducedMotion": "replace movement with immediate highlight and preserve all controls"
+  },
+  "focus": {
+    "widthPx": 2,
+    "offsetPx": 2,
+    "color": "#155EEF"
+  },
+  "touchTargetMinPx": 44,
+  "rules": [
+    "No gradients",
+    "No glow",
+    "No glassmorphism",
+    "Do not make every label a pill",
+    "Do not use equal card grids as the primary project composition",
+    "Project accents support identity; cobalt remains the action and active-signal color"
+  ]
+}

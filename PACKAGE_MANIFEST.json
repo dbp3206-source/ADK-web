@@ -1,0 +1,176 @@
+{
+  "package": "adk_agent_ecosystem_portfolio_build_package",
+  "version": "0.1",
+  "generatedFiles": [
+    {
+      "path": "00_START_HERE.md",
+      "bytes": 1655,
+      "sha256": "a85e296cbeafd166625e69ad609381ba302e99ee7d807bc77d23b80c0f28e887"
+    },
+    {
+      "path": "ACCEPTANCE_TESTS.md",
+      "bytes": 2245,
+      "sha256": "988d9d65bb60d798cbe46d50d6b03d71ab6560653670a4de1f480f5130e5a2f8"
+    },
+    {
+      "path": "ASSET_MANIFEST.md",
+      "bytes": 1402,
+      "sha256": "813a38a7ae6eea248dab5d453a942820d24c06d094932a71d563ec4ca0f1de78"
+    },
+    {
+      "path": "BUILD_PROMPT.md",
+      "bytes": 8354,
+      "sha256": "f162e758a9549576e0cc5d3716b6820ce1bf79af12f166380bad61a5a41350b6"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 467,
+      "sha256": "87cc23ae75affc60e3ae272a3420df53c6d6cfbc735cdbd77b457764123c2456"
+    },
+    {
+      "path": "COMPONENT_INVENTORY.md",
+      "bytes": 1651,
+      "sha256": "f41e9168f943a72fc038ea7868b2631b1b169e0740b664e2a9e7e2a82bd25272"
+    },
+    {
+      "path": "CONTENT_COPY.md",
+      "bytes": 4742,
+      "sha256": "e0e0cae3770fc34d8b42cde1ddd203a6562aaf62b1862a8e3df20bf738660b30"
+    },
+    {
+      "path": "CONTENT_INVENTORY.csv",
+      "bytes": 2814,
+      "sha256": "284235f0a9f008d8fbc6914607ecb417bd234d9e513a037f0e928d096a921b39"
+    },
+    {
+      "path": "DATA_MODEL.json",
+      "bytes": 3351,
+      "sha256": "769ee27f0932ff3db85f91687ab9b339c14a356cfcc074f8343d8b9d0d40d113"
+    },
+    {
+      "path": "DEPLOYMENT_PLAN.md",
+      "bytes": 1573,
+      "sha256": "c1119ac6d250e34f67ce1e8a6fa1716ba5fc50c6fe0190c28e553d241c47c511"
+    },
+    {
+      "path": "DESIGN_TOKENS.json",
+      "bytes": 3197,
+      "sha256": "c85288758b3c8d3ebbbdabfc35d79a6f010fe6c2d5a362973338250a48a5dbe6"
+    },
+    {
+      "path": "FEATURE_BACKLOG.csv",
+      "bytes": 4720,
+      "sha256": "428d8af715cb0688105ac6d19d27bb85c87ac7f0aac247599f34a0cd97c4399e"
+    },
+    {
+      "path": "INTERACTION_SPEC.md",
+      "bytes": 2415,
+      "sha256": "ed4dcc9b72f5524cb27c9b089fe385bcde5d882f48d6c67a65bf30d7354f3f1f"
+    },
+    {
+      "path": "NOTION_EMBED_CHECKLIST.md",
+      "bytes": 560,
+      "sha256": "731c986840b4e337c9b0399a95b2a2e36a8d84f3d266b3a07ad25c8a4c3b3a18"
+    },
+    {
+      "path": "PAGE_SPECIFICATIONS.md",
+      "bytes": 4891,
+      "sha256": "855af0eea7b41bae3002af20157abddc4e0138bd35c869158b673e1527180e6d"
+    },
+    {
+      "path": "PRODUCT_REQUIREMENTS.md",
+      "bytes": 2914,
+      "sha256": "ebaff01adf2a830da613ebf21a9b2bf877713baa681463ccbaed0b86aba42a77"
+    },
+    {
+      "path": "PROJECT_VIBE_SPECS.md",
+      "bytes": 3903,
+      "sha256": "0e65f0a9ed48a10afcdb51fa4a09c437dca67b3bf637b06fc0c6f3af829c4188"
+    },
+    {
+      "path": "QA_RELEASE_CHECKLIST.md",
+      "bytes": 1856,
+      "sha256": "9099e4dc17753a75f944b220a50ec41073847feace83da879a711196ebb32cfe"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1856,
+      "sha256": "6b65c8bf9c549c56aaa2a1f96c31db34554b027001f902d8c0302669855967a8"
+    },
+    {
+      "path": "SEO_AND_METADATA.md",
+      "bytes": 1110,
+      "sha256": "d316f87ebe434e5119f44ad812c042e6d734f0b1c44340bf7e9119edea5bd4f2"
+    },
+    {
+      "path": "SITEMAP.md",
+      "bytes": 1244,
+      "sha256": "05e08b8190e29b95e8592d821544f5d6150ed9770200239d503179e2bcdbeb25"
+    },
+    {
+      "path": "SITE_SPEC.md",
+      "bytes": 4023,
+      "sha256": "bdf9a51764652edd6ef23fc95f112d16b03c93506d844fedd660dcdafa107605"
+    },
+    {
+      "path": "SOURCE_TRACEABILITY.md",
+      "bytes": 1426,
+      "sha256": "55a1a2436427e8d1a099e0c3f8c1500e3526b044641f3f11b318ba3c7e40cb5c"
+    },
+    {
+      "path": "TRACEABILITY_MATRIX.csv",
+      "bytes": 1525,
+      "sha256": "57c2bce872918afe65fb8962f701b69c211d68ffbaa35bb65ace8859e97860ab"
+    },
+    {
+      "path": "USER_FLOWS.md",
+      "bytes": 1570,
+      "sha256": "e877c0dc3cc12e41ba75fa0e72f5606b1067da057cdb93a6d5ca4553475e6280"
+    },
+    {
+      "path": "WORK_UPLOAD_INSTRUCTIONS.md",
+      "bytes": 976,
+      "sha256": "2978a63ee6cceb1069b58eb7a98adc63244f5ddd0eefec6ac5c0560596f57511"
+    },
+    {
+      "path": "config/site-config.example.json",
+      "bytes": 1091,
+      "sha256": "2ce7b7bd972568479d18f91192042cab42be081b30d1d318bfc33eae7a67de97"
+    },
+    {
+      "path": "content/glossary.json",
+      "bytes": 2555,
+      "sha256": "6c53a981e8ac9f46dbc142df289ee1751bc115e8669d2acfdb96d6e18f9bf635"
+    },
+    {
+      "path": "content/navigation.json",
+      "bytes": 820,
+      "sha256": "e177d76665de83cce183b2f3f687cdb68ce22b9d7eb83b88a6a42fd8bbb9fd2d"
+    },
+    {
+      "path": "content/projects.json",
+      "bytes": 31400,
+      "sha256": "d55f7a56144820b97ae4559c989cca0318756ad5897de160bf813a9c2db586cc"
+    },
+    {
+      "path": "content/traces.json",
+      "bytes": 5874,
+      "sha256": "b042ca132e6579ddb48700dac1ea3bdeebf169ab998480eeb2cae3433871b103"
+    },
+    {
+      "path": "references/01_notebooklm_ai_agent_ecosystem.pdf",
+      "bytes": 483649,
+      "sha256": "0442e329a6f5c531fa47fdd26d793fd471d82c844e6b4edb1bd8fd68b3f2748a"
+    },
+    {
+      "path": "references/03_website_blueprint_ai_agent_portfolio.pdf",
+      "bytes": 353932,
+      "sha256": "3bb07dbbe1d37bd06b3e302f5e0b0786ca4c680997b62415e33ca1fd760b46b2"
+    },
+    {
+      "path": "references/REFERENCE_LINKS.md",
+      "bytes": 554,
+      "sha256": "b5f0151a94026d3bc542f17994cad1a120ededd2abf5049120f443e37ffbbde3"
+    }
+  ]
+}

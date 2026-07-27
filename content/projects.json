@@ -1,0 +1,1042 @@
+[
+  {
+    "slug": "trip-planner",
+    "index": 1,
+    "verb": "ACT",
+    "title": "Trip Planner",
+    "thesis": "The first step beyond chat: a model that can save and retrieve trip state through tools.",
+    "lesson": "Tool + session state",
+    "patterns": [
+      "Single Agent",
+      "Tool Calling",
+      "Session State"
+    ],
+    "vibe": {
+      "name": "Cartographic Utility",
+      "accent": "#007A8A",
+      "surface": "#E8F7F8",
+      "metaphor": "A route line becomes a state trail: plan, save, retrieve.",
+      "layout": "Wide itinerary canvas with a narrow state inspector and map-grid details.",
+      "components": [
+        "RouteTrace",
+        "ItineraryStrip",
+        "StateDrawer",
+        "ToolReceipt"
+      ],
+      "motion": "Advance a route segment only when a tool step completes; reduced motion uses step highlights.",
+      "avoid": [
+        "travel stock-photo hero",
+        "fake booking UI",
+        "hotel-price claims"
+      ]
+    },
+    "problem": "A traveler needs a useful itinerary and expects the system to remember it during the same working session.",
+    "architecture": {
+      "summary": "User → Trip Planner Agent → save_trip_detail() / get_trip_details() → Session State",
+      "nodes": [
+        {
+          "id": "user",
+          "type": "user",
+          "label": "User"
+        },
+        {
+          "id": "agent",
+          "type": "agent",
+          "label": "Trip Planner Agent"
+        },
+        {
+          "id": "save",
+          "type": "tool",
+          "label": "save_trip_detail()"
+        },
+        {
+          "id": "read",
+          "type": "tool",
+          "label": "get_trip_details()"
+        },
+        {
+          "id": "state",
+          "type": "store",
+          "label": "Session State"
+        }
+      ],
+      "edges": [
+        {
+          "from": "user",
+          "to": "agent",
+          "label": "trip request"
+        },
+        {
+          "from": "agent",
+          "to": "save",
+          "label": "write"
+        },
+        {
+          "from": "agent",
+          "to": "read",
+          "label": "retrieve"
+        },
+        {
+          "from": "save",
+          "to": "state",
+          "label": "persist in session"
+        },
+        {
+          "from": "state",
+          "to": "read",
+          "label": "return stored trip"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Receive a trip request.",
+      "Ask for missing critical details.",
+      "Generate an itinerary.",
+      "Call save_trip_detail with structured trip fields.",
+      "Store the result in session state.",
+      "On a later request, call get_trip_details.",
+      "Return the stored itinerary or a clear not-found state."
+    ],
+    "designDecisions": [
+      "Use one agent because the core task is narrow.",
+      "Use tools for state mutation so an action is distinguishable from generated text.",
+      "Treat in-memory state as a prototype boundary, not durable memory."
+    ],
+    "limitations": [
+      "In-memory session data disappears after restart.",
+      "No live weather, maps, flights, hotels or pricing APIs are confirmed.",
+      "The trip object does not yet have a strong end-to-end schema.",
+      "No confirmation layer exists for actions that could incur cost."
+    ],
+    "roadmap": [
+      "Add durable session storage.",
+      "Introduce validated trip schemas, timezone and budget rules.",
+      "Add weather and map tools behind server-side credentials.",
+      "Export a verified itinerary artifact to PDF or calendar."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "Agent declaration",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "source",
+        "label": "Tool implementation",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "Save and retrieve smoke test",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Plan a 3-day trip to Hue and remember the itinerary.",
+    "sampleArtifact": "A structured itinerary plus a visible session-state receipt.",
+    "status": "Prototype / needs verification"
+  },
+  {
+    "slug": "script-team",
+    "index": 2,
+    "verb": "DELEGATE",
+    "title": "Script Team",
+    "thesis": "A writing workflow becomes an agent team when ownership moves between specialized roles.",
+    "lesson": "Transfer + role specialization",
+    "patterns": [
+      "Transfer",
+      "Role Specialization",
+      "Structured Feedback",
+      "Memory"
+    ],
+    "vibe": {
+      "name": "Editorial Redline Studio",
+      "accent": "#B42318",
+      "surface": "#FFF0EE",
+      "metaphor": "A manuscript moves from draft to critique to revision through visible handoffs.",
+      "layout": "Large manuscript column, slim margin-note rail and vertical role timeline.",
+      "components": [
+        "ManuscriptPanel",
+        "MarginCritique",
+        "RoleHandoff",
+        "RevisionDiff"
+      ],
+      "motion": "A focus frame transfers between roles; markup appears as restrained redline strokes.",
+      "avoid": [
+        "generic chat bubbles",
+        "cartoon writing team",
+        "unverified quality claims"
+      ]
+    },
+    "problem": "A script brief needs drafting, critical review and revision without one oversized prompt trying to perform every role.",
+    "architecture": {
+      "summary": "User → Root Script Team → Drafter → Critic → Reviser; shared output keys and file context",
+      "nodes": [
+        {
+          "id": "user",
+          "type": "user",
+          "label": "User / brief"
+        },
+        {
+          "id": "root",
+          "type": "agent",
+          "label": "Root Script Team"
+        },
+        {
+          "id": "draft",
+          "type": "agent",
+          "label": "Drafter"
+        },
+        {
+          "id": "critic",
+          "type": "agent",
+          "label": "Critic"
+        },
+        {
+          "id": "reviser",
+          "type": "agent",
+          "label": "Reviser"
+        },
+        {
+          "id": "file",
+          "type": "tool",
+          "label": "read_local_file"
+        },
+        {
+          "id": "board",
+          "type": "store",
+          "label": "Draft / feedback / revision keys"
+        }
+      ],
+      "edges": [
+        {
+          "from": "user",
+          "to": "root",
+          "label": "brief or file"
+        },
+        {
+          "from": "root",
+          "to": "draft",
+          "label": "transfer ownership"
+        },
+        {
+          "from": "draft",
+          "to": "critic",
+          "label": "handoff draft"
+        },
+        {
+          "from": "critic",
+          "to": "reviser",
+          "label": "structured feedback"
+        },
+        {
+          "from": "reviser",
+          "to": "root",
+          "label": "final script"
+        },
+        {
+          "from": "file",
+          "to": "root",
+          "label": "source context"
+        },
+        {
+          "from": "draft",
+          "to": "board",
+          "label": "output_key"
+        },
+        {
+          "from": "critic",
+          "to": "board",
+          "label": "feedback key"
+        },
+        {
+          "from": "reviser",
+          "to": "board",
+          "label": "revision key"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Receive a brief or permitted local file.",
+      "Read source content within context limits.",
+      "Transfer the task to the Drafter.",
+      "Store the draft under a named output key.",
+      "Transfer ownership to the Critic.",
+      "Produce structured feedback.",
+      "Transfer to the Reviser.",
+      "Return the revised script and handoff trail."
+    ],
+    "designDecisions": [
+      "Use transfer when the next role should own the conversation step.",
+      "Use structured feedback so the Reviser receives a contract, not an unbounded paragraph.",
+      "Use callbacks for enforceable safety checks rather than instructions alone."
+    ],
+    "limitations": [
+      "Routing depends on role descriptions and model decisions.",
+      "Mismatched output keys can break downstream handoffs.",
+      "Long files may be truncated.",
+      "No automatic rubric verifies scene length, character consistency or structure."
+    ],
+    "roadmap": [
+      "Add an evaluator with a concrete writing rubric.",
+      "Store each draft as a versioned artifact.",
+      "Provide a real diff between draft and revision.",
+      "Separate source ingestion from the writing workflow."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "Root and sub-agent declarations",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "schema",
+        "label": "Structured feedback model",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "Transfer and output-key test",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Read this brief, draft a short script, critique it and revise it.",
+    "sampleArtifact": "A final script with a visible draft → critique → revision trail.",
+    "status": "Prototype / needs verification"
+  },
+  {
+    "slug": "worldcup-analyst",
+    "index": 3,
+    "verb": "COMPUTE",
+    "title": "World Cup Analyst",
+    "thesis": "Research goes to a search specialist, arithmetic goes to code, and synthesis stays with the root agent.",
+    "lesson": "Agent as Tool + computation",
+    "patterns": [
+      "AgentTool",
+      "Web Research",
+      "Code Execution",
+      "Evidence Synthesis"
+    ],
+    "vibe": {
+      "name": "Match Intelligence Desk",
+      "accent": "#176B3A",
+      "surface": "#ECF8F0",
+      "metaphor": "A scouting desk connects evidence cards, calculations and a final report.",
+      "layout": "Scoreboard-like header, evidence ledger, calculation notebook and analyst memo.",
+      "components": [
+        "EvidenceLedger",
+        "CalculationTape",
+        "MatchReport",
+        "SourceScopeNotice"
+      ],
+      "motion": "Evidence and calculation lanes converge into the report.",
+      "avoid": [
+        "team trademarks without permission",
+        "fake live scores",
+        "unsourced statistics"
+      ]
+    },
+    "problem": "A football question may require both external facts and reproducible calculations before a narrative conclusion is safe.",
+    "architecture": {
+      "summary": "User → World Cup Analyst → AgentTool(Search Agent) + AgentTool(Stats Agent / code executor) → Report",
+      "nodes": [
+        {
+          "id": "user",
+          "type": "user",
+          "label": "User"
+        },
+        {
+          "id": "root",
+          "type": "agent",
+          "label": "World Cup Analyst"
+        },
+        {
+          "id": "searchAgent",
+          "type": "agentTool",
+          "label": "Search Agent"
+        },
+        {
+          "id": "wiki",
+          "type": "tool",
+          "label": "Wikipedia HTTP search"
+        },
+        {
+          "id": "statsAgent",
+          "type": "agentTool",
+          "label": "Stats Agent"
+        },
+        {
+          "id": "code",
+          "type": "tool",
+          "label": "Code Executor"
+        },
+        {
+          "id": "report",
+          "type": "artifact",
+          "label": "last_wc_report"
+        }
+      ],
+      "edges": [
+        {
+          "from": "user",
+          "to": "root",
+          "label": "research question"
+        },
+        {
+          "from": "root",
+          "to": "searchAgent",
+          "label": "retrieve facts"
+        },
+        {
+          "from": "searchAgent",
+          "to": "wiki",
+          "label": "HTTP query"
+        },
+        {
+          "from": "root",
+          "to": "statsAgent",
+          "label": "compute"
+        },
+        {
+          "from": "statsAgent",
+          "to": "code",
+          "label": "run calculation"
+        },
+        {
+          "from": "root",
+          "to": "report",
+          "label": "synthesize evidence"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Receive a comparison or statistics question.",
+      "Separate factual lookup from calculation.",
+      "Call the Search Agent as a tool.",
+      "Handle timeout, empty results and source scope.",
+      "Call the Stats Agent and code executor.",
+      "Synthesize evidence and calculations.",
+      "Present the report with source-scope disclosure."
+    ],
+    "designDecisions": [
+      "Keep the root agent in control because specialists are bounded capabilities.",
+      "Use code for arithmetic instead of model mental math.",
+      "Show source scope because Wikipedia is not authoritative for every claim."
+    ],
+    "limitations": [
+      "Wikipedia is not a sufficient primary source for every statistic.",
+      "No confirmed multi-source cross-check pipeline.",
+      "Code execution requires a constrained sandbox before production.",
+      "Documentation and repository dependencies may be out of sync."
+    ],
+    "roadmap": [
+      "Add official datasets or governing-body sources.",
+      "Attach citations to individual claims.",
+      "Use a report schema for question, evidence, calculation and confidence.",
+      "Add unit tests for search and calculation tools."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "Search Agent and HTTP tool",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "source",
+        "label": "Stats Agent and code executor",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "Known-result calculation test",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Compare two World Cup teams using sourced facts and explicit calculations.",
+    "sampleArtifact": "An evidence-backed report with a separate calculation trail.",
+    "status": "Prototype / needs verification"
+  },
+  {
+    "slug": "love-advisor",
+    "index": 4,
+    "verb": "COMPOSE",
+    "title": "Love Advisor",
+    "thesis": "Independent analyses run in parallel, then converge into a structured plan.",
+    "lesson": "Parallel inside Sequential + schema",
+    "patterns": [
+      "ParallelAgent",
+      "SequentialAgent",
+      "Structured Output",
+      "Synthesis"
+    ],
+    "vibe": {
+      "name": "Dual-Lens Synthesis",
+      "accent": "#7A3E75",
+      "surface": "#F8EFF7",
+      "metaphor": "Two independent lenses produce separate profiles, then merge into one structured synthesis.",
+      "layout": "Mirrored analysis columns that converge into a centered schema panel.",
+      "components": [
+        "ParallelLanes",
+        "SynthesisMerge",
+        "PartnerPlanSchema",
+        "SafetyNotice"
+      ],
+      "motion": "Two lanes progress independently and meet at synthesis; reduced motion shows numbered stages.",
+      "avoid": [
+        "heart-heavy clichés",
+        "appearance scoring",
+        "aggressive default tone",
+        "sensitive-trait inference"
+      ]
+    },
+    "problem": "Two independent perspectives need to be analyzed separately, then combined without losing structure or overstating certainty.",
+    "architecture": {
+      "summary": "User → SequentialAgent → ParallelAgent(Appearance Analyst + Personality Analyst) → Synthesis Agent → PartnerPlan JSON",
+      "nodes": [
+        {
+          "id": "user",
+          "type": "user",
+          "label": "User input"
+        },
+        {
+          "id": "seq",
+          "type": "workflow",
+          "label": "SequentialAgent"
+        },
+        {
+          "id": "parallel",
+          "type": "workflow",
+          "label": "ParallelAgent"
+        },
+        {
+          "id": "appearance",
+          "type": "agent",
+          "label": "Appearance Analyst"
+        },
+        {
+          "id": "personality",
+          "type": "agent",
+          "label": "Personality Analyst"
+        },
+        {
+          "id": "synthesis",
+          "type": "agent",
+          "label": "Synthesis Agent"
+        },
+        {
+          "id": "schema",
+          "type": "artifact",
+          "label": "PartnerPlan JSON"
+        }
+      ],
+      "edges": [
+        {
+          "from": "user",
+          "to": "seq",
+          "label": "description / request"
+        },
+        {
+          "from": "seq",
+          "to": "parallel",
+          "label": "stage 1"
+        },
+        {
+          "from": "parallel",
+          "to": "appearance",
+          "label": "independent lane"
+        },
+        {
+          "from": "parallel",
+          "to": "personality",
+          "label": "independent lane"
+        },
+        {
+          "from": "appearance",
+          "to": "synthesis",
+          "label": "profile"
+        },
+        {
+          "from": "personality",
+          "to": "synthesis",
+          "label": "profile"
+        },
+        {
+          "from": "synthesis",
+          "to": "schema",
+          "label": "structured output"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Receive a user description or request.",
+      "Run two independent analysis lanes.",
+      "Store each lane under a distinct state key.",
+      "Pass both outputs to the Synthesis Agent.",
+      "Validate the PartnerPlan schema.",
+      "Render sections rather than one paragraph.",
+      "Display safety and uncertainty notes."
+    ],
+    "designDecisions": [
+      "Use parallel execution for independent analyses.",
+      "Use sequential composition so synthesis waits for both branches.",
+      "Use structured output for predictable rendering.",
+      "Treat tone as a product and safety decision."
+    ],
+    "limitations": [
+      "The subject is sensitive and can invite overconfident conclusions.",
+      "Web search may surface low-quality material.",
+      "A forceful persona can harm users.",
+      "A valid schema does not guarantee correct content."
+    ],
+    "roadmap": [
+      "Add source, confidence and disclaimer fields.",
+      "Offer supportive, direct and neutral tone modes only as a labeled future feature.",
+      "Add guardrails for harassment, self-harm and abuse contexts.",
+      "Prevent inference of sensitive traits from images or insufficient data."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "Parallel and sequential workflow declaration",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "schema",
+        "label": "PartnerPlan model",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "Both branches complete before synthesis",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Analyze two independent preference dimensions and synthesize a structured plan.",
+    "sampleArtifact": "A structured result with safety and uncertainty framing.",
+    "status": "Prototype / sensitive-domain review required"
+  },
+  {
+    "slug": "dashboard-insights",
+    "index": 5,
+    "verb": "VERIFY",
+    "title": "Dashboard Insights",
+    "thesis": "An analysis agent is trustworthy only when claims can be traced, checked, revised and archived.",
+    "lesson": "Ingestion + MCP + RAG + QA loop",
+    "patterns": [
+      "SequentialAgent",
+      "LoopAgent",
+      "MCP",
+      "RAG",
+      "Logging",
+      "Artifact Archive"
+    ],
+    "vibe": {
+      "name": "Operations Evidence Lab",
+      "accent": "#8A4B00",
+      "surface": "#FFF5E8",
+      "metaphor": "A report moves through an evidence laboratory: ingest, frame, write, audit, revise, archive.",
+      "layout": "Dense editorial dashboard with dominant report canvas, QA rail and evidence ledger.",
+      "components": [
+        "IngestionReceipt",
+        "FrameworkSelector",
+        "QALoopTimeline",
+        "ClaimEvidenceMatrix",
+        "ReportArchive"
+      ],
+      "motion": "The report advances through numbered quality gates; revisions visibly return to the canvas.",
+      "avoid": [
+        "fake business KPIs",
+        "charts without source data",
+        "upload UI that implies a live backend"
+      ]
+    },
+    "problem": "Business files need a repeatable path from ingestion to analysis, quality checking and a reusable report artifact.",
+    "architecture": {
+      "summary": "Input file → before_model callback → Framework Analyst → Insight Writer → QA/Revision Loop → Formatter; MCP + RAG + logging + archive",
+      "nodes": [
+        {
+          "id": "file",
+          "type": "input",
+          "label": "CSV / XLSX / DOCX"
+        },
+        {
+          "id": "callback",
+          "type": "callback",
+          "label": "before_model callback"
+        },
+        {
+          "id": "framework",
+          "type": "agent",
+          "label": "Framework Analyst"
+        },
+        {
+          "id": "writer",
+          "type": "agent",
+          "label": "Insight Writer"
+        },
+        {
+          "id": "qa",
+          "type": "agent",
+          "label": "QA Agent"
+        },
+        {
+          "id": "revision",
+          "type": "agent",
+          "label": "Revision Agent"
+        },
+        {
+          "id": "formatter",
+          "type": "agent",
+          "label": "Report Formatter"
+        },
+        {
+          "id": "mcp",
+          "type": "tool",
+          "label": "MCP Filesystem"
+        },
+        {
+          "id": "rag",
+          "type": "store",
+          "label": "RAG / ChromaDB"
+        },
+        {
+          "id": "log",
+          "type": "store",
+          "label": "Tool Log JSONL"
+        },
+        {
+          "id": "archive",
+          "type": "artifact",
+          "label": "Report Archive"
+        }
+      ],
+      "edges": [
+        {
+          "from": "file",
+          "to": "callback",
+          "label": "extract content"
+        },
+        {
+          "from": "callback",
+          "to": "framework",
+          "label": "context"
+        },
+        {
+          "from": "framework",
+          "to": "writer",
+          "label": "analysis frame"
+        },
+        {
+          "from": "writer",
+          "to": "qa",
+          "label": "draft report"
+        },
+        {
+          "from": "qa",
+          "to": "revision",
+          "label": "rubric feedback"
+        },
+        {
+          "from": "revision",
+          "to": "qa",
+          "label": "max 2 iterations"
+        },
+        {
+          "from": "qa",
+          "to": "formatter",
+          "label": "approved draft"
+        },
+        {
+          "from": "mcp",
+          "to": "framework",
+          "label": "permitted files"
+        },
+        {
+          "from": "rag",
+          "to": "writer",
+          "label": "retrieved context"
+        },
+        {
+          "from": "formatter",
+          "to": "archive",
+          "label": "artifact"
+        },
+        {
+          "from": "mcp",
+          "to": "log",
+          "label": "tool events"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Select a file or simulated file preset.",
+      "Extract supported content before the model step.",
+      "Choose an analysis framework.",
+      "Write insights with observation, evidence, hypothesis and action.",
+      "Run rubric-based QA.",
+      "Revise and re-check for no more than two iterations.",
+      "Format the report.",
+      "Log tool activity and archive the artifact.",
+      "Expose source and limitation notices."
+    ],
+    "designDecisions": [
+      "Use a workflow because step order and quality gates must be explicit.",
+      "Limit QA to two iterations as a cost and safety boundary.",
+      "Use MCP for tool/data access and distinguish it from A2A.",
+      "Use RAG for retrieval, not as a substitute for claim verification.",
+      "Use code for metrics before interpretation when a real implementation is available."
+    ],
+    "limitations": [
+      "A report keyed only by period may overwrite an older artifact.",
+      "A shared RAG collection can mix domains or tenants.",
+      "Reports may present hypotheses as conclusions.",
+      "Hard context truncation can omit data.",
+      "The system does not verify every number against its source cell or row.",
+      "Documentation and local Chroma paths may be out of sync."
+    ],
+    "roadmap": [
+      "Use unique report IDs and versioned artifacts.",
+      "Separate RAG collections by tenant, project and domain.",
+      "Attach citations to source sheet, cell or row.",
+      "Add a claim–evidence evaluator.",
+      "Add retention and deletion controls.",
+      "Calculate metrics in code before narrative generation."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "File ingestion callback",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "source",
+        "label": "MCP, RAG, loop and logging configuration",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "QA loop maximum-iteration test",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Find anomalies in this CSV and show how each conclusion was checked.",
+    "sampleArtifact": "A structured report with QA trace, evidence ledger and archive receipt.",
+    "status": "Prototype / strongest featured case study"
+  },
+  {
+    "slug": "a2a-orchestrator",
+    "index": 6,
+    "verb": "CONNECT",
+    "title": "A2A Orchestrator",
+    "thesis": "The final step is not a bigger agent, but independent agent systems that can discover and call one another.",
+    "lesson": "Remote agents + A2A routing",
+    "patterns": [
+      "RemoteA2aAgent",
+      "Agent Card",
+      "Capability Routing",
+      "Distributed Services"
+    ],
+    "vibe": {
+      "name": "Network Control Plane",
+      "accent": "#155EEF",
+      "surface": "#EDF3FF",
+      "metaphor": "A cobalt signal leaves the orchestrator, crosses a service boundary and returns as an artifact.",
+      "layout": "Large topology with orchestrator, specialist bank and technical inspector.",
+      "components": [
+        "SystemExplorer",
+        "AgentCardInspector",
+        "PortRail",
+        "RoutingReason",
+        "ArtifactReturn"
+      ],
+      "motion": "A signal advances through routing, remote service, internal workflow and artifact return.",
+      "avoid": [
+        "fake live latency",
+        "always-online indicators",
+        "opaque network animation"
+      ]
+    },
+    "problem": "Independent specialist agent systems need a discoverable contract and a reliable way to route requests across service boundaries.",
+    "architecture": {
+      "summary": "User → Orchestrator :8000 → specialist services :8001–:8005 via Agent Cards and RemoteA2aAgent",
+      "nodes": [
+        {
+          "id": "user",
+          "type": "user",
+          "label": "User"
+        },
+        {
+          "id": "orchestrator",
+          "type": "remoteService",
+          "label": "A2A Orchestrator :8000"
+        },
+        {
+          "id": "trip",
+          "type": "remoteService",
+          "label": "Trip Planner :8001"
+        },
+        {
+          "id": "script",
+          "type": "remoteService",
+          "label": "Script Team :8002"
+        },
+        {
+          "id": "worldcup",
+          "type": "remoteService",
+          "label": "World Cup Analyst :8003"
+        },
+        {
+          "id": "love",
+          "type": "remoteService",
+          "label": "Love Advisor :8004"
+        },
+        {
+          "id": "dashboard",
+          "type": "remoteService",
+          "label": "Dashboard Insights :8005"
+        },
+        {
+          "id": "card",
+          "type": "contract",
+          "label": "Agent Card"
+        },
+        {
+          "id": "artifact",
+          "type": "artifact",
+          "label": "Remote response / task artifact"
+        }
+      ],
+      "edges": [
+        {
+          "from": "user",
+          "to": "orchestrator",
+          "label": "message"
+        },
+        {
+          "from": "card",
+          "to": "orchestrator",
+          "label": "capability contract"
+        },
+        {
+          "from": "orchestrator",
+          "to": "trip",
+          "label": "travel intent"
+        },
+        {
+          "from": "orchestrator",
+          "to": "script",
+          "label": "writing intent"
+        },
+        {
+          "from": "orchestrator",
+          "to": "worldcup",
+          "label": "sports analysis"
+        },
+        {
+          "from": "orchestrator",
+          "to": "love",
+          "label": "preference analysis"
+        },
+        {
+          "from": "orchestrator",
+          "to": "dashboard",
+          "label": "data insight"
+        },
+        {
+          "from": "trip",
+          "to": "artifact",
+          "label": "result"
+        },
+        {
+          "from": "script",
+          "to": "artifact",
+          "label": "result"
+        },
+        {
+          "from": "worldcup",
+          "to": "artifact",
+          "label": "result"
+        },
+        {
+          "from": "love",
+          "to": "artifact",
+          "label": "result"
+        },
+        {
+          "from": "dashboard",
+          "to": "artifact",
+          "label": "result"
+        }
+      ]
+    },
+    "requestTrace": [
+      "Start specialist services and expose Agent Cards.",
+      "Receive a user message at the orchestrator.",
+      "Compare intent with specialist capabilities.",
+      "Select a specialist and show the routing reason.",
+      "Send a remote A2A message.",
+      "Let the specialist run its internal workflow.",
+      "Return a message, task state or artifact.",
+      "Handle unavailable specialists with a clear fallback."
+    ],
+    "designDecisions": [
+      "Use A2A when specialists are independent services.",
+      "Treat Agent Cards and descriptions as routing contracts.",
+      "Expose service boundaries, timeouts and fallback costs.",
+      "Keep the website trace simulated until a verified backend is connected."
+    ],
+    "limitations": [
+      "Network calls introduce timeout and availability failures.",
+      "Service-to-service authentication is not confirmed.",
+      "Agent Card and protocol versions need compatibility checks.",
+      "Cross-service tracing is not confirmed.",
+      "Hard-coded URLs do not scale to dynamic discovery.",
+      "Multi-domain orchestration must not be claimed without tests."
+    ],
+    "roadmap": [
+      "Add health checks.",
+      "Add timeout, backoff, retry and circuit breaker.",
+      "Add service authentication and secret management.",
+      "Propagate a trace ID across services.",
+      "Use a dynamic registry and capability evaluator.",
+      "Provide an offline simulated fallback."
+    ],
+    "evidence": [
+      {
+        "type": "source",
+        "label": "Orchestrator and RemoteA2aAgent configuration",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "contract",
+        "label": "Agent Cards",
+        "status": "needs_user_input",
+        "path": ""
+      },
+      {
+        "type": "test",
+        "label": "End-to-end routing smoke test",
+        "status": "needs_user_input",
+        "path": ""
+      }
+    ],
+    "samplePrompt": "Find anomalies in this CSV.",
+    "sampleArtifact": "A routed request trace ending in a remote specialist artifact.",
+    "status": "Prototype / protocol-version verification required"
+  }
+]

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "entities": {
+    "SiteConfig": {
+      "fields": {
+        "projectName": "string",
+        "primaryLocale": "string",
+        "owner": "Owner",
+        "links": "map<string,string>",
+        "featureFlags": "map<string,boolean>",
+        "publishingRules": "object"
+      }
+    },
+    "Project": {
+      "key": "slug",
+      "fields": {
+        "slug": "string, required, kebab-case",
+        "index": "integer 1..6",
+        "verb": "ACT|DELEGATE|COMPUTE|COMPOSE|VERIFY|CONNECT",
+        "title": "string",
+        "thesis": "string",
+        "lesson": "string",
+        "patterns": "string[]",
+        "vibe": "ProjectVibe",
+        "problem": "string",
+        "architecture": "ArchitectureGraph",
+        "requestTrace": "string[]",
+        "designDecisions": "string[]",
+        "limitations": "string[]",
+        "roadmap": "string[]",
+        "evidence": "EvidenceItem[]",
+        "samplePrompt": "string",
+        "sampleArtifact": "string",
+        "status": "string"
+      },
+      "validation": [
+        "limitations must contain at least 3 items",
+        "roadmap must contain at least 3 items",
+        "evidence paths may be empty but must never be fabricated",
+        "project accent cannot replace global focus color",
+        "sensitive project content requires a safety note"
+      ]
+    },
+    "ArchitectureGraph": {
+      "fields": {
+        "summary": "string",
+        "nodes": "ArchitectureNode[]",
+        "edges": "ArchitectureEdge[]"
+      }
+    },
+    "ArchitectureNode": {
+      "fields": {
+        "id": "string, unique within project",
+        "type": "user|input|agent|agentTool|tool|workflow|callback|store|remoteService|contract|artifact",
+        "label": "string"
+      }
+    },
+    "ArchitectureEdge": {
+      "fields": {
+        "from": "node id",
+        "to": "node id",
+        "label": "string"
+      }
+    },
+    "EvidenceItem": {
+      "fields": {
+        "type": "source|test|schema|contract|screenshot|commit",
+        "label": "string",
+        "status": "implemented_in_source|verified_locally|proposed_upgrade|needs_user_input",
+        "path": "string, may be empty"
+      }
+    },
+    "TracePreset": {
+      "fields": {
+        "id": "string",
+        "label": "string",
+        "targetProject": "Project.slug",
+        "simulated": "boolean, true in MVP",
+        "steps": "TraceStep[]"
+      }
+    },
+    "TraceStep": {
+      "fields": {
+        "id": "integer",
+        "type": "input|routing|remote|workflow|parallel|loop|tool|validation|artifact",
+        "title": "string",
+        "detail": "string"
+      }
+    },
+    "GlossaryEntry": {
+      "fields": {
+        "term": "string",
+        "short": "string"
+      }
+    }
+  },
+  "relationships": [
+    "TracePreset.targetProject references Project.slug",
+    "Project architecture edges reference node ids in the same project",
+    "Project evidence links are optional and conditionally rendered",
+    "Navigation utility links resolve from SiteConfig"
+  ],
+  "persistence": {
+    "MVP": "static files only",
+    "future": "optional backend isolated from portfolio content"
+  },
+  "privacy": {
+    "MVP": "no personal user data, no file uploads, no prompt logging",
+    "futureLiveDemo": "data minimization, disclosure, rate limiting, deletion and redaction required"
+  }
+}

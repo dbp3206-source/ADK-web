@@ -1,0 +1,83 @@
+{
+  "target_output": "English-first static Next.js technical portfolio for six Google ADK / Python agent projects",
+  "source_files": [
+    "00_START_HERE.md",
+    "ACCEPTANCE_TESTS.md",
+    "ASSET_MANIFEST.md",
+    "BUILD_PROMPT.md",
+    "CHANGELOG.md",
+    "COMPONENT_INVENTORY.md",
+    "CONTENT_COPY.md",
+    "CONTENT_INVENTORY.csv",
+    "DATA_MODEL.json",
+    "DEPLOYMENT_PLAN.md",
+    "DESIGN_TOKENS.json",
+    "FEATURE_BACKLOG.csv",
+    "INTERACTION_SPEC.md",
+    "NOTION_EMBED_CHECKLIST.md",
+    "PACKAGE_MANIFEST.json",
+    "PAGE_SPECIFICATIONS.md",
+    "PRODUCT_REQUIREMENTS.md",
+    "PROJECT_VIBE_SPECS.md",
+    "QA_RELEASE_CHECKLIST.md",
+    "README.md",
+    "SEO_AND_METADATA.md",
+    "SITEMAP.md",
+    "SITE_SPEC.md",
+    "SOURCE_TRACEABILITY.md",
+    "TRACEABILITY_MATRIX.csv",
+    "USER_FLOWS.md",
+    "WORK_UPLOAD_INSTRUCTIONS.md",
+    "content/glossary.json",
+    "content/navigation.json",
+    "content/projects.json",
+    "content/traces.json",
+    "references/01_notebooklm_ai_agent_ecosystem.pdf",
+    "references/03_website_blueprint_ai_agent_portfolio.pdf"
+  ],
+  "primary_skill": "hallmark",
+  "specialist_skills": [
+    "pdf"
+  ],
+  "mcp_tools_used": [
+    "Sites tool discovery and schema inspection"
+  ],
+  "commands_run": [
+    "npm install",
+    "npm run typecheck",
+    "npm run test",
+    "npm run build",
+    "npm run test:e2e",
+    "node scripts/capture-screenshots.mjs",
+    "npx -y lighthouse@latest http://127.0.0.1:4173/",
+    "npm audit --json"
+  ],
+  "repository_defined_outputs": [
+    "Next.js App Router source",
+    "Static export in out/",
+    "design-work/ design brief, outline, screenshots and QA evidence"
+  ],
+  "delivered_outputs": [
+    "Workspace source tree",
+    "out/",
+    "design-work/qa/screenshots/",
+    "design-work/qa/validation/lighthouse-home-final.report.html",
+    "design-work/qa/validation/playwright-report/"
+  ],
+  "verification": {
+    "structural": true,
+    "rendered": true,
+    "visual_review": true,
+    "content_fidelity": true,
+    "target_environment": true
+  },
+  "quality_score": 91,
+  "known_limitations": [
+    "Owner name, verified profile, contact address, CV and dossier are not supplied.",
+    "GitHub, LinkedIn and the six repository URLs are not supplied, so those actions are hidden.",
+    "Repository source paths, verified code excerpts, screenshots, tests and commit hashes remain pending.",
+    "Lighthouse mobile LCP measured 3.2 seconds in the local baseline, above the 2.5 second target.",
+    "No live AI-agent backend is included; every displayed trace is an architecture-derived simulation.",
+    "No production deployment was created because the approved specification requires preview approval first."
+  ]
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "trace-trip",
+    "label": "Plan a 3-day trip to Hue",
+    "targetProject": "trip-planner",
+    "simulated": true,
+    "steps": [
+      {
+        "id": 1,
+        "type": "input",
+        "title": "User prompt",
+        "detail": "Plan a 3-day trip to Hue and remember it."
+      },
+      {
+        "id": 2,
+        "type": "routing",
+        "title": "Intent recognized",
+        "detail": "Travel planning requires the Trip Planner capability."
+      },
+      {
+        "id": 3,
+        "type": "remote",
+        "title": "Specialist selected",
+        "detail": "Route to Trip Planner :8001 in the ecosystem view."
+      },
+      {
+        "id": 4,
+        "type": "workflow",
+        "title": "Plan created",
+        "detail": "The specialist asks for missing details and drafts an itinerary."
+      },
+      {
+        "id": 5,
+        "type": "tool",
+        "title": "State tool called",
+        "detail": "save_trip_detail writes the plan to session state."
+      },
+      {
+        "id": 6,
+        "type": "artifact",
+        "title": "Artifact returned",
+        "detail": "The itinerary and state receipt return to the user."
+      }
+    ]
+  },
+  {
+    "id": "trace-script",
+    "label": "Critique this short script",
+    "targetProject": "script-team",
+    "simulated": true,
+    "steps": [
+      {
+        "id": 1,
+        "type": "input",
+        "title": "Brief received",
+        "detail": "A short script brief enters the root team."
+      },
+      {
+        "id": 2,
+        "type": "routing",
+        "title": "Writing intent recognized",
+        "detail": "The orchestrator selects Script Team."
+      },
+      {
+        "id": 3,
+        "type": "workflow",
+        "title": "Draft handoff",
+        "detail": "Ownership transfers to the Drafter."
+      },
+      {
+        "id": 4,
+        "type": "workflow",
+        "title": "Critique handoff",
+        "detail": "The Critic returns structured feedback."
+      },
+      {
+        "id": 5,
+        "type": "workflow",
+        "title": "Revision handoff",
+        "detail": "The Reviser produces a new version."
+      },
+      {
+        "id": 6,
+        "type": "artifact",
+        "title": "Final script",
+        "detail": "A revision artifact returns with the handoff trail."
+      }
+    ]
+  },
+  {
+    "id": "trace-worldcup",
+    "label": "Compare two World Cup teams",
+    "targetProject": "worldcup-analyst",
+    "simulated": true,
+    "steps": [
+      {
+        "id": 1,
+        "type": "input",
+        "title": "Question received",
+        "detail": "A comparison requires facts and calculations."
+      },
+      {
+        "id": 2,
+        "type": "routing",
+        "title": "Sports analysis selected",
+        "detail": "The orchestrator selects World Cup Analyst."
+      },
+      {
+        "id": 3,
+        "type": "tool",
+        "title": "Search specialist called",
+        "detail": "Evidence is retrieved within the stated source scope."
+      },
+      {
+        "id": 4,
+        "type": "tool",
+        "title": "Code specialist called",
+        "detail": "Arithmetic is computed by code."
+      },
+      {
+        "id": 5,
+        "type": "validation",
+        "title": "Evidence and calculation aligned",
+        "detail": "The root agent checks inputs before synthesis."
+      },
+      {
+        "id": 6,
+        "type": "artifact",
+        "title": "Analyst report",
+        "detail": "A report returns with separate evidence and calculation trails."
+      }
+    ]
+  },
+  {
+    "id": "trace-love",
+    "label": "Analyze two preference dimensions",
+    "targetProject": "love-advisor",
+    "simulated": true,
+    "steps": [
+      {
+        "id": 1,
+        "type": "input",
+        "title": "Request received",
+        "detail": "The input is treated as sensitive and uncertain."
+      },
+      {
+        "id": 2,
+        "type": "routing",
+        "title": "Synthesis workflow selected",
+        "detail": "The orchestrator selects Love Advisor."
+      },
+      {
+        "id": 3,
+        "type": "parallel",
+        "title": "Two lanes run",
+        "detail": "Independent analysis branches process separate dimensions."
+      },
+      {
+        "id": 4,
+        "type": "workflow",
+        "title": "Synthesis waits",
+        "detail": "The synthesis stage starts only after both branches complete."
+      },
+      {
+        "id": 5,
+        "type": "validation",
+        "title": "Schema validated",
+        "detail": "The result is checked against a structured plan schema."
+      },
+      {
+        "id": 6,
+        "type": "artifact",
+        "title": "Structured plan",
+        "detail": "A sectioned result returns with safety and uncertainty notes."
+      }
+    ]
+  },
+  {
+    "id": "trace-dashboard",
+    "label": "Find anomalies in this CSV",
+    "targetProject": "dashboard-insights",
+    "simulated": true,
+    "steps": [
+      {
+        "id": 1,
+        "type": "input",
+        "title": "File preset selected",
+        "detail": "The static site uses a labeled simulated dataset preset."
+      },
+      {
+        "id": 2,
+        "type": "routing",
+        "title": "Data analysis selected",
+        "detail": "The orchestrator selects Dashboard Insights."
+      },
+      {
+        "id": 3,
+        "type": "tool",
+        "title": "Content ingested",
+        "detail": "A callback and permitted file tools provide context."
+      },
+      {
+        "id": 4,
+        "type": "workflow",
+        "title": "Framework chosen",
+        "detail": "The agent selects an analysis lens."
+      },
+      {
+        "id": 5,
+        "type": "loop",
+        "title": "QA loop",
+        "detail": "The report is reviewed and revised for no more than two rounds."
+      },
+      {
+        "id": 6,
+        "type": "artifact",
+        "title": "Report archived",
+        "detail": "The result returns with an evidence ledger and archive receipt."
+      }
+    ]
+  }
+]

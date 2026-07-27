@@ -1,0 +1,9 @@
+{
+  "date": "2026-07-27",
+  "designSystem": "DESIGN_TOKENS.json",
+  "fontStack": "Space Grotesk + Inter + JetBrains Mono",
+  "palette": "Cobalt Technical Editorial with six project accents",
+  "motion": "motion-cut except trace state feedback and navigation drawer",
+  "spacing": "4-point scale",
+  "framework": "greenfield Next.js App Router"
+}

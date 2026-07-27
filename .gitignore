@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+test-results/
+tmp/
+tsconfig.tsbuildinfo
+playwright-report/
+*.log

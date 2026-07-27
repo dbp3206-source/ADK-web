@@ -1,0 +1,21 @@
+﻿Content ID,Route,Section,Content item,Source,Readiness,Owner input required,Build behavior,Notes
+CNT-001,/,Thesis,"Headline, subhead, actions","Blueprint pp. 2, 6",Ready,Dossier URL,Hide dossier action if empty,English-first
+CNT-002,/,Proof strip,6 projects / 4 patterns / MCP + RAG / ports,Blueprint p. 6,Ready,No,Static factual strip,Not performance metrics
+CNT-003,/,Capability ladder,ACT through CONNECT,"Source pp. 9, 26; Blueprint p. 6",Ready,No,Link each step,Fixed order
+CNT-004,/,Featured projects,Dashboard and A2A copy,Source pp. 18–23; Blueprint p. 6,Ready,Screenshots optional,Use diagrams when screenshots absent,No equal cards
+CNT-005,/,Engineering honesty,Represented vs next layer,Blueprint p. 7; Source pp. 28–29,Ready,Verification later,Cautious wording,No production-ready
+CNT-006,/,Contact terminal,Open-to role and links,Blueprint p. 7,Partial,"Name, email, CV, GitHub",Hide missing links,
+CNT-007,/projects,Index,Six rows and patterns,Blueprint p. 8; Source p. 25,Ready,Evidence links,Pending badges allowed,
+CNT-008,/projects/trip-planner,Case study,Full project story,Source pp. 10–11,Ready,Repo/test/screenshots,Pending evidence,Cartographic Utility
+CNT-009,/projects/script-team,Case study,Full project story,Source pp. 12–13,Ready,Repo/test/screenshots,Pending evidence,Editorial Redline
+CNT-010,/projects/worldcup-analyst,Case study,Full project story,Source pp. 14–15,Ready,Repo/test/screenshots,Pending evidence,Source-scope notice
+CNT-011,/projects/love-advisor,Case study,Full project story,Source pp. 16–17,Ready with safety review,Repo/test/screenshots,Visible disclaimer,No aggressive copy
+CNT-012,/projects/dashboard-insights,Case study,Full project story,Source pp. 18–20,Ready,Repo/test/screenshots,Feature prominently,Operations Evidence Lab
+CNT-013,/projects/a2a-orchestrator,Case study,Full project story,Source pp. 21–23,Ready,"Agent Cards, repo, test",Protocol caveat,Network Control Plane
+CNT-014,/system,Explorer,Five simulated traces,Blueprint pp. 11–12; Source pp. 21–23,Ready,No,Persistent simulation label,
+CNT-015,/learn,Lessons,Four lesson outlines,"Blueprint p. 13; Source pp. 3–9, 24, 30–31",Ready,No,Static content,
+CNT-016,/evidence,Policy,Statuses and matrix,Blueprint p. 14,Ready,Actual evidence,Pending allowed,
+CNT-017,/evidence,Limitations,All project limitations,Project chapters,Ready,Verify against repos,Consolidated list,
+CNT-018,/about,Profile,Owner bio and experience,Owner input,Missing,Yes,Preview placeholder or hide details,Do not invent
+CNT-019,/contact,Contact,"Email, GitHub, LinkedIn, CV",Owner input,Missing,Yes,Show empty state,No fake form
+CNT-020,Global,Social metadata,Owner image and social cards,Design system + owner assets,Partial,Optional portrait,Graphic cards without portrait,

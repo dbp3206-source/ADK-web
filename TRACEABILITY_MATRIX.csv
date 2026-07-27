@@ -1,0 +1,19 @@
+﻿Requirement,Feature,Flow,Page,Data,Acceptance test,Priority,Status
+REQ-001,FEAT-001,FLOW-01,/,projects.json,AT-001,Must,Planned
+REQ-002,FEAT-002,FLOW-01,/,site-config,"AT-002, AT-023",Must,Planned
+REQ-003,FEAT-003,FLOW-04,/projects,projects.patterns,"AT-007, AT-008, AT-020",Must,Planned
+REQ-004,FEAT-004,"FLOW-02, FLOW-06",/projects/[slug],Project,AT-003,Must,Planned
+REQ-005,FEAT-005,FLOW-02,/projects/[slug],Project.vibe,"AT-009, AT-018",Must,Planned
+REQ-006,FEAT-006,"FLOW-03, FLOW-07",/system and /,traces.json,"AT-005, AT-006, AT-010, AT-020",Must,Planned
+REQ-007,FEAT-007,FLOW-03,Trace pages,TracePreset.simulated,AT-004,Must,Planned
+REQ-008,FEAT-008,FLOW-02,Case studies and /evidence,EvidenceItem,"AT-012, AT-021, AT-022",Must,Planned
+REQ-009,FEAT-009,FLOW-02,Case studies and /evidence,Project.limitations,"AT-003, AT-024",Must,Planned
+REQ-010,FEAT-010,FLOW-05,/learn,glossary.json,AT-019,Must,Planned
+REQ-011,FEAT-011,All,All,N/A,"AT-009, AT-010",Must,Planned
+REQ-012,FEAT-012,FLOW-07,Interactive pages,N/A,AT-015–AT-020,Must,Planned
+REQ-013,FEAT-013,FLOW-01,Global,site-config,AT-002,Must,Planned
+REQ-014,FEAT-014,All,Project pages,DATA_MODEL.json,"AT-003, AT-014",Must,Planned
+REQ-015,FEAT-016,All,All,Build output,AT-025–AT-027,Should,Planned
+REQ-016,FEAT-015,FLOW-02,Case studies,Verified excerpts,AT-021,Should,Blocked by owner input
+REQ-017,FEAT-017,"FLOW-01, FLOW-02",Case studies,Static content,AT-030,Could,Planned
+REQ-018,FEAT-018,Future,/system,Live backend,Future,Later,Later

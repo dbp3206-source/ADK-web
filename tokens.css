@@ -1,0 +1,91 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5
+ * Hallmark · genre: editorial · macrostructure: Map / Diagram · theme: custom · enrichment: Tier B hand-built SVG · nav: N6 · footer: Ft4
+ * vibe: "cobalt technical editorial, evidence-led" · paper: oklch(98.14% 0.006 258.32) · accent: oklch(53.67% 0.2286 262.17)
+ * display: Space Grotesk · body: Inter · axes: light / geometric-sans / cool · studied: no · context: explicit · v1.1.0
+ * contrast: pass (40–41) · slop: pass (1–58) · honest: pass (46) · chrome: pass (47) · tokens: pass (48)
+ * responsive: pass (34, 49, 50–57) · icons: pass (30) · mobile: pass (34, 49, 50–57)
+ */
+:root {
+  --color-canvas: oklch(98.14% 0.006 258.32);
+  --color-surface: oklch(99.1% 0.0055 258.32);
+  --color-surface-muted: oklch(96.53% 0.0069 247.9);
+  --color-ink: oklch(16.95% 0.022 267.28);
+  --color-ink-muted: oklch(48.44% 0.0318 255.22);
+  --color-border: oklch(89.81% 0.0186 258.36);
+  --color-border-strong: oklch(72.93% 0.0324 254.37);
+  --color-cobalt: oklch(53.67% 0.2286 262.17);
+  --color-cobalt-hover: oklch(46.12% 0.1977 262.28);
+  --color-cobalt-active: oklch(39.36% 0.1682 262.41);
+  --color-focus: oklch(53.67% 0.2286 262.17);
+  --color-accent-ink: oklch(98.14% 0.006 258.32);
+  --color-success: oklch(46.68% 0.1105 152.56);
+  --color-warning: oklch(47.9% 0.1124 59.93);
+  --color-danger: oklch(50.03% 0.1821 29.51);
+  --color-overlay: oklch(16.95% 0.022 267.28 / 0.45);
+  --color-trip: oklch(53.13% 0.0921 210.67);
+  --color-script: oklch(50.03% 0.1821 29.51);
+  --color-worldcup: oklch(46.68% 0.1105 152.56);
+  --color-love: oklch(46% 0.1118 330.36);
+  --color-dashboard: oklch(47.9% 0.1124 59.93);
+  --color-a2a: oklch(53.67% 0.2286 262.17);
+  --color-trip-surface: oklch(96.53% 0.0159 201.7);
+  --color-script-surface: oklch(96.64% 0.0165 26.65);
+  --color-worldcup-surface: oklch(96.8% 0.0165 156.92);
+  --color-love-surface: oklch(96.14% 0.0143 329.12);
+  --color-dashboard-surface: oklch(97.44% 0.0203 74.66);
+  --color-a2a-surface: oklch(96.31% 0.0173 264.49);
+
+  --font-display: var(--font-space-grotesk), "Segoe UI", Arial, sans-serif;
+  --font-body: var(--font-inter), "Segoe UI", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "Cascadia Code", Consolas, monospace;
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: 4rem;
+  --text-display: clamp(2.55rem, 5vw + 0.6rem, 5.25rem);
+  --text-display-s: clamp(2.25rem, 3.8vw + 0.5rem, 4.1rem);
+
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --rule-default: 1px solid var(--color-border);
+  --rule-strong: 1px solid var(--color-border-strong);
+  --shadow-subtle: 0 0.5rem 1.5rem oklch(16.95% 0.022 267.28 / 0.06);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --page-gutter: clamp(1rem, 4vw, 4rem);
+  --content-width: 73.75rem;
+  --wide-width: 90rem;
+  --text-width: 47.5rem;
+  --touch-target: 2.75rem;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 400;
+  --z-tooltip: 600;
+}

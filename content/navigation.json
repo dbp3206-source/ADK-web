@@ -1,0 +1,52 @@
+{
+  "primary": [
+    {
+      "label": "Projects",
+      "href": "/projects"
+    },
+    {
+      "label": "System",
+      "href": "/system"
+    },
+    {
+      "label": "Learn",
+      "href": "/learn"
+    },
+    {
+      "label": "Evidence",
+      "href": "/evidence"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    }
+  ],
+  "utility": [
+    {
+      "label": "CV",
+      "href": "__CONFIG__"
+    },
+    {
+      "label": "GitHub",
+      "href": "__CONFIG__"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "label": "Known limitations",
+      "href": "/evidence#limitations"
+    },
+    {
+      "label": "Source policy",
+      "href": "/evidence#source-policy"
+    },
+    {
+      "label": "Accessibility",
+      "href": "/evidence#accessibility"
+    }
+  ]
+}

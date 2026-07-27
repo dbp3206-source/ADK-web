@@ -1,0 +1,82 @@
+[
+  {
+    "term": "AI Agent",
+    "short": "A model-driven system that can choose actions, call tools, observe results and continue until a task is complete."
+  },
+  {
+    "term": "Tool",
+    "short": "A callable function or service that performs an action the language model cannot execute by itself."
+  },
+  {
+    "term": "State",
+    "short": "Structured temporary data attached to a working session."
+  },
+  {
+    "term": "Session",
+    "short": "The full conversation context, events and state for one interaction history."
+  },
+  {
+    "term": "Memory",
+    "short": "Information that can be retrieved across sessions or from a persistent knowledge store."
+  },
+  {
+    "term": "Structured output",
+    "short": "A predictable schema such as JSON that the interface can validate and render."
+  },
+  {
+    "term": "Transfer",
+    "short": "A handoff in which another agent becomes the active owner of the next step."
+  },
+  {
+    "term": "Agent as Tool",
+    "short": "A specialist agent called as a bounded capability while the root agent keeps control."
+  },
+  {
+    "term": "SequentialAgent",
+    "short": "A workflow in which later stages wait for earlier stages to finish."
+  },
+  {
+    "term": "ParallelAgent",
+    "short": "A workflow that runs independent branches without requiring one branch to wait for another."
+  },
+  {
+    "term": "LoopAgent",
+    "short": "A bounded workflow that repeats until a condition or maximum iteration count is reached."
+  },
+  {
+    "term": "RAG",
+    "short": "Retrieval-Augmented Generation: retrieve relevant content before the model writes an answer."
+  },
+  {
+    "term": "Embedding",
+    "short": "A numeric representation used to compare semantic similarity."
+  },
+  {
+    "term": "Vector database",
+    "short": "A store optimized for similarity search over embeddings."
+  },
+  {
+    "term": "MCP",
+    "short": "A protocol for connecting an agent to tools and data sources through a consistent interface."
+  },
+  {
+    "term": "A2A",
+    "short": "A protocol for communication between independent agent systems."
+  },
+  {
+    "term": "Agent Card",
+    "short": "A machine-readable capability and endpoint profile for an A2A agent."
+  },
+  {
+    "term": "Artifact",
+    "short": "A durable output created by an agent, such as a report, file or structured object."
+  },
+  {
+    "term": "Sandbox",
+    "short": "A restricted environment that limits what generated code can access."
+  },
+  {
+    "term": "Guardrail",
+    "short": "A rule or code boundary that blocks unsafe or unwanted behavior."
+  }
+]

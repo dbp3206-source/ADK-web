@@ -14,4 +14,7 @@
 2026-07-27 | npm audit --json | PASS — 0 vulnerabilities across production and development trees
 2026-07-27 | Lighthouse mobile baseline | REPORT WRITTEN — performance 84, accessibility 100, best practices 100, SEO 100, FCP 1.3 s, LCP 3.2 s, TBT 340 ms, CLS 0
 2026-07-27 | Lighthouse cleanup | WARNING — Windows EPERM while deleting temporary browser profile after reports were saved
-2026-07-27 | Sites | Tool schemas inspected; production deployment intentionally not executed before preview approval
+2026-07-27 | Sites create_site | PASS — project ID persisted in .openai/hosting.json
+2026-07-27 | Git source push | PASS — exact tested commit pushed to the Sites-managed main branch
+2026-07-27 | Sites save_site_version | PASS — source version saved without deployment
+2026-07-27 | Sites get_site | CONFIRMED — no preview URL and no live URL; production deployment intentionally not executed before preview approval

@@ -40,7 +40,10 @@
     "pdf"
   ],
   "mcp_tools_used": [
-    "Sites tool discovery and schema inspection"
+    "Sites create_site",
+    "Sites save_site_version",
+    "Sites get_site_version",
+    "Sites get_site"
   ],
   "commands_run": [
     "npm install",
@@ -62,7 +65,8 @@
     "out/",
     "design-work/qa/screenshots/",
     "design-work/qa/validation/lighthouse-home-final.report.html",
-    "design-work/qa/validation/playwright-report/"
+    "design-work/qa/validation/playwright-report/",
+    "Sites saved source version (not deployed)"
   ],
   "verification": {
     "structural": true,

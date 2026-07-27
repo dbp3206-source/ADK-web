@@ -14,7 +14,7 @@ All Markdown, JSON, CSV and PDF files listed in `run-manifest.json` were read be
 - Supporting inspection route: PDF skill, `C:\Users\Bao Phuc\.codex\plugins\cache\openai-primary-runtime\pdf\26.723.12215\skills\pdf\SKILL.md`
 - Browser verification: Playwright Chromium with axe-core
 - Performance baseline: Lighthouse mobile preset
-- Hosting preparation: Sites tool schemas inspected; no production deployment performed
+- Hosting preparation: Sites project created, exact source commit pushed and a saved source version created; no production deployment performed
 
 Hallmark affected the work through its Map / Diagram macrostructure, editorial masthead, dense typographic footer, hand-built SVG enrichment, custom OKLCH tokens, reduced-motion policy and completed 58-gate anti-template audit.
 
@@ -114,4 +114,4 @@ The technical score reflects the LCP target miss, pending owner evidence and lac
 
 ## Deployment status
 
-No production URL exists. The specification requires preview approval and Critical acceptance-test completion before production deployment. Critical tests are complete; production remains intentionally blocked on preview approval.
+Sites contains a saved source version for the exact pushed commit. Sites reports no preview URL and no live URL. The specification requires preview approval and Critical acceptance-test completion before production deployment. Critical tests are complete; production remains intentionally blocked on preview approval.

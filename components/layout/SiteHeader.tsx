@@ -21,8 +21,7 @@ export function SiteHeader() {
     [dict.nav.projects, "/projects"],
     [dict.nav.system, "/system"],
     [dict.nav.learn, "/learn"],
-    [dict.nav.evidence, "/evidence"],
-    [dict.nav.about, "/about"]
+    [dict.nav.contact, "/contact"]
   ] as const;
   const cleanPath = pathname.replace(/^\/(vi|en)/, "") || "/";
   const otherLocale = locale === "vi" ? "en" : "vi";
@@ -85,7 +84,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="header-actions">
-          <button type="button" className="command-trigger" onClick={() => window.dispatchEvent(new CustomEvent("adk:command-open"))} aria-label={dict.command.title}>
+          <button type="button" className="command-trigger" onClick={() => window.dispatchEvent(new CustomEvent("adk:command-open"))} title={dict.command.title}>
             <span>{dict.command.short}</span><kbd>⌘K</kbd>
           </button>
           <Link className="locale-toggle" href={localizedPath(otherLocale, cleanPath)} onClick={preserveLocaleQuery} aria-label={locale === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt"}>
@@ -101,7 +100,7 @@ export function SiteHeader() {
           <div className="mobile-menu" id="mobile-menu" ref={menuRef} role="dialog" aria-modal="true" aria-label={dict.nav.primary} onMouseDown={(event) => event.stopPropagation()}>
             <div className="mobile-menu-head"><span className="mono">SYSTEM MAP / {locale.toUpperCase()}</span><button type="button" onClick={() => setOpen(false)}>{dict.common.close}</button></div>
             <nav aria-label={dict.nav.primary}>
-              {[...nav, [dict.nav.contact, "/contact"] as const].map(([label, href], index) => (
+              {nav.map(([label, href], index) => (
                 <Link href={localizedPath(locale, href)} key={href}><span className="mono">{String(index + 1).padStart(2, "0")}</span>{label}</Link>
               ))}
             </nav>

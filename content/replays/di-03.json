@@ -1,0 +1,86 @@
+{
+  "caseId": "DI-03",
+  "project": "dashboard-insights",
+  "mode": "browser-simulation",
+  "title": "QA yêu cầu sửa claim không có evidence",
+  "description": "Mô phỏng vòng QA có giới hạn bằng fixture rõ ràng.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.397042+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case DI-03",
+  "input": {
+    "claim": "Organic revenue fell because of campaign fatigue.",
+    "evidenceRows": []
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser QA",
+      "type": "input_received",
+      "summary": "Nhận claim không có dòng evidence."
+    },
+    {
+      "sequence": 2,
+      "actor": "browser QA",
+      "type": "qa_check",
+      "summary": "Claim không đạt vì khẳng định nguyên nhân khi chưa đủ dữ liệu."
+    },
+    {
+      "sequence": 3,
+      "actor": "browser reviser",
+      "type": "revision",
+      "summary": "Bỏ nguyên nhân chưa được chứng minh và giữ lại quan sát có số liệu."
+    },
+    {
+      "sequence": 4,
+      "actor": "browser QA",
+      "type": "qa_check",
+      "summary": "Claim sửa đổi đạt rule fixture."
+    },
+    {
+      "sequence": 5,
+      "actor": "browser evidence lab",
+      "type": "artifact_created",
+      "summary": "Tạo claim đã sửa với revision count 1."
+    },
+    {
+      "sequence": 6,
+      "actor": "browser evidence lab",
+      "type": "completed",
+      "summary": "Kết thúc bounded simulation."
+    }
+  ],
+  "output": {
+    "revisionCount": 1,
+    "revisedClaim": "Organic revenue decreased in the sample; the cause is not established by the supplied rows."
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "Unsupported cause was removed",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Revision stayed within the two-round bound",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "dashboard_insights/dashboard_insights_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 501,
+    "rootAgentEndLine": 509
+  },
+  "externalDependencies": [
+    {
+      "name": "Dashboard Python QA loop",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

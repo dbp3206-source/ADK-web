@@ -1,0 +1,96 @@
+{
+  "caseId": "ST-01",
+  "project": "script-team",
+  "mode": "verified-local-replay",
+  "title": "Kiểm tra thứ tự callback bàn giao",
+  "description": "Chạy ba callback bàn giao nguyên bản. Không tạo draft giả khi model chưa chạy.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.224735+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case ST-01",
+  "input": {
+    "brief": "Prepared portfolio video brief"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "script_team_coordinator",
+      "type": "routing",
+      "summary": "Coordinator có ba sub-agent đã khai báo."
+    },
+    {
+      "sequence": 2,
+      "actor": "script_drafter",
+      "type": "handoff",
+      "summary": "[Hệ thống] >>> Đang chuyển giao quyền soạn thảo cho Biên kịch Slide (script_drafter)..."
+    },
+    {
+      "sequence": 3,
+      "actor": "script_critic",
+      "type": "handoff",
+      "summary": "[Hệ thống] >>> Đang chuyển giao quyền thẩm định cho Biên tập viên (script_critic)..."
+    },
+    {
+      "sequence": 4,
+      "actor": "script_reviser",
+      "type": "handoff",
+      "summary": "[Hệ thống] >>> Đang chuyển giao quyền hoàn thiện cho Biên kịch sửa đổi (script_reviser)..."
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Đối chiếu thứ tự callback Drafter → Critic → Reviser."
+    },
+    {
+      "sequence": 6,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Callback sequence hoàn tất; model artifact không được tạo."
+    }
+  ],
+  "output": {
+    "handoffLog": [
+      "[Hệ thống] >>> Đang chuyển giao quyền soạn thảo cho Biên kịch Slide (script_drafter)...",
+      "[Hệ thống] >>> Đang chuyển giao quyền thẩm định cho Biên tập viên (script_critic)...",
+      "[Hệ thống] >>> Đang chuyển giao quyền hoàn thiện cho Biên kịch sửa đổi (script_reviser)..."
+    ],
+    "draft": null,
+    "feedback": null,
+    "revision": null
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "Three handoff callbacks executed",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Callbacks follow declared order",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "No model artifact was fabricated",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "script_team/script_team_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 156,
+    "rootAgentEndLine": 175
+  },
+  "externalDependencies": [
+    {
+      "name": "Gemini model",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

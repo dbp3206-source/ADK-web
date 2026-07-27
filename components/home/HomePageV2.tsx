@@ -1,6 +1,9 @@
-import { ArtifactGallery, CapabilityLadderV2, HomeHero, PatternComparator } from "@/components/home/HomeInteractive";
-import { LazyProjectLab } from "@/components/labs/LazyProjectLab";
+import { CapabilityLadderV2, HomeHero, PatternComparator } from "@/components/home/HomeInteractive";
 import { StaticLink as Link } from "@/components/layout/StaticLink";
+import { DeferredReplay } from "@/components/replay/DeferredReplay";
+import { StaticReplayFallback } from "@/components/replay/StaticReplayFallback";
+import { DeferredAgentCore } from "@/components/source/DeferredAgentCore";
+import { StaticAgentCoreFallback } from "@/components/source/StaticAgentCoreFallback";
 import { localizeProject, patternByProject } from "@/content/project-copy";
 import { projects } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
@@ -17,7 +20,7 @@ export function HomePageV2({ locale }: { locale: Locale }) {
       <HomeHero locale={locale} />
       <CapabilityLadderV2 locale={locale} />
 
-      <section className="recruiter-snapshot page-shell-v2" aria-labelledby="snapshot-title">
+      <section className="recruiter-snapshot page-shell-v2" id="profile" aria-labelledby="snapshot-title">
         <div>
           <p className="eyebrow-v2">RECRUITER · 03 MIN</p>
           <h2 id="snapshot-title">{dict.home.recruiterTitle}</h2>
@@ -36,7 +39,7 @@ export function HomePageV2({ locale }: { locale: Locale }) {
           <h2 id="dashboard-feature-title">{dict.home.featuredDashboard}</h2>
           <p>{localizeProject(dashboard, locale).thesis}</p>
         </header>
-        <LazyProjectLab slug="dashboard-insights" locale={locale} />
+        <DeferredReplay slug="dashboard-insights" locale={locale} compact fallback={<StaticReplayFallback slug="dashboard-insights" locale={locale} />} />
         <Link href={localizedPath(locale, "/projects/dashboard-insights")}>{dict.common.openProject} →</Link>
       </section>
 
@@ -46,7 +49,7 @@ export function HomePageV2({ locale }: { locale: Locale }) {
           <h2 id="a2a-feature-title">{dict.home.featuredA2A}</h2>
           <p>{localizeProject(a2a, locale).thesis}</p>
         </header>
-        <LazyProjectLab slug="a2a-orchestrator" locale={locale} />
+        <DeferredReplay slug="a2a-orchestrator" locale={locale} compact fallback={<StaticReplayFallback slug="a2a-orchestrator" locale={locale} />} />
         <Link href={localizedPath(locale, "/projects/a2a-orchestrator")}>{dict.common.openProject} →</Link>
       </section>
 
@@ -68,20 +71,20 @@ export function HomePageV2({ locale }: { locale: Locale }) {
         })}
       </section>
 
-      <ArtifactGallery locale={locale} />
+      <div className="agent-core-home">
+        <DeferredAgentCore locale={locale} fallback={<StaticAgentCoreFallback locale={locale} />} />
+      </div>
       <PatternComparator locale={locale} />
 
       <section className="evidence-bridge-v2 page-shell-v2">
-        <div><p className="eyebrow-v2">TRUST LAYER</p><h2>{dict.home.evidenceBridge}</h2></div>
+        <div><p className="eyebrow-v2">REPLAY MODES</p><h2>{locale === "vi" ? "Đọc đúng trạng thái của từng lần phát lại." : "Read each replay mode correctly."}</h2></div>
         <div className="evidence-states-v2">
-          <span>{dict.evidence.labels.documented}</span>
-          <span>{dict.evidence.labels.located}</span>
-          <span>{dict.evidence.labels.verified}</span>
-          <span>{dict.evidence.labels.proposed}</span>
-          <span>{dict.evidence.labels.pending}</span>
+          <span>Verified Local Replay</span>
+          <span>Verified Replay with Mocked Dependency</span>
+          <span>Browser Simulation</span>
         </div>
-        <p>{locale === "vi" ? "Source excerpt chỉ xuất hiện khi có đường dẫn và commit đã xác minh. Hiện tại, các trace và artifact đều được ghi rõ là mô phỏng từ kiến trúc." : "Source excerpts appear only with a verified path and commit. Current traces and artifacts are explicitly labeled as architecture simulations."}</p>
-        <Link href={localizedPath(locale, "/evidence")}>{dict.nav.evidence} →</Link>
+        <p>{locale === "vi" ? "Mỗi player cho biết đầu vào, sự kiện quan sát được, output, assertions và nguồn. Không có mode nào được trình bày như live execution." : "Every player shows its input, observable events, output, assertions and source. No mode is presented as live execution."}</p>
+        <Link href={localizedPath(locale, "/projects")}>{dict.nav.projects} →</Link>
       </section>
 
       <section className="contact-terminal-v2 page-shell-v2">

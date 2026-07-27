@@ -146,7 +146,7 @@ export function SystemExplorerV2({ locale, compact = false }: { locale: Locale; 
           </dl>
 
           <div className="inspector-actions">
-            <a href={localizedPath(locale, `/projects/${preset.targetProject}#lab`)}>{dict.common.openProject}</a>
+            <a href={localizedPath(locale, `/projects/${preset.targetProject}#replay`)}>{dict.common.openProject}</a>
             {!compact ? <button type="button" onClick={copyDeepLink}>{copied ? dict.common.copied : dict.system.deepLink}</button> : null}
           </div>
         </aside>

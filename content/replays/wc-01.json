@@ -1,0 +1,85 @@
+{
+  "caseId": "WC-01",
+  "project": "worldcup-analyst",
+  "mode": "verified-local-replay",
+  "title": "Tra cứu dữ kiện qua Wikipedia",
+  "description": "Chạy source tool Wikipedia thật; đây không phải feed live và không gọi model synthesis.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:24.115639+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case WC-01",
+  "input": {
+    "query": "Đội tuyển vô địch World Cup 2022"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "worldcup_2026_analyst",
+      "type": "input_received",
+      "summary": "Nhận câu hỏi dữ kiện đã kiểm soát."
+    },
+    {
+      "sequence": 2,
+      "actor": "free_wikipedia_search",
+      "type": "tool_call",
+      "summary": "Gọi Wikipedia API bằng source tool.",
+      "details": {
+        "tool": "free_wikipedia_search",
+        "args": {
+          "query": "Đội tuyển vô địch World Cup 2022"
+        }
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "free_wikipedia_search",
+      "type": "tool_result",
+      "summary": "Nhận kết quả search thực tế hoặc lỗi thực tế.",
+      "details": {
+        "result": "Tiêu đề: Cúp FIFA World Cup\nNội dung: Cúp vàng Giải vô địch Bóng đá Thế giới là một cúp vàng trao cho đội vô địch giải đấu này (FIFA World Cup). Từ khi World Cup diễn ra năm 1930, đã có hai\nNguồn: https://vi.wikipedia.org/wiki/C%C3%BAp%20FIFA%20World%20Cup\n---\nTiêu đề: Giải vô địch bóng đá thế giới 2022\nNội dung: Giải vô địch bóng đá thế giới 2022 (hay Cúp bóng đá thế giới 2022, tiếng Anh: 2022 FIFA World Cup, tiếng Ả Rập: كأس العالم لكرة القدم 2022) là lần thứ\nNguồn: https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i%20v%C3%B4%20%C4%91%E1%BB%8Bch%20b%C3%B3ng%20%C4%91%C3%A1%20th%E1%BA%BF%20gi%E1%BB%9Bi%202022\n---\nTiêu đề: Esports World Cup\nNội dung: từng giải đấu, phần thưởng cho các đội đủ điều kiện tham dự, giải thưởng cho tuyển thủ xuất sắc nhất, và giải Vô địch Câu lạc bộ. Hơn 25 tựa game sẽ được\nNguồn: https://vi.wikipedia.org/wiki/Esports%20World%20Cup"
+      }
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Kiểm tra source tool không trả lỗi."
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Hoàn tất lần chạy Wikipedia."
+    }
+  ],
+  "output": {
+    "searchResult": "Tiêu đề: Cúp FIFA World Cup\nNội dung: Cúp vàng Giải vô địch Bóng đá Thế giới là một cúp vàng trao cho đội vô địch giải đấu này (FIFA World Cup). Từ khi World Cup diễn ra năm 1930, đã có hai\nNguồn: https://vi.wikipedia.org/wiki/C%C3%BAp%20FIFA%20World%20Cup\n---\nTiêu đề: Giải vô địch bóng đá thế giới 2022\nNội dung: Giải vô địch bóng đá thế giới 2022 (hay Cúp bóng đá thế giới 2022, tiếng Anh: 2022 FIFA World Cup, tiếng Ả Rập: كأس العالم لكرة القدم 2022) là lần thứ\nNguồn: https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i%20v%C3%B4%20%C4%91%E1%BB%8Bch%20b%C3%B3ng%20%C4%91%C3%A1%20th%E1%BA%BF%20gi%E1%BB%9Bi%202022\n---\nTiêu đề: Esports World Cup\nNội dung: từng giải đấu, phần thưởng cho các đội đủ điều kiện tham dự, giải thưởng cho tuyển thủ xuất sắc nhất, và giải Vô địch Câu lạc bộ. Hơn 25 tựa game sẽ được\nNguồn: https://vi.wikipedia.org/wiki/Esports%20World%20Cup",
+    "analystReport": null
+  },
+  "expected": {
+    "searchResultPresent": true
+  },
+  "assertions": [
+    {
+      "name": "Wikipedia source tool returned without exception",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "worldcup_analyst/worldcup_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 86,
+    "rootAgentEndLine": 110
+  },
+  "externalDependencies": [
+    {
+      "name": "Vietnamese Wikipedia API",
+      "mode": "real"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

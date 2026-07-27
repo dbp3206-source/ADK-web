@@ -1,0 +1,159 @@
+{
+  "caseId": "TP-01",
+  "project": "trip-planner",
+  "mode": "verified-local-replay",
+  "title": "Lưu và đọc lại trạng thái chuyến Huế",
+  "description": "Chạy trực tiếp hai source tool lưu/đọc state; không gọi model để tạo lịch trình.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.210733+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case TP-01",
+  "input": {
+    "destination": "Hue",
+    "days": 3,
+    "budget": "balanced",
+    "preferences": [
+      "culture",
+      "food"
+    ]
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "trip_planner_agent",
+      "type": "input_received",
+      "summary": "Nhận thông tin chuyến đi đã kiểm soát."
+    },
+    {
+      "sequence": 2,
+      "actor": "save_trip_detail",
+      "type": "tool_call",
+      "summary": "Gọi source tool bốn lần để lưu các trường chuyến đi.",
+      "details": {
+        "tool": "save_trip_detail",
+        "args": [
+          {
+            "key": "destination",
+            "value": "Hue"
+          },
+          {
+            "key": "days",
+            "value": "3"
+          },
+          {
+            "key": "budget",
+            "value": "balanced"
+          },
+          {
+            "key": "preferences",
+            "value": "culture, food"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "session state",
+      "type": "state_write",
+      "summary": "State chứa bốn trường vừa lưu.",
+      "stateDiff": {
+        "path": "session.trip",
+        "before": {},
+        "after": {
+          "destination": "Hue",
+          "days": "3",
+          "budget": "balanced",
+          "preferences": "culture, food"
+        }
+      }
+    },
+    {
+      "sequence": 4,
+      "actor": "get_trip_details",
+      "type": "tool_result",
+      "summary": "Đọc lại toàn bộ state.",
+      "details": {
+        "result": {
+          "destination": "Hue",
+          "days": "3",
+          "budget": "balanced",
+          "preferences": "culture, food"
+        }
+      }
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Các assertion state đã hoàn tất."
+    }
+  ],
+  "output": {
+    "saveReceipts": [
+      {
+        "status": "success",
+        "saved_key": "destination",
+        "saved_value": "Hue"
+      },
+      {
+        "status": "success",
+        "saved_key": "days",
+        "saved_value": "3"
+      },
+      {
+        "status": "success",
+        "saved_key": "budget",
+        "saved_value": "balanced"
+      },
+      {
+        "status": "success",
+        "saved_key": "preferences",
+        "saved_value": "culture, food"
+      }
+    ],
+    "retrievedState": {
+      "destination": "Hue",
+      "days": "3",
+      "budget": "balanced",
+      "preferences": "culture, food"
+    },
+    "itinerary": null
+  },
+  "expected": {
+    "destination": "Hue",
+    "days": "3"
+  },
+  "assertions": [
+    {
+      "name": "Every save call returned success",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Retrieved destination is Hue",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Retrieved state has four fields",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "trip_planner/trip_planner_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 24,
+    "rootAgentEndLine": 42
+  },
+  "externalDependencies": [
+    {
+      "name": "Gemini model",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

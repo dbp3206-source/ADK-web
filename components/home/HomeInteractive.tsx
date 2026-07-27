@@ -141,7 +141,7 @@ export function CapabilityLadderV2({ locale }: { locale: Locale }) {
           <div className="capability-mini-panel" aria-label={`${copy.title} architecture`}>
             <span>input</span><i aria-hidden="true">→</i><strong>{patternByProject[project.slug]}</strong><i aria-hidden="true">→</i><span>artifact</span>
           </div>
-          <a href={localizedPath(locale, `/projects/${project.slug}#lab`)}>{dict.home.tryLab} →</a>
+          <a href={localizedPath(locale, `/projects/${project.slug}#replay`)}>{dict.home.tryLab} →</a>
         </article>
       </div>
     </section>
@@ -151,9 +151,9 @@ export function CapabilityLadderV2({ locale }: { locale: Locale }) {
 function JourneyProgress({ locale, mode }: { locale: Locale; mode: JourneyMode }) {
   const dict = getDictionary(locale);
   const paths: Record<JourneyMode, Array<[string, string]>> = {
-    recruiter: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["evidence", dict.nav.evidence], ["contact", dict.nav.contact]],
-    engineer: [["system", dict.nav.system], ["trip", "Trip"], ["script", "Script"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["evidence", dict.nav.evidence]],
-    learner: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["ladder", locale === "vi" ? "Sáu bước" : "Six steps"], ["learn", dict.nav.learn], ["system", dict.nav.system], ["lab", "Micro-lab"]]
+    recruiter: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["replay", "Verified Replay"], ["contact", dict.nav.contact]],
+    engineer: [["system", dict.nav.system], ["trip", "Trip"], ["script", "Script"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["source", "Root Agent"]],
+    learner: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["ladder", locale === "vi" ? "Sáu bước" : "Six steps"], ["learn", dict.nav.learn], ["system", dict.nav.system], ["replay", "Replay"]]
   };
   const [done, setDone] = useState<string[]>([]);
   useEffect(() => {

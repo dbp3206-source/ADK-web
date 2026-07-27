@@ -6,8 +6,9 @@ import { LegacyRouteRedirect } from "@/components/layout/LegacyRouteRedirect";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
-import "./globals.css";
+import "./base-v2.css";
 import "./v2.css";
+import "./v22.css";
 
 const displayFont = Space_Grotesk({
   subsets: ["latin"],

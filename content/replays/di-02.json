@@ -1,0 +1,88 @@
+{
+  "caseId": "DI-02",
+  "project": "dashboard-insights",
+  "mode": "browser-simulation",
+  "title": "Dữ liệu ổn định, không ép tạo anomaly",
+  "description": "Phép tính deterministic trong browser; pipeline Python không chạy model.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.397042+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case DI-02",
+  "input": {
+    "series": [
+      100,
+      101,
+      100
+    ],
+    "alertThresholdPercent": 20
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser evidence lab",
+      "type": "input_received",
+      "summary": "Nhận ba điểm dữ liệu mẫu."
+    },
+    {
+      "sequence": 2,
+      "actor": "browser calculator",
+      "type": "calculation",
+      "summary": "Tính phần trăm thay đổi theo kỳ.",
+      "details": {
+        "changes": [
+          1.0,
+          -1.0
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "browser QA",
+      "type": "validation",
+      "summary": "Không có mức giảm vượt ngưỡng 20%."
+    },
+    {
+      "sequence": 4,
+      "actor": "browser evidence lab",
+      "type": "artifact_created",
+      "summary": "Tạo kết quả `no anomaly` thay vì ép insight."
+    },
+    {
+      "sequence": 5,
+      "actor": "browser evidence lab",
+      "type": "completed",
+      "summary": "Kết thúc browser simulation."
+    }
+  ],
+  "output": {
+    "changesPercent": [
+      1.0,
+      -1.0
+    ],
+    "anomalies": []
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "No drop exceeds threshold",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "dashboard_insights/dashboard_insights_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 501,
+    "rootAgentEndLine": 509
+  },
+  "externalDependencies": [
+    {
+      "name": "Dashboard Python pipeline",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

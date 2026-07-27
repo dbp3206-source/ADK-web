@@ -1,0 +1,104 @@
+{
+  "caseId": "WC-02",
+  "project": "worldcup-analyst",
+  "mode": "browser-simulation",
+  "title": "So sánh conversion rate từ dữ liệu mẫu",
+  "description": "Công thức deterministic dùng dữ liệu mẫu trong browser; BuiltInCodeExecutor của project không chạy.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.294736+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case WC-02",
+  "input": {
+    "rows": [
+      {
+        "team": "A",
+        "goals": 8,
+        "shots": 40
+      },
+      {
+        "team": "B",
+        "goals": 6,
+        "shots": 30
+      }
+    ],
+    "formula": "goals / shots * 100"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser replay",
+      "type": "input_received",
+      "summary": "Nhận hai dòng dữ liệu mẫu."
+    },
+    {
+      "sequence": 2,
+      "actor": "browser calculator",
+      "type": "calculation",
+      "summary": "Tính conversion rate bằng công thức deterministic.",
+      "details": {
+        "formula": "goals / shots * 100"
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "browser replay",
+      "type": "validation",
+      "summary": "Kiểm tra mẫu số khác 0."
+    },
+    {
+      "sequence": 4,
+      "actor": "browser replay",
+      "type": "artifact_created",
+      "summary": "Tạo calculation tape được ghi nhãn simulation."
+    },
+    {
+      "sequence": 5,
+      "actor": "browser replay",
+      "type": "completed",
+      "summary": "Kết thúc browser simulation."
+    }
+  ],
+  "output": {
+    "calculationTape": [
+      {
+        "team": "A",
+        "goals": 8,
+        "shots": 40,
+        "conversionRate": 20.0
+      },
+      {
+        "team": "B",
+        "goals": 6,
+        "shots": 30,
+        "conversionRate": 20.0
+      }
+    ]
+  },
+  "expected": {
+    "teamA": 20.0,
+    "teamB": 20.0
+  },
+  "assertions": [
+    {
+      "name": "Both rates equal 20 percent",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "worldcup_analyst/worldcup_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 86,
+    "rootAgentEndLine": 110
+  },
+  "externalDependencies": [
+    {
+      "name": "BuiltInCodeExecutor",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "PRACTICE-01",
+    "module": "M1",
+    "type": "ordering",
+    "title": "Arrange the agent's processing cycle",
+    "instructions": "Drag the steps into a logical order.",
+    "items": [
+      "Receive requests",
+      "Choose action",
+      "Call tool or agent",
+      "Observe the results",
+      "Decide whether to continue or stop"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "feedback": "A good agent loop always has observations and stopping conditions."
+  },
+  {
+    "id": "PRACTICE-02",
+    "module": "M1",
+    "type": "classification",
+    "title": "Chatbot, simulation hay agent?",
+    "instructions": "Classify each situation.",
+    "items": [
+      {
+        "text": "The UI changes the text according to the preset but does not call the backend",
+        "answer": "browser-simulation"
+      },
+      {
+        "text": "Project Python runs tests and records tool events",
+        "answer": "verified-replay"
+      },
+      {
+        "text": "Model only responds in writing",
+        "answer": "chatbot-like"
+      },
+      {
+        "text": "The request goes through the real backend and returns the real status",
+        "answer": "live-execution"
+      }
+    ]
+  },
+  {
+    "id": "PRACTICE-03",
+    "module": "M2",
+    "type": "source-inspection",
+    "title": "Find the main structure in root_agent",
+    "instructions": "Select model, tools, sub-agents and output key from a verified snippet.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-04",
+    "module": "M2",
+    "type": "debugging",
+    "title": "Fix misaligned output key",
+    "instructions": "Find where Drafter says `draft_text` but Critic reads `draft`.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-05",
+    "module": "M3",
+    "type": "state-diff",
+    "title": "Read state before and after tool call",
+    "instructions": "Determine which fields are added, which fields are changed, and persistence boundaries.",
+    "project": "trip-planner"
+  },
+  {
+    "id": "PRACTICE-06",
+    "module": "M3",
+    "type": "scenario",
+    "title": "Select state, session or memory",
+    "instructions": "Match each type of data with a suitable storage location.",
+    "project": "trip-planner"
+  },
+  {
+    "id": "PRACTICE-07",
+    "module": "M4",
+    "type": "pattern-selection",
+    "title": "Select control pattern",
+    "instructions": "Choose Transfer, Agent as Tool, Sequential, Parallel or Loop for each situation."
+  },
+  {
+    "id": "PRACTICE-08",
+    "module": "M4",
+    "type": "workflow-builder",
+    "title": "Build workflow for Script Team",
+    "instructions": "Connect Drafter, Critic and Reviser; Set the correct output key.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-09",
+    "module": "M5",
+    "type": "claim-evidence",
+    "title": "Append claim to data stream",
+    "instructions": "Each claim must connect to the appropriate row/cell and calculation.",
+    "project": "dashboard-insights"
+  },
+  {
+    "id": "PRACTICE-10",
+    "module": "M5",
+    "type": "source-scope",
+    "title": "Write source scope",
+    "instructions": "Choose the sentence that correctly describes the limitation when using only one general source.",
+    "project": "worldcup-analyst"
+  },
+  {
+    "id": "PRACTICE-11",
+    "module": "M6",
+    "type": "routing",
+    "title": "Route request to specialist",
+    "instructions": "Select specialist, explain rule match and handle unknown intent.",
+    "project": "a2a-orchestrator"
+  },
+  {
+    "id": "PRACTICE-12",
+    "module": "M6",
+    "type": "failure-design",
+    "title": "Design timeout, retry and fallback",
+    "instructions": "Arrange control for a specialist who is offline.",
+    "project": "a2a-orchestrator"
+  }
+]

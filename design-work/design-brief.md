@@ -1,35 +1,53 @@
-# Design Brief — Interactive V2
+# Design Brief
 
 ## Audience and viewing context
-Vietnamese-first recruiters scanning the architecture progression in 3–7 minutes; hiring engineers inspecting contracts, traces, deterministic lab behavior, decisions, failure modes and evidence; learners using guided explanations and voice narration on desktop, tablet or mobile.
+
+Recruiters need to understand scope and authentic outputs within minutes. Engineers need source, tests, observable events and failure behavior. Learners need a friendly bilingual path through AI Agent and Google ADK concepts on desktop and mobile.
 
 ## Core message
-Not six chatbots: six architectural steps from one tool-using agent to a distributed agent ecosystem.
+
+Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent — now inspectable through source, verified replay, artifacts and guided learning.
 
 ## Desired reaction or action
-Understand the ACT → DELEGATE → COMPUTE → COMPOSE → VERIFY → CONNECT progression in 15–30 seconds, choose a discovery mode, manipulate a trace or lab, open a relevant case study and inspect evidence and limitations.
+
+Visitors should choose a project or learning path, replay a recorded case, inspect the exact `root_agent` and output, then continue to the related system view, lesson or contact route.
 
 ## Source authority
-The current implementation is implementation truth. All 82 files in `ADK_Ecosystem_Web_V2_Revision_Package` are the approved change specification. Existing `content/*.json`, `config/site-config.example.json`, and the two supplied PDFs remain factual source material.
+
+- Current website source is implementation truth.
+- `ADK_Ecosystem_Web_V2_2_Revision_Package` is the approved change specification.
+- The five explicitly supplied agent-project directories are source evidence.
+- Only actual repository files, test results and sanitized captured outputs may support verified labels.
 
 ## Content hierarchy
-1. Interactive thesis, discovery mode and ordered capability ladder.
-2. System Explorer V2 with routing, contracts, workflow, validation and artifact.
-3. Six deterministic project labs and distinct internal timelines.
-4. Dashboard Insights and A2A Orchestrator as the deepest proof.
-5. Evidence taxonomy, limitations, learning, voice and real contact paths.
+
+1. Six-step architecture thesis.
+2. Verified replay and exact source.
+3. Project-specific artifacts and architecture.
+4. Learning Center with six paths, 60 flashcards and 90 questions.
+5. Owner/contact actions only when real config values exist.
 
 ## Visual territory
-Signal Editorial: dark control-plane sections, light evidence paper, cyan active signals, asymmetric editorial hierarchy, strong index numerals, light rules, minimal shadow and inspectable SVG architecture.
+
+Signal Editorial: strong cover typography, dark execution control planes, paper source/output surfaces, cyan active signals and project-specific accents. Learning uses original code-native technical illustrations with one memorable concept per card.
 
 ## Brand and system constraints
-Adapt `replacement_files/styles/tokens-v3.css`; Space Grotesk display, Inter body/UI and JetBrains Mono metadata through `next/font`; small radii; 4-point spacing; cyan focus; six semantic project accents. No packaged font files.
+
+Preserve the current typography, editorial rhythm, bilingual routing, focus system, reduced-motion support and static-export architecture. Use existing V3 tokens and accessible controls as the base.
 
 ## Anti-goals
-No generic marketing hero, 3×2 equal project grid, gradient, glow, glassmorphism, AI orb, robot illustration, fake browser chrome, invented evidence, fake metrics, testimonials, live status or production claims.
+
+- No generic SaaS card grid.
+- No gradients, glassmorphism, heavy glow, AI orb, robot mascot, custom cursor or scroll hijacking.
+- No copied flashcard characters or layouts.
+- No fake live execution, latency, tests, paths, commits, outputs or chain-of-thought.
+- No internal blockers or production-hardening notes in public pages.
 
 ## Output contract
-Static-exportable Next.js 16 App Router site in strict TypeScript with complete `/vi/...` and `/en/...` routes, deterministic client labs, browser speech synthesis, Command Deck, SVG diagrams, six responsive compositions, Vitest/Playwright/axe checks, screenshots and a public preview. Save a Sites version but do not deploy production before owner approval.
+
+Target: Next.js static-export website on branch `revision/interactive-v2-2`, bilingual VI/EN, responsive at 320–1440 px, with verified source/replay data bundled as sanitized static fixtures. Deliver browser screenshots, QA evidence and a real preview URL. Do not deploy production.
 
 ## Reference interpretation
-Use Hallmark only for cover typography, editorial discipline and anti-template review. The V2 package controls the interaction architecture. Do not copy external layouts, code or assets.
+
+Retain the current cover hierarchy, typography, asymmetry and editorial discipline. Replace passive evidence/report sections with interactive replay, source and learning layers. Flashcard screenshots contribute only the principles of one concept, a memorable action and large readable terms; their characters, colors and composition are not copied.
+

@@ -1,0 +1,86 @@
+{
+  "caseId": "LA-01",
+  "project": "love-advisor",
+  "mode": "browser-simulation",
+  "title": "Hai góc nhìn hội tụ",
+  "description": "Mô phỏng browser từ kiến trúc đã cung cấp; chưa có source Love Advisor để xác minh.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.295735+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case LA-01",
+  "input": {
+    "communicationPreference": "direct",
+    "planningPreference": "structured"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser workflow",
+      "type": "input_received",
+      "summary": "Nhận hai preference không nhạy cảm."
+    },
+    {
+      "sequence": 2,
+      "actor": "communication lane",
+      "type": "agent_started",
+      "summary": "Nhánh giao tiếp bắt đầu."
+    },
+    {
+      "sequence": 3,
+      "actor": "planning lane",
+      "type": "agent_started",
+      "summary": "Nhánh kế hoạch bắt đầu."
+    },
+    {
+      "sequence": 4,
+      "actor": "browser workflow",
+      "type": "validation",
+      "summary": "Hai nhánh có output và không suy diễn thuộc tính nhạy cảm."
+    },
+    {
+      "sequence": 5,
+      "actor": "synthesis gate",
+      "type": "artifact_created",
+      "summary": "Ghép một gợi ý có uncertainty note."
+    },
+    {
+      "sequence": 6,
+      "actor": "browser workflow",
+      "type": "completed",
+      "summary": "Kết thúc browser simulation."
+    }
+  ],
+  "output": {
+    "suggestion": "Trao đổi rõ kỳ vọng và thống nhất một bước nhỏ có thể kiểm tra lại.",
+    "uncertainty": "Đây là gợi ý từ input mẫu, không phải đánh giá con người."
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "No appearance scoring",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Uncertainty note is visible",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": null,
+    "rootAgentEndLine": null
+  },
+  "externalDependencies": [
+    {
+      "name": "Love Advisor project source",
+      "mode": "blocked"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

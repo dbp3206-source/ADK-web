@@ -129,8 +129,11 @@ export function ArchitectureDiagram({ project }: { project: Project }) {
   return (
     <figure className={`architecture-figure project-${project.slug}`}>
       <div className="architecture-canvas" tabIndex={0} aria-label="Scrollable architecture diagram">
-        <svg viewBox="0 0 1000 500" role="img" aria-labelledby={`${project.slug}-diagram-title`}>
-          <title id={`${project.slug}-diagram-title`}>{project.title} architecture: {project.architecture.summary}</title>
+        <svg
+          viewBox="0 0 1000 500"
+          role="img"
+          aria-label={`${project.title} architecture: ${project.architecture.summary}`}
+        >
           <defs>
             <marker id={`${project.slug}-arrow`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
               <path d="M0,0 L8,4 L0,8 Z" className="architecture-arrow" />

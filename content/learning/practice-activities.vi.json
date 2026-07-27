@@ -1,0 +1,128 @@
+[
+  {
+    "id": "PRACTICE-01",
+    "module": "M1",
+    "type": "ordering",
+    "title": "Sắp xếp vòng xử lý của agent",
+    "instructions": "Kéo các bước theo thứ tự hợp lý.",
+    "items": [
+      "Nhận yêu cầu",
+      "Chọn hành động",
+      "Gọi tool hoặc agent",
+      "Quan sát kết quả",
+      "Quyết định tiếp tục hay dừng"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "feedback": "Một agent loop tốt luôn có observation và điều kiện dừng."
+  },
+  {
+    "id": "PRACTICE-02",
+    "module": "M1",
+    "type": "classification",
+    "title": "Chatbot, simulation hay agent?",
+    "instructions": "Phân loại từng tình huống.",
+    "items": [
+      {
+        "text": "UI đổi text theo preset nhưng không gọi backend",
+        "answer": "browser-simulation"
+      },
+      {
+        "text": "Project Python chạy test và ghi tool events",
+        "answer": "verified-replay"
+      },
+      {
+        "text": "Model chỉ trả lời bằng văn bản",
+        "answer": "chatbot-like"
+      },
+      {
+        "text": "Request đi qua backend thật và trả status thật",
+        "answer": "live-execution"
+      }
+    ]
+  },
+  {
+    "id": "PRACTICE-03",
+    "module": "M2",
+    "type": "source-inspection",
+    "title": "Tìm cấu trúc chính trong root_agent",
+    "instructions": "Chọn model, tools, sub-agents và output key từ một snippet đã xác minh.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-04",
+    "module": "M2",
+    "type": "debugging",
+    "title": "Sửa output key bị lệch",
+    "instructions": "Tìm chỗ Drafter ghi `draft_text` nhưng Critic đọc `draft`.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-05",
+    "module": "M3",
+    "type": "state-diff",
+    "title": "Đọc state trước và sau tool call",
+    "instructions": "Xác định field nào được thêm, field nào thay đổi và persistence boundary.",
+    "project": "trip-planner"
+  },
+  {
+    "id": "PRACTICE-06",
+    "module": "M3",
+    "type": "scenario",
+    "title": "Chọn state, session hay memory",
+    "instructions": "Ghép từng loại dữ liệu với nơi lưu hợp lý.",
+    "project": "trip-planner"
+  },
+  {
+    "id": "PRACTICE-07",
+    "module": "M4",
+    "type": "pattern-selection",
+    "title": "Chọn control pattern",
+    "instructions": "Chọn Transfer, Agent as Tool, Sequential, Parallel hoặc Loop cho từng tình huống."
+  },
+  {
+    "id": "PRACTICE-08",
+    "module": "M4",
+    "type": "workflow-builder",
+    "title": "Xây workflow cho Script Team",
+    "instructions": "Nối Drafter, Critic và Reviser; đặt output key đúng.",
+    "project": "script-team"
+  },
+  {
+    "id": "PRACTICE-09",
+    "module": "M5",
+    "type": "claim-evidence",
+    "title": "Nối claim tới dòng dữ liệu",
+    "instructions": "Mỗi claim phải nối tới row/cell và phép tính phù hợp.",
+    "project": "dashboard-insights"
+  },
+  {
+    "id": "PRACTICE-10",
+    "module": "M5",
+    "type": "source-scope",
+    "title": "Viết source scope",
+    "instructions": "Chọn câu mô tả đúng giới hạn khi chỉ dùng một nguồn tổng quan.",
+    "project": "worldcup-analyst"
+  },
+  {
+    "id": "PRACTICE-11",
+    "module": "M6",
+    "type": "routing",
+    "title": "Route request tới specialist",
+    "instructions": "Chọn specialist, giải thích rule match và xử lý unknown intent.",
+    "project": "a2a-orchestrator"
+  },
+  {
+    "id": "PRACTICE-12",
+    "module": "M6",
+    "type": "failure-design",
+    "title": "Thiết kế timeout, retry và fallback",
+    "instructions": "Sắp xếp control cho một specialist đang offline.",
+    "project": "a2a-orchestrator"
+  }
+]

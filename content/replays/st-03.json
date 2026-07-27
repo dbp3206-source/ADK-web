@@ -1,0 +1,79 @@
+{
+  "caseId": "ST-03",
+  "project": "script-team",
+  "mode": "verified-local-replay",
+  "title": "File brief không tồn tại",
+  "description": "Chạy source tool đọc file với path tương đối không tồn tại.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.226729+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case ST-03",
+  "input": {
+    "filePath": "fixtures/missing-brief.txt"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "read_local_file",
+      "type": "tool_call",
+      "summary": "Gọi source tool với path tương đối đã sanitize.",
+      "details": {
+        "tool": "read_local_file",
+        "args": {
+          "filePath": "fixtures/missing-brief.txt"
+        }
+      }
+    },
+    {
+      "sequence": 2,
+      "actor": "read_local_file",
+      "type": "tool_result",
+      "summary": "Source tool trả lỗi not-found có kiểm soát.",
+      "details": {
+        "result": "Lỗi: Không tìm thấy file tại đường dẫn fixtures/missing-brief.txt"
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "script_team_coordinator",
+      "type": "fallback",
+      "summary": "Không tạo draft khi tài liệu không tồn tại."
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Not-found assertion đã hoàn tất."
+    }
+  ],
+  "output": {
+    "toolResult": "Lỗi: Không tìm thấy file tại đường dẫn fixtures/missing-brief.txt",
+    "revision": null
+  },
+  "expected": {
+    "draftCreated": false
+  },
+  "assertions": [
+    {
+      "name": "Missing file is reported",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "script_team/script_team_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 156,
+    "rootAgentEndLine": 175
+  },
+  "externalDependencies": [
+    {
+      "name": "Local source file",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

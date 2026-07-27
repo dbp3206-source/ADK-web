@@ -1,0 +1,182 @@
+{
+  "generatedAt": "2026-07-27T14:15:15.818701+00:00",
+  "workspaceRoot": "<WORKSPACE>",
+  "projects": [
+    {
+      "slug": "trip-planner",
+      "discoveryStatus": "confirmed",
+      "projectRoot": "trip_planner",
+      "agentFile": "trip_planner/trip_planner_agent/agent.py",
+      "rootAgentAssignments": [
+        {
+          "path": "trip_planner/trip_planner_agent/agent.py",
+          "startLine": 24,
+          "endLine": 42,
+          "className": "Agent",
+          "sha256": "b0965818c273ddb8871714399cf2461c22e883c2035a3636e296b55d56becf56"
+        }
+      ],
+      "tests": [
+        "trip_planner/test_memory.py"
+      ],
+      "runCommands": [
+        "python test_memory.py"
+      ],
+      "dependencies": [
+        "google-adk",
+        "python-dotenv"
+      ],
+      "environmentNeeds": [
+        "Google ADK model credential for model-backed runs; variable name not verified because .env was not read."
+      ],
+      "blockers": [
+        "No Git metadata in the supplied project folder; source commit is unavailable.",
+        "No README.md, pyproject.toml or .env.example was supplied."
+      ]
+    },
+    {
+      "slug": "script-team",
+      "discoveryStatus": "confirmed",
+      "projectRoot": "script_team",
+      "agentFile": "script_team/script_team_agent/agent.py",
+      "rootAgentAssignments": [
+        {
+          "path": "script_team/script_team_agent/agent.py",
+          "startLine": 156,
+          "endLine": 175,
+          "className": "LlmAgent",
+          "sha256": "90378a1e819689c067d9a387bfb50ae47770b42e1c401ab4504396b6768fa900"
+        }
+      ],
+      "tests": [
+        "script_team/test_agent.py"
+      ],
+      "runCommands": [
+        "python test_agent.py"
+      ],
+      "dependencies": [
+        "google-adk",
+        "python-dotenv",
+        "pydantic"
+      ],
+      "environmentNeeds": [
+        "Google ADK model credential for model-backed runs; variable name not verified because .env was not read."
+      ],
+      "blockers": [
+        "No Git metadata in the supplied project folder; source commit is unavailable.",
+        "No README.md, pyproject.toml or .env.example was supplied."
+      ]
+    },
+    {
+      "slug": "worldcup-analyst",
+      "discoveryStatus": "confirmed",
+      "projectRoot": "worldcup_analyst",
+      "agentFile": "worldcup_analyst/worldcup_agent/agent.py",
+      "rootAgentAssignments": [
+        {
+          "path": "worldcup_analyst/worldcup_agent/agent.py",
+          "startLine": 86,
+          "endLine": 110,
+          "className": "LlmAgent",
+          "sha256": "3c463f93fe1e3901fcbd9770e853768182c75bd491796e32717bfa3c50e9d8d8"
+        }
+      ],
+      "tests": [
+        "worldcup_analyst/test_agent.py"
+      ],
+      "runCommands": [
+        "python test_agent.py"
+      ],
+      "dependencies": [],
+      "environmentNeeds": [
+        "Google ADK model credential for model-backed runs; variable name not verified because .env was not read."
+      ],
+      "blockers": [
+        "No Git metadata in the supplied project folder; source commit is unavailable.",
+        "No README.md, pyproject.toml or .env.example was supplied."
+      ]
+    },
+    {
+      "slug": "dashboard-insights",
+      "discoveryStatus": "confirmed",
+      "projectRoot": "dashboard_insights",
+      "agentFile": "dashboard_insights/dashboard_insights_agent/agent.py",
+      "rootAgentAssignments": [
+        {
+          "path": "dashboard_insights/dashboard_insights_agent/agent.py",
+          "startLine": 501,
+          "endLine": 509,
+          "className": "SequentialAgent",
+          "sha256": "749ec7664bb6eea32a1fe871d6751d536e32d750200d997e67f486d576e34967"
+        }
+      ],
+      "tests": [
+        "dashboard_insights/test_agent.py"
+      ],
+      "runCommands": [
+        "python test_agent.py"
+      ],
+      "dependencies": [
+        "google-adk",
+        "python-dotenv",
+        "pydantic",
+        "markitdown",
+        "chromadb>=0.5.0",
+        "sentence-transformers>=3.0.0",
+        "mcp>=1.0.0"
+      ],
+      "environmentNeeds": [
+        "Google ADK model credential for model-backed runs; variable name not verified because .env was not read."
+      ],
+      "blockers": [
+        "No Git metadata in the supplied project folder; source commit is unavailable.",
+        "No README.md, pyproject.toml or .env.example was supplied."
+      ]
+    },
+    {
+      "slug": "a2a-orchestrator",
+      "discoveryStatus": "confirmed",
+      "projectRoot": "a2a_orchestrator",
+      "agentFile": "a2a_orchestrator/orchestrator_agent/agent.py",
+      "rootAgentAssignments": [
+        {
+          "path": "a2a_orchestrator/orchestrator_agent/agent.py",
+          "startLine": 136,
+          "endLine": 167,
+          "className": "Agent",
+          "sha256": "4ec7cf885f0daba89fc320ea465f790fba4223f327f55fb7d8067799c809ba43"
+        }
+      ],
+      "tests": [],
+      "runCommands": [
+        "adk web --port 8000"
+      ],
+      "dependencies": [
+        "google-adk[a2a]",
+        "python-dotenv",
+        "uvicorn"
+      ],
+      "environmentNeeds": [
+        "Google ADK model credential for model-backed runs; variable name not verified because .env was not read."
+      ],
+      "blockers": [
+        "No Git metadata in the supplied project folder; source commit is unavailable.",
+        "No README.md, pyproject.toml or .env.example was supplied."
+      ]
+    },
+    {
+      "slug": "love-advisor",
+      "discoveryStatus": "blocked",
+      "projectRoot": "",
+      "agentFile": "",
+      "rootAgentAssignments": [],
+      "tests": [],
+      "runCommands": [],
+      "dependencies": [],
+      "environmentNeeds": [],
+      "blockers": [
+        "No Love Advisor project path was supplied in the approved source-discovery scope."
+      ]
+    }
+  ]
+}

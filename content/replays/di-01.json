@@ -1,0 +1,105 @@
+{
+  "caseId": "DI-01",
+  "project": "dashboard-insights",
+  "mode": "verified-mocked-replay",
+  "title": "Đọc CSV qua source extractor",
+  "description": "Chạy source extractor thật; RAG và MCP được thay bằng fixture để import pipeline an toàn.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.396041+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case DI-01",
+  "input": {
+    "fixture": "dashboard-anomaly.csv",
+    "rows": 2
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "dashboard_insight_pipeline",
+      "type": "input_received",
+      "summary": "Nhận CSV fixture đã kiểm soát."
+    },
+    {
+      "sequence": 2,
+      "actor": "extract_file_content",
+      "type": "tool_call",
+      "summary": "Gọi source extractor cho file CSV.",
+      "details": {
+        "tool": "extract_file_content",
+        "args": {
+          "file": "dashboard-anomaly.csv"
+        }
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "extract_file_content",
+      "type": "tool_result",
+      "summary": "Nhận bảng Markdown từ source function.",
+      "details": {
+        "result": "| month | channel | revenue |\n| --- | --- | --- |\n| 2026-02 | Organic | 100 |\n| 2026-03 | Organic | 71 |"
+      }
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Kiểm tra header và hai dòng dữ liệu."
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "artifact_created",
+      "summary": "Tạo preview bảng từ output thật của extractor."
+    },
+    {
+      "sequence": 6,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Mocked dependency replay hoàn tất."
+    }
+  ],
+  "output": {
+    "extractedMarkdown": "| month | channel | revenue |\n| --- | --- | --- |\n| 2026-02 | Organic | 100 |\n| 2026-03 | Organic | 71 |",
+    "finalDashboardReport": null
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "CSV header is preserved",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Both rows are preserved",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "dashboard_insights/dashboard_insights_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 501,
+    "rootAgentEndLine": 509
+  },
+  "externalDependencies": [
+    {
+      "name": "RAG engine",
+      "mode": "mocked",
+      "fixture": "empty-history"
+    },
+    {
+      "name": "MCP filesystem",
+      "mode": "mocked",
+      "fixture": "empty-file-list"
+    },
+    {
+      "name": "Gemini model",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

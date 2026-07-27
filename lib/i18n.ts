@@ -40,7 +40,7 @@ const vi = {
     home: "Trang chủ",
     projects: "Dự án",
     system: "Hệ thống",
-    learn: "Kiến thức",
+    learn: "Học & Ôn",
     evidence: "Bằng chứng",
     about: "Giới thiệu",
     contact: "Liên hệ",
@@ -86,7 +86,7 @@ const vi = {
     artifact: "Artifact",
     risk: "Rủi ro chính",
     evidence: "Trạng thái bằng chứng",
-    tryLab: "Thử micro-lab",
+    tryLab: "Mở verified replay",
     recruiterTitle: "Đọc nhanh năng lực, sau đó kiểm tra bằng chứng.",
     recruiterCopy: "Google ADK, Python, tool calling, state, workflow, MCP, RAG và A2A được đặt trong một lộ trình có giới hạn rõ.",
     featuredDashboard: "Dashboard Evidence Lab",
@@ -222,10 +222,10 @@ const vi = {
   },
   footer: {
     statement: "Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent.",
-    note: "V2 preview · trace và lab là mô phỏng cục bộ · không có backend agent trực tiếp",
+    note: "V2.2 preview · replay đã phân mode · không có backend agent trực tiếp",
     thesis: "Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent.",
     trace: "Theo dõi một request qua hệ thống",
-    colophon: "V2.0 · Việt/Anh · mô phỏng phía client · không có backend agent trực tiếp"
+    colophon: "V2.2 · Việt/Anh · verified replay và browser simulation · không có live agent backend"
   }
 };
 
@@ -238,7 +238,7 @@ const en: Dictionary = {
     openProject: "Open case study", readAsText: "Read the complete trace as text",
     noContact: "Only configured contact channels are shown.", paperMode: "Paper mode", print: "Print page"
   },
-  nav: { home: "Home", projects: "Projects", system: "System", learn: "Learn", evidence: "Evidence", about: "About", contact: "Contact", command: "Quick commands", primary: "Primary navigation", footer: "Footer navigation" },
+  nav: { home: "Home", projects: "Projects", system: "System", learn: "Learn & Review", evidence: "Evidence", about: "About", contact: "Contact", command: "Quick commands", primary: "Primary navigation", footer: "Footer navigation" },
   hero: {
     eyebrow: "GOOGLE ADK · A2A · PYTHON",
     title: "From one tool-using agent to a distributed agent ecosystem.",
@@ -269,7 +269,7 @@ const en: Dictionary = {
     ladderEyebrow: "CAPABILITY LADDER", ladderTitle: "Each project adds one missing engineering layer.",
     ladderBody: "The progression changes control, data access and verification—not merely the number of agents.",
     layer: "New layer", owner: "Control owner", artifact: "Artifact", risk: "Primary risk", evidence: "Evidence state",
-    tryLab: "Try the micro-lab", recruiterTitle: "Scan the capability story, then inspect the evidence.",
+    tryLab: "Open verified replay", recruiterTitle: "Scan the capability story, then inspect the evidence.",
     recruiterCopy: "Google ADK, Python, tool calling, state, workflows, MCP, RAG and A2A are arranged as an inspectable progression.",
     featuredDashboard: "Dashboard Evidence Lab", featuredA2A: "A2A Routing Lab", artifacts: "Artifact gallery",
     comparator: "Compare control models", evidenceBridge: "Evidence before adjectives",
@@ -331,10 +331,10 @@ const en: Dictionary = {
   command: { title: "Command Deck", open: "Open Command Deck", short: "Commands", startTrace: "Start a system trace", startVoice: "Start or stop voice guide", resetProgress: "Reset exploration progress", search: "Search pages, projects or actions", empty: "No matching command." },
   footer: {
     statement: "Not six chatbots. Six architectural steps toward an agent ecosystem.",
-    note: "V2 preview · traces and labs are local simulations · no live agent backend",
+    note: "V2.2 preview · replay modes are explicit · no live agent backend",
     thesis: "Not six chatbots. Six architectural steps toward an agent ecosystem.",
     trace: "Follow a request across the system",
-    colophon: "V2.0 · Vietnamese/English · client-side simulation · no live agent backend"
+    colophon: "V2.2 · Vietnamese/English · verified replay and browser simulation · no live agent backend"
   }
 };
 

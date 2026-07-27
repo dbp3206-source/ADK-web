@@ -1,0 +1,1665 @@
+[
+  {
+    "id": "M1-FC-01",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "AI Agent",
+      "prompt": "Điều gì khiến một hệ thống vượt khỏi chatbot thông thường?",
+      "memoryHook": "Agent không chỉ nói; agent còn chọn hành động, quan sát kết quả và tiếp tục."
+    },
+    "back": {
+      "explanation": "AI Agent là hệ thống dùng model để quyết định bước tiếp theo, có thể gọi công cụ, đọc kết quả và lặp cho đến khi hoàn thành nhiệm vụ.",
+      "example": "Trip Planner gọi tool để lưu lịch trình rồi lấy lại ở lượt sau.",
+      "dontConfuse": "Một câu trả lời nói “đã lưu” không chứng minh tool đã chạy."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agent",
+      "chatbot",
+      "action"
+    ],
+    "illustration": {
+      "conceptId": "ILL-02",
+      "alt": "So sánh chatbot chỉ trả lời và agent có thể hành động.",
+      "brief": "Hai nửa cảnh: chatbot chỉ nói, agent dùng toolbox và cập nhật task board."
+    }
+  },
+  {
+    "id": "M1-FC-02",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent Loop",
+      "prompt": "Một vòng xử lý agent thường gồm những bước nào?",
+      "memoryHook": "Nhận yêu cầu → quyết định → hành động → quan sát → tiếp tục."
+    },
+    "back": {
+      "explanation": "Agent loop là chu trình model xem ngữ cảnh, chọn hành động, nhận observation và quyết định dừng hay tiếp tục.",
+      "example": "A2A Orchestrator nhận request, chọn specialist, chờ artifact rồi trả kết quả.",
+      "dontConfuse": "Đừng nhầm loop của agent với vòng lặp vô hạn; phải có điều kiện dừng."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "loop",
+      "observation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-01",
+      "alt": "Agent đi qua các bước nhận yêu cầu, gọi công cụ và quan sát.",
+      "brief": "Một nhân vật kỹ thuật đi qua các trạm request, action, observation và done."
+    }
+  },
+  {
+    "id": "M1-FC-03",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Artifact",
+      "prompt": "Đầu ra nào nên được gọi là artifact?",
+      "memoryHook": "Artifact là thứ có thể lưu, kiểm tra hoặc dùng lại."
+    },
+    "back": {
+      "explanation": "Artifact là đầu ra bền vững hoặc có cấu trúc như report, itinerary, file hoặc JSON object.",
+      "example": "Dashboard Insights tạo report archive; Script Team tạo bản revision.",
+      "dontConfuse": "Một đoạn chat ngắn chưa chắc là artifact nếu không có cấu trúc hoặc vòng đời rõ."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "artifact",
+      "output"
+    ],
+    "illustration": {
+      "conceptId": "ILL-03",
+      "alt": "Artifact là đầu ra được lưu lại.",
+      "brief": "Một report được đặt vào ngăn lưu trữ có nhãn."
+    }
+  },
+  {
+    "id": "M1-FC-04",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Tool Use",
+      "prompt": "Khi nào agent cần tool thay vì chỉ sinh văn bản?",
+      "memoryHook": "Khi nhiệm vụ cần hành động hoặc dữ liệu ngoài model."
+    },
+    "back": {
+      "explanation": "Tool cho phép agent thực hiện chức năng như tính toán, lưu state, đọc file hoặc gọi dịch vụ.",
+      "example": "World Cup Analyst dùng code executor để tính toán thay vì tự nhẩm.",
+      "dontConfuse": "Tool không tự làm hệ thống đúng; input, validation và error handling vẫn cần thiết."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tool",
+      "action"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Agent chọn một công cụ phù hợp.",
+      "brief": "Agent lấy máy tính từ toolbox và nhận receipt."
+    }
+  },
+  {
+    "id": "M1-FC-05",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Observable Event",
+      "prompt": "Nên hiển thị gì để giải thích agent đã làm gì?",
+      "memoryHook": "Hiển thị sự kiện quan sát được, không hiển thị suy nghĩ bí mật."
+    },
+    "back": {
+      "explanation": "Observable event gồm routing, handoff, tool call, state diff, validation và artifact.",
+      "example": "Replay Script Team cho thấy quyền xử lý chuyển từ Drafter sang Critic.",
+      "dontConfuse": "Không hiển thị raw chain-of-thought hoặc tự bịa lý do nội bộ."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "replay",
+      "trace",
+      "safety"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Console phát lại các sự kiện đã ghi nhận.",
+      "brief": "Màn hình replay có event list, commit và output."
+    }
+  },
+  {
+    "id": "M1-FC-06",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Guardrail",
+      "prompt": "Guardrail khác instruction như thế nào?",
+      "memoryHook": "Instruction hướng dẫn; guardrail có thể chặn hoặc kiểm tra."
+    },
+    "back": {
+      "explanation": "Guardrail là rule hoặc code boundary giúp ngăn hành vi không phù hợp, thiếu dữ liệu hoặc không an toàn.",
+      "example": "Love Advisor cần chặn suy luận nhạy cảm và kết luận quá chắc chắn.",
+      "dontConfuse": "Chỉ viết “hãy an toàn” trong prompt không tương đương validation bằng code."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "guardrail",
+      "safety"
+    ],
+    "illustration": {
+      "conceptId": "ILL-04",
+      "alt": "Một cổng an toàn chặn hành động không phù hợp.",
+      "brief": "Agent đứng trước checkpoint có rule rõ."
+    }
+  },
+  {
+    "id": "M1-FC-07",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Decision Summary",
+      "prompt": "Làm sao giải thích lựa chọn của agent mà không lộ chain-of-thought?",
+      "memoryHook": "Nêu quyết định và bằng chứng quan sát được."
+    },
+    "back": {
+      "explanation": "Decision summary là mô tả ngắn như “request cần phép tính nên gọi code executor”.",
+      "example": "World Cup Analyst chọn Stats Agent vì câu hỏi có phép tính.",
+      "dontConfuse": "Đừng viết lại một đoạn suy nghĩ dài như thể đó là log thật."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "reasoning",
+      "explainability"
+    ],
+    "illustration": {
+      "conceptId": "ILL-01",
+      "alt": "Một decision card nối request tới tool.",
+      "brief": "Sơ đồ nhỏ giải thích lý do chọn hành động."
+    }
+  },
+  {
+    "id": "M1-FC-08",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Deterministic Simulation",
+      "prompt": "Mô phỏng deterministic có giá trị gì?",
+      "memoryHook": "Cùng input sẽ tạo cùng output theo rule đã biết."
+    },
+    "back": {
+      "explanation": "Browser simulation phù hợp để giải thích flow khi chưa có backend hoặc model live.",
+      "example": "A2A Routing Lab dùng keyword rules để minh họa routing.",
+      "dontConfuse": "Không gọi nó là model-based execution hoặc verified replay."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "simulation",
+      "deterministic"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Sơ đồ routing bằng rule rõ ràng.",
+      "brief": "Control tower định tuyến theo bảng rule."
+    }
+  },
+  {
+    "id": "M1-FC-09",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Verified Replay",
+      "prompt": "Replay đã xác minh khác demo tĩnh ra sao?",
+      "memoryHook": "Nó được tạo từ một lần chạy thật có source, test và output."
+    },
+    "back": {
+      "explanation": "Verified replay phát lại input, observable events và actual output từ project đã chạy.",
+      "example": "Script Team replay có commit, test path và revision thực tế.",
+      "dontConfuse": "Không gắn nhãn verified nếu output chỉ được viết tay cho website."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "verified",
+      "replay",
+      "evidence"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Replay console có commit, test và output.",
+      "brief": "Màn hình phát lại lần chạy đã xác minh."
+    }
+  },
+  {
+    "id": "M1-FC-10",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Live Execution",
+      "prompt": "Khi nào website được phép ghi “đang chạy trực tiếp”?",
+      "memoryHook": "Chỉ khi request thật đi qua backend thật và trạng thái được đo thật."
+    },
+    "back": {
+      "explanation": "Live execution cần endpoint, error handling, privacy, rate limit và trạng thái thực.",
+      "example": "Một A2A backend thật có thể hiển thị timeout thực và artifact thực.",
+      "dontConfuse": "Animation chạy trên frontend không phải live execution."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "live",
+      "backend",
+      "honesty"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Request thật đi qua các service đang hoạt động.",
+      "brief": "Control plane nối tới service với trạng thái thật."
+    }
+  },
+  {
+    "id": "M2-FC-01",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "agent.py",
+      "prompt": "File nào thường chứa khai báo agent chính trong project ADK?",
+      "memoryHook": "Hãy bắt đầu bằng `agent.py`."
+    },
+    "back": {
+      "explanation": "`agent.py` thường chứa `root_agent`, sub-agents, tools hoặc cách ghép workflow.",
+      "example": "Agent Core Explorer đọc file này để hiển thị source chính xác.",
+      "dontConfuse": "Tên file có thể khác; phải tìm entrypoint thật thay vì đoán."
+    },
+    "projectLinks": [
+      "trip-planner",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "adk",
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Sơ đồ các thành phần trong agent.py.",
+      "brief": "Blueprint có root_agent nối tới model, tools và callbacks."
+    }
+  },
+  {
+    "id": "M2-FC-02",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "root_agent",
+      "prompt": "Vì sao `root_agent` quan trọng?",
+      "memoryHook": "Đây thường là điểm vào chính của hệ agent."
+    },
+    "back": {
+      "explanation": "`root_agent` mô tả agent hoặc workflow mà runtime khởi chạy đầu tiên.",
+      "example": "A2A service có thể expose một root orchestrator hoặc specialist workflow.",
+      "dontConfuse": "Không suy ra toàn bộ behavior chỉ từ tên; cần đọc constructor và components."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "root_agent",
+      "entrypoint"
+    ],
+    "illustration": {
+      "conceptId": "ILL-06",
+      "alt": "root_agent là nhạc trưởng trung tâm.",
+      "brief": "Conductor kết nối model, tools và sub-agents."
+    }
+  },
+  {
+    "id": "M2-FC-03",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "Model Field",
+      "prompt": "Field `model` cho biết gì?",
+      "memoryHook": "Nó cho biết model được agent dùng, nếu khai báo tĩnh."
+    },
+    "back": {
+      "explanation": "Model field có thể là tên model, object hoặc config được truyền vào agent.",
+      "example": "Một LlmAgent có thể nhận model qua biến môi trường hoặc factory.",
+      "dontConfuse": "Nếu field được tạo động, source static có thể không xác định được giá trị cuối."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "model",
+      "config"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Model block nối vào root agent.",
+      "brief": "Blueprint component labeled model."
+    }
+  },
+  {
+    "id": "M2-FC-04",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Instruction",
+      "prompt": "Instruction có vai trò gì trong agent declaration?",
+      "memoryHook": "Nó định hướng nhiệm vụ, phạm vi và cách phản hồi."
+    },
+    "back": {
+      "explanation": "Instruction giúp model hiểu vai trò và nguyên tắc, nhưng không thay thế validation hoặc tool implementation.",
+      "example": "Script Critic có instruction tập trung vào phản biện theo rubric.",
+      "dontConfuse": "Instruction dài không nên bị cắt giả; condensed view phải mở được source đầy đủ."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "instruction",
+      "prompt"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Một instruction document gắn vào agent.",
+      "brief": "Blueprint có document node."
+    }
+  },
+  {
+    "id": "M2-FC-05",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Tools Field",
+      "prompt": "Danh sách `tools` cho recruiter biết điều gì?",
+      "memoryHook": "Agent có những hành động hoặc nguồn dữ liệu nào."
+    },
+    "back": {
+      "explanation": "Tools field cho thấy agent có thể gọi hàm, service hoặc specialist tool nào.",
+      "example": "Trip Planner có save/retrieve tools; World Cup Analyst có search/code capabilities.",
+      "dontConfuse": "Có tool trong declaration không chứng minh tool đã chạy trong mọi request."
+    },
+    "projectLinks": [
+      "trip-planner",
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tools",
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Toolbox nối với agent.",
+      "brief": "Agent chọn các công cụ đã đăng ký."
+    }
+  },
+  {
+    "id": "M2-FC-06",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Sub-agents",
+      "prompt": "Khi nào `sub_agents` hữu ích?",
+      "memoryHook": "Khi root workflow điều phối nhiều vai trò chuyên biệt."
+    },
+    "back": {
+      "explanation": "Sub-agents cho thấy cấu trúc team hoặc workflow con bên trong một agent hệ thống.",
+      "example": "Script Team có Drafter, Critic và Reviser.",
+      "dontConfuse": "Danh sách sub-agent không tự mô tả control pattern; cần xem workflow/transfer logic."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "sub-agent",
+      "team"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "Ba specialist đứng trong workflow team.",
+      "brief": "Drafter, Critic và Reviser nối theo handoff."
+    }
+  },
+  {
+    "id": "M2-FC-07",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Callback",
+      "prompt": "Callback có thể làm gì mà instruction không làm chắc chắn?",
+      "memoryHook": "Chạy logic kiểm tra hoặc xử lý ở thời điểm xác định."
+    },
+    "back": {
+      "explanation": "Callback có thể ingest file, validate input, log event hoặc chặn hành động trước/sau model.",
+      "example": "Dashboard Insights dùng before-model callback để chuẩn bị nội dung file.",
+      "dontConfuse": "Callback cũng có thể lỗi; cần test và bounded error state."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "callback",
+      "validation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "Checkpoint kiểm tra dữ liệu trước model.",
+      "brief": "Một kiểm soát viên đứng trước cổng model."
+    }
+  },
+  {
+    "id": "M2-FC-08",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Output Key",
+      "prompt": "Tại sao output key quan trọng trong workflow nhiều agent?",
+      "memoryHook": "Agent sau cần biết dữ liệu của agent trước nằm ở đâu."
+    },
+    "back": {
+      "explanation": "Output key đặt tên cho kết quả để state/workflow downstream truy xuất ổn định.",
+      "example": "Drafter ghi `draft`, Critic ghi `feedback`, Reviser đọc cả hai.",
+      "dontConfuse": "Key không khớp có thể làm workflow chạy nhưng agent sau nhận dữ liệu rỗng."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "output_key",
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-07",
+      "alt": "Dữ liệu được ghi vào ô có nhãn rõ.",
+      "brief": "Agent đặt output vào slot draft hoặc feedback."
+    }
+  },
+  {
+    "id": "M2-FC-09",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Static Source Parsing",
+      "prompt": "AST giúp trích `root_agent` như thế nào?",
+      "memoryHook": "AST cho biết assignment bắt đầu và kết thúc ở dòng nào."
+    },
+    "back": {
+      "explanation": "Python AST giúp tìm target `root_agent`, constructor và một số field tĩnh mà không chạy code.",
+      "example": "Script extraction có thể lấy exact source bằng `lineno` và `end_lineno`.",
+      "dontConfuse": "AST không giải được mọi giá trị động hoặc side effect lúc import."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "ast",
+      "source-analysis"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Source code được phân tích thành cây cấu trúc.",
+      "brief": "Cây AST làm nổi bật root_agent assignment."
+    }
+  },
+  {
+    "id": "M2-FC-10",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Entrypoint Verification",
+      "prompt": "Vì sao chỉ tìm `root_agent` vẫn chưa đủ?",
+      "memoryHook": "Cần biết runtime có thực sự dùng assignment đó không."
+    },
+    "back": {
+      "explanation": "Entrypoint, test và service wrapper cho biết root agent nào được chạy trong thực tế.",
+      "example": "Một repo có thể có nhiều biến thể hoặc root agent theo environment.",
+      "dontConfuse": "Không chọn assignment đầu tiên nếu có nhiều conditional definitions."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "entrypoint",
+      "verification"
+    ],
+    "illustration": {
+      "conceptId": "ILL-06",
+      "alt": "Đường từ source tới runtime entrypoint.",
+      "brief": "Một path được xác minh từ file đến service start."
+    }
+  },
+  {
+    "id": "M3-FC-01",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Tool Calling",
+      "prompt": "Tool call gồm những phần nào?",
+      "memoryHook": "Tên tool, arguments, kết quả và lỗi nếu có."
+    },
+    "back": {
+      "explanation": "Tool calling là lúc agent chọn một callable và truyền input có cấu trúc để thực hiện hành động.",
+      "example": "Trip Planner gọi `save_trip_detail()` với destination và days.",
+      "dontConfuse": "Văn bản mô tả hành động không phải tool call."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tool_call"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Agent gọi tool và nhận receipt.",
+      "brief": "Toolbox với request/result receipt."
+    }
+  },
+  {
+    "id": "M3-FC-02",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Session",
+      "prompt": "Session là gì?",
+      "memoryHook": "Một lịch sử tương tác và trạng thái của một phiên làm việc."
+    },
+    "back": {
+      "explanation": "Session thường bao gồm conversation events, state và context liên quan đến một lượt sử dụng.",
+      "example": "Trip Planner lưu lịch trình để lấy lại trong cùng session.",
+      "dontConfuse": "Session không tự đồng nghĩa với lưu lâu dài qua restart."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "session"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "Bảng tạm chứa dữ liệu của phiên hiện tại.",
+      "brief": "Traveler pin trip state on session board."
+    }
+  },
+  {
+    "id": "M3-FC-03",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "State",
+      "prompt": "State dùng để làm gì?",
+      "memoryHook": "Giữ dữ liệu có cấu trúc mà workflow cần đọc hoặc thay đổi."
+    },
+    "back": {
+      "explanation": "State có thể chứa draft, feedback, trip details hoặc QA iteration.",
+      "example": "Dashboard lưu report draft và feedback giữa các bước.",
+      "dontConfuse": "State không nhất thiết là memory dài hạn."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "JSON trước và sau khi cập nhật.",
+      "brief": "Hai bảng state có trường thay đổi."
+    }
+  },
+  {
+    "id": "M3-FC-04",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Memory",
+      "prompt": "Memory khác state ra sao?",
+      "memoryHook": "Memory thường được truy xuất qua nhiều session; state thường gắn với phiên/workflow."
+    },
+    "back": {
+      "explanation": "Memory có thể dùng store bền vững hoặc retrieval để đưa thông tin cũ vào context mới.",
+      "example": "Một user preference được nhớ qua nhiều phiên là memory.",
+      "dontConfuse": "Một biến `draft` trong workflow hiện tại chỉ là state."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "memory",
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-11",
+      "alt": "Librarian lấy thông tin từ kho dài hạn.",
+      "brief": "Archive card retrieved for a new session."
+    }
+  },
+  {
+    "id": "M3-FC-05",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "State Mutation",
+      "prompt": "Tại sao nên dùng tool cho state mutation?",
+      "memoryHook": "Hành động thay đổi dữ liệu trở nên quan sát và kiểm tra được."
+    },
+    "back": {
+      "explanation": "Tool mutation tạo event rõ, arguments rõ và có thể validate/rollback.",
+      "example": "`save_trip_detail()` cho thấy chính xác dữ liệu nào được lưu.",
+      "dontConfuse": "Model nói “đã lưu” nhưng không gọi tool là failure quan trọng."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state-write",
+      "tool"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "State JSON thay đổi sau tool call.",
+      "brief": "Before/after state diff."
+    }
+  },
+  {
+    "id": "M3-FC-06",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "State Read",
+      "prompt": "Một lần đọc state tốt cần có gì?",
+      "memoryHook": "Key rõ, not-found state và output có cấu trúc."
+    },
+    "back": {
+      "explanation": "State read nên phân biệt dữ liệu tồn tại, thiếu key và storage lỗi.",
+      "example": "Trip Planner retrieve sau khi clear session phải trả not-found.",
+      "dontConfuse": "Không nên bịa dữ liệu mặc định mà không ghi rõ."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state-read"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "Agent đọc bảng trạng thái phiên.",
+      "brief": "Một key được tìm trong session board."
+    }
+  },
+  {
+    "id": "M3-FC-07",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "Persistence Boundary",
+      "prompt": "Persistence boundary nói lên điều gì?",
+      "memoryHook": "Dữ liệu tồn tại đến khi nào và mất trong tình huống nào."
+    },
+    "back": {
+      "explanation": "In-memory, sessionStorage, database và vector store có vòng đời khác nhau.",
+      "example": "Browser demo dùng `sessionStorage`; project Python in-memory mất khi process restart.",
+      "dontConfuse": "Không gọi browser storage là production memory."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "persistence"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "Các lớp lưu trữ có thời gian tồn tại khác nhau.",
+      "brief": "Temporary board vs archive."
+    }
+  },
+  {
+    "id": "M3-FC-08",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "State Diff",
+      "prompt": "Vì sao replay nên hiển thị state diff?",
+      "memoryHook": "User thấy chính xác hành động đã thay đổi dữ liệu nào."
+    },
+    "back": {
+      "explanation": "State diff tập trung vào field trước/sau thay vì dump toàn bộ object.",
+      "example": "Script Team có thể cho thấy `draft` được tạo rồi `revision` được thêm.",
+      "dontConfuse": "Diff không nên chứa secret hoặc private payload."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "diff",
+      "replay"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "Hai JSON với field được highlight.",
+      "brief": "Before/after state comparison."
+    }
+  },
+  {
+    "id": "M3-FC-09",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Schema Validation",
+      "prompt": "Schema giúp state/tool an toàn hơn thế nào?",
+      "memoryHook": "Nó định nghĩa field, kiểu dữ liệu và constraint."
+    },
+    "back": {
+      "explanation": "Schema validation ngăn input thiếu, output sai kiểu hoặc field không mong muốn.",
+      "example": "Love Advisor chỉ cho synthesis khi cả hai branch output đúng schema.",
+      "dontConfuse": "Schema hợp lệ không chứng minh nội dung đúng về mặt thực tế."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "schema",
+      "validation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "Một checklist kiểm tra object trước khi qua cổng.",
+      "brief": "Schema gate before artifact."
+    }
+  },
+  {
+    "id": "M3-FC-10",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Idempotency",
+      "prompt": "Tại sao tool mutation có thể cần idempotency?",
+      "memoryHook": "Gọi lại không nên tạo thay đổi lặp ngoài ý muốn."
+    },
+    "back": {
+      "explanation": "Idempotent operation giúp retry an toàn khi network hoặc agent lặp tool call.",
+      "example": "Lưu cùng report ID có thể update thay vì tạo nhiều bản trùng.",
+      "dontConfuse": "Không phải tool nào cũng idempotent; action có chi phí cần confirmation."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "idempotency",
+      "retry"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Tool retry không tạo bản ghi trùng.",
+      "brief": "Same request token maps to one record."
+    }
+  },
+  {
+    "id": "M4-FC-01",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Transfer",
+      "prompt": "Transfer thay đổi điều gì?",
+      "memoryHook": "Agent khác trở thành người sở hữu bước xử lý tiếp theo."
+    },
+    "back": {
+      "explanation": "Transfer phù hợp khi vai trò mới cần trực tiếp tiếp tục conversation/workflow.",
+      "example": "Script Team chuyển từ Drafter sang Critic rồi Reviser.",
+      "dontConfuse": "Transfer khác Agent as Tool vì root không nhất thiết giữ quyền ở từng bước."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "transfer"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "Chuyển baton giữa chuyên gia.",
+      "brief": "One specialist hands task ownership to another."
+    }
+  },
+  {
+    "id": "M4-FC-02",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent as Tool",
+      "prompt": "Agent as Tool hoạt động ra sao?",
+      "memoryHook": "Root gọi specialist như một capability rồi nhận kết quả."
+    },
+    "back": {
+      "explanation": "Root vẫn tổng hợp và điều khiển, specialist có nhiệm vụ hẹp.",
+      "example": "World Cup Analyst gọi Search Agent và Stats Agent như tool.",
+      "dontConfuse": "Không dùng pattern này nếu specialist cần sở hữu conversation lâu dài."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agenttool"
+    ],
+    "illustration": {
+      "conceptId": "ILL-14",
+      "alt": "Root agent bấm capability của specialist.",
+      "brief": "Lead analyst calls specialist tool."
+    }
+  },
+  {
+    "id": "M4-FC-03",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Sequential Workflow",
+      "prompt": "Sequential workflow phù hợp khi nào?",
+      "memoryHook": "Khi bước sau phụ thuộc output bước trước."
+    },
+    "back": {
+      "explanation": "Các stage chạy theo thứ tự xác định.",
+      "example": "Script Team cần draft trước critique, critique trước revision.",
+      "dontConfuse": "Đừng chạy song song các bước có dependency trực tiếp."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "sequential"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "Các bước nối tiếp trên một đường.",
+      "brief": "Draft then critique then revise."
+    }
+  },
+  {
+    "id": "M4-FC-04",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Parallel Workflow",
+      "prompt": "Parallel workflow phù hợp khi nào?",
+      "memoryHook": "Khi các nhánh độc lập và có thể chạy đồng thời."
+    },
+    "back": {
+      "explanation": "Parallel giảm thời gian chờ nhưng cần cơ chế hội tụ.",
+      "example": "Love Advisor chạy hai phân tích độc lập rồi synthesis.",
+      "dontConfuse": "Parallel không có nghĩa output tự hợp nhất đúng; cần synthesis gate."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "parallel"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "Hai lane song song hội tụ.",
+      "brief": "Parallel conveyors merge at gate."
+    }
+  },
+  {
+    "id": "M4-FC-05",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Loop Workflow",
+      "prompt": "Loop nên có giới hạn gì?",
+      "memoryHook": "Điều kiện dừng và số vòng tối đa."
+    },
+    "back": {
+      "explanation": "Loop dùng cho QA/revision hoặc retry nhưng phải bounded.",
+      "example": "Dashboard giới hạn QA/revision tối đa hai vòng.",
+      "dontConfuse": "Loop không giới hạn có thể tăng chi phí và không bao giờ dừng."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "loop"
+    ],
+    "illustration": {
+      "conceptId": "ILL-16",
+      "alt": "Report quay lại QA tối đa hai vòng.",
+      "brief": "Bounded loop between writer and reviewer."
+    }
+  },
+  {
+    "id": "M4-FC-06",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Control Owner",
+      "prompt": "Câu hỏi đầu tiên khi chọn pattern là gì?",
+      "memoryHook": "Ai đang sở hữu quyết định tiếp theo?"
+    },
+    "back": {
+      "explanation": "Control owner giúp phân biệt root giữ quyền, transfer quyền hay workflow định trước.",
+      "example": "World Cup root giữ quyền; Script Team chuyển quyền; SequentialAgent điều khiển thứ tự.",
+      "dontConfuse": "Không chọn pattern chỉ vì nó nghe phức tạp hơn."
+    },
+    "projectLinks": [
+      "worldcup-analyst",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "control"
+    ],
+    "illustration": {
+      "conceptId": "ILL-14",
+      "alt": "Một control desk hiển thị ai đang điều khiển.",
+      "brief": "Control ownership changes by pattern."
+    }
+  },
+  {
+    "id": "M4-FC-07",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Synthesis Gate",
+      "prompt": "Vì sao cần synthesis gate sau parallel branches?",
+      "memoryHook": "Đảm bảo đủ input trước khi hợp nhất."
+    },
+    "back": {
+      "explanation": "Gate kiểm tra branch completion và schema trước synthesis.",
+      "example": "Love Advisor không tổng hợp nếu một branch chưa hoàn thành.",
+      "dontConfuse": "Không giả định branch chậm sẽ tự có dữ liệu."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "synthesis"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "Hai lane phải bật đèn hoàn thành trước khi merge.",
+      "brief": "Completion gate before synthesis."
+    }
+  },
+  {
+    "id": "M4-FC-08",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Handoff Contract",
+      "prompt": "Một handoff tốt cần gì?",
+      "memoryHook": "Input/output rõ và tên key nhất quán."
+    },
+    "back": {
+      "explanation": "Handoff contract giúp agent sau biết nhận dữ liệu nào và format gì.",
+      "example": "Critic nhận draft và trả structured feedback cho Reviser.",
+      "dontConfuse": "Role description tốt không bù được output contract sai."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "handoff",
+      "contract"
+    ],
+    "illustration": {
+      "conceptId": "ILL-07",
+      "alt": "Task folder có field được ghi rõ.",
+      "brief": "Structured handoff package."
+    }
+  },
+  {
+    "id": "M4-FC-09",
+    "module": "M4",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Pattern Composition",
+      "prompt": "Có thể ghép nhiều pattern trong một hệ thống không?",
+      "memoryHook": "Có, nhưng mỗi layer phải có lý do và boundary rõ."
+    },
+    "back": {
+      "explanation": "Một Sequential workflow có thể chứa Parallel stage; root A2A có thể gọi remote specialist chứa LoopAgent.",
+      "example": "Love Advisor là parallel bên trong sequential; A2A route tới specialist workflow.",
+      "dontConfuse": "Ghép pattern quá nhiều có thể làm trace và error handling khó hiểu."
+    },
+    "projectLinks": [
+      "love-advisor",
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "composition"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "Các pattern lồng nhau có boundary rõ.",
+      "brief": "Nested workflow containers."
+    }
+  },
+  {
+    "id": "M4-FC-10",
+    "module": "M4",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Failure Propagation",
+      "prompt": "Khi một sub-agent lỗi, hệ thống nên làm gì?",
+      "memoryHook": "Chuyển lỗi thành state rõ và chọn retry, fallback hoặc stop."
+    },
+    "back": {
+      "explanation": "Failure propagation cần boundary để không biến lỗi thành output trông hợp lệ.",
+      "example": "A2A specialist offline phải trả fallback chứ không giả artifact.",
+      "dontConfuse": "Không nuốt lỗi rồi sinh kết quả không có bằng chứng."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "failure",
+      "fallback"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "Lỗi đi qua boundary tới fallback.",
+      "brief": "Service failure routes to controlled fallback."
+    }
+  },
+  {
+    "id": "M5-FC-01",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "MCP",
+      "prompt": "MCP giải quyết vấn đề gì?",
+      "memoryHook": "Chuẩn hóa cách agent kết nối tới tool và data source."
+    },
+    "back": {
+      "explanation": "MCP cung cấp giao diện thống nhất để agent khám phá và gọi capability bên ngoài.",
+      "example": "Dashboard có thể dùng MCP filesystem để đọc file được phép.",
+      "dontConfuse": "MCP không phải giao thức agent-to-agent."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "mcp"
+    ],
+    "illustration": {
+      "conceptId": "ILL-17",
+      "alt": "Cầu nối từ agent tới file, database và tool.",
+      "brief": "Standard bridge between control room and data stations."
+    }
+  },
+  {
+    "id": "M5-FC-02",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "RAG",
+      "prompt": "RAG thêm gì trước bước sinh câu trả lời?",
+      "memoryHook": "Truy xuất nội dung liên quan."
+    },
+    "back": {
+      "explanation": "RAG tìm các đoạn phù hợp rồi đưa vào context để model tổng hợp.",
+      "example": "Dashboard truy xuất tài liệu liên quan trước khi viết insight.",
+      "dontConfuse": "RAG không tự xác minh mọi claim hoặc phép tính."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "rag"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Researcher lấy vài trang liên quan.",
+      "brief": "Retrieve before generate."
+    }
+  },
+  {
+    "id": "M5-FC-03",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "Embedding",
+      "prompt": "Embedding dùng để làm gì?",
+      "memoryHook": "Biểu diễn nội dung bằng vector để so sánh độ tương đồng."
+    },
+    "back": {
+      "explanation": "Embedding giúp tìm đoạn có nghĩa gần nhau trong vector database.",
+      "example": "Một query về churn có thể tìm các đoạn retention liên quan.",
+      "dontConfuse": "Similarity cao không đồng nghĩa nội dung đúng hoặc mới."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "embedding"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Các đoạn văn biến thành điểm trong không gian vector.",
+      "brief": "Semantic points clustered by similarity."
+    }
+  },
+  {
+    "id": "M5-FC-04",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "Vector Database",
+      "prompt": "Vector database lưu gì?",
+      "memoryHook": "Embedding và metadata để tìm theo similarity."
+    },
+    "back": {
+      "explanation": "Nó hỗ trợ retrieval trên nhiều tài liệu.",
+      "example": "ChromaDB có thể lưu chunk tài liệu cho Dashboard Insights.",
+      "dontConfuse": "Collection chung có thể trộn domain nếu không tách rõ."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "vector-db"
+    ],
+    "illustration": {
+      "conceptId": "ILL-20",
+      "alt": "Các collection được tách theo project.",
+      "brief": "Separate vector drawers."
+    }
+  },
+  {
+    "id": "M5-FC-05",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Claim-Evidence Link",
+      "prompt": "Tại sao claim phải nối được tới evidence?",
+      "memoryHook": "Để người đọc kiểm tra kết luận đến từ đâu."
+    },
+    "back": {
+      "explanation": "Claim-evidence link có thể chỉ tới file, sheet, row, cell hoặc source URL.",
+      "example": "Dashboard claim doanh thu giảm nên chỉ ra đúng hai row so sánh.",
+      "dontConfuse": "Một report có citation chung cuối trang chưa đủ cho mọi claim."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "evidence",
+      "claim"
+    ],
+    "illustration": {
+      "conceptId": "ILL-19",
+      "alt": "Claim nối bằng đường tới spreadsheet row.",
+      "brief": "Visible evidence link."
+    }
+  },
+  {
+    "id": "M5-FC-06",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Computation Before Narrative",
+      "prompt": "Vì sao nên tính số liệu bằng code trước khi model viết?",
+      "memoryHook": "Phép tính có thể tái lập và test được."
+    },
+    "back": {
+      "explanation": "Code tạo metric; model giải thích ý nghĩa và giới hạn.",
+      "example": "World Cup Analyst dùng code executor cho tỷ lệ, Dashboard tính anomaly threshold.",
+      "dontConfuse": "Model mental math có thể sai dù văn phong tự tin."
+    },
+    "projectLinks": [
+      "worldcup-analyst",
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "calculation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-19",
+      "alt": "Máy tính tạo số trước khi report được viết.",
+      "brief": "Calculation precedes narrative."
+    }
+  },
+  {
+    "id": "M5-FC-07",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Source Scope",
+      "prompt": "Source scope nên nói gì?",
+      "memoryHook": "Nguồn nào được dùng và nguồn nào chưa được kiểm tra."
+    },
+    "back": {
+      "explanation": "Scope giúp user hiểu giới hạn của research.",
+      "example": "Wikipedia search chỉ là nguồn tổng quan, không phải nguồn chính thức cho mọi thống kê.",
+      "dontConfuse": "Không gọi report “đầy đủ” nếu chỉ dùng một nguồn."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Khung giới hạn nguồn bao quanh evidence.",
+      "brief": "Source boundary around retrieved pages."
+    }
+  },
+  {
+    "id": "M5-FC-08",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Tenant Isolation",
+      "prompt": "Tại sao phải tách dữ liệu theo tenant/project?",
+      "memoryHook": "Tránh retrieval nhầm tài liệu giữa người dùng hoặc domain."
+    },
+    "back": {
+      "explanation": "Isolation dùng collection, namespace và access control rõ.",
+      "example": "Dashboard nên tách vector collection theo tenant/project/domain.",
+      "dontConfuse": "Metadata filter lỏng không đủ nếu dữ liệu nhạy cảm."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "isolation",
+      "privacy"
+    ],
+    "illustration": {
+      "conceptId": "ILL-20",
+      "alt": "Các ngăn dữ liệu riêng biệt.",
+      "brief": "Separated drawers prevent mixing."
+    }
+  },
+  {
+    "id": "M5-FC-09",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Retrieval Evaluation",
+      "prompt": "RAG nên được đánh giá bằng gì?",
+      "memoryHook": "Không chỉ xem câu trả lời hay; phải đo retrieval và answer grounding."
+    },
+    "back": {
+      "explanation": "Có thể kiểm tra recall, relevance, source coverage và claim grounding.",
+      "example": "Một test query cần kiểm tra chunk đúng có được lấy ra hay không.",
+      "dontConfuse": "Một demo thành công không chứng minh retrieval ổn định."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "evaluation",
+      "rag"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Checklist đánh giá đoạn được truy xuất.",
+      "brief": "Retrieved pages scored for relevance."
+    }
+  },
+  {
+    "id": "M5-FC-10",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Data Quality Gate",
+      "prompt": "Data quality gate nên xảy ra lúc nào?",
+      "memoryHook": "Trước khi insight hoặc report được tạo."
+    },
+    "back": {
+      "explanation": "Gate kiểm tra schema, missing values, types và range.",
+      "example": "Dashboard ingestion nên báo file thiếu cột trước khi tính metric.",
+      "dontConfuse": "Không để model đoán cột hoặc tự bù dữ liệu mà không nói."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "data-quality"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "Data đi qua cổng kiểm tra trước report.",
+      "brief": "Schema and missing-value checkpoint."
+    }
+  },
+  {
+    "id": "M6-FC-01",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "A2A",
+      "prompt": "A2A dùng để làm gì?",
+      "memoryHook": "Cho các hệ agent độc lập giao tiếp qua service boundary."
+    },
+    "back": {
+      "explanation": "A2A giúp orchestrator khám phá capability và gửi task tới remote agent.",
+      "example": "A2A Orchestrator route request tới specialist service.",
+      "dontConfuse": "A2A không phải MCP; MCP kết nối agent với tool/data."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "a2a"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Control tower route request tới service agent.",
+      "brief": "Request signal across service boundaries."
+    }
+  },
+  {
+    "id": "M6-FC-02",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent Card",
+      "prompt": "Agent Card chứa gì?",
+      "memoryHook": "Capability, endpoint, input, output và protocol metadata."
+    },
+    "back": {
+      "explanation": "Nó là hợp đồng để orchestrator biết specialist có thể làm gì.",
+      "example": "Trip Planner Agent Card mô tả travel planning và port tương ứng.",
+      "dontConfuse": "Description marketing không đủ; contract phải machine-readable và versioned."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agent-card"
+    ],
+    "illustration": {
+      "conceptId": "ILL-21",
+      "alt": "Passport của agent service.",
+      "brief": "Capability card with endpoint and schema."
+    }
+  },
+  {
+    "id": "M6-FC-03",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "Service Boundary",
+      "prompt": "Service boundary thay đổi vấn đề kỹ thuật nào?",
+      "memoryHook": "Network, auth, timeout, version và observability xuất hiện."
+    },
+    "back": {
+      "explanation": "Remote call có thể lỗi dù logic agent đúng.",
+      "example": "A2A specialist offline cần timeout và fallback.",
+      "dontConfuse": "Đừng thiết kế remote system như function call nội bộ."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "distributed"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Request đi qua ranh giới giữa service.",
+      "brief": "Signal crosses network boundary."
+    }
+  },
+  {
+    "id": "M6-FC-04",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Timeout",
+      "prompt": "Timeout bảo vệ điều gì?",
+      "memoryHook": "Không để request chờ vô hạn."
+    },
+    "back": {
+      "explanation": "Timeout xác định thời gian tối đa trước khi retry/fallback.",
+      "example": "Orchestrator dừng chờ specialist và hiển thị trạng thái rõ.",
+      "dontConfuse": "Không bịa latency trong portfolio nếu không đo thật."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "timeout"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "Đồng hồ dừng một network call.",
+      "brief": "Timeout gate on remote request."
+    }
+  },
+  {
+    "id": "M6-FC-05",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Retry",
+      "prompt": "Retry nên dùng khi nào?",
+      "memoryHook": "Khi lỗi tạm thời và operation đủ an toàn để thử lại."
+    },
+    "back": {
+      "explanation": "Retry cần backoff, max attempts và idempotency.",
+      "example": "A2A có thể retry một transient timeout trước fallback.",
+      "dontConfuse": "Retry mọi lỗi có thể làm hệ thống chậm hoặc tạo side effect trùng."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "retry"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "Request thử lại với giới hạn.",
+      "brief": "One controlled retry then fallback."
+    }
+  },
+  {
+    "id": "M6-FC-06",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Circuit Breaker",
+      "prompt": "Circuit breaker giúp gì khi service liên tục lỗi?",
+      "memoryHook": "Tạm ngừng call để tránh làm hệ thống xấu hơn."
+    },
+    "back": {
+      "explanation": "Breaker mở sau ngưỡng lỗi và cho phép fallback/health recovery.",
+      "example": "Orchestrator không tiếp tục spam specialist đang unavailable.",
+      "dontConfuse": "Circuit breaker khác timeout của một request đơn lẻ."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "circuit-breaker"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "Công tắc ngắt đường tới service lỗi.",
+      "brief": "Open breaker redirects to fallback."
+    }
+  },
+  {
+    "id": "M6-FC-07",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Trace ID",
+      "prompt": "Trace ID dùng để làm gì?",
+      "memoryHook": "Nối các event của cùng một request qua nhiều service."
+    },
+    "back": {
+      "explanation": "Một ID xuyên suốt giúp debug routing, tool call và artifact.",
+      "example": "A2A request có thể truyền trace ID từ orchestrator tới specialist.",
+      "dontConfuse": "Không hiển thị trace ID giả nếu backend chưa tạo thật."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "observability"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Một ID đi cùng request qua nhiều service.",
+      "brief": "Shared trace identifier across hops."
+    }
+  },
+  {
+    "id": "M6-FC-08",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Contract Versioning",
+      "prompt": "Tại sao Agent Card/schema cần version?",
+      "memoryHook": "Client và service có thể thay đổi độc lập."
+    },
+    "back": {
+      "explanation": "Versioning cho phép kiểm tra compatibility và migration.",
+      "example": "Orchestrator từ chối specialist dùng protocol version không hỗ trợ.",
+      "dontConfuse": "Không assume mọi service dùng cùng dependency version."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "versioning"
+    ],
+    "illustration": {
+      "conceptId": "ILL-21",
+      "alt": "Hai contract version được so sánh.",
+      "brief": "Service passport with version fields."
+    }
+  },
+  {
+    "id": "M6-FC-09",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Test Pyramid for Agents",
+      "prompt": "Agent project nên test những lớp nào?",
+      "memoryHook": "Tool/schema ở unit, workflow ở integration, full route ở end-to-end."
+    },
+    "back": {
+      "explanation": "Tách test giúp biết lỗi nằm ở logic, model/tool hay network.",
+      "example": "Dashboard test calculation riêng; A2A test routing và offline fallback.",
+      "dontConfuse": "Chỉ demo một prompt thành công không đủ."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "testing"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Các lớp test xếp từ unit tới end-to-end.",
+      "brief": "Layered testing pyramid for agent systems."
+    }
+  },
+  {
+    "id": "M6-FC-10",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Release Honesty",
+      "prompt": "Portfolio nên công bố trạng thái nào?",
+      "memoryHook": "Phân biệt source, replay, simulation và live."
+    },
+    "back": {
+      "explanation": "Trust đến từ nhãn đúng, test thật và giới hạn đúng chỗ.",
+      "example": "Verified replay hiển thị commit/test; browser demo ghi rõ simulation.",
+      "dontConfuse": "Không dùng animation hoặc badge để tạo cảm giác hệ thống đang live."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "release",
+      "trust"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Bốn nhãn runtime được phân biệt rõ.",
+      "brief": "Replay, mocked, simulation and live badges."
+    }
+  }
+]

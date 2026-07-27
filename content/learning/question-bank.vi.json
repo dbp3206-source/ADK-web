@@ -1,0 +1,2090 @@
+[
+  {
+    "id": "M1-Q-01",
+    "module": "M1",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Điểm khác biệt quan trọng nhất giữa chatbot chỉ sinh văn bản và AI Agent là gì?",
+    "options": [
+      "Agent luôn dùng nhiều model hơn",
+      "Agent có thể chọn hành động, gọi tool và quan sát kết quả",
+      "Agent luôn có giao diện phức tạp",
+      "Agent luôn lưu dữ liệu vĩnh viễn"
+    ],
+    "answer": 1,
+    "explanation": "Agent vượt khỏi việc chỉ trả lời khi nó có thể hành động, nhận observation và tiếp tục.",
+    "wrongAnswerNotes": {
+      "0": "Số model không quyết định hệ thống có phải agent.",
+      "2": "Giao diện không quyết định kiến trúc.",
+      "3": "Persistence là một lựa chọn, không phải điều kiện bắt buộc."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "agent",
+      "chatbot"
+    ]
+  },
+  {
+    "id": "M1-Q-02",
+    "module": "M1",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "Một câu trả lời ghi “Tôi đã lưu lịch trình” đủ để chứng minh tool lưu state đã chạy.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Cần quan sát tool event hoặc state diff; văn bản model tự sinh không chứng minh hành động đã xảy ra.",
+    "wrongAnswerNotes": {
+      "0": "Đây là lỗi phổ biến khi nhầm lời nói với hành động."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "tool",
+      "state"
+    ]
+  },
+  {
+    "id": "M1-Q-03",
+    "module": "M1",
+    "difficulty": "basic",
+    "type": "ordering",
+    "prompt": "Sắp xếp agent loop cơ bản theo thứ tự hợp lý.",
+    "options": [
+      "Quan sát kết quả",
+      "Nhận yêu cầu",
+      "Chọn hành động",
+      "Quyết định dừng hoặc tiếp tục"
+    ],
+    "answer": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "explanation": "Agent nhận yêu cầu, chọn hành động, quan sát kết quả rồi quyết định tiếp tục hay dừng.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "loop"
+    ]
+  },
+  {
+    "id": "M1-Q-04",
+    "module": "M1",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Ví dụ nào là artifact rõ nhất?",
+    "options": [
+      "Một animation chạy trong hero",
+      "Một report JSON có thể lưu và mở lại",
+      "Một tooltip mô tả tool",
+      "Một dòng slogan"
+    ],
+    "answer": 1,
+    "explanation": "Artifact là đầu ra có cấu trúc hoặc có vòng đời rõ, như report, file, itinerary hoặc JSON.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "artifact"
+    ]
+  },
+  {
+    "id": "M1-Q-05",
+    "module": "M1",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Replay hiển thị routing, tool call, state diff và output nhưng không hiển thị raw chain-of-thought. Thiết kế này có phù hợp không?",
+    "options": [
+      "Không, phải hiển thị toàn bộ suy nghĩ nội bộ",
+      "Có, vì các event này quan sát và kiểm chứng được",
+      "Không, replay chỉ được hiển thị output cuối",
+      "Có, nhưng phải tự viết thêm suy nghĩ để hấp dẫn"
+    ],
+    "answer": 1,
+    "explanation": "Replay nên tập trung vào observable events và decision summary, không lộ hoặc bịa chain-of-thought.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "replay",
+      "safety"
+    ]
+  },
+  {
+    "id": "M1-Q-06",
+    "module": "M1",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Những mục nào nên có trong một verified replay?",
+    "options": [
+      "Source commit",
+      "Actual output",
+      "Tool/state events đã sanitize",
+      "Số token suy nghĩ nội bộ",
+      "Test/assertion result"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Commit, output, observable events và test giúp xác minh replay. Raw thought tokens không nên hiển thị.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "verification"
+    ]
+  },
+  {
+    "id": "M1-Q-07",
+    "module": "M1",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Khi nào có thể ghi nhãn “Live Execution”?",
+    "options": [
+      "Khi animation trông giống realtime",
+      "Khi browser simulation chạy nhanh",
+      "Khi request thật đi qua backend thật với status và error thật",
+      "Khi output giống output mong đợi"
+    ],
+    "answer": 2,
+    "explanation": "Live execution phải dựa trên backend thật và trạng thái đo thật.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "live",
+      "honesty"
+    ]
+  },
+  {
+    "id": "M1-Q-08",
+    "module": "M1",
+    "difficulty": "practice",
+    "type": "debugging",
+    "prompt": "UI ghi “Agent đã suy luận: ...” nhưng nội dung đó do frontend tự viết. Lỗi chính là gì?",
+    "options": [
+      "Thiếu animation",
+      "Đang bịa nội dung nội bộ và gây hiểu lầm",
+      "Chưa dùng monospace",
+      "Thiếu icon agent"
+    ],
+    "answer": 1,
+    "explanation": "Không được viết giả reasoning như log thật. Chỉ nên hiển thị decision summary có nguồn hoặc observable events.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "reasoning",
+      "trust"
+    ]
+  },
+  {
+    "id": "M1-Q-09",
+    "module": "M1",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Mô phỏng deterministic phù hợp nhất khi nào?",
+    "options": [
+      "Cần tuyên bố model đang chạy live",
+      "Cần giải thích flow lặp lại được mà chưa có backend",
+      "Cần che việc test thất bại",
+      "Cần tạo số liệu ngẫu nhiên"
+    ],
+    "answer": 1,
+    "explanation": "Deterministic simulation phù hợp cho giáo dục và UI demo, miễn ghi nhãn đúng.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "simulation"
+    ]
+  },
+  {
+    "id": "M1-Q-10",
+    "module": "M1",
+    "difficulty": "architecture",
+    "type": "multiple-choice",
+    "prompt": "Guardrail có thể bao gồm gì?",
+    "options": [
+      "Schema validation",
+      "Permission check",
+      "Rate limit",
+      "Một câu slogan an toàn",
+      "Refusal rule"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Guardrail là boundary có thể thực thi hoặc kiểm tra, không chỉ là thông điệp.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "guardrail"
+    ]
+  },
+  {
+    "id": "M1-Q-11",
+    "module": "M1",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Một project không chạy vì thiếu API key. Website nên làm gì?",
+    "options": [
+      "Tạo output mẫu rồi ghi Verified",
+      "Dùng replay từ project khác",
+      "Ghi blocked hoặc dùng mocked replay nếu có fixture hợp lệ",
+      "Ẩn toàn bộ project"
+    ],
+    "answer": 2,
+    "explanation": "Không được bịa output. Có thể dùng mock rõ ràng hoặc báo blocked.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "blocked",
+      "mock"
+    ]
+  },
+  {
+    "id": "M1-Q-12",
+    "module": "M1",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Decision summary tốt nhất là câu nào?",
+    "options": [
+      "Model nghĩ rất lâu và cân nhắc nhiều lựa chọn",
+      "Request có phép tính nên hệ thống gọi code executor",
+      "Agent tự tin 97%",
+      "Đây là lựa chọn tối ưu tuyệt đối"
+    ],
+    "answer": 1,
+    "explanation": "Câu này mô tả quyết định cụ thể, ngắn và gắn với observable action.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "decision-summary"
+    ]
+  },
+  {
+    "id": "M1-Q-13",
+    "module": "M1",
+    "difficulty": "basic",
+    "type": "matching",
+    "prompt": "Ghép khái niệm với mô tả.",
+    "options": [
+      "Agent Loop ↔ Nhận yêu cầu, hành động, quan sát, tiếp tục",
+      "Artifact ↔ Đầu ra có thể lưu/xem lại",
+      "Guardrail ↔ Rule kiểm soát hành vi",
+      "Live Execution ↔ Browser animation"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Ba ghép đầu đúng; browser animation không phải live execution.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner",
+      "dashboard-insights"
+    ],
+    "tags": [
+      "matching"
+    ]
+  },
+  {
+    "id": "M1-Q-14",
+    "module": "M1",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Một verified replay có thể chứa failed case nếu lỗi là thật, đã sanitize và có giá trị giáo dục.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "explanation": "Failed/fallback case giúp chứng minh error handling, miễn ghi nhãn rõ và không lộ dữ liệu nhạy cảm.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "failure",
+      "replay"
+    ]
+  },
+  {
+    "id": "M1-Q-15",
+    "module": "M1",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "User xem một output nhưng không thấy input, test hay source. Kết luận hợp lý nhất là gì?",
+    "options": [
+      "Output chắc chắn là thật",
+      "Chưa đủ cơ sở để biết output đến từ đâu",
+      "Agent chắc chắn chạy live",
+      "Output không có giá trị gì"
+    ],
+    "answer": 1,
+    "explanation": "Output có thể hữu ích, nhưng thiếu provenance nên chưa thể xác minh nguồn.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "provenance"
+    ]
+  },
+  {
+    "id": "M2-Q-01",
+    "module": "M2",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "File nào thường là nơi đầu tiên để tìm `root_agent` trong project ADK?",
+    "options": [
+      "README.md",
+      "agent.py",
+      ".env",
+      "package.json"
+    ],
+    "answer": 1,
+    "explanation": "`agent.py` thường chứa khai báo agent chính, dù phải xác minh entrypoint thực tế.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "agent.py"
+    ]
+  },
+  {
+    "id": "M2-Q-02",
+    "module": "M2",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "Tên biến `root_agent` luôn đủ để biết runtime chắc chắn dùng agent đó.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Cần kiểm tra entrypoint, service wrapper và tests; repo có thể có nhiều assignment hoặc variant.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "entrypoint"
+    ]
+  },
+  {
+    "id": "M2-Q-03",
+    "module": "M2",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Field `tools` trong agent declaration cho biết gì?",
+    "options": [
+      "Agent chắc chắn đã gọi mọi tool",
+      "Các capability mà agent có thể gọi",
+      "Tool nào luôn thành công",
+      "Tool nào chạy live trên website"
+    ],
+    "answer": 1,
+    "explanation": "Field này mô tả capability đăng ký, không chứng minh tool đã được gọi trong một case cụ thể.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "tools"
+    ]
+  },
+  {
+    "id": "M2-Q-04",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Thông tin nào nên trích từ `root_agent` khi có thể xác minh tĩnh?",
+    "options": [
+      "Class/constructor",
+      "Model",
+      "Tools",
+      "Sub-agents",
+      "Suy nghĩ nội bộ của model"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "AST/source parsing có thể lấy cấu trúc khai báo; chain-of-thought không nằm trong declaration.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "source"
+    ]
+  },
+  {
+    "id": "M2-Q-05",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Vì sao `output_key` quan trọng trong workflow?",
+    "options": [
+      "Để đổi màu UI",
+      "Để agent sau tìm đúng output của agent trước",
+      "Để tăng token budget",
+      "Để chọn model nhanh hơn"
+    ],
+    "answer": 1,
+    "explanation": "Output key là contract dữ liệu giữa các stage.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "output_key"
+    ]
+  },
+  {
+    "id": "M2-Q-06",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "debugging",
+    "prompt": "Drafter ghi `draft_text` nhưng Critic đọc `draft`. Lỗi có khả năng là gì?",
+    "options": [
+      "Model quá nhỏ",
+      "Handoff contract/output key không khớp",
+      "CSS lỗi",
+      "Thiếu A2A"
+    ],
+    "answer": 1,
+    "explanation": "Workflow có thể chạy nhưng downstream không nhận đúng dữ liệu.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "handoff",
+      "bug"
+    ]
+  },
+  {
+    "id": "M2-Q-07",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Callback nên được dùng khi nào?",
+    "options": [
+      "Khi cần rule chạy ở thời điểm xác định trước/sau model",
+      "Khi muốn slogan hay hơn",
+      "Khi muốn đổi font",
+      "Khi muốn bỏ validation"
+    ],
+    "answer": 0,
+    "explanation": "Callback phù hợp cho ingest, validation, logging hoặc guardrail có thời điểm rõ.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "callback"
+    ]
+  },
+  {
+    "id": "M2-Q-08",
+    "module": "M2",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Lợi ích chính của Python AST khi trích `root_agent` là gì?",
+    "options": [
+      "Chạy toàn bộ project",
+      "Xác định assignment và line range mà không cần thực thi code",
+      "Tự dịch source sang tiếng Việt",
+      "Tạo output model"
+    ],
+    "answer": 1,
+    "explanation": "AST hỗ trợ phân tích cấu trúc tĩnh và lấy source segment chính xác.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "ast"
+    ]
+  },
+  {
+    "id": "M2-Q-09",
+    "module": "M2",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Condensed view được phép thay đổi nội dung copy của exact source miễn trông gọn hơn.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Condensed view chỉ collapse UI; exact source phải giữ nguyên và luôn mở/copy được.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "source-integrity"
+    ]
+  },
+  {
+    "id": "M2-Q-10",
+    "module": "M2",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "`root_agent` được tạo bởi một factory function và model lấy từ environment. Static parser nên hiển thị gì?",
+    "options": [
+      "Tự đoán model",
+      "Không xác định từ source tĩnh, kèm đường dẫn factory",
+      "Ghi model phổ biến nhất",
+      "Bỏ toàn bộ source"
+    ],
+    "answer": 1,
+    "explanation": "Giá trị động phải được ghi là chưa xác định từ source tĩnh.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "dynamic-config"
+    ]
+  },
+  {
+    "id": "M2-Q-11",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Khi source có hai assignment `root_agent`, GPT Work nên làm gì?",
+    "options": [
+      "Ghi nhận cả hai",
+      "Kiểm tra entrypoint/tests",
+      "Âm thầm lấy assignment đầu",
+      "Báo ambiguity nếu chưa xác định runtime"
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Không được tự chọn một variant khi chưa có bằng chứng runtime.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "multiple-root"
+    ]
+  },
+  {
+    "id": "M2-Q-12",
+    "module": "M2",
+    "difficulty": "basic",
+    "type": "matching",
+    "prompt": "Ghép field với vai trò.",
+    "options": [
+      "instruction ↔ hướng dẫn nhiệm vụ",
+      "tools ↔ capability có thể gọi",
+      "sub_agents ↔ specialist bên trong",
+      "output_key ↔ tên vùng dữ liệu đầu ra"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Bốn cặp này mô tả các phần thường gặp trong agent declaration.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "fields"
+    ]
+  },
+  {
+    "id": "M2-Q-13",
+    "module": "M2",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Source Explorer nên hiển thị file path như thế nào?",
+    "options": [
+      "Absolute home path có tên user",
+      "Workspace-relative path đã sanitize",
+      "Không cần path",
+      "Tự tạo path dễ đọc"
+    ],
+    "answer": 1,
+    "explanation": "Path tương đối đủ để kiểm tra source mà không lộ thông tin cá nhân.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "privacy",
+      "source"
+    ]
+  },
+  {
+    "id": "M2-Q-14",
+    "module": "M2",
+    "difficulty": "architecture",
+    "type": "debugging",
+    "prompt": "Website hiển thị `root_agent = Agent(...)` nhưng source thật là `SequentialAgent(...)`. Đây là lỗi gì?",
+    "options": [
+      "Chỉ là khác biệt style",
+      "Bịa hoặc rewrite source, phá trust",
+      "Không quan trọng",
+      "Chỉ ảnh hưởng mobile"
+    ],
+    "answer": 1,
+    "explanation": "Code source phải được trích nguyên bản, không viết lại cho đẹp.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "trust"
+    ]
+  },
+  {
+    "id": "M2-Q-15",
+    "module": "M2",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Một tool được import nhưng không nằm trong `tools` của root agent. Có thể kết luận root agent dùng tool đó không?",
+    "options": [
+      "Có, vì đã import",
+      "Không chắc; cần xem declaration/runtime",
+      "Chắc chắn không",
+      "Chắc chắn dùng live"
+    ],
+    "answer": 1,
+    "explanation": "Import không chứng minh registration hoặc execution.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "source-analysis"
+    ]
+  },
+  {
+    "id": "M3-Q-01",
+    "module": "M3",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Session state thường tồn tại trong phạm vi nào?",
+    "options": [
+      "Một phiên làm việc hoặc workflow hiện tại",
+      "Mọi user vĩnh viễn",
+      "Mọi browser trên Internet",
+      "Chỉ trong CSS"
+    ],
+    "answer": 0,
+    "explanation": "Session state gắn với phiên; persistence lâu hơn cần store khác.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "session"
+    ]
+  },
+  {
+    "id": "M3-Q-02",
+    "module": "M3",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Memory khác state chủ yếu ở điểm nào?",
+    "options": [
+      "Memory thường hỗ trợ truy xuất qua nhiều session",
+      "Memory luôn là vector database",
+      "State luôn nằm trong file",
+      "Không có khác biệt"
+    ],
+    "answer": 0,
+    "explanation": "Memory thường có vòng đời dài hơn và cơ chế retrieval, còn state phục vụ phiên/workflow.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "memory",
+      "state"
+    ]
+  },
+  {
+    "id": "M3-Q-03",
+    "module": "M3",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "`sessionStorage` là bằng chứng rằng project Python có durable memory.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Browser demo storage và project runtime storage là hai boundary khác nhau.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "storage"
+    ]
+  },
+  {
+    "id": "M3-Q-04",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "ordering",
+    "prompt": "Sắp xếp flow lưu state hợp lý.",
+    "options": [
+      "Validate input",
+      "Gọi save tool",
+      "Ghi state",
+      "Trả tool receipt"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Input nên được kiểm tra trước mutation; receipt phản ánh kết quả sau khi ghi.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "state-write"
+    ]
+  },
+  {
+    "id": "M3-Q-05",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "State diff hữu ích nhất để làm gì?",
+    "options": [
+      "Tăng animation",
+      "Cho thấy field nào thay đổi trước/sau hành động",
+      "Ẩn tool call",
+      "Thay thế test"
+    ],
+    "answer": 1,
+    "explanation": "Diff giúp user hiểu tác động của tool hoặc workflow.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "diff"
+    ]
+  },
+  {
+    "id": "M3-Q-06",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Sau khi clear session, retrieve vẫn trả itinerary cũ. Đây có thể là lỗi gì?",
+    "options": [
+      "State không được xóa hoặc dữ liệu đang đọc từ store khác",
+      "Font lỗi",
+      "Voice lỗi",
+      "A2A timeout"
+    ],
+    "answer": 0,
+    "explanation": "Cần kiểm tra persistence boundary và nguồn read.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "state-read",
+      "bug"
+    ]
+  },
+  {
+    "id": "M3-Q-07",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Tool mutation tốt nên có gì?",
+    "options": [
+      "Schema validation",
+      "Observable event",
+      "Error handling",
+      "Confirmation cho action có chi phí",
+      "Slogan marketing"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Các yếu tố này giúp mutation an toàn và kiểm tra được.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "tool",
+      "validation"
+    ]
+  },
+  {
+    "id": "M3-Q-08",
+    "module": "M3",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Idempotency quan trọng nhất khi nào?",
+    "options": [
+      "Khi tool có thể bị retry",
+      "Khi chỉ đổi màu button",
+      "Khi không có state",
+      "Khi chỉ đọc static text"
+    ],
+    "answer": 0,
+    "explanation": "Retry có thể lặp mutation; idempotency giúp tránh side effect trùng.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "idempotency"
+    ]
+  },
+  {
+    "id": "M3-Q-09",
+    "module": "M3",
+    "difficulty": "architecture",
+    "type": "debugging",
+    "prompt": "Tool `save_report` tạo bản mới mỗi lần retry cùng request ID. Rủi ro là gì?",
+    "options": [
+      "Duplicate artifact",
+      "Thiếu font",
+      "Voice chậm",
+      "Locale sai"
+    ],
+    "answer": 0,
+    "explanation": "Không idempotent có thể tạo nhiều bản ghi/trạng thái trùng.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "retry",
+      "artifact"
+    ]
+  },
+  {
+    "id": "M3-Q-10",
+    "module": "M3",
+    "difficulty": "basic",
+    "type": "matching",
+    "prompt": "Ghép storage với vòng đời điển hình.",
+    "options": [
+      "In-memory ↔ mất khi process restart",
+      "Session storage ↔ sống trong tab/session browser",
+      "Database ↔ bền vững hơn",
+      "Vector store ↔ retrieval theo similarity"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Mỗi storage có persistence và retrieval semantics khác nhau.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner",
+      "dashboard-insights"
+    ],
+    "tags": [
+      "storage"
+    ]
+  },
+  {
+    "id": "M3-Q-11",
+    "module": "M3",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Schema hợp lệ đồng nghĩa nội dung chắc chắn đúng sự thật.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Schema chỉ xác nhận cấu trúc và kiểu dữ liệu, không xác minh factual correctness.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "schema"
+    ]
+  },
+  {
+    "id": "M3-Q-12",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Not-found state nên làm gì?",
+    "options": [
+      "Bịa dữ liệu mặc định",
+      "Trả trạng thái rõ và gợi ý hành động tiếp theo",
+      "Crash toàn trang",
+      "Ẩn nút"
+    ],
+    "answer": 1,
+    "explanation": "State rõ giúp user hiểu dữ liệu chưa tồn tại hoặc đã bị xóa.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "tags": [
+      "empty-state"
+    ]
+  },
+  {
+    "id": "M3-Q-13",
+    "module": "M3",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "State chứa API key và replay hiển thị toàn bộ diff. Cần làm gì?",
+    "options": [
+      "Giữ nguyên để minh bạch",
+      "Redact secret trước khi tạo fixture",
+      "Chỉ đổi màu",
+      "Tắt replay"
+    ],
+    "answer": 1,
+    "explanation": "Secret không được xuất vào fixture hoặc frontend.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "security",
+      "redaction"
+    ]
+  },
+  {
+    "id": "M3-Q-14",
+    "module": "M3",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Trong Script Team, field nào hợp lý để downstream đọc bản nháp?",
+    "options": [
+      "draft",
+      "random_text",
+      "css_state",
+      "voice_rate"
+    ],
+    "answer": 0,
+    "explanation": "Tên key phải rõ, ổn định và khớp giữa producer/consumer.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "output_key"
+    ]
+  },
+  {
+    "id": "M3-Q-15",
+    "module": "M3",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Một workflow đọc memory cũ nhưng không ghi nguồn hoặc timestamp. Rủi ro chính là gì?",
+    "options": [
+      "Không biết dữ liệu đến từ đâu hoặc còn mới không",
+      "Button không đẹp",
+      "Thiếu animation",
+      "Không đủ agent"
+    ],
+    "answer": 0,
+    "explanation": "Memory cần provenance và freshness khi ảnh hưởng kết luận.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "memory",
+      "provenance"
+    ]
+  },
+  {
+    "id": "M4-Q-01",
+    "module": "M4",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Pattern nào chuyển quyền xử lý sang agent khác?",
+    "options": [
+      "Transfer",
+      "Agent as Tool",
+      "Static page",
+      "MCP"
+    ],
+    "answer": 0,
+    "explanation": "Transfer thay đổi active owner của bước tiếp theo.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "transfer"
+    ]
+  },
+  {
+    "id": "M4-Q-02",
+    "module": "M4",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Pattern nào giữ root agent ở control nhưng gọi specialist như capability?",
+    "options": [
+      "ParallelAgent",
+      "Agent as Tool",
+      "Transfer",
+      "A2A live"
+    ],
+    "answer": 1,
+    "explanation": "Agent as Tool cho phép root gọi specialist và tổng hợp kết quả.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "agenttool"
+    ]
+  },
+  {
+    "id": "M4-Q-03",
+    "module": "M4",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "Parallel workflow phù hợp khi branch B cần output của branch A.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Khi có dependency trực tiếp, sequential phù hợp hơn.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "parallel"
+    ]
+  },
+  {
+    "id": "M4-Q-04",
+    "module": "M4",
+    "difficulty": "basic",
+    "type": "ordering",
+    "prompt": "Sắp xếp Script Team.",
+    "options": [
+      "Critic",
+      "Reviser",
+      "Drafter"
+    ],
+    "answer": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "Draft phải có trước critique; feedback có trước revision.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "sequential"
+    ]
+  },
+  {
+    "id": "M4-Q-05",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Điều kiện quan trọng trước synthesis của hai branch là gì?",
+    "options": [
+      "Cả hai branch hoàn thành và output hợp lệ",
+      "Một branch chạy nhanh hơn",
+      "UI có animation",
+      "Có nhiều model"
+    ],
+    "answer": 0,
+    "explanation": "Synthesis gate bảo đảm dependency đầy đủ.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "synthesis"
+    ]
+  },
+  {
+    "id": "M4-Q-06",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Loop workflow cần control nào?",
+    "options": [
+      "Max iterations",
+      "Exit condition",
+      "Error state",
+      "Unlimited retry",
+      "Cost boundary"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Loop phải bounded và có điều kiện dừng rõ.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "loop"
+    ]
+  },
+  {
+    "id": "M4-Q-07",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Root agent gọi Search Agent, nhận kết quả rồi tự viết report. Đây là pattern gì?",
+    "options": [
+      "Transfer",
+      "Agent as Tool",
+      "Parallel only",
+      "Memory"
+    ],
+    "answer": 1,
+    "explanation": "Root vẫn giữ quyền và gọi specialist như capability.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "agenttool"
+    ]
+  },
+  {
+    "id": "M4-Q-08",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "debugging",
+    "prompt": "Synthesis chạy dù branch B chưa có output. Lỗi thiết kế là gì?",
+    "options": [
+      "Thiếu gate/dependency validation",
+      "Thiếu A2A",
+      "Font sai",
+      "Source path dài"
+    ],
+    "answer": 0,
+    "explanation": "Workflow cần kiểm tra completion và schema trước synthesis.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "parallel",
+      "bug"
+    ]
+  },
+  {
+    "id": "M4-Q-09",
+    "module": "M4",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Câu hỏi tốt nhất để chọn control pattern là gì?",
+    "options": [
+      "Pattern nào nổi tiếng nhất?",
+      "Ai sở hữu quyết định tiếp theo và dependency dữ liệu là gì?",
+      "Pattern nào có nhiều agent nhất?",
+      "Pattern nào có animation đẹp nhất?"
+    ],
+    "answer": 1,
+    "explanation": "Control owner và dependency quyết định pattern phù hợp.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team",
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "control"
+    ]
+  },
+  {
+    "id": "M4-Q-10",
+    "module": "M4",
+    "difficulty": "architecture",
+    "type": "matching",
+    "prompt": "Ghép pattern với project.",
+    "options": [
+      "Transfer ↔ Script Team",
+      "Agent as Tool ↔ World Cup Analyst",
+      "Parallel + Sequential ↔ Love Advisor",
+      "Loop ↔ Dashboard Insights"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Bốn project minh họa bốn control models khác nhau.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team",
+      "worldcup-analyst",
+      "love-advisor",
+      "dashboard-insights"
+    ],
+    "tags": [
+      "patterns"
+    ]
+  },
+  {
+    "id": "M4-Q-11",
+    "module": "M4",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "A2A route tới specialist, specialist bên trong dùng LoopAgent. Đây là gì?",
+    "options": [
+      "Pattern composition",
+      "Sai kiến trúc chắc chắn",
+      "Chỉ là Transfer",
+      "Chỉ là RAG"
+    ],
+    "answer": 0,
+    "explanation": "Các pattern có thể lồng nhau nếu boundary rõ.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator",
+      "dashboard-insights"
+    ],
+    "tags": [
+      "composition"
+    ]
+  },
+  {
+    "id": "M4-Q-12",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Handoff contract nên mô tả gì?",
+    "options": [
+      "Input/output và key",
+      "Màu của card",
+      "Tên font",
+      "Lịch deploy"
+    ],
+    "answer": 0,
+    "explanation": "Contract dữ liệu giúp downstream xử lý ổn định.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "handoff"
+    ]
+  },
+  {
+    "id": "M4-Q-13",
+    "module": "M4",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Khi sub-agent lỗi, root có thể bỏ qua và tự sinh artifact như thể thành công.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Lỗi phải propagate thành retry/fallback/failed state, không che bằng output giả.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "failure"
+    ]
+  },
+  {
+    "id": "M4-Q-14",
+    "module": "M4",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Parallel workflow tối ưu điều gì?",
+    "options": [
+      "Thời gian khi các nhánh độc lập",
+      "Factual accuracy tự động",
+      "Persistence",
+      "Authentication"
+    ],
+    "answer": 0,
+    "explanation": "Parallel giảm waiting time nhưng không tự tăng correctness.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "tags": [
+      "parallel"
+    ]
+  },
+  {
+    "id": "M4-Q-15",
+    "module": "M4",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Critic cần sở hữu conversation để hỏi lại user trước khi revision. Pattern nào phù hợp hơn gọi Critic như tool?",
+    "options": [
+      "Transfer",
+      "Static function",
+      "RAG",
+      "Browser simulation"
+    ],
+    "answer": 0,
+    "explanation": "Transfer phù hợp khi role tiếp theo cần tiếp quản bước tương tác.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "script-team"
+    ],
+    "tags": [
+      "transfer"
+    ]
+  },
+  {
+    "id": "M5-Q-01",
+    "module": "M5",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "MCP chủ yếu kết nối agent với gì?",
+    "options": [
+      "Tool và data source",
+      "Agent service độc lập",
+      "CSS theme",
+      "Voice synthesis"
+    ],
+    "answer": 0,
+    "explanation": "MCP chuẩn hóa truy cập tool/data; A2A là agent-to-agent.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "mcp"
+    ]
+  },
+  {
+    "id": "M5-Q-02",
+    "module": "M5",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "RAG làm gì trước khi model viết?",
+    "options": [
+      "Truy xuất nội dung liên quan",
+      "Tự deploy service",
+      "Mở microphone",
+      "Tạo database mới"
+    ],
+    "answer": 0,
+    "explanation": "Retrieval đưa context liên quan vào bước generation.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "rag"
+    ]
+  },
+  {
+    "id": "M5-Q-03",
+    "module": "M5",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "RAG tự động bảo đảm mọi claim trong output đúng.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "RAG hỗ trợ context nhưng vẫn cần citation, computation và evaluation.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "rag",
+      "verification"
+    ]
+  },
+  {
+    "id": "M5-Q-04",
+    "module": "M5",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Embedding thường dùng để làm gì?",
+    "options": [
+      "So sánh similarity ngữ nghĩa",
+      "Mã hóa API key",
+      "Tạo CSS",
+      "Đo latency"
+    ],
+    "answer": 0,
+    "explanation": "Embedding biến nội dung thành vector để tìm đoạn gần nghĩa.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "embedding"
+    ]
+  },
+  {
+    "id": "M5-Q-05",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Report nói doanh thu giảm 29% nhưng không chỉ ra row nào. Thiếu gì?",
+    "options": [
+      "Claim-evidence link",
+      "Voice command",
+      "A2A",
+      "Theme switch"
+    ],
+    "answer": 0,
+    "explanation": "User cần truy ngược phép tính tới dữ liệu nguồn.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "evidence"
+    ]
+  },
+  {
+    "id": "M5-Q-06",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Vì sao tính metric bằng code trước narrative tốt hơn?",
+    "options": [
+      "Kết quả tái lập và test được",
+      "Model sẽ luôn đồng ý",
+      "Không cần source",
+      "Không cần validation"
+    ],
+    "answer": 0,
+    "explanation": "Code phù hợp cho arithmetic; model phù hợp cho synthesis có giới hạn.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst",
+      "dashboard-insights"
+    ],
+    "tags": [
+      "calculation"
+    ]
+  },
+  {
+    "id": "M5-Q-07",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Data quality gate có thể kiểm tra gì?",
+    "options": [
+      "Missing columns",
+      "Type mismatch",
+      "Out-of-range values",
+      "Logo project",
+      "Duplicate rows"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Các kiểm tra này giúp ngăn report dựa trên input lỗi.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "data-quality"
+    ]
+  },
+  {
+    "id": "M5-Q-08",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "debugging",
+    "prompt": "RAG dùng một collection chung cho nhiều tenant. Rủi ro là gì?",
+    "options": [
+      "Trộn hoặc lộ ngữ cảnh giữa tenant",
+      "Button quá lớn",
+      "Voice chậm",
+      "Không đủ animation"
+    ],
+    "answer": 0,
+    "explanation": "Cần namespace/collection/access control tách biệt.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "isolation",
+      "privacy"
+    ]
+  },
+  {
+    "id": "M5-Q-09",
+    "module": "M5",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Source scope tốt nên nói gì?",
+    "options": [
+      "Nguồn đã dùng và nguồn chưa được kiểm tra",
+      "Chỉ slogan",
+      "Chỉ model name",
+      "Chỉ số lượng token"
+    ],
+    "answer": 0,
+    "explanation": "Scope giúp user hiểu giới hạn research.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "source"
+    ]
+  },
+  {
+    "id": "M5-Q-10",
+    "module": "M5",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Similarity score cao đồng nghĩa tài liệu chắc chắn đúng và mới.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Similarity chỉ phản ánh độ gần ngữ nghĩa, không xác minh chất lượng/freshness.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "embedding"
+    ]
+  },
+  {
+    "id": "M5-Q-11",
+    "module": "M5",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Search tool trả empty result. Agent nên làm gì?",
+    "options": [
+      "Bịa dữ kiện hợp lý",
+      "Báo không có kết quả và chọn fallback/source khác nếu có",
+      "Tạo citation giả",
+      "Ẩn lỗi"
+    ],
+    "answer": 1,
+    "explanation": "Không có evidence thì không được tạo factual claim như thể đã tìm thấy.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "search",
+      "fallback"
+    ]
+  },
+  {
+    "id": "M5-Q-12",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "matching",
+    "prompt": "Ghép khái niệm.",
+    "options": [
+      "MCP ↔ tool/data interface",
+      "A2A ↔ agent service communication",
+      "RAG ↔ retrieve before generate",
+      "Vector DB ↔ similarity search store"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Bốn khái niệm giải quyết các lớp khác nhau.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights",
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "matching"
+    ]
+  },
+  {
+    "id": "M5-Q-13",
+    "module": "M5",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Retrieval evaluation nên kiểm tra gì?",
+    "options": [
+      "Chunk đúng có được lấy ra và claim có grounding",
+      "Card có bo góc đẹp",
+      "Voice chọn đúng accent",
+      "Route có animation"
+    ],
+    "answer": 0,
+    "explanation": "RAG cần đánh giá retrieval quality và answer grounding.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "evaluation"
+    ]
+  },
+  {
+    "id": "M5-Q-14",
+    "module": "M5",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Dashboard không tìm thấy anomaly. Output tốt nhất là gì?",
+    "options": [
+      "Tạo một insight cho hấp dẫn",
+      "Nói không phát hiện anomaly theo threshold đã chọn",
+      "Giảm threshold bí mật",
+      "Đổ lỗi model"
+    ],
+    "answer": 1,
+    "explanation": "Hệ thống đáng tin phải chấp nhận kết quả “không có bất thường”.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "tags": [
+      "honesty"
+    ]
+  },
+  {
+    "id": "M5-Q-15",
+    "module": "M5",
+    "difficulty": "architecture",
+    "type": "debugging",
+    "prompt": "Model tự tính phần trăm rồi report không có formula. Cải tiến tốt nhất?",
+    "options": [
+      "Chuyển phép tính sang code và hiển thị expression",
+      "Thêm animation",
+      "Dùng nhiều agent hơn",
+      "Ẩn số liệu"
+    ],
+    "answer": 0,
+    "explanation": "Computation bằng code tăng reproducibility và testability.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "tags": [
+      "calculation"
+    ]
+  },
+  {
+    "id": "M6-Q-01",
+    "module": "M6",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "A2A khác MCP ở đâu?",
+    "options": [
+      "A2A nối agent service; MCP nối agent với tool/data",
+      "Không khác",
+      "A2A chỉ cho CSS",
+      "MCP chỉ cho voice"
+    ],
+    "answer": 0,
+    "explanation": "Hai protocol phục vụ hai boundary khác nhau.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "a2a",
+      "mcp"
+    ]
+  },
+  {
+    "id": "M6-Q-02",
+    "module": "M6",
+    "difficulty": "basic",
+    "type": "single-choice",
+    "prompt": "Agent Card giống gì nhất?",
+    "options": [
+      "Capability contract/passport của agent service",
+      "Session memory",
+      "CSS token file",
+      "Voice transcript"
+    ],
+    "answer": 0,
+    "explanation": "Agent Card mô tả capability, endpoint, input/output và metadata.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "agent-card"
+    ]
+  },
+  {
+    "id": "M6-Q-03",
+    "module": "M6",
+    "difficulty": "basic",
+    "type": "true-false",
+    "prompt": "Remote agent call có cùng failure mode với function call nội bộ.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Network thêm timeout, auth, version, availability và retry concerns.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "distributed"
+    ]
+  },
+  {
+    "id": "M6-Q-04",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Timeout dùng để làm gì?",
+    "options": [
+      "Giới hạn thời gian chờ một remote operation",
+      "Tăng độ chính xác model",
+      "Lưu memory",
+      "Dịch giao diện"
+    ],
+    "answer": 0,
+    "explanation": "Timeout ngăn request chờ vô hạn.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "timeout"
+    ]
+  },
+  {
+    "id": "M6-Q-05",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "multiple-choice",
+    "prompt": "Retry an toàn cần gì?",
+    "options": [
+      "Max attempts",
+      "Backoff",
+      "Idempotency",
+      "Retry mọi lỗi vô hạn",
+      "Error classification"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Retry cần bounded policy và hiểu loại lỗi.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "retry"
+    ]
+  },
+  {
+    "id": "M6-Q-06",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Circuit breaker khác timeout thế nào?",
+    "options": [
+      "Breaker phản ứng với chuỗi lỗi của service; timeout áp dụng cho request cụ thể",
+      "Không khác",
+      "Breaker chỉ là UI",
+      "Timeout chỉ dùng local"
+    ],
+    "answer": 0,
+    "explanation": "Breaker mở để tạm ngừng call tới service đang lỗi liên tục.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "circuit-breaker"
+    ]
+  },
+  {
+    "id": "M6-Q-07",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "scenario",
+    "prompt": "Specialist offline. Orchestrator nên làm gì?",
+    "options": [
+      "Hiển thị artifact giả",
+      "Retry bounded rồi fallback/failed state",
+      "Chờ vô hạn",
+      "Giấu status"
+    ],
+    "answer": 1,
+    "explanation": "Distributed system cần error state rõ và fallback có kiểm soát.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "fallback"
+    ]
+  },
+  {
+    "id": "M6-Q-08",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "single-choice",
+    "prompt": "Trace ID có ích nhất cho việc gì?",
+    "options": [
+      "Nối event của cùng request qua nhiều service",
+      "Đổi theme",
+      "Chọn voice",
+      "Tạo flashcard"
+    ],
+    "answer": 0,
+    "explanation": "Trace ID hỗ trợ observability và debugging xuyên service.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "trace"
+    ]
+  },
+  {
+    "id": "M6-Q-09",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "true-false",
+    "prompt": "Có thể hiển thị latency 120 ms nếu con số đó chỉ được frontend hard-code để minh họa.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "explanation": "Không được trình bày số giả như metric runtime.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "latency",
+      "trust"
+    ]
+  },
+  {
+    "id": "M6-Q-10",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Contract versioning giúp gì?",
+    "options": [
+      "Kiểm tra compatibility giữa client và service thay đổi độc lập",
+      "Tăng màu sắc",
+      "Lưu session",
+      "Tạo voice"
+    ],
+    "answer": 0,
+    "explanation": "Version rõ giúp migration và tránh protocol mismatch.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "versioning"
+    ]
+  },
+  {
+    "id": "M6-Q-11",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "multiple-choice",
+    "prompt": "Agent project nên có những lớp test nào?",
+    "options": [
+      "Unit cho tool/schema",
+      "Integration cho workflow",
+      "End-to-end cho route/service",
+      "Chỉ screenshot UI",
+      "Failure/fallback tests"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "explanation": "Test nhiều lớp giúp định vị lỗi và kiểm tra behavior quan trọng.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "dashboard-insights",
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "testing"
+    ]
+  },
+  {
+    "id": "M6-Q-12",
+    "module": "M6",
+    "difficulty": "practice",
+    "type": "matching",
+    "prompt": "Ghép failure với control.",
+    "options": [
+      "Transient timeout ↔ bounded retry",
+      "Repeated service failure ↔ circuit breaker",
+      "Unknown intent ↔ no-match/fallback",
+      "Schema mismatch ↔ validation error"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Mỗi loại lỗi cần control phù hợp.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "failure"
+    ]
+  },
+  {
+    "id": "M6-Q-13",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Agent Card nói output schema v2 nhưng orchestrator chỉ hiểu v1. Hành vi tốt nhất?",
+    "options": [
+      "Bỏ qua và parse thử",
+      "Báo incompatibility hoặc dùng adapter đã xác minh",
+      "Tự đổi output",
+      "Tạo artifact giả"
+    ],
+    "answer": 1,
+    "explanation": "Version mismatch cần xử lý rõ, không nên silently accept.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "versioning"
+    ]
+  },
+  {
+    "id": "M6-Q-14",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "single-choice",
+    "prompt": "Verified replay chứng minh điều gì tốt nhất?",
+    "options": [
+      "Một case cụ thể đã chạy với source/test được ghi nhận",
+      "Hệ thống production-ready",
+      "Mọi input đều đúng",
+      "Backend luôn online"
+    ],
+    "answer": 0,
+    "explanation": "Replay là bằng chứng cho case cụ thể, không phải bảo đảm toàn bộ production.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "replay"
+    ]
+  },
+  {
+    "id": "M6-Q-15",
+    "module": "M6",
+    "difficulty": "architecture",
+    "type": "scenario",
+    "prompt": "Một project có 2 happy-path tests pass và 1 fallback test fail. Website nên hiển thị gì?",
+    "options": [
+      "3/3 pass",
+      "Chỉ 2 case pass và 1 case failed/blocked với thông tin rõ",
+      "Ẩn fallback",
+      "Đổi failed thành mocked"
+    ],
+    "answer": 1,
+    "explanation": "Trust yêu cầu phản ánh kết quả thật, kể cả failed case.",
+    "wrongAnswerNotes": {},
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "tags": [
+      "testing",
+      "honesty"
+    ]
+  }
+]

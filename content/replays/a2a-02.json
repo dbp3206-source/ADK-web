@@ -1,0 +1,87 @@
+{
+  "caseId": "A2A-02",
+  "project": "a2a-orchestrator",
+  "mode": "browser-simulation",
+  "title": "Route yêu cầu dữ liệu tới Dashboard",
+  "description": "Routing deterministic dựa trên capability đã trích từ source; remote service không chạy.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.398044+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case A2A-02",
+  "input": {
+    "request": "Tìm bất thường trong CSV"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser orchestrator",
+      "type": "input_received",
+      "summary": "Nhận yêu cầu phân tích CSV."
+    },
+    {
+      "sequence": 2,
+      "actor": "browser router",
+      "type": "routing",
+      "summary": "Capability match chọn `dashboard_insights`.",
+      "details": {
+        "matchedCapability": "CSV",
+        "source": "a2a_orchestrator/orchestrator_agent/agent.py"
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "Agent Card sample",
+      "type": "retrieval",
+      "summary": "Hiển thị contract sample, không fetch service live."
+    },
+    {
+      "sequence": 4,
+      "actor": "Dashboard simulation",
+      "type": "handoff",
+      "summary": "Chuyển request trong browser simulation."
+    },
+    {
+      "sequence": 5,
+      "actor": "browser orchestrator",
+      "type": "artifact_created",
+      "summary": "Trả sample report receipt được ghi nhãn simulation."
+    },
+    {
+      "sequence": 6,
+      "actor": "browser orchestrator",
+      "type": "completed",
+      "summary": "Kết thúc browser simulation."
+    }
+  ],
+  "output": {
+    "route": "dashboard_insights",
+    "artifact": {
+      "type": "sample-report-receipt",
+      "status": "simulation"
+    }
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "Route matches supplied capability",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "a2a_orchestrator/orchestrator_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 136,
+    "rootAgentEndLine": 167
+  },
+  "externalDependencies": [
+    {
+      "name": "Dashboard A2A service",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

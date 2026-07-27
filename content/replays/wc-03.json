@@ -1,0 +1,80 @@
+{
+  "caseId": "WC-03",
+  "project": "worldcup-analyst",
+  "mode": "verified-mocked-replay",
+  "title": "Wikipedia trả kết quả rỗng",
+  "description": "Chạy source tool với HTTP dependency được thay bằng fixture empty-result.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.294736+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case WC-03",
+  "input": {
+    "query": "fixture-empty-result"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "free_wikipedia_search",
+      "type": "tool_call",
+      "summary": "Gọi source tool với query fixture."
+    },
+    {
+      "sequence": 2,
+      "actor": "Wikipedia fixture",
+      "type": "tool_result",
+      "summary": "Dependency trả mảng search rỗng.",
+      "details": {
+        "fixture": "empty-search-result"
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "free_wikipedia_search",
+      "type": "fallback",
+      "summary": "Source tool nói rõ không tìm thấy thay vì tạo dữ kiện."
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Kiểm tra output chứa not-found."
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Mocked fallback case hoàn tất."
+    }
+  ],
+  "output": {
+    "searchResult": "Không tìm thấy kết quả nào trên Wikipedia cho từ khóa: fixture-empty-result",
+    "analystReport": null
+  },
+  "expected": {
+    "fabricatedFact": false
+  },
+  "assertions": [
+    {
+      "name": "Empty result is explicit",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "worldcup_analyst/worldcup_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 86,
+    "rootAgentEndLine": 110
+  },
+  "externalDependencies": [
+    {
+      "name": "Vietnamese Wikipedia API",
+      "mode": "mocked",
+      "fixture": "empty-search-result"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "caseId": "TP-03",
+  "project": "trip-planner",
+  "mode": "verified-local-replay",
+  "title": "Đọc một session chưa có dữ liệu",
+  "description": "Chạy source tool đọc state trên context rỗng; source hiện trả object rỗng.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.213736+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case TP-03",
+  "input": {
+    "sessionState": {}
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "get_trip_details",
+      "type": "tool_call",
+      "summary": "Yêu cầu đọc state của session rỗng.",
+      "details": {
+        "tool": "get_trip_details",
+        "args": {}
+      }
+    },
+    {
+      "sequence": 2,
+      "actor": "session state",
+      "type": "state_read",
+      "summary": "Source tool đọc state hiện tại.",
+      "details": {
+        "result": {}
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Kiểm tra kết quả không chứa dữ liệu cũ."
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Empty-state assertion đã hoàn tất."
+    }
+  ],
+  "output": {
+    "retrievedState": {}
+  },
+  "expected": {},
+  "assertions": [
+    {
+      "name": "Empty session returns an empty object",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "trip_planner/trip_planner_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 24,
+    "rootAgentEndLine": 42
+  },
+  "externalDependencies": [
+    {
+      "name": "Gemini fallback wording",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

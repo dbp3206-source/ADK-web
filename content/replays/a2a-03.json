@@ -1,0 +1,88 @@
+{
+  "caseId": "A2A-03",
+  "project": "a2a-orchestrator",
+  "mode": "browser-simulation",
+  "title": "Specialist không khả dụng",
+  "description": "Mô phỏng fallback UI; không giả vờ đã gọi localhost service.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.399045+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case A2A-03",
+  "input": {
+    "request": "Lập lịch Huế ba ngày",
+    "specialistAvailable": false
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "browser orchestrator",
+      "type": "input_received",
+      "summary": "Nhận yêu cầu du lịch."
+    },
+    {
+      "sequence": 2,
+      "actor": "browser router",
+      "type": "routing",
+      "summary": "Chọn `trip_planner` từ capability."
+    },
+    {
+      "sequence": 3,
+      "actor": "Trip Planner service fixture",
+      "type": "failed",
+      "summary": "Fixture đánh dấu specialist offline."
+    },
+    {
+      "sequence": 4,
+      "actor": "browser orchestrator",
+      "type": "retry",
+      "summary": "Thực hiện một retry mô phỏng có giới hạn."
+    },
+    {
+      "sequence": 5,
+      "actor": "browser orchestrator",
+      "type": "fallback",
+      "summary": "Giữ architecture trace và không tạo remote artifact giả."
+    },
+    {
+      "sequence": 6,
+      "actor": "browser orchestrator",
+      "type": "completed",
+      "summary": "Kết thúc browser fallback simulation."
+    }
+  ],
+  "output": {
+    "route": "trip_planner",
+    "artifact": null,
+    "fallback": "Architecture trace remains available; remote artifact was not created."
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "No remote artifact was fabricated",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Retry count stayed bounded",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "a2a_orchestrator/orchestrator_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 136,
+    "rootAgentEndLine": 167
+  },
+  "externalDependencies": [
+    {
+      "name": "Trip Planner A2A service",
+      "mode": "mocked",
+      "fixture": "offline"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

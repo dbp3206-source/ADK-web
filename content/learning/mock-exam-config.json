@@ -1,0 +1,38 @@
+{
+  "presets": [
+    {
+      "id": "quick-20",
+      "questionCount": 20,
+      "durationMinutes": 20,
+      "moduleDistribution": {
+        "M1": 3,
+        "M2": 3,
+        "M3": 3,
+        "M4": 4,
+        "M5": 3,
+        "M6": 4
+      }
+    },
+    {
+      "id": "full-30",
+      "questionCount": 30,
+      "durationMinutes": 35,
+      "moduleDistribution": {
+        "M1": 5,
+        "M2": 5,
+        "M3": 5,
+        "M4": 5,
+        "M5": 5,
+        "M6": 5
+      }
+    }
+  ],
+  "rules": {
+    "shuffleQuestions": true,
+    "shuffleOptions": true,
+    "localOnly": true,
+    "allowReview": true,
+    "showWeakTopics": true,
+    "passScorePercent": 70
+  }
+}

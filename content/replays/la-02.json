@@ -1,0 +1,80 @@
+{
+  "caseId": "LA-02",
+  "project": "love-advisor",
+  "mode": "browser-simulation",
+  "title": "Chờ nhánh thứ hai trước synthesis",
+  "description": "Mô phỏng completion gate khi một nhánh chưa sẵn sàng.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.296733+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case LA-02",
+  "input": {
+    "delayedLane": "planning"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "communication lane",
+      "type": "completed",
+      "summary": "Nhánh giao tiếp hoàn tất."
+    },
+    {
+      "sequence": 2,
+      "actor": "planning lane",
+      "type": "agent_started",
+      "summary": "Nhánh kế hoạch vẫn đang chờ."
+    },
+    {
+      "sequence": 3,
+      "actor": "synthesis gate",
+      "type": "validation",
+      "summary": "Synthesis bị giữ lại vì thiếu một output."
+    },
+    {
+      "sequence": 4,
+      "actor": "planning lane",
+      "type": "completed",
+      "summary": "Nhánh kế hoạch hoàn tất theo fixture."
+    },
+    {
+      "sequence": 5,
+      "actor": "synthesis gate",
+      "type": "artifact_created",
+      "summary": "Synthesis chạy sau khi đủ hai nhánh."
+    },
+    {
+      "sequence": 6,
+      "actor": "browser workflow",
+      "type": "completed",
+      "summary": "Kết thúc browser simulation."
+    }
+  ],
+  "output": {
+    "gateWaited": true,
+    "synthesisCreatedAfterBothBranches": true
+  },
+  "expected": null,
+  "assertions": [
+    {
+      "name": "Synthesis did not run early",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": null,
+    "rootAgentEndLine": null
+  },
+  "externalDependencies": [
+    {
+      "name": "Love Advisor project source",
+      "mode": "blocked"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

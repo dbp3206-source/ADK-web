@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const slugs = ["trip-planner", "script-team", "worldcup-analyst", "love-advisor", "dashboard-insights", "a2a-orchestrator"];
-const coreRoutes = ["/vi/", "/vi/projects/", "/vi/system/", "/vi/learn/", "/vi/evidence/", "/vi/about/", "/vi/contact/"];
+const coreRoutes = ["/vi/", "/vi/projects/", "/vi/system/", "/vi/learn/", "/vi/learn/flashcards/", "/vi/learn/question-bank/", "/vi/learn/practice/", "/vi/learn/mock-exam/", "/vi/contact/"];
 
 test("Vietnamese is the default and the architecture ladder stays ordered", async ({ page }) => {
   await page.goto("/");
@@ -62,48 +62,31 @@ test("projects search, AND filters, table view and empty state work", async ({ p
 });
 
 for (const slug of slugs) {
-  test(`${slug} has one internal timeline, unique lab and honest evidence`, async ({ page }) => {
+  test(`${slug} has one internal timeline, replay player and source/artifact explorer`, async ({ page }) => {
     await page.goto(`/en/projects/${slug}/`);
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.locator(".unique-stage-v2")).toBeVisible();
-    await page.locator("#lab").scrollIntoViewIfNeeded();
-    await expect(page.locator(".project-lab")).toBeVisible();
-    await expect(page.locator(".lab-notice")).toContainText("Local interactive simulation");
+    await page.locator("#replay").scrollIntoViewIfNeeded();
+    await expect(page.locator(".verified-replay")).toBeVisible();
+    await expect(page.locator(".replay-trust-notice")).toContainText(/not a request running live|no model or backend is running/);
+    await expect(page.locator(".replay-event-list button").first()).toBeVisible();
+    await expect(page.locator(".agent-core-explorer")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Architecture" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Limitations" })).toBeVisible();
-    await expect(page.getByText("No verified file path and commit are available.").first()).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Limitations" })).toHaveCount(0);
     await expect(page.locator(".case-content-v2 .system-explorer-v2")).toHaveCount(0);
   });
 }
 
-test("all six deterministic labs change state or artifact", async ({ page }) => {
-  await page.goto("/en/projects/trip-planner/#lab");
-  await page.getByRole("button", { name: "Save state" }).click();
-  await expect(page.locator(".state-artifact")).toContainText("FOUND");
-
-  await page.goto("/en/projects/script-team/#lab");
-  await page.getByRole("tab", { name: /Reviser/ }).click();
-  await expect(page.locator(".revision-diff")).toBeVisible();
-
-  await page.goto("/en/projects/worldcup-analyst/#lab");
-  await page.getByRole("button", { name: "Calculate with code" }).click();
-  await expect(page.locator(".analyst-artifact")).toContainText("SYNTHESIS");
-
-  await page.goto("/en/projects/love-advisor/#lab");
-  await page.locator('select[name="love-lens-a"]').selectOption({ index: 1 });
-  await page.locator('select[name="love-lens-b"]').selectOption({ index: 1 });
-  await page.getByRole("button", { name: "Complete lens A" }).click();
-  await page.getByRole("button", { name: "Complete lens B" }).click();
-  await page.getByRole("button", { name: "Synthesize schema" }).click();
-  await expect(page.locator(".schema-artifact")).toContainText("uncertainty");
-
-  await page.goto("/en/projects/dashboard-insights/#lab");
-  await page.getByRole("button", { name: /Run analysis/ }).click();
-  await expect(page.locator(".claim-matrix")).toBeVisible();
-
-  await page.goto("/en/projects/a2a-orchestrator/#lab");
-  await page.getByRole("button", { name: "Run routing" }).click();
-  await expect(page.locator(".routing-artifact")).toContainText("Agent Card");
+test("all six replay players change observable event and case", async ({ page }) => {
+  for (const slug of slugs) {
+    await page.goto(`/en/projects/${slug}/#replay`);
+    const replay = page.locator(".verified-replay");
+    await expect(replay).toBeVisible();
+    await replay.getByRole("button", { name: "Next replay event" }).click();
+    await expect(replay.locator(".replay-counter")).toContainText("2 /");
+    await replay.getByLabel("Test case").selectOption({ index: 1 });
+    await expect(replay.locator(".replay-counter")).toContainText("1 /");
+  }
 });
 
 test("command deck traps focus, navigates and resets progress", async ({ page }) => {
@@ -112,9 +95,9 @@ test("command deck traps focus, navigates and resets progress", async ({ page })
   const dialog = page.getByRole("dialog", { name: "Command Deck" });
   await expect(dialog).toBeVisible();
   await expect(page.locator('input[name="command-search"]')).toBeFocused();
-  await page.locator('input[name="command-search"]').fill("evidence");
-  await dialog.getByRole("button", { name: /Bằng chứng/ }).first().click();
-  await expect(page).toHaveURL(/\/vi\/evidence/);
+  await page.locator('input[name="command-search"]').fill("flashcards");
+  await dialog.getByRole("button", { name: /60 flashcards/ }).click();
+  await expect(page).toHaveURL(/\/vi\/learn\/flashcards/);
 });
 
 test("voice is user initiated and keeps text fallback", async ({ page }) => {
@@ -123,6 +106,38 @@ test("voice is user initiated and keeps text fallback", async ({ page }) => {
   await expect(guide.locator(".voice-transcript")).not.toBeEmpty();
   await expect(guide.getByRole("button", { name: "Nghe" })).toBeVisible();
   await expect(guide.getByRole("button", { name: "Dừng", exact: true })).toBeDisabled();
+});
+
+test("learning center exposes exact counts and persists local progress", async ({ page }) => {
+  await page.goto("/vi/learn/");
+  await expect(page.locator(".learning-path")).toHaveCount(6);
+  await page.goto("/vi/learn/flashcards/");
+  await expect(page.locator(".learning-toolbar")).toContainText("1 / 60");
+  await page.getByRole("button", { name: "Đã biết" }).click();
+  await expect(page.getByRole("button", { name: "Đã biết" })).toHaveAttribute("aria-pressed", "true");
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Đã biết" })).toHaveAttribute("aria-pressed", "true");
+  await page.goto("/vi/learn/question-bank/");
+  await expect(page.locator(".learning-toolbar")).toContainText("1 / 90");
+  await page.goto("/vi/learn/practice/");
+  await expect(page.locator(".practice-list article")).toHaveCount(12);
+});
+
+test("retired public routes redirect to approved destinations", async ({ page }) => {
+  await page.goto("/vi/evidence/");
+  await expect(page).toHaveURL(/\/vi\/projects\/?$/);
+  await page.goto("/en/about/");
+  await expect(page).toHaveURL(/\/en\/#profile$/);
+});
+
+test("root agent explorer shows exact source metadata without an invented commit", async ({ page }) => {
+  await page.goto("/en/");
+  const explorer = page.locator(".agent-core-explorer");
+  await expect(explorer.getByText("trip_planner/trip_planner_agent/agent.py")).toBeVisible();
+  await expect(explorer.locator(".agent-source-panel code")).toContainText("root_agent = Agent(");
+  await expect(explorer.getByText("The supplied source has no Git metadata, so no commit is displayed.")).toBeVisible();
+  await explorer.getByRole("button", { name: /Love Advisor browser simulation/ }).click();
+  await expect(explorer.getByRole("status").getByText(/No Love Advisor project source/)).toBeVisible();
 });
 
 test("reduced motion keeps trace information and controls", async ({ page }) => {

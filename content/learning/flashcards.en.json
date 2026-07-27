@@ -1,0 +1,1665 @@
+[
+  {
+    "id": "M1-FC-01",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "AI Agent",
+      "prompt": "What makes a system go beyond a typical chatbot?",
+      "memoryHook": "Agent doesn't just talk; The agent also chooses the action, observes the results, and continues."
+    },
+    "back": {
+      "explanation": "AI Agent is a system that uses a model to decide the next step, can call a tool, read the results and iterate until the task is completed.",
+      "example": "Trip Planner calls the tool to save the schedule and retrieve it next time.",
+      "dontConfuse": "A response saying “saved” does not prove the tool is running."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agent",
+      "chatbot",
+      "action"
+    ],
+    "illustration": {
+      "conceptId": "ILL-02",
+      "alt": "Compare chatbots that only respond and agents that can act.",
+      "brief": "Two halves of the scene: the chatbot only talks, the agent uses the toolbox and updates the task board."
+    }
+  },
+  {
+    "id": "M1-FC-02",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent Loop",
+      "prompt": "What steps does an agent processing cycle usually include?",
+      "memoryHook": "Receive request → decide → act → observe → continue."
+    },
+    "back": {
+      "explanation": "The agent loop is the cycle in which the model views the context, chooses an action, receives observations, and decides to stop or continue.",
+      "example": "A2A Orchestrator receives the request, selects a specialist, waits for the artifact, and then returns the results.",
+      "dontConfuse": "Don't confuse an agent loop with an infinite loop; There must be a stopping condition."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "loop",
+      "observation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-01",
+      "alt": "The agent goes through the steps of receiving requests, calling tools, and observing.",
+      "brief": "A technical character goes through request, action, observation and done stations."
+    }
+  },
+  {
+    "id": "M1-FC-03",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Artifact",
+      "prompt": "Which output should be called artifact?",
+      "memoryHook": "An Artifact is something that can be saved, inspected, or reused."
+    },
+    "back": {
+      "explanation": "Artifact is a persistent or structured output such as a report, route, file or JSON object.",
+      "example": "Dashboard Insights creates report archive; Script Team creates revisions.",
+      "dontConfuse": "A short chat is not necessarily an artifact if it does not have a clear structure or life cycle."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "artifact",
+      "output"
+    ],
+    "illustration": {
+      "conceptId": "ILL-03",
+      "alt": "Artifact is the saved output.",
+      "brief": "A report is placed in a labeled storage compartment."
+    }
+  },
+  {
+    "id": "M1-FC-04",
+    "module": "M1",
+    "difficulty": "basic",
+    "front": {
+      "term": "Tool Use",
+      "prompt": "When do agents need tools instead of just generating text?",
+      "memoryHook": "When the task needs action or data outside the model."
+    },
+    "back": {
+      "explanation": "Tools allow agents to perform functions such as calculations, saving state, reading files or calling services.",
+      "example": "World Cup Analyst uses code executor to calculate instead of doing it yourself.",
+      "dontConfuse": "The tool does not make the system correct on its own; input, validation and error handling are still necessary."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tool",
+      "action"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Agent chooses a suitable tool.",
+      "brief": "Agent takes the computer from the toolbox and receives the receipt."
+    }
+  },
+  {
+    "id": "M1-FC-05",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Observable Event",
+      "prompt": "What should be displayed to explain what the agent did?",
+      "memoryHook": "Show observable facts, not secret thoughts."
+    },
+    "back": {
+      "explanation": "Observable events include routing, handoff, tool calls, state diff, validation and artifacts.",
+      "example": "Replay Script Team shows handling transferred from Drafter to Critic.",
+      "dontConfuse": "Don't show raw chain-of-thought or make up internal reasons."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "replay",
+      "trace",
+      "safety"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Console plays back recorded events.",
+      "brief": "The replay screen has event list, commit and output."
+    }
+  },
+  {
+    "id": "M1-FC-06",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Guardrail",
+      "prompt": "How is Guardrail different from instruction?",
+      "memoryHook": "Instructions; guardrail can block or check."
+    },
+    "back": {
+      "explanation": "Guardrail is a rule or code boundary that helps prevent inappropriate, missing data, or unsafe behavior.",
+      "example": "Love Advisor needs to block sensitive inferences and too certain conclusions.",
+      "dontConfuse": "Just writing “be safe” in the prompt does not equate to code validation."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "guardrail",
+      "safety"
+    ],
+    "illustration": {
+      "conceptId": "ILL-04",
+      "alt": "A secure gate blocks inappropriate actions.",
+      "brief": "The agent in front of the checkpoint has clear rules."
+    }
+  },
+  {
+    "id": "M1-FC-07",
+    "module": "M1",
+    "difficulty": "practice",
+    "front": {
+      "term": "Decision Summary",
+      "prompt": "How to explain the agent's choice without revealing the chain-of-thought?",
+      "memoryHook": "State the decision and observable evidence."
+    },
+    "back": {
+      "explanation": "Decision summary is a short description like “request needs calculation so calls code executor”.",
+      "example": "World Cup Analyst chose Stats Agent because the question had calculations.",
+      "dontConfuse": "Don't rewrite a long thought as if it were a real log."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "reasoning",
+      "explainability"
+    ],
+    "illustration": {
+      "conceptId": "ILL-01",
+      "alt": "A decision card connects the request to the tool.",
+      "brief": "Small diagram explaining the reason for choosing the action."
+    }
+  },
+  {
+    "id": "M1-FC-08",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Deterministic Simulation",
+      "prompt": "What value does deterministic simulation have?",
+      "memoryHook": "The same input will produce the same output according to known rules."
+    },
+    "back": {
+      "explanation": "Browser simulation is suitable for explaining flow when there is no backend or live model.",
+      "example": "A2A Routing Lab uses keyword rules to illustrate routing.",
+      "dontConfuse": "Don't call it model-based execution or verified replay."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "simulation",
+      "deterministic"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Routing diagram with clear rules.",
+      "brief": "Control tower routes according to the rule table."
+    }
+  },
+  {
+    "id": "M1-FC-09",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Verified Replay",
+      "prompt": "How is a verified replay different from a static demo?",
+      "memoryHook": "It is created from a real run with source, test and output."
+    },
+    "back": {
+      "explanation": "Verified replay replays input, observable events and actual output from the run project.",
+      "example": "Script Team replay has actual commits, test paths and revisions.",
+      "dontConfuse": "Do not label verified if the output is only handwritten for the website."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "verified",
+      "replay",
+      "evidence"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Replay console has commit, test and output.",
+      "brief": "Verified run replay screen."
+    }
+  },
+  {
+    "id": "M1-FC-10",
+    "module": "M1",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Live Execution",
+      "prompt": "When is a website allowed to record \"running live\"?",
+      "memoryHook": "Only when the real request goes through the real backend and the status is measured for real."
+    },
+    "back": {
+      "explanation": "Live execution needs endpoints, error handling, privacy, rate limit and real state.",
+      "example": "A real A2A backend can display real timeouts and real artifacts.",
+      "dontConfuse": "Animation runs on the frontend, not live execution."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "live",
+      "backend",
+      "honesty"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "The actual request goes through active services.",
+      "brief": "The control plane connects to the service with its real state."
+    }
+  },
+  {
+    "id": "M2-FC-01",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "agent.py",
+      "prompt": "Which file usually contains the main agent declaration in an ADK project?",
+      "memoryHook": "Let's start with `agent.py`."
+    },
+    "back": {
+      "explanation": "`agent.py` often contains `root_agent`, sub-agents, tools, or workflow concatenations.",
+      "example": "Agent Core Explorer reads this file to display the correct source.",
+      "dontConfuse": "File names may vary; must find the real entrypoint instead of guessing."
+    },
+    "projectLinks": [
+      "trip-planner",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "adk",
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Diagram of components in agent.py.",
+      "brief": "The Blueprint has a root_agent that connects to models, tools, and callbacks."
+    }
+  },
+  {
+    "id": "M2-FC-02",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "root_agent",
+      "prompt": "Why is `root_agent` important?",
+      "memoryHook": "This is often the main entry point to the agent system."
+    },
+    "back": {
+      "explanation": "`root_agent` describes the agent or workflow that the runtime launches first.",
+      "example": "A2A service can expose a root orchestrator or specialist workflow.",
+      "dontConfuse": "Don't infer the entire behavior from the name alone; need to read constructor and components."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "root_agent",
+      "entrypoint"
+    ],
+    "illustration": {
+      "conceptId": "ILL-06",
+      "alt": "root_agent is the central conductor.",
+      "brief": "Conductor connects models, tools and sub-agents."
+    }
+  },
+  {
+    "id": "M2-FC-03",
+    "module": "M2",
+    "difficulty": "basic",
+    "front": {
+      "term": "Model Field",
+      "prompt": "What does field `model` indicate?",
+      "memoryHook": "It indicates the model used by the agent, if declared statically."
+    },
+    "back": {
+      "explanation": "The model field can be the model name, object, or configuration passed to the agent.",
+      "example": "An LlmAgent can receive models via environment variables or factories.",
+      "dontConfuse": "If the field is created dynamically, the static source may not be able to determine the final value."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "model",
+      "config"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Model block connects to the root agent.",
+      "brief": "Blueprint component labeled model."
+    }
+  },
+  {
+    "id": "M2-FC-04",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Instruction",
+      "prompt": "What role does Instruction play in agent declaration?",
+      "memoryHook": "It guides the mission, scope, and response."
+    },
+    "back": {
+      "explanation": "Instructions help the model understand roles and principles, but do not replace validation or tool implementation.",
+      "example": "Script Critic has instructions that focus on criticism according to rubrics.",
+      "dontConfuse": "Long instructions should not be truncated; condensed view must be able to open the full source."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "instruction",
+      "prompt"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "An instruction document attached to the agent.",
+      "brief": "Blueprint has a document node."
+    }
+  },
+  {
+    "id": "M2-FC-05",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Tools Field",
+      "prompt": "What does the `tools` list tell recruiters?",
+      "memoryHook": "What actions or data sources does the agent have?"
+    },
+    "back": {
+      "explanation": "The Tools field shows which functions, services, or specialist tools the agent can call.",
+      "example": "Trip Planner has save/retrieve tools; World Cup Analyst has search/code capabilities.",
+      "dontConfuse": "Having a tool in the declaration does not prove that the tool has run in every request."
+    },
+    "projectLinks": [
+      "trip-planner",
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tools",
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Toolbox connects to agent.",
+      "brief": "Agent selects registered tools."
+    }
+  },
+  {
+    "id": "M2-FC-06",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Sub-agents",
+      "prompt": "When is `sub_agents` useful?",
+      "memoryHook": "As the root workflow coordinates many specialized roles."
+    },
+    "back": {
+      "explanation": "Sub-agents show the sub-team or workflow structure within a system agent.",
+      "example": "Script Team has Drafter, Critic and Reviser.",
+      "dontConfuse": "The sub-agent list does not itself describe the control pattern; need to look at workflow/transfer logic."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "sub-agent",
+      "team"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "Three specialists stand in the workflow team.",
+      "brief": "Drafter, Critic and Reviser followed the handoff."
+    }
+  },
+  {
+    "id": "M2-FC-07",
+    "module": "M2",
+    "difficulty": "practice",
+    "front": {
+      "term": "Callback",
+      "prompt": "What can callbacks do that instructions cannot do?",
+      "memoryHook": "Run test or processing logic at specified times."
+    },
+    "back": {
+      "explanation": "Callbacks can ingest files, validate input, log events or block actions before/after the model.",
+      "example": "Dashboard Insights uses before-model callback to prepare file content.",
+      "dontConfuse": "Callbacks can also fail; need test and bounded error state."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "callback",
+      "validation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "Checkpoint checks the data before the model.",
+      "brief": "A controller stands in front of the model gate."
+    }
+  },
+  {
+    "id": "M2-FC-08",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Output Key",
+      "prompt": "Why is output key important in multi-agent workflows?",
+      "memoryHook": "The next agent needs to know where the previous agent's data is located."
+    },
+    "back": {
+      "explanation": "The Output key names the result for stable state/workflow downstream access.",
+      "example": "Drafter reads `draft`, Critic reads `feedback`, Reviser reads both.",
+      "dontConfuse": "A key mismatch can cause the workflow to run but the agent later receives empty data."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "output_key",
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-07",
+      "alt": "Data is recorded in clearly labeled cells.",
+      "brief": "Agent places output into draft or feedback slot."
+    }
+  },
+  {
+    "id": "M2-FC-09",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Static Source Parsing",
+      "prompt": "How does AST help extract `root_agent`?",
+      "memoryHook": "The AST indicates which line the assignment begins and ends on."
+    },
+    "back": {
+      "explanation": "Python AST helps find target `root_agent`, constructor and some static fields without running code.",
+      "example": "Script extraction can get exact source using `lineno` and `end_lineno`.",
+      "dontConfuse": "AST cannot resolve all dynamic or side effect values ​​at import."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "ast",
+      "source-analysis"
+    ],
+    "illustration": {
+      "conceptId": "ILL-05",
+      "alt": "Source code is parsed into a structural tree.",
+      "brief": "The AST tree highlights the root_agent assignment."
+    }
+  },
+  {
+    "id": "M2-FC-10",
+    "module": "M2",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Entrypoint Verification",
+      "prompt": "Why isn't just searching for `root_agent` enough?",
+      "memoryHook": "Need to know if the runtime actually uses that assignment."
+    },
+    "back": {
+      "explanation": "Entrypoint, test, and service wrapper indicate which root agent is actually running.",
+      "example": "A repo can have multiple variants or root agents according to the environment.",
+      "dontConfuse": "Do not choose the first assignment if there are multiple conditional definitions."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "entrypoint",
+      "verification"
+    ],
+    "illustration": {
+      "conceptId": "ILL-06",
+      "alt": "Path from source to runtime entrypoint.",
+      "brief": "A verified path from file to service start."
+    }
+  },
+  {
+    "id": "M3-FC-01",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Tool Calling",
+      "prompt": "What parts does tool call include?",
+      "memoryHook": "Tool name, arguments, results and errors if any."
+    },
+    "back": {
+      "explanation": "Tool calling is when an agent selects a callable and passes structured input to perform an action.",
+      "example": "Trip Planner calls `save_trip_detail()` with destination and days.",
+      "dontConfuse": "Action description text is not a tool call."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "tool_call"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "Agent calls tool and receives receipt.",
+      "brief": "Toolbox with request/result receipt."
+    }
+  },
+  {
+    "id": "M3-FC-02",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Session",
+      "prompt": "What is session?",
+      "memoryHook": "An interaction history and state of a session."
+    },
+    "back": {
+      "explanation": "Sessions often include conversation events, state, and context related to a single use.",
+      "example": "Trip Planner saves schedules to retrieve later in the same session.",
+      "dontConfuse": "Session does not automatically mean persistent storage via restart."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "session"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "The clipboard contains the current session's data.",
+      "brief": "Traveler pin trip state on session board."
+    }
+  },
+  {
+    "id": "M3-FC-03",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "State",
+      "prompt": "What is state used for?",
+      "memoryHook": "Holds structured data that workflows need to read or change."
+    },
+    "back": {
+      "explanation": "State can contain draft, feedback, trip details or QA iteration.",
+      "example": "Dashboard saves draft reports and feedback between steps.",
+      "dontConfuse": "State is not necessarily long-term memory."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "JSON before and after update.",
+      "brief": "The two state tables have variable fields."
+    }
+  },
+  {
+    "id": "M3-FC-04",
+    "module": "M3",
+    "difficulty": "basic",
+    "front": {
+      "term": "Memory",
+      "prompt": "How is memory different from state?",
+      "memoryHook": "Memory is often accessed over multiple sessions; state is often associated with sessions/workflows."
+    },
+    "back": {
+      "explanation": "Memory can use persistent stores or retrieval to bring old information into new contexts.",
+      "example": "A user preference that is remembered across multiple sessions is memory.",
+      "dontConfuse": "A `draft` variable in the current workflow is just state."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "memory",
+      "state"
+    ],
+    "illustration": {
+      "conceptId": "ILL-11",
+      "alt": "Librarian retrieves information from long-term storage.",
+      "brief": "Archive card retrieved for a new session."
+    }
+  },
+  {
+    "id": "M3-FC-05",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "State Mutation",
+      "prompt": "Why should you use tools for state mutations?",
+      "memoryHook": "The act of changing data becomes observable and auditable."
+    },
+    "back": {
+      "explanation": "The mutation tool creates clear events, clear arguments and can be validated/rollback.",
+      "example": "`save_trip_detail()` shows exactly what data is saved.",
+      "dontConfuse": "The model says “saved” but does not call the tool a critical failure."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state-write",
+      "tool"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "State JSON changes after tool call.",
+      "brief": "Before/after state diff."
+    }
+  },
+  {
+    "id": "M3-FC-06",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "State Read",
+      "prompt": "What does a good state reading need?",
+      "memoryHook": "Clear key, not-found state and structured output."
+    },
+    "back": {
+      "explanation": "State read should distinguish between existing data, missing keys, and storage errors.",
+      "example": "Trip Planner retrieved after clearing the session must pay not-found.",
+      "dontConfuse": "Do not make up default data without clearly stating it."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "state-read"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "The agent reads the session state table.",
+      "brief": "A key is found in the session board."
+    }
+  },
+  {
+    "id": "M3-FC-07",
+    "module": "M3",
+    "difficulty": "practice",
+    "front": {
+      "term": "Persistence Boundary",
+      "prompt": "What does persistence boundary say?",
+      "memoryHook": "How long does data exist and in what situations is it lost?"
+    },
+    "back": {
+      "explanation": "In-memory, sessionStorage, database and vector stores have different life cycles.",
+      "example": "Demo browser uses `sessionStorage`; Python in-memory project is lost when process restarts.",
+      "dontConfuse": "Don't call browser storage production memory."
+    },
+    "projectLinks": [
+      "trip-planner"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "persistence"
+    ],
+    "illustration": {
+      "conceptId": "ILL-10",
+      "alt": "Storage classes have different lifetimes.",
+      "brief": "Temporary board vs archive."
+    }
+  },
+  {
+    "id": "M3-FC-08",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "State Diff",
+      "prompt": "Why should replays show state diff?",
+      "memoryHook": "Users see exactly what data the action changed."
+    },
+    "back": {
+      "explanation": "State diff focuses on the previous/next field instead of dumping the entire object.",
+      "example": "Script Team can show that `draft` is created then `revision` is added.",
+      "dontConfuse": "Diff should not contain secret or private payload."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "diff",
+      "replay"
+    ],
+    "illustration": {
+      "conceptId": "ILL-12",
+      "alt": "Two JSONs with highlighted fields.",
+      "brief": "Before/after state comparison."
+    }
+  },
+  {
+    "id": "M3-FC-09",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Schema Validation",
+      "prompt": "How does Schema make state/tool ​​more secure?",
+      "memoryHook": "It defines fields, data types, and constraints."
+    },
+    "back": {
+      "explanation": "Schema validation prevents missing input, mistyped output, or unwanted fields.",
+      "example": "Love Advisor only allows synthesis when both branches output the correct schema.",
+      "dontConfuse": "Valid Schema does not prove content is factually correct."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "schema",
+      "validation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "A checklist to check objects before passing through the gate.",
+      "brief": "Schema gate before artifact."
+    }
+  },
+  {
+    "id": "M3-FC-10",
+    "module": "M3",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Idempotency",
+      "prompt": "Why might tool mutation need idempotency?",
+      "memoryHook": "Callbacks should not create unintended repetitive changes."
+    },
+    "back": {
+      "explanation": "Idempotent operation provides safe retry when the network or agent repeats tool calls.",
+      "example": "Saved with a report ID that can be updated instead of creating multiple duplicates.",
+      "dontConfuse": "Not all tools are idempotent; action has a confirmation fee."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "idempotency",
+      "retry"
+    ],
+    "illustration": {
+      "conceptId": "ILL-09",
+      "alt": "The retry tool does not create duplicate records.",
+      "brief": "Same request token maps to one record."
+    }
+  },
+  {
+    "id": "M4-FC-01",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Transfer",
+      "prompt": "What does transfer change?",
+      "memoryHook": "The other agent becomes the owner of the next processing step."
+    },
+    "back": {
+      "explanation": "Transfer is suitable when the new role needs to directly continue the conversation/workflow.",
+      "example": "Script Team moved from Drafter to Critic to Reviser.",
+      "dontConfuse": "Transfer is different from Agent as Tool because root does not necessarily hold rights at each step."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "transfer"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "Switch baton between experts.",
+      "brief": "One specialist hands task ownership to another."
+    }
+  },
+  {
+    "id": "M4-FC-02",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent as Tool",
+      "prompt": "How does Agent as Tool work?",
+      "memoryHook": "Root calls the specialist as a capability and receives the results."
+    },
+    "back": {
+      "explanation": "Root still synthesizes and controls, specialists have narrow tasks.",
+      "example": "World Cup Analyst calls Search Agent and Stats Agent as tools.",
+      "dontConfuse": "Do not use this pattern if the specialist needs to have a long-term conversation."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agenttool"
+    ],
+    "illustration": {
+      "conceptId": "ILL-14",
+      "alt": "Root agent presses the specialist's capability.",
+      "brief": "Lead analyst calls specialist tool."
+    }
+  },
+  {
+    "id": "M4-FC-03",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Sequential Workflow",
+      "prompt": "When is sequential workflow appropriate?",
+      "memoryHook": "When the next step depends on the output of the previous step."
+    },
+    "back": {
+      "explanation": "Stages run in a specified order.",
+      "example": "Script Team needs to draft before critique, critique before revision.",
+      "dontConfuse": "Don't run steps that have direct dependencies in parallel."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "sequential"
+    ],
+    "illustration": {
+      "conceptId": "ILL-13",
+      "alt": "The steps follow one line.",
+      "brief": "Draft then critique then revise."
+    }
+  },
+  {
+    "id": "M4-FC-04",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Parallel Workflow",
+      "prompt": "When is parallel workflow appropriate?",
+      "memoryHook": "When branches are independent and can run concurrently."
+    },
+    "back": {
+      "explanation": "Parallel reduces latency but requires a convergence mechanism.",
+      "example": "Love Advisor runs two independent analyzes and then synthesizes.",
+      "dontConfuse": "Parallel does not mean the output merges correctly; need synthesis gate."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "parallel"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "Two parallel lanes converge.",
+      "brief": "Parallel conveyors merge at gate."
+    }
+  },
+  {
+    "id": "M4-FC-05",
+    "module": "M4",
+    "difficulty": "basic",
+    "front": {
+      "term": "Loop Workflow",
+      "prompt": "What limits should the loop have?",
+      "memoryHook": "Stopping conditions and maximum number of laps."
+    },
+    "back": {
+      "explanation": "Loop is used for QA/revision or retry but must be bounded.",
+      "example": "Dashboard limits QA/revision to a maximum of two rounds.",
+      "dontConfuse": "Unlimited loops can increase costs and never stop."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "loop"
+    ],
+    "illustration": {
+      "conceptId": "ILL-16",
+      "alt": "Report back to QA for up to two rounds.",
+      "brief": "Bounded loop between writer and reviewer."
+    }
+  },
+  {
+    "id": "M4-FC-06",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Control Owner",
+      "prompt": "What is the first question when choosing a pattern?",
+      "memoryHook": "Who owns the next decision?"
+    },
+    "back": {
+      "explanation": "Control owner helps distinguish between root holding rights, transferring rights or predetermined workflows.",
+      "example": "World Cup root holds rights; Script Team transfers rights; SequentialAgent controls the order.",
+      "dontConfuse": "Don't choose a pattern just because it sounds more complicated."
+    },
+    "projectLinks": [
+      "worldcup-analyst",
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "control"
+    ],
+    "illustration": {
+      "conceptId": "ILL-14",
+      "alt": "A control desk shows who is in control.",
+      "brief": "Control ownership changes by pattern."
+    }
+  },
+  {
+    "id": "M4-FC-07",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Synthesis Gate",
+      "prompt": "Why is synthesis gate needed after parallel branches?",
+      "memoryHook": "Make sure there is enough input before merging."
+    },
+    "back": {
+      "explanation": "Gate checks branch completion and schema before synthesis.",
+      "example": "Love Advisor does not aggregate if a branch is not completed.",
+      "dontConfuse": "Don't assume the slow branch will have data on its own."
+    },
+    "projectLinks": [
+      "love-advisor"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "synthesis"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "The two lanes must have their lights turned on completely before merging.",
+      "brief": "Completion gate before synthesis."
+    }
+  },
+  {
+    "id": "M4-FC-08",
+    "module": "M4",
+    "difficulty": "practice",
+    "front": {
+      "term": "Handoff Contract",
+      "prompt": "What does a good handoff need?",
+      "memoryHook": "Input/output is clear and key names are consistent."
+    },
+    "back": {
+      "explanation": "Handoff contract helps the following agent know what data to receive and what format.",
+      "example": "Critic receives the draft and returns structured feedback to the Reviser.",
+      "dontConfuse": "A good role description cannot compensate for a bad output contract."
+    },
+    "projectLinks": [
+      "script-team"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "handoff",
+      "contract"
+    ],
+    "illustration": {
+      "conceptId": "ILL-07",
+      "alt": "Task folders have fields clearly stated.",
+      "brief": "Structured handoff package."
+    }
+  },
+  {
+    "id": "M4-FC-09",
+    "module": "M4",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Pattern Composition",
+      "prompt": "Is it possible to combine multiple patterns in one system?",
+      "memoryHook": "Yes, but each layer must have a clear reason and boundary."
+    },
+    "back": {
+      "explanation": "A Sequential workflow can contain a Parallel stage; root A2A can call a remote specialist containing a LoopAgent.",
+      "example": "Love Advisor is parallel inside sequential; A2A route to specialist workflow.",
+      "dontConfuse": "Combining patterns too much can make trace and error handling confusing."
+    },
+    "projectLinks": [
+      "love-advisor",
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "composition"
+    ],
+    "illustration": {
+      "conceptId": "ILL-15",
+      "alt": "Nested patterns have clear boundaries.",
+      "brief": "Nested workflow containers."
+    }
+  },
+  {
+    "id": "M4-FC-10",
+    "module": "M4",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Failure Propagation",
+      "prompt": "When a sub-agent fails, what should the system do?",
+      "memoryHook": "Convert error to explicit state and choose retry, fallback or stop."
+    },
+    "back": {
+      "explanation": "Failure propagation needs a boundary to not turn errors into valid-looking output.",
+      "example": "A2A offline specialist must pay fallback, not fake artifacts.",
+      "dontConfuse": "Don't swallow mistakes and produce results without evidence."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "failure",
+      "fallback"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "The error passes through the boundary to the fallback.",
+      "brief": "Service failure routes to controlled fallback."
+    }
+  },
+  {
+    "id": "M5-FC-01",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "MCP",
+      "prompt": "What problem does MCP solve?",
+      "memoryHook": "Standardize how agents connect to tools and data sources."
+    },
+    "back": {
+      "explanation": "MCP provides a unified interface for agents to discover and invoke external capabilities.",
+      "example": "The dashboard can use the MCP filesystem to read authorized files.",
+      "dontConfuse": "MCP is not an agent-to-agent protocol."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "mcp"
+    ],
+    "illustration": {
+      "conceptId": "ILL-17",
+      "alt": "Bridge from agent to files, database and tools.",
+      "brief": "Standard bridge between control room and data stations."
+    }
+  },
+  {
+    "id": "M5-FC-02",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "RAG",
+      "prompt": "What does RAG add before generating the answer?",
+      "memoryHook": "Retrieve related content."
+    },
+    "back": {
+      "explanation": "RAG finds suitable segments and then puts them into context for the model to synthesize.",
+      "example": "Dashboard retrieves relevant documents before writing insights.",
+      "dontConfuse": "RAG does not verify any claim or calculation itself."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "rag"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Researcher took some related pages.",
+      "brief": "Retrieve before generate."
+    }
+  },
+  {
+    "id": "M5-FC-03",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "Embedding",
+      "prompt": "What is Embedding used for?",
+      "memoryHook": "Represent content using vectors to compare similarity."
+    },
+    "back": {
+      "explanation": "Embedding helps find meaningful segments that are close together in the vector database.",
+      "example": "A query about churn can find related retention segments.",
+      "dontConfuse": "High Similarity does not mean the content is correct or new."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "embedding"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Paragraphs turn into points in vector space.",
+      "brief": "Semantic points clustered by similarity."
+    }
+  },
+  {
+    "id": "M5-FC-04",
+    "module": "M5",
+    "difficulty": "basic",
+    "front": {
+      "term": "Vector Database",
+      "prompt": "What does vector database store?",
+      "memoryHook": "Embedding and metadata to search by similarity."
+    },
+    "back": {
+      "explanation": "It supports retrieval across multiple documents.",
+      "example": "ChromaDB can save document chunks for Dashboard Insights.",
+      "dontConfuse": "Generic collections can mix domains if not clearly separated."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "vector-db"
+    ],
+    "illustration": {
+      "conceptId": "ILL-20",
+      "alt": "Collections are separated by project.",
+      "brief": "Separate vector drawers."
+    }
+  },
+  {
+    "id": "M5-FC-05",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Claim-Evidence Link",
+      "prompt": "Why must claim be connected to evidence?",
+      "memoryHook": "Let the reader check where the conclusion comes from."
+    },
+    "back": {
+      "explanation": "Claim-evidence link can point to file, sheet, row, cell or source URL.",
+      "example": "The dashboard claims a decrease in revenue, so it shows exactly two comparison rows.",
+      "dontConfuse": "A report with a general citation at the bottom of the page is not enough for all claims."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "evidence",
+      "claim"
+    ],
+    "illustration": {
+      "conceptId": "ILL-19",
+      "alt": "Claim connects by line to spreadsheet row.",
+      "brief": "Visible evidence link."
+    }
+  },
+  {
+    "id": "M5-FC-06",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Computation Before Narrative",
+      "prompt": "Why should we calculate data with code before writing the model?",
+      "memoryHook": "The calculation is reproducible and testable."
+    },
+    "back": {
+      "explanation": "Code to create metrics; model explains its meaning and limitations.",
+      "example": "World Cup Analyst uses code executor for rate, Dashboard calculates anomaly threshold.",
+      "dontConfuse": "Model mental math can be wrong even if the writing style is confident."
+    },
+    "projectLinks": [
+      "worldcup-analyst",
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "calculation"
+    ],
+    "illustration": {
+      "conceptId": "ILL-19",
+      "alt": "The computer generates the numbers before the report is written.",
+      "brief": "Calculation precedes narrative."
+    }
+  },
+  {
+    "id": "M5-FC-07",
+    "module": "M5",
+    "difficulty": "practice",
+    "front": {
+      "term": "Source Scope",
+      "prompt": "What should the source scope say?",
+      "memoryHook": "Which sources are used and which sources are not tested."
+    },
+    "back": {
+      "explanation": "Scope helps users understand the limits of research.",
+      "example": "Wikipedia search is only an overview source, not an official source for all statistics.",
+      "dontConfuse": "Do not call the report “full” if only one source is used."
+    },
+    "projectLinks": [
+      "worldcup-analyst"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "source"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "The source bounding box surrounds evidence.",
+      "brief": "Source boundary around retrieved pages."
+    }
+  },
+  {
+    "id": "M5-FC-08",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Tenant Isolation",
+      "prompt": "Why separate data by tenant/project?",
+      "memoryHook": "Avoid mistakenly retrieving documents between users or domains."
+    },
+    "back": {
+      "explanation": "Isolation uses clear collections, namespaces, and access controls.",
+      "example": "The dashboard should separate the vector collection by tenant/project/domain.",
+      "dontConfuse": "A loose Metadata filter is not enough if the data is sensitive."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "isolation",
+      "privacy"
+    ],
+    "illustration": {
+      "conceptId": "ILL-20",
+      "alt": "Separate data compartments.",
+      "brief": "Separated drawers prevent mixing."
+    }
+  },
+  {
+    "id": "M5-FC-09",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Retrieval Evaluation",
+      "prompt": "What should RAG be evaluated by?",
+      "memoryHook": "Don't just look at good answers; Must measure retrieval and answer landing."
+    },
+    "back": {
+      "explanation": "Can check recall, relevance, source coverage and claim grounding.",
+      "example": "A test query needs to check whether the correct chunk is retrieved or not.",
+      "dontConfuse": "A successful demo does not prove stable retrieval."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "evaluation",
+      "rag"
+    ],
+    "illustration": {
+      "conceptId": "ILL-18",
+      "alt": "Checklist evaluates the retrieved segment.",
+      "brief": "Retrieved pages scored for relevance."
+    }
+  },
+  {
+    "id": "M5-FC-10",
+    "module": "M5",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Data Quality Gate",
+      "prompt": "When should data quality gate occur?",
+      "memoryHook": "Before the insight or report is created."
+    },
+    "back": {
+      "explanation": "Gate checks schema, missing values, types and range.",
+      "example": "Dashboard ingestion should report missing columns in the file before calculating metrics.",
+      "dontConfuse": "Don't let the model guess the columns or compensate the data without being told."
+    },
+    "projectLinks": [
+      "dashboard-insights"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "data-quality"
+    ],
+    "illustration": {
+      "conceptId": "ILL-08",
+      "alt": "Data goes through the check gate before reporting.",
+      "brief": "Schema and missing-value checkpoint."
+    }
+  },
+  {
+    "id": "M6-FC-01",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "A2A",
+      "prompt": "What is A2A used for?",
+      "memoryHook": "Let independent agent systems communicate across service boundaries."
+    },
+    "back": {
+      "explanation": "A2A helps the orchestrator discover capabilities and send tasks to the remote agent.",
+      "example": "A2A Orchestrator route request to specialist service.",
+      "dontConfuse": "A2A is not MCP; MCP connects the agent to the tool/data."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "a2a"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "Control tower route request to service agent.",
+      "brief": "Request signal across service boundaries."
+    }
+  },
+  {
+    "id": "M6-FC-02",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "Agent Card",
+      "prompt": "What does the Agent Card contain?",
+      "memoryHook": "Capability, endpoint, input, output and protocol metadata."
+    },
+    "back": {
+      "explanation": "It is a contract that tells the orchestrator what the specialist can do.",
+      "example": "Trip Planner Agent Card describes travel planning and corresponding port.",
+      "dontConfuse": "Marketing description is not enough; The contract must be machine-readable and versioned."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "agent-card"
+    ],
+    "illustration": {
+      "conceptId": "ILL-21",
+      "alt": "Passport of agent service.",
+      "brief": "Capability card with endpoint and schema."
+    }
+  },
+  {
+    "id": "M6-FC-03",
+    "module": "M6",
+    "difficulty": "basic",
+    "front": {
+      "term": "Service Boundary",
+      "prompt": "What technical issues does service boundary change?",
+      "memoryHook": "Network, auth, timeout, version and observability appear."
+    },
+    "back": {
+      "explanation": "Remote calls can fail even though the agent logic is correct.",
+      "example": "A2A offline specialist needs timeout and fallback.",
+      "dontConfuse": "Don't design a remote system as an internal function call."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "distributed"
+    ],
+    "illustration": {
+      "conceptId": "ILL-22",
+      "alt": "The request crosses the boundary between service.",
+      "brief": "Signal crosses network boundary."
+    }
+  },
+  {
+    "id": "M6-FC-04",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Timeout",
+      "prompt": "What does Timeout protect?",
+      "memoryHook": "Don't let requests wait indefinitely."
+    },
+    "back": {
+      "explanation": "Timeout determines the maximum time before retry/fallback.",
+      "example": "Orchestrator stops waiting for specialist and displays clear status.",
+      "dontConfuse": "Don't make up latency in your portfolio if you don't actually measure it."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "timeout"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "The clock stops a network call.",
+      "brief": "Timeout gate on remote request."
+    }
+  },
+  {
+    "id": "M6-FC-05",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Retry",
+      "prompt": "When should retry be used?",
+      "memoryHook": "When the error is temporary and the operation is safe enough to try again."
+    },
+    "back": {
+      "explanation": "Retry requires backoff, max attempts and idempotency.",
+      "example": "A2A can retry a transient timeout before fallback.",
+      "dontConfuse": "Retrying any errors can slow down the system or create duplicate side effects."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "retry"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "Request retry with limit.",
+      "brief": "One controlled retry then fallback."
+    }
+  },
+  {
+    "id": "M6-FC-06",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Circuit Breaker",
+      "prompt": "How does a circuit breaker help when the service continuously fails?",
+      "memoryHook": "Temporarily suspend calls to avoid making the system worse."
+    },
+    "back": {
+      "explanation": "Breaker opens after error threshold and allows fallback/health recovery.",
+      "example": "Orchestrator does not continue to spam unavailable specialists.",
+      "dontConfuse": "Circuit breaker is different from the timeout of a single request."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "circuit-breaker"
+    ],
+    "illustration": {
+      "conceptId": "ILL-23",
+      "alt": "The switch interrupting the path to the service is faulty.",
+      "brief": "Open breaker redirects to fallback."
+    }
+  },
+  {
+    "id": "M6-FC-07",
+    "module": "M6",
+    "difficulty": "practice",
+    "front": {
+      "term": "Trace ID",
+      "prompt": "What is Trace ID used for?",
+      "memoryHook": "Connect events of the same request across multiple services."
+    },
+    "back": {
+      "explanation": "A consistent ID helps debug routing, tool calls and artifacts.",
+      "example": "A2A requests can transmit trace IDs from the orchestrator to the specialist.",
+      "dontConfuse": "Do not display fake trace IDs if the backend has not created the real one."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "observability"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "An ID accompanies requests across many services.",
+      "brief": "Shared trace identifier across hops."
+    }
+  },
+  {
+    "id": "M6-FC-08",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Contract Versioning",
+      "prompt": "Why does Agent Card/schema need version?",
+      "memoryHook": "Client and service can change independently."
+    },
+    "back": {
+      "explanation": "Versioning allows for compatibility and migration testing.",
+      "example": "The orchestrator refuses to use a specialist using a protocol version that is not supported.",
+      "dontConfuse": "Do not assume all services use the same dependency version."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "versioning"
+    ],
+    "illustration": {
+      "conceptId": "ILL-21",
+      "alt": "Two contract versions are compared.",
+      "brief": "Service passport with version fields."
+    }
+  },
+  {
+    "id": "M6-FC-09",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Test Pyramid for Agents",
+      "prompt": "Which classes should the agent project test?",
+      "memoryHook": "Tool/schema in unit, workflow in integration, full route in end-to-end."
+    },
+    "back": {
+      "explanation": "Split testing helps know whether the error is in logic, model/tool ​​or network.",
+      "example": "Separate test calculation dashboard; A2A test routing and offline fallback.",
+      "dontConfuse": "Just demoing a successful prompt is not enough."
+    },
+    "projectLinks": [
+      "dashboard-insights",
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "testing"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "Test classes range from unit to end-to-end.",
+      "brief": "Layered testing pyramid for agent systems."
+    }
+  },
+  {
+    "id": "M6-FC-10",
+    "module": "M6",
+    "difficulty": "architecture",
+    "front": {
+      "term": "Release Honesty",
+      "prompt": "What status should the portfolio announce?",
+      "memoryHook": "Distinguish between source, replay, simulation and live."
+    },
+    "back": {
+      "explanation": "Trust comes from the right label, real testing and the right limits.",
+      "example": "Verified replay displays commit/test; browser demo clearly states simulation.",
+      "dontConfuse": "Do not use animation or badges to create the feeling that the system is live."
+    },
+    "projectLinks": [
+      "a2a-orchestrator"
+    ],
+    "sourceLinks": [],
+    "tags": [
+      "release",
+      "trust"
+    ],
+    "illustration": {
+      "conceptId": "ILL-24",
+      "alt": "The four runtime labels are clearly distinguished.",
+      "brief": "Replay, mocked, simulation and live badges."
+    }
+  }
+]

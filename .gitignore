@@ -6,3 +6,5 @@ tmp/
 tsconfig.tsbuildinfo
 playwright-report/
 *.log
+.agent-replay-venv/
+design-work/working/root-agent-extracts-private/

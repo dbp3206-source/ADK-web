@@ -1,0 +1,97 @@
+{
+  "caseId": "TP-02",
+  "project": "trip-planner",
+  "mode": "verified-local-replay",
+  "title": "Kiểm tra state khi thiếu số ngày",
+  "description": "Source tool chấp nhận từng field độc lập; replay xác minh rằng không có field `days` được tự tạo.",
+  "status": "passed",
+  "sourceCommit": "",
+  "verifiedAt": "2026-07-27T14:21:00.212743+00:00",
+  "runCommand": "python scripts/capture-v22-replays.py --case TP-02",
+  "input": {
+    "destination": "Hue"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "actor": "trip_planner_agent",
+      "type": "input_received",
+      "summary": "Nhận điểm đến nhưng không có số ngày."
+    },
+    {
+      "sequence": 2,
+      "actor": "save_trip_detail",
+      "type": "tool_call",
+      "summary": "Chỉ lưu field destination.",
+      "details": {
+        "tool": "save_trip_detail",
+        "args": {
+          "key": "destination",
+          "value": "Hue"
+        }
+      }
+    },
+    {
+      "sequence": 3,
+      "actor": "session state",
+      "type": "state_write",
+      "summary": "State không tự thêm số ngày.",
+      "stateDiff": {
+        "path": "session.trip",
+        "before": {},
+        "after": {
+          "destination": "Hue"
+        }
+      }
+    },
+    {
+      "sequence": 4,
+      "actor": "replay harness",
+      "type": "validation",
+      "summary": "Xác nhận field `days` vẫn thiếu; bước hỏi lại thuộc model và không được chạy."
+    },
+    {
+      "sequence": 5,
+      "actor": "replay harness",
+      "type": "completed",
+      "summary": "Kết thúc kiểm tra edge case."
+    }
+  ],
+  "output": {
+    "retrievedState": {
+      "destination": "Hue"
+    },
+    "clarificationResponse": null
+  },
+  "expected": {
+    "daysPresent": false
+  },
+  "assertions": [
+    {
+      "name": "Destination was saved",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Missing days was not fabricated",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "source": {
+    "agentPath": "trip_planner/trip_planner_agent/agent.py",
+    "testPath": "scripts/capture-v22-replays.py",
+    "rootAgentStartLine": 24,
+    "rootAgentEndLine": 42
+  },
+  "externalDependencies": [
+    {
+      "name": "Gemini clarification response",
+      "mode": "not-used"
+    }
+  ],
+  "redactions": [
+    "Personal workspace path replaced by repository-relative paths.",
+    "No environment values or credentials captured."
+  ]
+}

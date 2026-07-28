@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { LearningIllustration } from "@/components/learn/LearningIllustration";
+import { DragDropPractice } from "@/components/learn/DragDropPractice";
 import { StaticLink as Link } from "@/components/layout/StaticLink";
-import { VoiceGuide } from "@/components/voice/VoiceGuide";
 import {
   examConfig,
   getFlashcards,
@@ -174,11 +174,6 @@ export function FlashcardStudio({ locale }: { locale: Locale }) {
   function rate(value: "know" | "unsure" | "again") {
     setProgress({ ...progress, flashcards: { ...progress.flashcards, [card.id]: value } });
   }
-  const voice = card ? [{
-    id: card.id,
-    label: card.front.term,
-    text: `${card.front.prompt}. ${card.back.explanation}. ${card.back.example}`,
-  }] : [];
   return (
     <main className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/flashcards" />
@@ -206,7 +201,6 @@ export function FlashcardStudio({ locale }: { locale: Locale }) {
           <button type="button" onClick={() => rate("know")} aria-pressed={progress.flashcards[card?.id] === "know"}>{t.know}</button>
           <button type="button" onClick={() => { setIndex((value) => Math.min(filtered.length - 1, value + 1)); setFlipped(false); }} disabled={index === filtered.length - 1}>{t.next}</button>
         </div>
-        <VoiceGuide locale={locale} sections={voice} compact />
         <div className="learning-print-sheet flashcard-print-sheet" aria-hidden="true">
           {filtered.map((item) => (
             <article key={item.id}>
@@ -298,22 +292,76 @@ export function PracticeStudio({ locale }: { locale: Locale }) {
   const t = text[locale];
   const activities = getPracticeActivities(locale);
   const [progress, setProgress] = useLearningProgress();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activity = activities[activeIndex];
+  const complete = activity ? progress.practice.includes(activity.id) : false;
+
+  function markDone() {
+    if (!activity) return;
+    setProgress({
+      ...progress,
+      practice: complete
+        ? progress.practice.filter((id) => id !== activity.id)
+        : [...progress.practice, activity.id],
+    });
+  }
+
+  const isDnD = activity?.type === "ordering" || activity?.type === "classification";
+
   return (
     <main className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/practice" />
-      <section className="practice-list page-shell-v2">
-        {activities.map((activity, index) => {
-          const complete = progress.practice.includes(activity.id);
-          return (
-            <article key={activity.id}>
-              <span className="practice-index mono">{String(index + 1).padStart(2, "0")} · {activity.module} · {activity.type}</span>
-              <h2>{activity.title}</h2>
-              <p>{activity.instructions}</p>
-              <details><summary>{t.explanation}</summary><p>{activity.feedback}</p></details>
-              <button type="button" aria-pressed={complete} onClick={() => setProgress({ ...progress, practice: complete ? progress.practice.filter((id) => id !== activity.id) : [...progress.practice, activity.id] })}>{complete ? t.completed : t.complete}</button>
-            </article>
-          );
-        })}
+      <section className="practice-studio-v2 page-shell-v2">
+        {/* Activity navigation tabs */}
+        <div className="practice-tabs" role="tablist" aria-label={locale === "vi" ? "Chọn bài tập" : "Select exercise"}>
+          {activities.map((act, i) => (
+            <button
+              key={act.id}
+              role="tab"
+              aria-selected={i === activeIndex}
+              onClick={() => setActiveIndex(i)}
+              className={`practice-tab${i === activeIndex ? " is-active" : ""}${progress.practice.includes(act.id) ? " is-done" : ""}`}
+            >
+              <span className="mono">{String(i + 1).padStart(2, "0")}</span>
+              <span>{act.title}</span>
+              {progress.practice.includes(act.id) && <span aria-hidden="true">✓</span>}
+            </button>
+          ))}
+        </div>
+
+        {activity && (
+          <article className="practice-activity" aria-labelledby={`practice-title-${activity.id}`}>
+            <header className="practice-activity-header">
+              <span className="mono">{activity.module} · {activity.type}</span>
+              <h2 id={`practice-title-${activity.id}`}>{activity.title}</h2>
+            </header>
+
+            {isDnD ? (
+              <DragDropPractice activity={activity as Parameters<typeof DragDropPractice>[0]["activity"]} locale={locale} />
+            ) : (
+              <div className="practice-non-dnd">
+                <p>{activity.instructions}</p>
+                {"feedback" in activity && activity.feedback ? (
+                  <details className="practice-feedback-drawer">
+                    <summary>{t.explanation}</summary>
+                    <p>{activity.feedback}</p>
+                  </details>
+                ) : null}
+              </div>
+            )}
+
+            <div className="practice-mark-actions">
+              <button
+                type="button"
+                aria-pressed={complete}
+                className={`practice-mark-btn${complete ? " is-done" : ""}`}
+                onClick={markDone}
+              >
+                {complete ? (locale === "vi" ? "✓ Đã xong" : "✓ Done") : (locale === "vi" ? "Đánh dấu xong" : "Mark as done")}
+              </button>
+            </div>
+          </article>
+        )}
       </section>
     </main>
   );

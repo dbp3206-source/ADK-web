@@ -58,3 +58,250 @@
   .agent-source-panel pre.is-condensed{max-height:none}.source-line{grid-template-columns:3rem minmax(0,1fr)}.source-line>span:last-child{white-space:pre-wrap;overflow-wrap:anywhere}
   .learning-print-sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.learning-print-sheet article{break-inside:avoid;border:1px solid var(--paper-border);padding:1rem}.learning-print-sheet h2{font-size:1.15rem;line-height:1.2}.learning-print-sheet p{font-size:.9rem}
 }
+
+/* ============================================================
+   AGENT INTERACTION SIMULATOR — V3.1
+   ============================================================ */
+
+.sim-shell{background:var(--bg-1);border-top:4px solid var(--accent-cyan);padding:clamp(1.25rem,3vw,2rem);min-width:0}
+
+/* Notice bar */
+.sim-notice{border:1px solid var(--border-hover);border-left:4px solid var(--accent-amber);padding:.55rem 1rem;font:600 .72rem/1.4 var(--font-mono);color:var(--text-mid);margin-bottom:1.25rem}
+
+/* Case / scenario selector */
+.sim-case-bar{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.sim-case-label{color:var(--text-low);font-size:.72rem;padding-top:.55rem;white-space:nowrap}
+.sim-case-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.sim-case-pill{min-height:36px;padding:.4rem .85rem;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-mid);font-size:.8rem;cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast),background var(--dur-fast)}
+.sim-case-pill:hover{border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.sim-case-pill.is-active{background:var(--accent-cyan);border-color:var(--accent-cyan);color:var(--bg-0);font-weight:700}
+.sim-case-pill.sim-case-failure.is-active{background:var(--accent-coral);border-color:var(--accent-coral)}
+.sim-case-pill.sim-case-warning.is-active{background:var(--accent-amber);border-color:var(--accent-amber);color:var(--bg-0)}
+
+/* Three-column layout */
+.sim-three-col{display:grid;grid-template-columns:minmax(14rem,.85fr) minmax(14rem,1fr) minmax(14rem,1fr);gap:1px;background:var(--border-hairline);min-width:0}
+.sim-col{background:var(--bg-1);min-width:0;display:flex;flex-direction:column}
+.sim-col-header{padding:.65rem 1rem;border-bottom:1px solid var(--border-hairline);background:var(--bg-2)}
+.sim-col-label{color:var(--text-low);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+
+/* INPUT COLUMN */
+.sim-prompt-area{padding:1rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
+.sim-chat-bubble{background:var(--bg-2);border:1px solid var(--border-hover);border-radius:var(--radius-md) var(--radius-md) 0 var(--radius-md);transition:border-color var(--dur-fast)}
+.sim-chat-bubble.sim-chat-sent{border-color:var(--accent-cyan);opacity:.8}
+.sim-prompt-input{width:100%;background:transparent;border:0;color:var(--text-hi);font:var(--type-sm)/1.6 var(--font-body);padding:.75rem;resize:none;min-height:80px;outline:none}
+.sim-prompt-input:read-only{cursor:default;color:var(--text-mid)}
+.sim-prompt-actions{display:flex;gap:.5rem}
+.sim-send-btn{flex:1;min-height:44px;background:var(--accent-cyan);border:0;color:var(--bg-0);font:700 .9rem var(--font-body);cursor:pointer;letter-spacing:.02em;transition:opacity var(--dur-fast)}
+.sim-send-btn:hover{opacity:.88}
+.sim-reset-btn{flex:1;min-height:44px;background:transparent;border:1px solid var(--border-hover);color:var(--text-mid);font:.875rem var(--font-body);cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast)}
+.sim-reset-btn:hover{border-color:var(--accent-coral);color:var(--accent-coral)}
+.sim-controls{display:flex;gap:.35rem;align-items:center}
+.sim-controls button{min-height:40px;min-width:40px;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-hi);font-size:1rem;cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast)}
+.sim-controls button:hover{border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.sim-controls button:disabled{opacity:.3;cursor:not-allowed}
+.sim-step-counter{color:var(--text-low);font-size:.75rem}
+
+/* PROCESS COLUMN */
+.sim-step-list{list-style:none;margin:0;padding:0;flex:1}
+.sim-step{border-bottom:1px solid var(--border-hairline)}
+.sim-step-btn{width:100%;min-height:56px;display:grid;grid-template-columns:2.5rem 1fr 1.5rem;gap:.6rem;align-items:start;text-align:left;border:0;background:transparent;color:var(--text-low);padding:.65rem .75rem;cursor:pointer;transition:background var(--dur-fast),color var(--dur-fast)}
+.sim-step-btn:hover{background:var(--bg-2);color:var(--text-mid)}
+.sim-step-pending .sim-step-btn{color:var(--text-low)}
+.sim-step-done .sim-step-btn{color:var(--text-mid)}
+.sim-step-active .sim-step-btn{background:var(--bg-2);color:var(--text-hi);box-shadow:inset 3px 0 var(--accent-cyan)}
+.sim-step-num{color:var(--text-low);font-size:.7rem;padding-top:.2rem}
+.sim-step-body{min-width:0}
+.sim-step-title{display:block;font-size:.875rem;font-weight:600}
+.sim-step-actor{display:block;font-size:.7rem;color:var(--accent-cyan);margin-top:.15rem}
+.sim-step-indicator{color:var(--text-low);font-size:.8rem;padding-top:.2rem}
+.sim-step-done .sim-step-indicator{color:var(--project-worldcup)}
+.sim-step-active .sim-step-indicator{color:var(--accent-cyan)}
+
+/* Step detail — shown when active */
+.sim-step-detail{margin-top:.65rem;padding-top:.65rem;border-top:1px solid var(--border-hairline);grid-column:1/-1}
+.sim-step-explanation{color:var(--text-mid);font-size:.82rem;line-height:1.55;margin:0 0 .45rem}
+.sim-step-why{color:var(--text-low);font-size:.77rem;line-height:1.5;margin:0 0 .45rem}
+.sim-step-keyword{display:inline-block;background:var(--bg-0);border:1px solid var(--border-hover);padding:.2rem .5rem;font-size:.67rem;color:var(--accent-amber);letter-spacing:.03em}
+.sim-process-hint{color:var(--text-low);font-size:.8rem;padding:.75rem;text-align:center}
+
+/* OUTPUT COLUMN */
+.sim-output-area{flex:1;padding:1rem;min-width:0;display:flex;flex-direction:column;gap:.75rem}
+.sim-output-placeholder,.sim-output-in-progress{flex:1;display:grid;place-items:center;min-height:10rem;color:var(--text-low);font-size:.875rem;text-align:center;border:1px dashed var(--border-hairline)}
+.sim-spinner{width:28px;height:28px;border:2px solid var(--border-hover);border-top-color:var(--accent-cyan);border-radius:50%;animation:sim-spin .8s linear infinite;margin:0 auto .5rem}
+@keyframes sim-spin{to{transform:rotate(360deg)}}
+.sim-output-label{font:700 .7rem/1 var(--font-mono);color:var(--accent-cyan);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem}
+.sim-output-note{color:var(--text-low);font-size:.75rem;margin:.5rem 0 0;font-style:italic}
+
+/* TRIP OUTPUT */
+.sim-output-trip{min-width:0}
+.sim-trip-days{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem}
+.sim-trip-day{background:var(--bg-2);border-left:3px solid var(--project-trip);padding:.65rem .85rem}
+.sim-trip-day strong{display:block;font-size:.8rem;color:var(--project-trip);margin-bottom:.35rem}
+.sim-trip-day ul{margin:0;padding-left:1.1rem}
+.sim-trip-day li{font-size:.8rem;color:var(--text-mid);margin:.15rem 0}
+.sim-state-ticket{background:var(--bg-0);border:1px solid var(--border-hairline);padding:.65rem .85rem}
+.sim-state-label{display:block;font:600 .67rem var(--font-mono);color:var(--project-trip);margin-bottom:.45rem}
+.sim-state-ticket dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sim-state-ticket dt{font-size:.72rem;color:var(--text-low);font-family:var(--font-mono);padding:.3rem 0}
+.sim-state-ticket dd{font-size:.8rem;color:var(--text-hi);margin:0;padding:.3rem 0}
+.sim-clarification{background:var(--bg-2);border-left:3px solid var(--accent-amber);padding:.75rem 1rem}
+.sim-clarification p{margin:0 0 .35rem;font-size:.875rem;color:var(--text-hi)}
+
+/* SCRIPT OUTPUT */
+.sim-output-script{min-width:0}
+.sim-output-tabs,[role="tablist"].sim-dual-lane-tabs{display:flex;gap:.3rem;margin-bottom:.65rem;flex-wrap:wrap}
+.sim-output-tabs button,[role="tab"].sim-dual-lane-tabs > button{min-height:36px;padding:.35rem .75rem;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-mid);font-size:.78rem;cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast),background var(--dur-fast)}
+.sim-output-tabs button[aria-selected=true],[role="tab"][aria-selected=true]{background:var(--project-script);border-color:var(--project-script);color:var(--bg-0);font-weight:700}
+.sim-manuscript{background:var(--bg-2);padding:.75rem;font-size:.82rem;line-height:1.6}
+.sim-manuscript p{margin:.35rem 0;color:var(--text-hi)}
+.sim-manuscript.sim-revision p{border-left:2px solid var(--project-worldcup);padding-left:.5rem}
+.sim-critique{display:flex;flex-direction:column;gap:.4rem}
+.sim-critique-item{display:grid;grid-template-columns:2.5rem 1fr;gap:.5rem;align-items:start;background:var(--bg-2);padding:.6rem}
+.sim-critique-item p{margin:0;font-size:.82rem;color:var(--text-mid)}
+.sim-score{font:700 .85rem var(--font-mono);color:var(--accent-amber)}
+.sim-critique-pass{color:var(--project-worldcup);font-weight:700}
+.sim-critique-fail{color:var(--accent-coral);font-weight:700}
+.sim-error-card{display:flex;gap:.75rem;align-items:flex-start;background:var(--bg-2);border-left:3px solid var(--accent-coral);padding:.75rem 1rem}
+.sim-error-icon{font-size:1.25rem;color:var(--accent-coral)}
+.sim-error-card p{margin:0 0 .25rem;font-size:.85rem;color:var(--text-mid)}
+
+/* WORLDCUP OUTPUT */
+.sim-output-worldcup{min-width:0}
+.sim-source-card{background:var(--bg-2);border-left:3px solid var(--project-worldcup);padding:.65rem .85rem;margin-bottom:.65rem}
+.sim-source-label{display:block;font:600 .67rem var(--font-mono);color:var(--project-worldcup);margin-bottom:.35rem}
+.sim-source-card p{margin:.25rem 0;font-size:.82rem;color:var(--text-hi)}
+.sim-source-link{font-size:.78rem;color:var(--accent-cyan)}
+.sim-formula-tape{background:var(--bg-0);border:1px solid var(--border-hairline);margin-bottom:.65rem}
+.sim-formula-label{display:block;padding:.35rem .65rem;background:var(--bg-2);font:600 .67rem var(--font-mono);color:var(--project-worldcup)}
+.sim-formula-code{margin:0;padding:.65rem;font:var(--type-xs)/1.65 var(--font-mono);color:var(--text-mid);white-space:pre;overflow:auto}
+.sim-report-excerpt{font-size:.82rem;color:var(--text-mid);line-height:1.55}
+.sim-report-excerpt p{margin:.35rem 0}
+.sim-report-excerpt strong{color:var(--text-hi)}
+
+/* LOVE ADVISOR OUTPUT */
+.sim-output-love{min-width:0}
+.sim-dual-lane{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.65rem}
+.sim-lane{background:var(--bg-2);padding:.7rem;font-size:.8rem}
+.sim-lane strong{display:block;font-size:.78rem;color:var(--project-love);margin-bottom:.35rem}
+.sim-lane p{margin:.25rem 0;color:var(--text-mid)}
+.sim-lane-a strong{color:var(--project-love)}
+.sim-lane-b strong{color:var(--project-worldcup)}
+.sim-synthesis-gate{background:var(--bg-0);border:1px solid var(--border-hairline);padding:.7rem}
+.sim-gate-label{display:block;font:600 .67rem var(--font-mono);color:var(--project-love);margin-bottom:.35rem}
+.sim-synthesis-gate p{margin:.25rem 0;font-size:.82rem;color:var(--text-mid)}
+
+/* DASHBOARD OUTPUT */
+.sim-output-dashboard{min-width:0}
+.sim-data-preview{margin-bottom:.65rem}
+.sim-data-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.sim-data-table th,.sim-data-table td{border:1px solid var(--border-hairline);padding:.4rem .6rem;text-align:left}
+.sim-data-table th{background:var(--bg-2);color:var(--text-low);font:600 .7rem var(--font-mono)}
+.sim-data-table td{color:var(--text-mid)}
+.sim-anomaly-row td{color:var(--accent-coral);font-weight:600}
+.sim-anomaly-marker{display:flex;gap:.5rem;align-items:flex-start;background:var(--bg-2);border-left:3px solid var(--accent-coral);padding:.6rem .8rem;margin-top:.5rem}
+.sim-anomaly-marker span{font:700 .72rem var(--font-mono);color:var(--accent-coral);white-space:nowrap;padding-top:.15rem}
+.sim-anomaly-marker p{margin:0;font-size:.8rem;color:var(--text-mid)}
+.sim-qa-verdict{display:flex;gap:.65rem;align-items:center;background:var(--bg-2);padding:.6rem .8rem;margin-bottom:.65rem;border:1px solid var(--border-hairline)}
+.sim-qa-stamp{font:700 .72rem var(--font-mono);color:var(--project-worldcup);white-space:nowrap}
+.sim-qa-verdict p{margin:0;font-size:.8rem;color:var(--text-mid)}
+.sim-technical-drawer summary{min-height:36px;display:flex;align-items:center;font-size:.78rem;color:var(--accent-cyan);cursor:pointer}
+.sim-technical-drawer p{font-size:.78rem;color:var(--text-low)}
+
+/* A2A OUTPUT */
+.sim-output-a2a{min-width:0}
+.sim-agent-map{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.65rem}
+.sim-agent-card{display:grid;grid-template-columns:3.5rem 1fr auto;gap:.5rem;align-items:center;background:var(--bg-2);border:1px solid var(--border-hairline);padding:.5rem .7rem;transition:border-color var(--dur-fast)}
+.sim-agent-card.sim-agent-selected{border-color:var(--project-a2a);background:var(--bg-2)}
+.sim-agent-card.sim-agent-uncertain{opacity:.5}
+.sim-agent-port{font:600 .7rem var(--font-mono);color:var(--text-low)}
+.sim-agent-card strong{font-size:.82rem;color:var(--text-hi)}
+.sim-agent-card.sim-agent-selected strong{color:var(--project-a2a)}
+.sim-agent-badge{font:700 .65rem var(--font-mono);color:var(--project-a2a);white-space:nowrap}
+.sim-route-reason{background:var(--bg-0);border-left:3px solid var(--project-a2a);padding:.65rem .85rem;margin-bottom:.65rem}
+.sim-route-reason strong{display:block;font-size:.78rem;color:var(--project-a2a);margin-bottom:.35rem}
+.sim-route-reason p{margin:0;font-size:.82rem;color:var(--text-mid)}
+.sim-agent-card-detail{background:var(--bg-0);border:1px solid var(--border-hairline);padding:.65rem .85rem}
+.sim-agent-card-detail dl{margin:0;display:grid;grid-template-columns:6rem 1fr;gap:2px}
+.sim-agent-card-detail dt{font-size:.7rem;color:var(--text-low);font-family:var(--font-mono);padding:.2rem 0}
+.sim-agent-card-detail dd{font-size:.8rem;color:var(--text-hi);margin:0;padding:.2rem 0;overflow-wrap:anywhere}
+
+/* No-script fallback */
+.sim-noscript{background:var(--bg-2);padding:1rem;margin-top:1rem}
+.sim-noscript h4{margin:.25rem 0 .75rem}
+.sim-noscript li{margin:.35rem 0;font-size:.875rem}
+.sim-output-empty{color:var(--text-low);font-size:.85rem;padding:.75rem}
+
+/* Responsive */
+@media(max-width:900px){
+  .sim-three-col{grid-template-columns:1fr;gap:1px}
+  .sim-trip-days{flex-direction:column}
+  .sim-state-ticket dl{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .sim-case-pills{gap:.3rem}
+  .sim-case-pill{font-size:.73rem;padding:.35rem .65rem}
+  .sim-dual-lane{flex-direction:column}
+}
+
+/* HOME — hero step signal */
+.hero-step-signal{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.25rem 0 .5rem}
+.step-pill{min-height:36px;padding:.35rem .85rem;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-mid);font:600 .8rem var(--font-mono);cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast),background var(--dur-fast)}
+.step-pill.is-active{background:var(--accent-cyan);border-color:var(--accent-cyan);color:var(--bg-0)}
+.step-desc{min-height:2.4em;color:var(--text-mid);font-size:.9rem;margin:.35rem 0 1rem;transition:opacity var(--dur-fast)}
+
+/* Contact page link-only layout */
+.contact-links-page{padding:clamp(3rem,8vw,7rem) max(var(--gutter),calc((100vw - var(--content))/2))}
+.contact-links-page h1{font-size:clamp(2.2rem,5vw,4rem);margin:0 0 .5rem}
+.contact-links-page .contact-lede{color:var(--text-mid);font-size:var(--type-lg);margin:0 0 3rem;max-width:48rem}
+.contact-links-list{display:flex;flex-direction:column;gap:.5rem;list-style:none;padding:0;margin:0}
+.contact-link-item{display:grid;grid-template-columns:8rem 1fr;gap:.75rem;align-items:baseline;border-top:1px solid var(--border-hairline);padding:1rem 0}
+.contact-link-label{font:600 .75rem var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--text-low)}
+.contact-link-item a{color:var(--text-hi);font-size:var(--type-lg);text-decoration:none;border-bottom:1px solid var(--border-hover);transition:color var(--dur-fast),border-color var(--dur-fast)}
+.contact-link-item a:hover{color:var(--accent-cyan);border-color:var(--accent-cyan)}
+
+/* Practice drag-and-drop */
+.practice-dnd-zone{min-height:52px;border:2px dashed var(--border-hover);background:var(--bg-2);display:flex;flex-wrap:wrap;gap:.4rem;padding:.5rem;transition:border-color var(--dur-fast);align-items:center}
+.practice-dnd-zone.dnd-over{border-color:var(--accent-cyan);background:color-mix(in srgb,var(--accent-cyan) 8%,var(--bg-2))}
+.practice-dnd-chip{min-height:36px;padding:.4rem .85rem;background:var(--bg-1);border:1px solid var(--border-hover);color:var(--text-hi);font-size:.85rem;cursor:grab;user-select:none;border-radius:var(--radius-xs);transition:transform var(--dur-fast),border-color var(--dur-fast);touch-action:none}
+.practice-dnd-chip:hover{border-color:var(--accent-cyan)}
+.practice-dnd-chip:active,.practice-dnd-chip[aria-grabbed=true]{cursor:grabbing;transform:scale(1.03);border-color:var(--accent-cyan);box-shadow:0 4px 12px rgba(34,211,238,.25)}
+.practice-dnd-result{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;font-size:.875rem}
+.practice-dnd-result.dnd-correct .practice-dnd-icon{color:var(--project-worldcup)}
+.practice-dnd-result.dnd-wrong .practice-dnd-icon{color:var(--accent-coral)}
+.practice-dnd-icon{font-size:1.1rem}
+
+/* Practice Studio V2 */
+.practice-studio-v2{padding:clamp(2rem,5vw,4rem) max(var(--gutter),calc((100vw - var(--content))/2))}
+.practice-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-hairline);padding-bottom:.75rem}
+.practice-tab{min-height:44px;padding:.4rem 1rem;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-mid);font-size:.82rem;cursor:pointer;display:flex;align-items:center;gap:.5rem;transition:border-color var(--dur-fast),color var(--dur-fast),background var(--dur-fast)}
+.practice-tab:hover{border-color:var(--accent-cyan);color:var(--text-hi)}
+.practice-tab.is-active{background:var(--accent-cyan);border-color:var(--accent-cyan);color:var(--bg-0);font-weight:700}
+.practice-tab.is-done:not(.is-active){border-color:var(--project-worldcup);color:var(--project-worldcup)}
+.practice-activity{background:var(--bg-1);border:1px solid var(--border-hairline);padding:clamp(1.25rem,3vw,2rem)}
+.practice-activity-header{margin-bottom:1.25rem}.practice-activity-header .mono{color:var(--accent-cyan);font-size:.72rem}.practice-activity-header h2{font-size:clamp(1.3rem,3vw,2rem);margin:.4rem 0 0}
+.practice-dnd-instructions{color:var(--text-mid);font-size:.9rem;margin:0 0 1rem}
+/* Ordering list */
+.practice-ordering-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.practice-ordering-list li.practice-dnd-chip{display:grid;grid-template-columns:2.5rem 1fr 1.5rem;gap:.65rem;align-items:center;padding:.6rem .85rem;border-radius:var(--radius-xs)}
+.ordering-pos{color:var(--text-low);font-size:.72rem}.ordering-text{font-size:.875rem}.ordering-handle{color:var(--text-low);font-size:1.1rem;text-align:center;cursor:grab}
+.practice-dnd-chip.is-dragging{opacity:.5;border-style:dashed}.practice-dnd-chip.is-over{border-color:var(--accent-cyan);border-style:solid;box-shadow:0 0 0 2px var(--accent-cyan)}
+.practice-dnd-chip.chip-correct{border-color:var(--project-worldcup);color:var(--project-worldcup)}
+.practice-dnd-chip.chip-incorrect{border-color:var(--accent-coral);color:var(--accent-coral)}
+.practice-dnd-actions{display:flex;gap:.5rem;margin:1rem 0}
+/* Classification bins */
+.practice-chips-pool{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;min-height:52px;border:1px dashed var(--border-hover);padding:.5rem;background:var(--bg-0)}
+.practice-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem;margin-bottom:1rem}
+.practice-bin{flex-direction:column;gap:.35rem;padding:.65rem;background:var(--bg-2);min-height:80px}
+.practice-bin-label{font:700 .67rem var(--font-mono);color:var(--accent-amber);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.practice-bin-empty{font-size:.78rem;color:var(--text-low);padding:.25rem 0}
+/* Non-dnd fallback */
+.practice-non-dnd{padding:.75rem 0}
+.practice-feedback-drawer summary{min-height:44px;display:flex;align-items:center;color:var(--accent-cyan);cursor:pointer;font-size:.875rem}
+.practice-feedback-drawer p{margin:.5rem 0;font-size:.875rem;color:var(--text-mid)}
+/* Mark done */
+.practice-mark-actions{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border-hairline)}
+.practice-mark-btn{min-height:44px;padding:.6rem 1.5rem;border:1px solid var(--border-hover);background:var(--bg-2);color:var(--text-mid);font-size:.875rem;cursor:pointer;transition:border-color var(--dur-fast),color var(--dur-fast),background var(--dur-fast)}
+.practice-mark-btn:hover{border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.practice-mark-btn.is-done{background:var(--project-worldcup);border-color:var(--project-worldcup);color:var(--bg-0);font-weight:700}
+
+

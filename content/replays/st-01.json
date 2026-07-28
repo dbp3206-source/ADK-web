@@ -5,7 +5,6 @@
   "title": "Kiểm tra thứ tự callback bàn giao",
   "description": "Chạy ba callback bàn giao nguyên bản. Không tạo draft giả khi model chưa chạy.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.224735+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case ST-01",
   "input": {
@@ -54,12 +53,8 @@
       "[Hệ thống] >>> Đang chuyển giao quyền soạn thảo cho Biên kịch Slide (script_drafter)...",
       "[Hệ thống] >>> Đang chuyển giao quyền thẩm định cho Biên tập viên (script_critic)...",
       "[Hệ thống] >>> Đang chuyển giao quyền hoàn thiện cho Biên kịch sửa đổi (script_reviser)..."
-    ],
-    "draft": null,
-    "feedback": null,
-    "revision": null
+    ]
   },
-  "expected": null,
   "assertions": [
     {
       "name": "Three handoff callbacks executed",

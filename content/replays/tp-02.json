@@ -5,7 +5,6 @@
   "title": "Kiểm tra state khi thiếu số ngày",
   "description": "Source tool chấp nhận từng field độc lập; replay xác minh rằng không có field `days` được tự tạo.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.212743+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case TP-02",
   "input": {
@@ -60,8 +59,7 @@
   "output": {
     "retrievedState": {
       "destination": "Hue"
-    },
-    "clarificationResponse": null
+    }
   },
   "expected": {
     "daysPresent": false

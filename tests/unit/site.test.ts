@@ -6,8 +6,10 @@ describe("conditional external links", () => {
   it("hides empty and placeholder values", () => {
     expect(isRealUrl("")).toBe(false);
     expect(isRealUrl("__CONFIG__")).toBe(false);
-    expect(getOwnerName()).toBe("");
-    expect(getUtilityLinks()).toEqual([]);
+    expect(getOwnerName()).toBe("dbp3206");
+    expect(getUtilityLinks()).toEqual([
+      { label: "GitHub", href: "https://github.com/dbp3206-source" }
+    ]);
   });
 
   it("accepts real web and mail links only", () => {

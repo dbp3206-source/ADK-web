@@ -5,7 +5,6 @@
   "title": "Specialist không khả dụng",
   "description": "Mô phỏng fallback UI; không giả vờ đã gọi localhost service.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.399045+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case A2A-03",
   "input": {
@@ -52,10 +51,8 @@
   ],
   "output": {
     "route": "trip_planner",
-    "artifact": null,
     "fallback": "Architecture trace remains available; remote artifact was not created."
   },
-  "expected": null,
   "assertions": [
     {
       "name": "No remote artifact was fabricated",

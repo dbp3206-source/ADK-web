@@ -28,8 +28,6 @@ export function CommandDeck() {
     { id: "question-bank", label: locale === "vi" ? "Mở ngân hàng 90 câu hỏi" : "Open 90-question bank", hint: "Q", run: () => navigate("/learn/question-bank") },
     { id: "contact", label: dict.nav.contact, hint: "G C", run: () => navigate("/contact") },
     { id: "trace", label: dict.command.startTrace, hint: "↵", run: () => window.location.assign(`${localizedPath(locale, "/system")}?preset=dashboard-drop`) },
-    { id: "voice-start", label: locale === "vi" ? "Bắt đầu thuyết minh" : "Start voice narration", hint: "V", run: () => window.dispatchEvent(new CustomEvent("adk:voice", { detail: { action: "play" } })) },
-    { id: "voice-stop", label: locale === "vi" ? "Dừng thuyết minh" : "Stop voice narration", hint: "⇧V", run: () => window.dispatchEvent(new CustomEvent("adk:voice", { detail: { action: "stop" } })) },
     {
       id: "locale",
       label: locale === "vi" ? "Switch to English" : "Chuyển sang tiếng Việt",
@@ -41,8 +39,6 @@ export function CommandDeck() {
       label: dict.command.resetProgress,
       hint: "R",
       run: () => {
-        window.localStorage.removeItem("adk-v2-journey-progress");
-        window.localStorage.removeItem("adk-v2-journey-mode");
         window.localStorage.removeItem("adk-learning-v22");
         window.dispatchEvent(new CustomEvent("adk:journey-reset"));
       }

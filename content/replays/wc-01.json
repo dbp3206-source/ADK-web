@@ -5,7 +5,6 @@
   "title": "Tra cứu dữ kiện qua Wikipedia",
   "description": "Chạy source tool Wikipedia thật; đây không phải feed live và không gọi model synthesis.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:24.115639+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case WC-01",
   "input": {
@@ -22,7 +21,7 @@
       "sequence": 2,
       "actor": "free_wikipedia_search",
       "type": "tool_call",
-      "summary": "Gọi Wikipedia API bằng source tool.",
+      "summary": "Gọi Wikipedia API bằng công cụ.",
       "details": {
         "tool": "free_wikipedia_search",
         "args": {
@@ -43,7 +42,7 @@
       "sequence": 4,
       "actor": "replay harness",
       "type": "validation",
-      "summary": "Kiểm tra source tool không trả lỗi."
+      "summary": "Kiểm tra công cụ không trả lỗi."
     },
     {
       "sequence": 5,
@@ -53,8 +52,7 @@
     }
   ],
   "output": {
-    "searchResult": "Tiêu đề: Cúp FIFA World Cup\nNội dung: Cúp vàng Giải vô địch Bóng đá Thế giới là một cúp vàng trao cho đội vô địch giải đấu này (FIFA World Cup). Từ khi World Cup diễn ra năm 1930, đã có hai\nNguồn: https://vi.wikipedia.org/wiki/C%C3%BAp%20FIFA%20World%20Cup\n---\nTiêu đề: Giải vô địch bóng đá thế giới 2022\nNội dung: Giải vô địch bóng đá thế giới 2022 (hay Cúp bóng đá thế giới 2022, tiếng Anh: 2022 FIFA World Cup, tiếng Ả Rập: كأس العالم لكرة القدم 2022) là lần thứ\nNguồn: https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i%20v%C3%B4%20%C4%91%E1%BB%8Bch%20b%C3%B3ng%20%C4%91%C3%A1%20th%E1%BA%BF%20gi%E1%BB%9Bi%202022\n---\nTiêu đề: Esports World Cup\nNội dung: từng giải đấu, phần thưởng cho các đội đủ điều kiện tham dự, giải thưởng cho tuyển thủ xuất sắc nhất, và giải Vô địch Câu lạc bộ. Hơn 25 tựa game sẽ được\nNguồn: https://vi.wikipedia.org/wiki/Esports%20World%20Cup",
-    "analystReport": null
+    "searchResult": "Tiêu đề: Cúp FIFA World Cup\nNội dung: Cúp vàng Giải vô địch Bóng đá Thế giới là một cúp vàng trao cho đội vô địch giải đấu này (FIFA World Cup). Từ khi World Cup diễn ra năm 1930, đã có hai\nNguồn: https://vi.wikipedia.org/wiki/C%C3%BAp%20FIFA%20World%20Cup\n---\nTiêu đề: Giải vô địch bóng đá thế giới 2022\nNội dung: Giải vô địch bóng đá thế giới 2022 (hay Cúp bóng đá thế giới 2022, tiếng Anh: 2022 FIFA World Cup, tiếng Ả Rập: كأس العالم لكرة القدم 2022) là lần thứ\nNguồn: https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i%20v%C3%B4%20%C4%91%E1%BB%8Bch%20b%C3%B3ng%20%C4%91%C3%A1%20th%E1%BA%BF%20gi%E1%BB%9Bi%202022\n---\nTiêu đề: Esports World Cup\nNội dung: từng giải đấu, phần thưởng cho các đội đủ điều kiện tham dự, giải thưởng cho tuyển thủ xuất sắc nhất, và giải Vô địch Câu lạc bộ. Hơn 25 tựa game sẽ được\nNguồn: https://vi.wikipedia.org/wiki/Esports%20World%20Cup"
   },
   "expected": {
     "searchResultPresent": true

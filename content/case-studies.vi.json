@@ -1,0 +1,274 @@
+[
+  {
+    "slug": "trip-planner",
+    "index": 1,
+    "verb": "ACT",
+    "title": "Trip Planner",
+    "discoveryProblem": "Tôi muốn lên lịch chuyến đi và để agent nhớ những thông tin đã cung cấp.",
+    "oneLine": "Từ một cuộc trò chuyện rời rạc thành lịch trình có thể lưu và đọc lại trong cùng phiên.",
+    "context": {
+      "userSituation": "Người dùng đang chuẩn bị một chuyến đi nhưng thông tin về điểm đến, số ngày, ngân sách và sở thích xuất hiện ở nhiều lượt trò chuyện.",
+      "pain": [
+        "Thông tin dễ bị quên giữa các lượt",
+        "Một câu trả lời nói “đã lưu” không chứng minh dữ liệu đã được ghi",
+        "Lịch trình khó nhất quán nếu thiếu dữ liệu đầu vào"
+      ],
+      "success": "Agent hỏi phần còn thiếu, lưu thông tin bằng tool và có thể đọc lại trước khi tạo lịch trình."
+    },
+    "approach": [
+      {
+        "problem": "Thông tin chuyến đi xuất hiện dần",
+        "decision": "Dùng tool lưu từng chi tiết vào trạng thái phiên",
+        "tradeoff": "Trạng thái trong bộ nhớ có thể mất khi process khởi động lại"
+      },
+      {
+        "problem": "User có thể hỏi lại agent đang nhớ gì",
+        "decision": "Tạo tool đọc trạng thái thay vì để model tự đoán",
+        "tradeoff": "Cần xử lý rõ trạng thái chưa có dữ liệu"
+      },
+      {
+        "problem": "Lịch trình dễ chứa giá hoặc booking không có nguồn",
+        "decision": "Giới hạn demo ở lịch trình mẫu và thông tin đã cung cấp",
+        "tradeoff": "Không phải công cụ đặt dịch vụ trực tiếp"
+      }
+    ],
+    "effect": {
+      "artifact": "Lịch trình theo ngày và phiếu “Agent đã ghi nhớ”.",
+      "capability": "Tool calling + session state.",
+      "whyItMatters": "Project chứng minh agent có thể thực hiện hành động và dùng lại dữ liệu, thay vì chỉ trả lời bằng văn bản.",
+      "takeaway": "Một agent đáng tin cần cho thấy hành động đã chạy và state đã thay đổi."
+    },
+    "visual": {
+      "motif": "Cartographic Utility",
+      "cover": "Bản đồ tối giản, tuyến đường và thẻ trạng thái",
+      "output": "Day cards + state ticket"
+    }
+  },
+  {
+    "slug": "script-team",
+    "index": 2,
+    "verb": "DELEGATE",
+    "title": "Script Team",
+    "discoveryProblem": "Tôi có một brief và muốn có người viết, phản biện rồi sửa lại.",
+    "oneLine": "Chia quá trình viết thành ba vai trò để bản nháp được kiểm tra trước khi hoàn thiện.",
+    "context": {
+      "userSituation": "Một brief cần được biến thành kịch bản rõ ràng, nhưng một agent tự viết và tự đánh giá thường bỏ sót vấn đề của chính nó.",
+      "pain": [
+        "Bản nháp dễ thiếu cấu trúc",
+        "Feedback có thể mơ hồ",
+        "Bản sửa không nhất thiết phản ánh góp ý"
+      ],
+      "success": "Drafter tạo nháp, Critic phản biện theo tiêu chí và Reviser tạo bản cuối có thể so sánh."
+    },
+    "approach": [
+      {
+        "problem": "Một vai trò tự viết và tự chấm dễ thiên lệch",
+        "decision": "Tách Drafter và Critic",
+        "tradeoff": "Workflow nhiều bước hơn"
+      },
+      {
+        "problem": "Feedback khó dùng lại",
+        "decision": "Lưu feedback có cấu trúc",
+        "tradeoff": "Output key phải nhất quán"
+      },
+      {
+        "problem": "Revision có thể bỏ qua góp ý",
+        "decision": "Reviser nhận cả draft và feedback",
+        "tradeoff": "Cần kiểm tra handoff"
+      }
+    ],
+    "effect": {
+      "artifact": "Draft, critique cards, revision diff và final script.",
+      "capability": "Transfer + role specialization.",
+      "whyItMatters": "Project cho thấy quyền xử lý có thể được chuyển giữa các specialist có mục tiêu riêng.",
+      "takeaway": "Tách vai trò làm cho quy trình sáng tạo dễ kiểm tra và giải thích hơn."
+    },
+    "visual": {
+      "motif": "Editorial Redline Studio",
+      "cover": "Bản thảo, ghi chú lề và bút đỏ",
+      "output": "Manuscript + comments + diff"
+    }
+  },
+  {
+    "slug": "worldcup-analyst",
+    "index": 3,
+    "verb": "COMPUTE",
+    "title": "World Cup Analyst",
+    "discoveryProblem": "Tôi cần tìm dữ kiện và tính một chỉ số trước khi kết luận.",
+    "oneLine": "Tách phần tìm nguồn khỏi phần tính toán để báo cáo có thể kiểm tra lại.",
+    "context": {
+      "userSituation": "Một câu hỏi bóng đá có thể cần dữ kiện bên ngoài và phép tính, nhưng model dễ tự nhớ sai hoặc tự nhẩm không chính xác.",
+      "pain": [
+        "Nguồn có thể không đủ tin cậy",
+        "Phép tính khó tái lập",
+        "Kết luận dễ trộn dữ kiện và suy đoán"
+      ],
+      "success": "Search specialist thu thập dữ kiện, code thực hiện phép tính và root agent tổng hợp với phạm vi nguồn rõ."
+    },
+    "approach": [
+      {
+        "problem": "Dữ kiện và số học là hai loại công việc khác nhau",
+        "decision": "Tách Search Agent và calculation tool",
+        "tradeoff": "Cần hợp nhất kết quả đúng thứ tự"
+      },
+      {
+        "problem": "Model mental math có thể sai",
+        "decision": "Tính bằng code",
+        "tradeoff": "Cần sandbox và test"
+      },
+      {
+        "problem": "Một nguồn không đủ cho mọi claim",
+        "decision": "Hiển thị source scope",
+        "tradeoff": "Báo cáo có thể ít khẳng định hơn"
+      }
+    ],
+    "effect": {
+      "artifact": "Evidence cards, formula, kết quả tính và analyst memo.",
+      "capability": "Agent as Tool + computation.",
+      "whyItMatters": "Project chứng minh root agent có thể giữ quyền điều khiển nhưng gọi specialist cho nhiệm vụ hẹp.",
+      "takeaway": "Dữ kiện nên có nguồn; số liệu nên được code tính trước khi model diễn giải."
+    },
+    "visual": {
+      "motif": "Match Intelligence Desk",
+      "cover": "Bảng nguồn, dải công thức và memo phân tích",
+      "output": "Sources + calculation + report"
+    }
+  },
+  {
+    "slug": "love-advisor",
+    "index": 4,
+    "verb": "COMPOSE",
+    "title": "Love Advisor",
+    "discoveryProblem": "Tôi muốn chạy hai cách phân tích cùng lúc rồi hợp nhất kết quả.",
+    "oneLine": "Hai nhánh độc lập chạy song song, sau đó chỉ hợp nhất khi cả hai đã hoàn thành.",
+    "context": {
+      "userSituation": "Một tình huống có thể cần hai góc nhìn độc lập, nhưng kết quả không nên được hợp nhất trước khi đủ dữ liệu.",
+      "pain": [
+        "Một góc nhìn có thể lấn át góc còn lại",
+        "Synthesis chạy quá sớm",
+        "Chủ đề nhạy cảm dễ tạo kết luận quá chắc chắn"
+      ],
+      "success": "Hai nhánh xử lý các dimension an toàn, synthesis chờ đủ output và trả kết quả có mức độ chắc chắn phù hợp."
+    },
+    "approach": [
+      {
+        "problem": "Hai phân tích không phụ thuộc nhau",
+        "decision": "Chạy song song",
+        "tradeoff": "Cần completion gate"
+      },
+      {
+        "problem": "Output khó render ổn định",
+        "decision": "Dùng schema",
+        "tradeoff": "Schema đúng không bảo đảm nội dung đúng"
+      },
+      {
+        "problem": "Chủ đề nhạy cảm",
+        "decision": "Giới hạn dimension và copy an toàn",
+        "tradeoff": "Không phải công cụ tư vấn chuyên môn"
+      }
+    ],
+    "effect": {
+      "artifact": "Hai lens cards và bản synthesis có uncertainty note.",
+      "capability": "Parallel inside Sequential + schema.",
+      "whyItMatters": "Project minh họa cách nhiều nhánh có thể cùng làm việc mà vẫn giữ dependency rõ.",
+      "takeaway": "Parallel giúp giảm chờ đợi; synthesis gate giúp tránh kết luận khi dữ liệu chưa đủ."
+    },
+    "visual": {
+      "motif": "Dual-Lens Workshop",
+      "cover": "Hai làn phân tích hội tụ ở cổng synthesis",
+      "output": "Two lenses + combined plan"
+    }
+  },
+  {
+    "slug": "dashboard-insights",
+    "index": 5,
+    "verb": "VERIFY",
+    "title": "Dashboard Insights",
+    "discoveryProblem": "Tôi có bảng dữ liệu và muốn kiểm tra insight trước khi dùng trong báo cáo.",
+    "oneLine": "Tính số liệu, nối kết luận với dữ liệu và kiểm tra lại trước khi tạo report.",
+    "context": {
+      "userSituation": "Người dùng cần biến file dữ liệu thành insight, nhưng một câu kết luận nghe hợp lý chưa chắc được dữ liệu hỗ trợ.",
+      "pain": [
+        "Model có thể tính sai",
+        "Claim không chỉ ra dòng dữ liệu nguồn",
+        "Báo cáo có thể suy diễn nguyên nhân",
+        "Không có vòng kiểm tra"
+      ],
+      "success": "Dữ liệu được kiểm tra, metric được code tính, claim được nối tới row và QA có thể yêu cầu sửa."
+    },
+    "approach": [
+      {
+        "problem": "Input có thể thiếu cột hoặc sai kiểu",
+        "decision": "Data quality gate trước phân tích",
+        "tradeoff": "Một số file bị từ chối thay vì được đoán cấu trúc"
+      },
+      {
+        "problem": "Số học cần tái lập",
+        "decision": "Tính metric bằng code",
+        "tradeoff": "Cần test"
+      },
+      {
+        "problem": "Claim cần đối chiếu",
+        "decision": "Claim-to-row mapping + QA loop",
+        "tradeoff": "Pipeline dài hơn"
+      }
+    ],
+    "effect": {
+      "artifact": "Data preview, metric, claim, evidence links, QA verdict và report excerpt.",
+      "capability": "Workflow + computation + QA loop.",
+      "whyItMatters": "Project bổ sung lớp kiểm chứng, giúp hệ thống không chỉ tạo insight mà còn cho thấy insight dựa trên đâu.",
+      "takeaway": "Một report đáng tin cần tính đúng, chỉ nguồn và chấp nhận kết quả “không có bất thường”."
+    },
+    "visual": {
+      "motif": "Evidence Lab",
+      "cover": "Spreadsheet grid, claim connector và QA stamp",
+      "output": "Data + claim + QA + report"
+    }
+  },
+  {
+    "slug": "a2a-orchestrator",
+    "index": 6,
+    "verb": "CONNECT",
+    "title": "A2A Orchestrator",
+    "discoveryProblem": "Tôi muốn một hệ thống tìm đúng agent để xử lý từng yêu cầu.",
+    "oneLine": "Một control plane đọc yêu cầu, chọn specialist và xử lý cả trường hợp agent không khả dụng.",
+    "context": {
+      "userSituation": "Khi có nhiều agent chạy như service riêng, người dùng không nên tự biết endpoint hoặc agent nào phù hợp.",
+      "pain": [
+        "Routing có thể chọn sai",
+        "Network có timeout",
+        "Service có thể offline",
+        "Protocol có thể không tương thích"
+      ],
+      "success": "Orchestrator đọc capability, chọn specialist, gửi request và có retry/fallback rõ."
+    },
+    "approach": [
+      {
+        "problem": "Nhiều service có khả năng khác nhau",
+        "decision": "Dùng Agent Card/capability description",
+        "tradeoff": "Contract cần version và cập nhật"
+      },
+      {
+        "problem": "Remote call có thể lỗi",
+        "decision": "Timeout, retry bounded và fallback",
+        "tradeoff": "Hệ thống phức tạp hơn function call nội bộ"
+      },
+      {
+        "problem": "Cần debug xuyên service",
+        "decision": "Trace metadata",
+        "tradeoff": "Chỉ hiển thị metric nếu được đo thật"
+      }
+    ],
+    "effect": {
+      "artifact": "Routing decision, specialist summary, returned artifact hoặc fallback.",
+      "capability": "Remote agents + A2A orchestration.",
+      "whyItMatters": "Project thêm lớp kết nối để các hệ agent độc lập có thể phối hợp qua ranh giới service.",
+      "takeaway": "Distributed agents cần contract, error handling và observability, không chỉ một sơ đồ đẹp."
+    },
+    "visual": {
+      "motif": "Network Control Plane",
+      "cover": "Control tower, service cards và request packet",
+      "output": "Route + Agent Card + artifact/fallback"
+    }
+  }
+]

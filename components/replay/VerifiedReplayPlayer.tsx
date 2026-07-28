@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { VoiceGuide } from "@/components/voice/VoiceGuide";
 import { getProjectReplays, type ReplayCase } from "@/lib/replays";
 import type { Locale } from "@/lib/i18n";
 
@@ -191,11 +190,6 @@ export function VerifiedReplayPlayer({
     return <div className="replay-empty" role="status">{labels.noCases}</div>;
   }
 
-  const voiceSections = activeCase.events.map((event) => ({
-    id: `${activeCase.caseId}-${event.sequence}`,
-    label: `${labels.step} ${event.sequence} · ${event.type}`,
-    text: `${event.actor}. ${event.summary}`,
-  }));
 
   function copyDeepLink() {
     const url = new URL(window.location.href);
@@ -313,7 +307,6 @@ export function VerifiedReplayPlayer({
             </details>
           </div>
 
-          <VoiceGuide locale={locale} sections={voiceSections} />
         </>
       ) : null}
       <noscript>

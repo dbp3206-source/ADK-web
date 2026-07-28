@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
 import "./base-v2.css";
+import "./tokens-v3.css";
+import "./motion-tokens.css";
 import "./v2.css";
 import "./v22.css";
 

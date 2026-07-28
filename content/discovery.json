@@ -1,0 +1,173 @@
+{
+  "vi": {
+    "heading": "Bạn muốn agent giải quyết việc gì?",
+    "description": "Chọn một tình huống gần với công việc thực tế. Website sẽ gợi ý project phù hợp và giải thích vì sao nó được tạo ra.",
+    "trustLabel": "Gợi ý theo từ khóa và tình huống mẫu — không gọi model.",
+    "presets": [
+      {
+        "id": "trip",
+        "label": "Lên lịch chuyến đi",
+        "prompt": "Tôi muốn lên lịch Huế ba ngày và để agent nhớ thông tin.",
+        "project": "trip-planner",
+        "keywords": [
+          "chuyến đi",
+          "du lịch",
+          "lịch trình",
+          "huế",
+          "nhớ"
+        ]
+      },
+      {
+        "id": "script",
+        "label": "Viết và sửa nội dung",
+        "prompt": "Tôi có một brief và muốn có người viết, phản biện rồi sửa lại.",
+        "project": "script-team",
+        "keywords": [
+          "brief",
+          "kịch bản",
+          "viết",
+          "phản biện",
+          "sửa"
+        ]
+      },
+      {
+        "id": "compute",
+        "label": "Tìm và tính",
+        "prompt": "Tôi cần tìm dữ kiện và tính một chỉ số trước khi kết luận.",
+        "project": "worldcup-analyst",
+        "keywords": [
+          "dữ kiện",
+          "tính",
+          "thống kê",
+          "bóng đá",
+          "chỉ số"
+        ]
+      },
+      {
+        "id": "parallel",
+        "label": "Phân tích hai hướng",
+        "prompt": "Tôi muốn chạy hai cách phân tích cùng lúc rồi hợp nhất.",
+        "project": "love-advisor",
+        "keywords": [
+          "hai hướng",
+          "song song",
+          "hợp nhất",
+          "giao tiếp",
+          "lập kế hoạch"
+        ]
+      },
+      {
+        "id": "dashboard",
+        "label": "Kiểm tra insight dữ liệu",
+        "prompt": "Tôi có một bảng dữ liệu và muốn kiểm tra insight trước khi dùng.",
+        "project": "dashboard-insights",
+        "keywords": [
+          "csv",
+          "dữ liệu",
+          "doanh thu",
+          "insight",
+          "bất thường",
+          "báo cáo"
+        ]
+      },
+      {
+        "id": "orchestrate",
+        "label": "Điều phối nhiều agent",
+        "prompt": "Tôi muốn một orchestrator tìm đúng agent để xử lý yêu cầu.",
+        "project": "a2a-orchestrator",
+        "keywords": [
+          "orchestrator",
+          "điều phối",
+          "nhiều agent",
+          "route",
+          "specialist"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "heading": "What would you like an agent to help with?",
+    "description": "Choose a practical situation. The site will recommend a project and explain why it exists.",
+    "trustLabel": "Keyword and preset-based recommendation — no model is called.",
+    "presets": [
+      {
+        "id": "trip",
+        "label": "Plan a trip",
+        "prompt": "Plan a three-day trip to Hue and remember the details.",
+        "project": "trip-planner",
+        "keywords": [
+          "trip",
+          "travel",
+          "itinerary",
+          "hue",
+          "remember"
+        ]
+      },
+      {
+        "id": "script",
+        "label": "Write and revise content",
+        "prompt": "I have a brief and want a draft, critique and revision.",
+        "project": "script-team",
+        "keywords": [
+          "brief",
+          "script",
+          "write",
+          "critique",
+          "revise"
+        ]
+      },
+      {
+        "id": "compute",
+        "label": "Research and calculate",
+        "prompt": "Find the facts and calculate a metric before concluding.",
+        "project": "worldcup-analyst",
+        "keywords": [
+          "facts",
+          "calculate",
+          "statistics",
+          "football",
+          "metric"
+        ]
+      },
+      {
+        "id": "parallel",
+        "label": "Analyze two perspectives",
+        "prompt": "Run two analyses in parallel and combine the results.",
+        "project": "love-advisor",
+        "keywords": [
+          "parallel",
+          "two perspectives",
+          "combine",
+          "communication",
+          "planning"
+        ]
+      },
+      {
+        "id": "dashboard",
+        "label": "Validate a data insight",
+        "prompt": "Inspect a dataset and verify an insight before reporting it.",
+        "project": "dashboard-insights",
+        "keywords": [
+          "csv",
+          "data",
+          "revenue",
+          "insight",
+          "anomaly",
+          "report"
+        ]
+      },
+      {
+        "id": "orchestrate",
+        "label": "Coordinate multiple agents",
+        "prompt": "Choose the right specialist agent for each request.",
+        "project": "a2a-orchestrator",
+        "keywords": [
+          "orchestrator",
+          "route",
+          "multiple agents",
+          "specialist"
+        ]
+      }
+    ]
+  }
+}

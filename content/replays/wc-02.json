@@ -5,7 +5,6 @@
   "title": "So sánh conversion rate từ dữ liệu mẫu",
   "description": "Công thức deterministic dùng dữ liệu mẫu trong browser; BuiltInCodeExecutor của project không chạy.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.294736+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case WC-02",
   "input": {
@@ -64,19 +63,19 @@
         "team": "A",
         "goals": 8,
         "shots": 40,
-        "conversionRate": 20.0
+        "conversionRate": 20
       },
       {
         "team": "B",
         "goals": 6,
         "shots": 30,
-        "conversionRate": 20.0
+        "conversionRate": 20
       }
     ]
   },
   "expected": {
-    "teamA": 20.0,
-    "teamB": 20.0
+    "teamA": 20,
+    "teamB": 20
   },
   "assertions": [
     {

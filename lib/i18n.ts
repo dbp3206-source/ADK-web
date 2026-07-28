@@ -52,12 +52,6 @@ const vi = {
     eyebrow: "GOOGLE ADK · A2A · PYTHON",
     title: "Từ một agent biết gọi công cụ đến một hệ sinh thái agent phân tán.",
     subtitle: "Sáu project lần lượt bổ sung trạng thái, vai trò chuyên biệt, workflow, truy xuất dữ liệu, vòng kiểm chứng chất lượng, khả năng quan sát và điều phối A2A.",
-    audienceLabel: "Chọn góc nhìn",
-    audiences: [
-      ["recruiter", "Nhà tuyển dụng", "Một lộ trình 3–7 phút để hiểu phạm vi kỹ thuật, quyết định kiến trúc và bằng chứng."],
-      ["engineer", "Kỹ sư", "Sơ đồ, request trace, tool contract, failure mode và giới hạn được trình bày để kiểm tra sâu."],
-      ["learner", "Người học", "Các khái niệm ADK, MCP và A2A được giải thích ngay cạnh project cụ thể."]
-    ],
     ctaPrimary: "Khám phá luồng hệ thống",
     ctaSecondary: "Xem 6 project",
     stats: [
@@ -65,17 +59,6 @@ const vi = {
       ["4", "Mô hình điều khiển", "Transfer · AgentTool · Workflow · Remote"],
       ["8000–8005", "Cổng dịch vụ A2A", "Kiến trúc local được mô tả"]
     ]
-  },
-  journey: {
-    title: "Chọn lộ trình khám phá",
-    modes: [
-      ["recruiter", "Nhà tuyển dụng · 3 phút", "Luận điểm, hai project mạnh nhất, bằng chứng và liên hệ."],
-      ["engineer", "Kỹ sư · Deep Dive", "Architecture, contract, trace, test và failure mode."],
-      ["learner", "Người học · Guided", "Giải thích từng bước, voice tour, glossary và quiz."]
-    ],
-    next: "Gợi ý tiếp theo",
-    progress: "Tiến độ khám phá",
-    reset: "Đặt lại chế độ và tiến độ"
   },
   home: {
     ladderEyebrow: "CAPABILITY LADDER",
@@ -243,27 +226,12 @@ const en: Dictionary = {
     eyebrow: "GOOGLE ADK · A2A · PYTHON",
     title: "From one tool-using agent to a distributed agent ecosystem.",
     subtitle: "Six projects progressively add state, specialist roles, workflows, retrieval, quality loops, observability and A2A orchestration.",
-    audienceLabel: "Choose a perspective",
-    audiences: [
-      ["recruiter", "Recruiter", "A 3–7 minute path through technical scope, architecture decisions and evidence."],
-      ["engineer", "Engineer", "Diagrams, request traces, tool contracts, failure modes and limitations for deeper inspection."],
-      ["learner", "Learner", "ADK, MCP and A2A concepts explained beside concrete projects."]
-    ],
     ctaPrimary: "Explore the system trace", ctaSecondary: "View six projects",
     stats: [
       ["6", "Architecture case studies", "From tool/state to A2A"],
       ["4", "Control models", "Transfer · AgentTool · Workflow · Remote"],
       ["8000–8005", "A2A service ports", "Described local architecture"]
     ]
-  },
-  journey: {
-    title: "Choose an exploration path",
-    modes: [
-      ["recruiter", "Recruiter · 3 minutes", "Thesis, strongest projects, evidence and contact."],
-      ["engineer", "Engineer · Deep Dive", "Architecture, contracts, traces, tests and failure modes."],
-      ["learner", "Learner · Guided", "Step-by-step explanations, voice tour, glossary and quiz."]
-    ],
-    next: "Recommended next", progress: "Exploration progress", reset: "Reset mode and progress"
   },
   home: {
     ladderEyebrow: "CAPABILITY LADDER", ladderTitle: "Each project adds one missing engineering layer.",

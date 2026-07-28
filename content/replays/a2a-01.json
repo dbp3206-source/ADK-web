@@ -5,7 +5,6 @@
   "title": "Route yêu cầu du lịch tới Trip Planner",
   "description": "Routing deterministic dựa trên capability đã trích từ source; remote service không chạy.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.398044+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case A2A-01",
   "input": {
@@ -61,7 +60,6 @@
       "days": 3
     }
   },
-  "expected": null,
   "assertions": [
     {
       "name": "Route matches supplied capability",

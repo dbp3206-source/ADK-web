@@ -201,16 +201,6 @@ export function FlashcardStudio({ locale }: { locale: Locale }) {
           <button type="button" onClick={() => rate("know")} aria-pressed={progress.flashcards[card?.id] === "know"}>{t.know}</button>
           <button type="button" onClick={() => { setIndex((value) => Math.min(filtered.length - 1, value + 1)); setFlipped(false); }} disabled={index === filtered.length - 1}>{t.next}</button>
         </div>
-        <div className="learning-print-sheet flashcard-print-sheet" aria-hidden="true">
-          {filtered.map((item) => (
-            <article key={item.id}>
-              <span className="mono">{item.id} · {item.front.term}</span>
-              <h2>{item.front.prompt}</h2>
-              <p>{item.back.explanation}</p>
-              <small>{item.back.example}</small>
-            </article>
-          ))}
-        </div>
       </section>
     </main>
   );
@@ -273,15 +263,6 @@ export function QuestionBank({ locale }: { locale: Locale }) {
         <div className="learning-actions">
           <button type="button" onClick={() => change(Math.max(0, index - 1))} disabled={index === 0}>{t.previous}</button>
           <button type="button" onClick={() => change(Math.min(filtered.length - 1, index + 1))} disabled={index === filtered.length - 1}>{t.next}</button>
-        </div>
-        <div className="learning-print-sheet question-print-sheet" aria-hidden="true">
-          {filtered.map((item, itemIndex) => (
-            <article key={item.id}>
-              <span className="mono">{String(itemIndex + 1).padStart(2, "0")} · {item.id}</span>
-              <h2>{item.prompt}</h2>
-              <p>{item.explanation}</p>
-            </article>
-          ))}
         </div>
       </section>
     </main>

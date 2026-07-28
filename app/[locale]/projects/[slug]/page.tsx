@@ -1,15 +1,22 @@
 import { notFound } from "next/navigation";
-
-import { CaseStudyV2 } from "@/components/case-study/CaseStudyV2";
+import { CaseStudyV3 } from "@/components/case-study/CaseStudyV3";
 import { projects } from "@/lib/content";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  const params: { locale: string; slug: string }[] = [];
+  for (const locale of ["vi", "en"]) {
+    for (const project of projects) {
+      params.push({ locale, slug: project.slug });
+    }
+  }
+  return params;
 }
 
-export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function ProjectPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  if (!isLocale(locale) || !projects.some((project) => project.slug === slug)) notFound();
-  return <CaseStudyV2 locale={locale} slug={slug} />;
+  if (!isLocale(locale) || !projects.some((p) => p.slug === slug)) {
+    notFound();
+  }
+  return <CaseStudyV3 slug={slug} locale={locale as Locale} />;
 }

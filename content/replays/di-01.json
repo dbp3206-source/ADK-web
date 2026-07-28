@@ -5,7 +5,6 @@
   "title": "Đọc CSV qua source extractor",
   "description": "Chạy source extractor thật; RAG và MCP được thay bằng fixture để import pipeline an toàn.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.396041+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case DI-01",
   "input": {
@@ -60,10 +59,8 @@
     }
   ],
   "output": {
-    "extractedMarkdown": "| month | channel | revenue |\n| --- | --- | --- |\n| 2026-02 | Organic | 100 |\n| 2026-03 | Organic | 71 |",
-    "finalDashboardReport": null
+    "extractedMarkdown": "| month | channel | revenue |\n| --- | --- | --- |\n| 2026-02 | Organic | 100 |\n| 2026-03 | Organic | 71 |"
   },
-  "expected": null,
   "assertions": [
     {
       "name": "CSV header is preserved",

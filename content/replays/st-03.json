@@ -5,7 +5,6 @@
   "title": "File brief không tồn tại",
   "description": "Chạy source tool đọc file với path tương đối không tồn tại.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.226729+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case ST-03",
   "input": {
@@ -16,7 +15,7 @@
       "sequence": 1,
       "actor": "read_local_file",
       "type": "tool_call",
-      "summary": "Gọi source tool với path tương đối đã sanitize.",
+      "summary": "Gọi công cụ với path tương đối đã sanitize.",
       "details": {
         "tool": "read_local_file",
         "args": {
@@ -47,8 +46,7 @@
     }
   ],
   "output": {
-    "toolResult": "Lỗi: Không tìm thấy file tại đường dẫn fixtures/missing-brief.txt",
-    "revision": null
+    "toolResult": "Lỗi: Không tìm thấy file tại đường dẫn fixtures/missing-brief.txt"
   },
   "expected": {
     "draftCreated": false

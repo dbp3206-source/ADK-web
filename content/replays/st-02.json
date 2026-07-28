@@ -5,7 +5,6 @@
   "title": "Guardrail chặn chủ đề không phù hợp",
   "description": "Chạy trực tiếp `block_unsafe_topics` với input kiểm soát.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.225737+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case ST-02",
   "input": {

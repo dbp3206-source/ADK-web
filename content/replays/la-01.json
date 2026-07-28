@@ -5,7 +5,6 @@
   "title": "Hai góc nhìn hội tụ",
   "description": "Mô phỏng browser từ kiến trúc đã cung cấp; chưa có source Love Advisor để xác minh.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.295735+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case LA-01",
   "input": {
@@ -54,7 +53,6 @@
     "suggestion": "Trao đổi rõ kỳ vọng và thống nhất một bước nhỏ có thể kiểm tra lại.",
     "uncertainty": "Đây là gợi ý từ input mẫu, không phải đánh giá con người."
   },
-  "expected": null,
   "assertions": [
     {
       "name": "No appearance scoring",

@@ -2,10 +2,9 @@
   "caseId": "TP-01",
   "project": "trip-planner",
   "mode": "verified-local-replay",
-  "title": "Lưu và đọc lại trạng thái chuyến Huế",
+  "title": "Request itinerary (no context)",
   "description": "Chạy trực tiếp hai source tool lưu/đọc state; không gọi model để tạo lịch trình.",
   "status": "passed",
-  "sourceCommit": "",
   "verifiedAt": "2026-07-27T14:21:00.210733+00:00",
   "runCommand": "python scripts/capture-v22-replays.py --case TP-01",
   "input": {
@@ -28,7 +27,7 @@
       "sequence": 2,
       "actor": "save_trip_detail",
       "type": "tool_call",
-      "summary": "Gọi source tool bốn lần để lưu các trường chuyến đi.",
+      "summary": "Gọi công cụ bốn lần để lưu các trường chuyến đi.",
       "details": {
         "tool": "save_trip_detail",
         "args": [
@@ -116,8 +115,7 @@
       "days": "3",
       "budget": "balanced",
       "preferences": "culture, food"
-    },
-    "itinerary": null
+    }
   },
   "expected": {
     "destination": "Hue",

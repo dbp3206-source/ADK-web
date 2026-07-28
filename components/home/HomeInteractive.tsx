@@ -1,72 +1,51 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { localizeProject, controlOwnerByProject, patternByProject } from "@/content/project-copy";
-import { getVoiceSections } from "@/content/voice";
 import { SystemExplorerV2 } from "@/components/trace/SystemExplorerV2";
-import { VoiceGuide } from "@/components/voice/VoiceGuide";
 import { projects } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
 
-type JourneyMode = "recruiter" | "engineer" | "learner";
-const progressKey = "adk-v2-journey-progress";
-const modeKey = "adk-v2-journey-mode";
-
 export function HomeHero({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
-  const [audience, setAudience] = useState(0);
-  const [mode, setMode] = useState<JourneyMode>("recruiter");
+  const [step, setStep] = useState(0);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get("mode") as JourneyMode | null;
-    const saved = window.localStorage.getItem(modeKey) as JourneyMode | null;
-    const valid = ["recruiter", "engineer", "learner"] as JourneyMode[];
-    setMode(query && valid.includes(query) ? query : saved && valid.includes(saved) ? saved : "recruiter");
-  }, []);
+  const steps = [
+    { verb: "ACT", label: locale === "vi" ? "Hành động" : "Act", desc: locale === "vi" ? "Agent có thể thực hiện hành động và ghi nhớ kết quả" : "Agent can take actions and remember results" },
+    { verb: "DELEGATE", label: locale === "vi" ? "Phân công" : "Delegate", desc: locale === "vi" ? "Nhiều vai trò cùng hoàn thiện một nội dung" : "Multiple roles collaborate to complete one piece" },
+    { verb: "COMPUTE", label: locale === "vi" ? "Tính toán" : "Compute", desc: locale === "vi" ? "Tách tìm dữ kiện khỏi tính toán số liệu" : "Separating fact-finding from numeric computation" },
+    { verb: "COMPOSE", label: locale === "vi" ? "Kết hợp" : "Compose", desc: locale === "vi" ? "Hai hướng phân tích chạy song song rồi tổng hợp" : "Two analysis paths run in parallel then merge" },
+    { verb: "VERIFY", label: locale === "vi" ? "Kiểm chứng" : "Verify", desc: locale === "vi" ? "Kết quả được kiểm tra trước khi dùng" : "Results are verified before being used" },
+    { verb: "CONNECT", label: locale === "vi" ? "Kết nối" : "Connect", desc: locale === "vi" ? "Các agent riêng biệt tìm và gọi nhau qua mạng" : "Independent agents discover and call each other" },
+  ];
 
-  function chooseMode(next: JourneyMode) {
-    setMode(next);
-    window.localStorage.setItem(modeKey, next);
-    const params = new URLSearchParams(window.location.search);
-    params.set("mode", next);
-    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}${window.location.hash}`);
-  }
-
-  function resetJourney() {
-    setMode("recruiter");
-    window.localStorage.removeItem(modeKey);
-    window.localStorage.removeItem(progressKey);
-    const params = new URLSearchParams(window.location.search);
-    params.delete("mode");
-    window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}${window.location.hash}`);
-    window.dispatchEvent(new CustomEvent("adk:journey-reset"));
-  }
-
-  const activeAudience = dict.hero.audiences[audience];
   return (
-    <>
-      <section className="hero-v2">
-        <div className="hero-grid-v2">
+    <section className="hero-v2">
+      <div className="hero-grid-v2">
         <div className="hero-copy-v2">
           <p className="eyebrow-v2">{dict.hero.eyebrow}</p>
           <h1>{dict.hero.title}</h1>
           <p className="lede-v2">{dict.hero.subtitle}</p>
-          <section className="audience-switcher-v2" aria-labelledby="audience-label">
-            <p className="mono" id="audience-label">{dict.hero.audienceLabel}</p>
-            <p className="audience-copy-v2" aria-hidden="true">{activeAudience[2]}</p>
-            <span className="sr-only">{activeAudience[2]}</span>
-            <div role="group" aria-label={dict.hero.audienceLabel}>
-              {dict.hero.audiences.map((item, index) => (
-                <button type="button" aria-pressed={audience === index} key={item[0]} onClick={() => setAudience(index)}>
-                  {item[1]}
-                </button>
-              ))}
-            </div>
-          </section>
+
+          {/* Six-step signal */}
+          <nav className="hero-step-signal" aria-label={locale === "vi" ? "Sáu bước kiến trúc" : "Six architecture steps"}>
+            {steps.map((s, i) => (
+              <button
+                key={s.verb}
+                type="button"
+                className={`step-pill${step === i ? " is-active" : ""}`}
+                onClick={() => setStep(i)}
+                aria-pressed={step === i}
+              >
+                <span className="mono">{s.verb}</span>
+              </button>
+            ))}
+          </nav>
+          <p className="step-desc" aria-live="polite">{steps[step].desc}</p>
+
           <div className="v2-primary-actions">
-            <a className="primary-action-v2" href={`${localizedPath(locale, "/system")}?mode=${mode}`}>{dict.hero.ctaPrimary}</a>
+            <a className="primary-action-v2" href={localizedPath(locale, "/system")}>{dict.hero.ctaPrimary}</a>
             <a className="secondary-action-v2" href={localizedPath(locale, "/projects")}>{dict.hero.ctaSecondary}</a>
           </div>
           <dl className="hero-stats-v2" aria-label={locale === "vi" ? "Quy mô hệ project" : "Project ecosystem scale"}>
@@ -75,30 +54,9 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
         <div className="hero-control-plane">
           <SystemExplorerV2 locale={locale} compact />
-          <VoiceGuide locale={locale} sections={getVoiceSections("home", locale)} compact />
         </div>
-        </div>
-      </section>
-
-      <section className="journey-mode page-shell-v2" aria-labelledby="journey-mode-title">
-        <div>
-          <p className="eyebrow-v2">DISCOVERY MODE</p>
-          <h2 id="journey-mode-title">{dict.journey.title}</h2>
-          <p>{locale === "vi" ? "Chế độ chỉ thay đổi gợi ý và mức chi tiết mặc định; không khóa hoặc ẩn nội dung." : "Modes change recommendations and default detail only; they never lock or hide content."}</p>
-        </div>
-        <fieldset>
-          <legend className="sr-only">{dict.journey.title}</legend>
-          {dict.journey.modes.map(([id, label, description]) => (
-            <label className={mode === id ? "is-active" : ""} key={id}>
-              <input type="radio" name="journey-mode" value={id} checked={mode === id} onChange={() => chooseMode(id as JourneyMode)} />
-              <strong>{label}</strong><span>{description}</span>
-            </label>
-          ))}
-        </fieldset>
-        <button type="button" className="text-control-v2" onClick={resetJourney}>{dict.journey.reset}</button>
-      </section>
-      <JourneyProgress locale={locale} mode={mode} />
-    </>
+      </div>
+    </section>
   );
 }
 
@@ -107,6 +65,16 @@ export function CapabilityLadderV2({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState(0);
   const project = projects[selected];
   const copy = localizeProject(project, locale);
+
+  const questions: Record<string, string> = {
+    "trip-planner": locale === "vi" ? "Agent có thể nhớ thông tin bạn đã cung cấp không?" : "Can an agent remember the information you provided?",
+    "script-team": locale === "vi" ? "Nhiều vai trò có thể cùng hoàn thiện một nội dung không?" : "Can multiple roles collaborate to complete a piece of content?",
+    "worldcup-analyst": locale === "vi" ? "Làm sao tách tìm dữ kiện khỏi tính toán?" : "How do you separate fact-finding from calculation?",
+    "love-advisor": locale === "vi" ? "Hai hướng phân tích có thể chạy cùng lúc không?" : "Can two analysis directions run at the same time?",
+    "dashboard-insights": locale === "vi" ? "Làm sao kiểm tra kết luận trước khi dùng?" : "How do you verify a conclusion before using it?",
+    "a2a-orchestrator": locale === "vi" ? "Nhiều agent chạy riêng có thể tìm và gọi nhau không?" : "Can independent agents discover and call each other?",
+  };
+
   return (
     <section className="capability-v2 page-shell-v2" aria-labelledby="capability-v2-title">
       <header className="section-head-v2">
@@ -123,60 +91,26 @@ export function CapabilityLadderV2({ locale }: { locale: Locale }) {
                 <button type="button" aria-pressed={selected === index} onClick={() => setSelected(index)}>
                   <span className="capability-number mono">{String(item.index).padStart(2, "0")}</span>
                   <span className="capability-code mono">{item.verb}</span>
-                  <span><strong>{localized.title}</strong><small>{localized.lesson}</small></span>
+                  <span><strong>{localized.title}</strong><small>{questions[item.slug]}</small></span>
                 </button>
               </li>
             );
           })}
         </ol>
         <article className={`capability-inspector project-${project.slug}`} aria-live="polite">
-          <header><span className="mono">{project.verb} · {String(project.index).padStart(2, "0")}</span><h3>{copy.title}</h3><p>{copy.thesis}</p></header>
+          <header><span className="mono">{project.verb} · {String(project.index).padStart(2, "0")}</span><h3>{copy.title}</h3><p className="capability-question">{questions[project.slug]}</p><p>{copy.thesis}</p></header>
           <dl>
             <div><dt>{dict.home.layer}</dt><dd>{copy.lesson}</dd></div>
             <div><dt>{dict.home.owner}</dt><dd>{controlOwnerByProject[project.slug]}</dd></div>
             <div><dt>{dict.home.artifact}</dt><dd>{copy.artifact}</dd></div>
-            <div><dt>{dict.home.risk}</dt><dd>{copy.limitations[0]}</dd></div>
-            <div><dt>{dict.home.evidence}</dt><dd>{dict.evidence.labels.documented}</dd></div>
           </dl>
           <div className="capability-mini-panel" aria-label={`${copy.title} architecture`}>
             <span>input</span><i aria-hidden="true">→</i><strong>{patternByProject[project.slug]}</strong><i aria-hidden="true">→</i><span>artifact</span>
           </div>
-          <a href={localizedPath(locale, `/projects/${project.slug}#replay`)}>{dict.home.tryLab} →</a>
+          <a href={localizedPath(locale, `/projects/${project.slug}`)}>{locale === "vi" ? "Xem case study →" : "View case study →"}</a>
         </article>
       </div>
     </section>
-  );
-}
-
-function JourneyProgress({ locale, mode }: { locale: Locale; mode: JourneyMode }) {
-  const dict = getDictionary(locale);
-  const paths: Record<JourneyMode, Array<[string, string]>> = {
-    recruiter: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["replay", "Verified Replay"], ["contact", dict.nav.contact]],
-    engineer: [["system", dict.nav.system], ["trip", "Trip"], ["script", "Script"], ["dashboard", "Dashboard"], ["a2a", "A2A"], ["source", "Root Agent"]],
-    learner: [["home", locale === "vi" ? "Luận điểm" : "Thesis"], ["ladder", locale === "vi" ? "Sáu bước" : "Six steps"], ["learn", dict.nav.learn], ["system", dict.nav.system], ["replay", "Replay"]]
-  };
-  const [done, setDone] = useState<string[]>([]);
-  useEffect(() => {
-    try { setDone(JSON.parse(window.localStorage.getItem(progressKey) ?? "[]") as string[]); } catch { setDone([]); }
-    const reset = () => setDone([]);
-    window.addEventListener("adk:journey-reset", reset);
-    return () => window.removeEventListener("adk:journey-reset", reset);
-  }, []);
-  function toggle(id: string) {
-    setDone((current) => {
-      const next = current.includes(id) ? current.filter((item) => item !== id) : [...current, id];
-      window.localStorage.setItem(progressKey, JSON.stringify(next));
-      return next;
-    });
-  }
-  const path = paths[mode];
-  const next = path.find(([id]) => !done.includes(id));
-  return (
-    <aside className="journey-progress page-shell-v2" aria-label={dict.journey.progress}>
-      <div><span className="mono">{dict.journey.progress}</span><strong>{done.length}/{path.length}</strong></div>
-      <ol>{path.map(([id, label]) => <li key={id}><button type="button" aria-pressed={done.includes(id)} onClick={() => toggle(id)}><span aria-hidden="true">{done.includes(id) ? "✓" : "○"}</span>{label}</button></li>)}</ol>
-      <p><strong>{dict.journey.next}:</strong> {next?.[1] ?? (locale === "vi" ? "Đã xem hết lộ trình gợi ý." : "Recommended path complete.")}</p>
-    </aside>
   );
 }
 

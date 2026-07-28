@@ -3,8 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { getTracePresets } from "@/content/trace-presets-v2";
-import { getVoiceSections } from "@/content/voice";
-import { VoiceGuide } from "@/components/voice/VoiceGuide";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
 
 const services = [
@@ -172,7 +170,6 @@ export function SystemExplorerV2({ locale, compact = false }: { locale: Locale; 
             <summary>{dict.common.readAsText}</summary>
             <ol>{preset.steps.map((item) => <li key={item.id}><strong>{item.title}.</strong> {item.detail}</li>)}</ol>
           </details>
-          <VoiceGuide locale={locale} sections={getVoiceSections("system", locale)} />
         </>
       ) : null}
 

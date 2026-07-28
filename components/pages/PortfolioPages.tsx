@@ -65,19 +65,40 @@ export function AboutPageV2({ locale }: { locale: Locale }) {
 
 export function ContactPageV2({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
-  const links = getUtilityLinks();
-  const email = isRealUrl(config.owner.email) ? config.owner.email : "";
+  const email = isRealUrl(config.owner.email) ? config.owner.email : null;
   const owner = getOwnerName();
+  const emailDisplay = email ? email.replace("mailto:", "") : null;
+
+  const links: { label: string; href: string; display: string }[] = [];
+  if (email) links.push({ label: locale === "vi" ? "Email" : "Email", href: email, display: emailDisplay! });
+  if (isRealUrl(config.owner.githubProfile)) links.push({ label: "GitHub", href: config.owner.githubProfile!, display: config.owner.githubProfile!.replace("https://", "") });
+  if (isRealUrl(config.owner.linkedin)) links.push({ label: "LinkedIn", href: config.owner.linkedin!, display: config.owner.linkedin!.replace("https://www.", "").replace("https://", "") });
+  if (isRealUrl(config.owner.cvUrl)) links.push({ label: "CV / Résumé", href: config.owner.cvUrl!, display: locale === "vi" ? "Xem CV" : "View CV" });
+
   return (
-    <div className="v2-page page-shell-v2 contact-page-v2">
-      <header className="index-cover-v2"><p className="eyebrow-v2">{dict.contact.eyebrow}</p><h1>{dict.contact.title}</h1><p>{dict.contact.body}</p></header>
-      <section className="contact-sheet-v2">
-        {owner ? <h2>{owner}</h2> : null}
-        {email ? <a href={email}>{email.replace("mailto:", "")}</a> : null}
-        {links.map((link) => <a href={link.href} key={link.label}>{link.label} ↗</a>)}
-        {!email && !links.length ? <p>{dict.common.noContact}</p> : null}
-      </section>
-      <a href={localizedPath(locale, "/projects")}>{dict.nav.projects} →</a>
+    <div className="v2-page contact-links-page">
+      <p className="eyebrow-v2">{dict.contact.eyebrow}</p>
+      <h1>{dict.contact.title}</h1>
+      <p className="contact-lede">{dict.contact.body}</p>
+      {owner && <p className="contact-lede" style={{ marginTop: "-2rem" }}>{owner}</p>}
+      {links.length > 0 ? (
+        <ul className="contact-links-list" aria-label={locale === "vi" ? "Liên kết liên hệ" : "Contact links"}>
+          {links.map((link) => (
+            <li key={link.label} className="contact-link-item">
+              <span className="contact-link-label">{link.label}</span>
+              <a href={link.href} target={link.href.startsWith("mailto") ? undefined : "_blank"} rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}>
+                {link.display}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ color: "var(--text-low)" }}>{dict.common.noContact}</p>
+      )}
+      <div style={{ marginTop: "3rem", borderTop: "1px solid var(--border-hairline)", paddingTop: "2rem" }}>
+        <a href={localizedPath(locale, "/projects")} style={{ color: "var(--accent-cyan)", textDecoration: "none" }}>{dict.nav.projects} →</a>
+      </div>
     </div>
   );
 }
+

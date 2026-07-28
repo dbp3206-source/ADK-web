@@ -1,11 +1,9 @@
 import { ArchitectureDiagram, ArchitectureLegend } from "@/components/architecture/ArchitectureDiagram";
 import { CaseStudyTools } from "@/components/case-study/CaseStudyTools";
 import { StaticLink as Link } from "@/components/layout/StaticLink";
-import { LazyVerifiedReplayPlayer } from "@/components/replay/LazyVerifiedReplayPlayer";
+import { AgentInteractionSimulator } from "@/components/simulator/AgentInteractionSimulator";
 import { AgentCoreExplorer } from "@/components/source/AgentCoreExplorer";
-import { VoiceGuide } from "@/components/voice/VoiceGuide";
 import { localizeProject, patternByProject } from "@/content/project-copy";
-import { getVoiceSections } from "@/content/voice";
 import { getAdjacentProjects, getProject, getProjectFilters } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
 
@@ -19,8 +17,8 @@ export function CaseStudyV2({ slug, locale }: { slug: string; locale: Locale }) 
     ["problem", dict.caseStudy.problem],
     ["architecture", dict.caseStudy.architecture],
     ["trace", dict.caseStudy.trace],
-    ["replay", "Verified Agent Replay"],
-    ["source", "Root agent & artifact"],
+    ["simulator", locale === "vi" ? "Xem agent xử lý" : "See agent process"],
+    ["source", locale === "vi" ? "Root agent & artifact" : "Root agent & artifact"],
     ["decisions", dict.caseStudy.decisions]
   ];
   return (
@@ -38,7 +36,6 @@ export function CaseStudyV2({ slug, locale }: { slug: string; locale: Locale }) 
         <dl>
           <div><dt>{dict.projects.pattern}</dt><dd>{getProjectFilters(slug).join(" · ")}</dd></div>
           <div><dt>{dict.projects.maturity}</dt><dd>{copy.maturity}</dd></div>
-          <div><dt>{dict.projects.evidence}</dt><dd>{dict.evidence.labels.documented}</dd></div>
         </dl>
         <CaseStudyTools locale={locale} />
       </header>
@@ -50,35 +47,59 @@ export function CaseStudyV2({ slug, locale }: { slug: string; locale: Locale }) 
         </aside>
         <div className="case-content-v2">
           <section id="problem" className="case-section-v2">
-            <span className="section-number mono">01</span><div><h2>{dict.caseStudy.problem}</h2><p className="large-copy-v2">{copy.problem}</p><h3>{dict.caseStudy.proves}</h3><p>{copy.whatItProves}</p></div>
+            <span className="section-number mono">01</span>
+            <div>
+              <h2>{dict.caseStudy.problem}</h2>
+              <p className="large-copy-v2">{copy.problem}</p>
+              <h3>{dict.caseStudy.proves}</h3>
+              <p>{copy.whatItProves}</p>
+            </div>
           </section>
 
           <section id="architecture" className="case-section-v2 architecture-section-v2">
             <span className="section-number mono">02</span>
-            <div><h2>{dict.caseStudy.architecture}</h2><p>{project.architecture.summary}</p><ArchitectureLegend /><ArchitectureDiagram project={project} /></div>
+            <div>
+              <h2>{dict.caseStudy.architecture}</h2>
+              <p>{project.architecture.summary}</p>
+              <ArchitectureLegend />
+              <ArchitectureDiagram project={project} />
+            </div>
           </section>
 
           <section id="trace" className="case-section-v2">
             <span className="section-number mono">03</span>
-            <div><h2>{dict.caseStudy.trace}</h2><UniqueProjectStage slug={slug} timeline={copy.primaryTimeline} locale={locale} /></div>
+            <div>
+              <h2>{dict.caseStudy.trace}</h2>
+              <UniqueProjectStage slug={slug} timeline={copy.primaryTimeline} locale={locale} />
+            </div>
           </section>
 
-          <section id="replay" className="case-section-v2 lab-section-v2">
+          <section id="simulator" className="case-section-v2 lab-section-v2">
             <span className="section-number mono">04</span>
-            <div><h2>Verified Agent Replay · {copy.title}</h2><LazyVerifiedReplayPlayer slug={slug} locale={locale} /></div>
+            <div>
+              <h2>{locale === "vi" ? "Xem agent xử lý một yêu cầu" : "See the agent process a request"}</h2>
+              <p className="section-intro">{locale === "vi" ? "Chọn một kịch bản, xem từng bước agent xử lý và kết quả cuối cùng." : "Select a scenario, watch each processing step, and see the final output."}</p>
+              <AgentInteractionSimulator slug={slug} locale={locale} />
+            </div>
           </section>
 
           <section id="source" className="case-section-v2">
             <span className="section-number mono">05</span>
-            <div><h2>Root agent & artifact</h2><p>{copy.artifact}</p><AgentCoreExplorer locale={locale} initialProject={slug} compact /></div>
+            <div>
+              <h2>{locale === "vi" ? "Root agent & artifact" : "Root agent & artifact"}</h2>
+              <p>{copy.artifact}</p>
+              <AgentCoreExplorer locale={locale} initialProject={slug} compact />
+            </div>
           </section>
 
           <section id="decisions" className="case-section-v2 split-evidence-v2">
             <span className="section-number mono">06</span>
-            <div><h2>{dict.caseStudy.decisions}</h2><ol>{copy.decisions.map((item, index) => <li key={item}><span className="mono">{index + 1}</span>{item}</li>)}</ol></div>
+            <div>
+              <h2>{dict.caseStudy.decisions}</h2>
+              <ol>{copy.decisions.map((item, index) => <li key={item}><span className="mono">{index + 1}</span>{item}</li>)}</ol>
+            </div>
           </section>
 
-          <VoiceGuide locale={locale} sections={getVoiceSections(slug, locale)} />
           <nav className="case-adjacent-v2" aria-label="Adjacent projects">
             {adjacent.previous ? <Link href={localizedPath(locale, `/projects/${adjacent.previous.slug}`)}>← {dict.caseStudy.previous}: {adjacent.previous.title}</Link> : <span />}
             {adjacent.next ? <Link href={localizedPath(locale, `/projects/${adjacent.next.slug}`)}>{dict.caseStudy.next}: {adjacent.next.title} →</Link> : <span />}

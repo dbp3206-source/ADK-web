@@ -35,3 +35,5 @@ V3.3 follow-up and Track C verification
   Result: source build passed, packaging failed because Sites expected `dist/` while Next.js static export produced `out/`
 - npm.cmd run build with Sites postbuild
   Result: pass, 76 pages generated and 738 static files copied from `out/` to `dist/`
+- ChatGPT Sites version 4 deployment
+  Result: static assets were accepted, but deployment required a Cloudflare Worker entry point at `dist/server/index.js`

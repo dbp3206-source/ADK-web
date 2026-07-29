@@ -31,7 +31,7 @@ The existing Next.js portfolio was revised in place. The visual direction remain
 - TypeScript strict typecheck: pass.
 - Unit tests: 18/18 pass across 6 files.
 - Production build: pass; 76 static pages generated.
-- Sites packaging: pass after adding a cross-platform postbuild that copies the verified static export from `out/` to the `dist/` directory required by Sites.
+- Sites packaging: the cross-platform postbuild preserves the verified Next.js static export in `dist/client`, adds the required Cloudflare Worker pass-through entry point in `dist/server/index.js`, and copies hosting metadata into `dist/.openai`.
 - Browser route audit: 26 VI/EN routes at 1440 px and 320 px, 52 rendered combinations.
 - Browser findings after fixes: no horizontal overflow, broken images, failed requests, console errors, nested vertical scrollers or duplicate `main` landmarks.
 - English parity check: no Vietnamese diacritic leakage above the audit threshold on the tested EN routes.

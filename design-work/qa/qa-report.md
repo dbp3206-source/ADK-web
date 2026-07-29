@@ -38,6 +38,7 @@ The existing Next.js portfolio was revised in place. The visual direction remain
 - Interactions verified: Field Guide selection, Discovery no-match and preset match, simulator trace, World Cup out-of-scope handling, Love Advisor safe presets, System mode switch, Learning search/filter, workflow failure state, checklist state and project switching.
 - Follow-up simulator matrix: 18/18 scenarios across six projects have distinct inputs and distinct outputs within each project.
 - Follow-up responsive checks: capability labels at 541 px, Dashboard QA at 430 px, System tabs at 390 px and Track C at 390/1440 px all pass without horizontal overflow.
+- Simulator Process regression: all 25 steps across six projects pass boundary checks at 1185, 1024, 768 and 390 px after overriding the global no-wrap button rule.
 - Track C interactions verified: concept selection, mastery persistence, scenario selection, range controls and diagnostic feedback.
 - Contact link interaction verified: five click-triggered colors cycle in order and remain readable after visited state.
 - Final screenshots: desktop 1440 x 900, tablet 768 x 1024 and mobile 320 x 720.

@@ -51,3 +51,4 @@ content/project-track-v33/project-learning-library.vi.json
 design-work/qa/v3.3/screenshots/home-desktop.png
 design-work/qa/v3.3/screenshots/home-tablet.png
 design-work/qa/v3.3/screenshots/home-mobile.png
+design-work/qa/v3.3/screenshots/verify-process-no-overflow.png

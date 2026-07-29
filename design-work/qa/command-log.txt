@@ -37,3 +37,5 @@ V3.3 follow-up and Track C verification
   Result: pass, 76 pages generated and 738 static files copied from `out/` to `dist/`
 - ChatGPT Sites version 4 deployment
   Result: static assets were accepted, but deployment required a Cloudflare Worker entry point at `dist/server/index.js`
+- Simulator process overflow regression
+  Result: all 25 process steps across 6 projects passed at 1185, 1024, 768 and 390 px; no child crossed the Process column boundary and no page overflow or console error was detected

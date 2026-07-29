@@ -1,4 +1,5 @@
 Modified
+.gitignore
 .hallmark/log.json
 .hallmark/preflight.json
 app/[locale]/learn/page.tsx
@@ -16,6 +17,7 @@ components/pages/PortfolioPages.tsx
 components/projects/ProjectsBrowserV2.tsx
 components/simulator/AgentInteractionSimulator.tsx
 config/site-config.example.json
+package.json
 design-work/content-outline.md
 design-work/design-brief.md
 design-work/qa/command-log.txt
@@ -42,6 +44,7 @@ content/learning-v33/modules.vi.json
 content/learning-v33/technique-selector.vi.json
 content/learning-v33/workflow-labs.vi.json
 content/learning-v4/system-concepts.json
+scripts/prepare-sites-output.mjs
 content/project-track-v33/home-infographic.vi.json
 content/project-track-v33/learning-interaction-types.vi.json
 content/project-track-v33/project-learning-library.vi.json

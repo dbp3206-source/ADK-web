@@ -31,3 +31,7 @@ V3.3 follow-up and Track C verification
   Result: concept selection, mastery persistence, scenario selection, range controls and failure feedback passed
 - Playwright contact interaction
   Result: Email and GitHub links are high contrast; click state cycles 0 → 1 → 2 → 3 → 4 → 0 and persists locally
+- ChatGPT Sites version 3 deployment
+  Result: source build passed, packaging failed because Sites expected `dist/` while Next.js static export produced `out/`
+- npm.cmd run build with Sites postbuild
+  Result: pass, 76 pages generated and 738 static files copied from `out/` to `dist/`

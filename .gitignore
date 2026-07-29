@@ -1,6 +1,7 @@
 node_modules/
 .next/
 out/
+dist/
 test-results/
 tmp/
 tsconfig.tsbuildinfo

@@ -2,6 +2,14 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const slugs = ["trip-planner", "script-team", "worldcup-analyst", "love-advisor", "dashboard-insights", "a2a-orchestrator"];
+const primaryScenarioBySlug: Record<string, string> = {
+  "trip-planner": "TP-01",
+  "script-team": "ST-01",
+  "worldcup-analyst": "WC-01",
+  "love-advisor": "LA-01",
+  "dashboard-insights": "DI-01",
+  "a2a-orchestrator": "A2A-01",
+};
 const coreRoutes = [
   "/vi/",
   "/vi/projects/",
@@ -13,7 +21,7 @@ const coreRoutes = [
   "/vi/contact/"
 ];
 
-test("V3.5 home leads with three concrete artifacts and the ordered field guide", async ({ page }) => {
+test("V3.6 keeps the approved home artifacts and ordered field guide", async ({ page }) => {
   await page.goto("/vi/");
   await expect(page.locator("html")).toHaveAttribute("lang", "vi");
   await expect(page.locator(".hero-artifact")).toHaveCount(3);
@@ -21,7 +29,7 @@ test("V3.5 home leads with three concrete artifacts and the ordered field guide"
   await expect(page.locator(".capability-checkpoints button .capability-code")).toHaveText([
     "ACT", "DELEGATE", "COMPUTE", "COMPOSE", "VERIFY", "CONNECT"
   ]);
-  await expect(page.locator(".footer-build p:last-child")).toContainText("v3.5.0");
+  await expect(page.locator(".footer-build p:last-child")).toContainText("v3.6.0");
 });
 
 test("locale toggle preserves the current route and query", async ({ page }) => {
@@ -43,10 +51,10 @@ test("projects start from human needs and keep technical filters advanced", asyn
   await expect(page.locator(".project-problem-ledger dt").nth(4)).toHaveText("Năng lực mới");
 });
 
-test("case study follows the public V3.5 hierarchy", async ({ page }) => {
+test("case study starts with the V3.6 real-world frame", async ({ page }) => {
   await page.goto("/vi/projects/dashboard-insights/");
   await expect(page.locator(".case-body-v3 h2")).toHaveText([
-    "Tình huống thực tế",
+    "Kiểm tra một insight doanh thu trước cuộc họp sáng.",
     "Tại sao cách đơn giản chưa đủ?",
     "Cách project xử lý",
     "Xem agent làm việc",
@@ -55,6 +63,9 @@ test("case study follows the public V3.5 hierarchy", async ({ page }) => {
   await expect(page.locator(".case-decision-ledger article").first().locator("dt")).toHaveText([
     "Vấn đề", "Quyết định", "Giá trị", "Đánh đổi"
   ]);
+  await expect(page.locator(".case-context-chips li")).toHaveCount(4);
+  await expect(page.locator(".case-artifact-preview")).toContainText("QA receipt");
+  await expect(page.locator(".case-simulator-cta")).toHaveAttribute("href", /\?scenario=DI-01#dashboard-insights-simulator/);
 });
 
 test("dashboard scenarios have distinct input, four public blocks and distinct output", async ({ page }) => {
@@ -85,6 +96,11 @@ test("dashboard scenarios have distinct input, four public blocks and distinct o
 for (const slug of slugs) {
   test(`${slug} exposes three distinct scenarios and a project renderer`, async ({ page }) => {
     await page.goto(`/en/projects/${slug}/`);
+    await expect(page.locator(".real-world-case")).toBeVisible();
+    await expect(page.locator(".case-context-chips li")).toHaveCount(4);
+    await expect(page.locator(".case-brief-columns section")).toHaveCount(2);
+    await expect(page.locator(".case-artifact-preview>div")).toHaveCount(4);
+    await expect(page.locator(".case-simulator-cta")).toHaveAttribute("href", new RegExp(`scenario=${primaryScenarioBySlug[slug]}`));
     const simulator = page.locator(".sim-shell");
     await expect(simulator.locator(".sim-case-pill")).toHaveCount(3);
     const firstPrompt = await simulator.locator(".sim-prompt-input").inputValue();
@@ -113,6 +129,15 @@ test("learning center keeps three tracks and the English system track has 17 con
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator(".concept-layer button")).toHaveCount(17);
   await expect(page.locator("h1")).toContainText("AI as a system");
+  await expect(page.locator(".concept-inspector")).toContainText("Put the right information into the right step.");
+  await expect(page.locator(".concept-need-signals li")).toHaveCount(3);
+  await expect(page.locator(".concept-apply-now li")).toHaveCount(3);
+  await expect(page.locator(".concept-deep-dive")).toContainText("Deep dive into the system");
+  await expect(page.locator(".tuner-controls select option")).toHaveCount(6);
+  await expect(page.locator(".tuner-question")).toHaveCount(4);
+  await expect(page.locator(".recommended-stack li small").first()).toBeVisible();
+  await expect(page.locator(".incident-framework section")).toHaveCount(3);
+  await expect(page.locator(".revisit-queue small").first()).toBeVisible();
 });
 
 test("reduced motion preserves system controls and information", async ({ page }) => {
@@ -140,6 +165,28 @@ test("approved responsive widths have no page-level overflow", async ({ page }) 
       await page.goto(route);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       expect(overflow, `${route} at ${width}`).toBeLessThanOrEqual(1);
+    }
+  }
+});
+
+test("V3.6 case and learning controls never clip their labels", async ({ page }) => {
+  for (const width of [320, 375, 414, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of ["/vi/projects/trip-planner/", "/vi/learn/system-concepts/"]) {
+      await page.goto(route);
+      const clipped = await page.evaluate(() => {
+        const selectors = [
+          ".case-simulator-cta",
+          ".concept-layer-selector button",
+          ".concept-detail-actions button",
+          ".concept-mastery-control button",
+          ".tuner-question button",
+        ];
+        return [...document.querySelectorAll<HTMLElement>(selectors.join(","))]
+          .filter((element) => element.scrollWidth - element.clientWidth > 1)
+          .map((element) => element.textContent?.trim());
+      });
+      expect(clipped, `${route} labels at ${width}`).toEqual([]);
     }
   }
 });

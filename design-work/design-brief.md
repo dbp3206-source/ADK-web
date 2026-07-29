@@ -1,20 +1,20 @@
-# Design Brief - V3.5
+# Design Brief - V3.6
 
 ## Audience and viewing context
 
-Recruiters and collaborators should understand which real problem each project solves in a few minutes. Engineers can inspect process, provenance, source and failure behavior. Learners need three practical, bilingual tracks that work from 320 px mobile screens through wide desktop.
+Recruiters and collaborators should recognize each project as a concrete case with a person, deadline, constraints and inspectable artifact. New AI learners need the 17 System Concepts explained through familiar work and everyday examples before technical dependencies appear.
 
 ## Core message
 
-Six familiar work problems reveal six increasingly capable, inspectable agent patterns.
+Six real cases show what each agent project changes, while the System Concepts track turns 17 technical terms into actions a beginner can apply.
 
 ## Desired reaction or action
 
-Visitors should identify their problem first, run a deterministic scenario, understand four public process blocks, inspect a case-specific output and decide whether to open the technical evidence.
+Visitors should picture the user and stakes of a case, open its exact simulator scenario, then use the learning track to recognize, apply and explain a relevant system concept.
 
 ## Source authority
 
-- `ADK AGENT ECOSYSTEM - FINAL MANDATORY REVISION PLAN V3.5` is the release authority.
+- `ADK AGENT ECOSYSTEM - FULL REVISION PLAN V3.6` is the release authority for this final scope.
 - Current Next.js source in this repository is implementation truth.
 - `ADK_Web_ChatGPT_Work_V3_3_Lite_Revision` is the approved V3.3 change package.
 - `adk_agent_project` contains the supplied agent source and tests.
@@ -24,12 +24,11 @@ Visitors should identify their problem first, run a deterministic scenario, unde
 
 ## Content hierarchy
 
-1. Hero with three concrete artifact previews.
-2. Interactive Agent Field Guide and six-step ecosystem path.
-3. Problem-led project discovery and six complete case studies.
-4. Input, four-block public process, case-specific output and typed provenance.
-5. Three learning tracks: practical AI work, project exploration and AI system concepts.
-6. Real owner/contact actions.
+1. Preserve the approved Home, Field Guide, navigation and simulator.
+2. Open each project with a RealWorldCaseFrame: scene, persona/context, story, pains, constraints, artifact and simulator CTA.
+3. Keep the existing case-study analysis and technical evidence after that frame.
+4. Preserve the five-layer Atlas while making its selected concept useful to a beginner first.
+5. Turn Tuner, Failure Studio and Passport into scenario, explanation and next-action tools.
 
 ## Visual territory
 
@@ -37,7 +36,7 @@ Technical editorial field guide: dark execution surfaces, light evidence paper, 
 
 ## Brand and system constraints
 
-Preserve Space Grotesk, Inter and JetBrains Mono; the cyan focus signal; six project accents; 4-point spacing; static export; VI/EN routes; visible focus; reduced motion; and honest simulation labels. Use the V3.5 dark and light token values and expose release metadata in the footer.
+Preserve Space Grotesk, Inter and JetBrains Mono; the cyan focus signal; six project accents; 4-point spacing; static export; VI/EN routes; visible focus; reduced motion; and honest simulation labels. Real-world scenes are code-native CSS compositions, not fabricated photographs.
 
 ## Anti-goals
 
@@ -48,16 +47,17 @@ Preserve Space Grotesk, Inter and JetBrains Mono; the cyan focus signal; six pro
 - No raw JSON or seven-question process wall in the public simulator.
 - No appearance scoring, diagnosis or sensitive-trait inference.
 - No time-sensitive World Cup claim without a fixed dataset or verification date.
-- No nested vertical scroll for prose.
+- No nested scroll, fixed-height prose, repeated case illustration layout or technical-first concept definition.
+- No edits outside the six project case openings and four named System Concepts surfaces.
 
 ## Output contract
 
-Next.js static-export source on branch `codex/v3.3-lite-revision`; release `3.5.0`; responsive at 320, 375, 414, 768, 1024 and 1440 px; VI/EN routes; desktop/tablet/mobile screenshots; and a verified preview. Production deployment was authorized by the owner after preview review on 2026-07-29.
+Next.js static-export source on branch `codex/v3.3-lite-revision`; release `3.6.0`; responsive at 320, 375, 414, 768, 1024 and 1440 px; VI/EN parity; desktop/tablet/mobile screenshots; Vercel deployment through `main`; and a shareable ChatGPT Sites version from the existing project id.
 
 ## Reference interpretation
 
-Keep the existing technical editorial identity and component ownership. V3.5 replaces generic explanation surfaces with concrete artifacts, human problem filters, four-block process explanations and traceable case records. Existing behavior is retained where the mandatory plan marks it as stable.
+Keep the existing technical editorial identity and component ownership. V3.6 adds one reusable case-frame component with six visual motifs, then changes only the explanatory and practice surfaces named by the plan.
 
 ## Rollback
 
-Baseline for V3.5 is commit `d1a2f27` on `codex/v3.3-lite-revision`. Keep production untouched until the preview is approved.
+Baseline for V3.6 is commit `0faaa99` on `codex/v3.3-lite-revision`.

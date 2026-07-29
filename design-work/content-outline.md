@@ -1,4 +1,4 @@
-# V3.5 Content Outline
+# V3.6 Content Outline
 
 ## Home
 
@@ -17,7 +17,9 @@
 
 ## Project pages
 
-- Public hierarchy: real situation, problem, why the simple approach is insufficient, project approach, simulator, result/value and technical detail.
+- RealWorldCaseFrame: project-specific scene, case label, task headline, persona/context chips, short story, three pains, three constraints, artifact preview, added capability and deep link to the matching simulator case.
+- Six distinct contexts: Hue group travel, portfolio video, sports editorial, shared planning, sales report and a multi-agent employee portal.
+- Existing hierarchy continues with why the simple approach is insufficient, project approach, simulator, result/value and technical detail.
 - Simulator: Input, four public process blocks and one of six project-specific output renderers.
 - Provenance badge is public; full provenance, raw event, schema, state diff and assertions stay behind disclosure.
 - VI/EN interface and content parity.
@@ -34,7 +36,10 @@
 - Landing with three tracks.
 - Track A: Decision Wizard, nine modules, 114-item paginated dictionary, eight Workflow Labs, ten-part Checklist Auditor, fourteen Compare Lab groups and optional foundation reference.
 - Track B: six project libraries with architecture, source tour, simulator, failure/debug prompts and interview questions.
-- Track C: a five-layer System Atlas for 17 AI concepts, Architecture Tuner, Failure Injection Studio and a locally persisted Mastery Passport.
+- Track C Atlas: 17 concepts each answer what it is, what it solves, when to use it, everyday/work examples, three apply steps and a watch-out; dependencies move into Deep Dive.
+- Architecture Tuner: six scenario presets, four natural-language constraint questions and a reason for every recommended concept.
+- Failure Studio: what happened, user impact, possible causes, control choice and a post-answer explanation.
+- Mastery Passport: Unclear, Connecting and Can explain states plus a concrete next action.
 
 ## Contact
 
@@ -48,5 +53,4 @@
 - Build and critical route checks.
 - Browser checks at 320, 375, 414, 768, 1024 and 1440 px.
 - Final desktop, tablet and mobile screenshots.
-- Provide a verified preview for owner approval.
-- Do not deploy production before explicit approval.
+- Publish the verified static output to Vercel and the connected ChatGPT Sites project.

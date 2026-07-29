@@ -878,6 +878,12 @@ export function AgentInteractionSimulator({
   const [customPrompt, setCustomPrompt] = useState("");
   const intervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    const requestedCase = new URLSearchParams(window.location.search).get("scenario");
+    const requestedIndex = cases.findIndex((item) => item.id === requestedCase);
+    if (requestedIndex >= 0) setCaseIndex(requestedIndex);
+  }, [slug]);
+
   const activeCase = cases[caseIndex];
   if (!activeCase) return null;
   const caseRecord = buildCaseRecord(activeCase);
@@ -937,6 +943,7 @@ export function AgentInteractionSimulator({
               key={c.id}
               role="tab"
               aria-selected={caseIndex === i}
+              data-case-id={c.id}
               className={`sim-case-pill${caseIndex === i ? " is-active" : ""}${c.caseType === "failure" || c.caseType === "fallback" ? " sim-case-failure" : c.caseType === "validation" ? " sim-case-warning" : ""}`}
               onClick={() => handleCaseChange(i)}
             >

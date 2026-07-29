@@ -1,26 +1,26 @@
 {
-  "target_output": "ADK Agent Ecosystem Portfolio V3.5.0 static preview for owner approval",
+  "target_output": "ADK Agent Ecosystem Portfolio V3.6.0 production release",
   "source_files": [
-    "ADK AGENT ECOSYSTEM - FINAL MANDATORY REVISION PLAN V3.5",
+    "ADK AGENT ECOSYSTEM - FULL REVISION PLAN V3.6",
     "existing Next.js website source",
     "content/case-studies.vi.json",
-    "content/project-copy.ts",
-    "content/learning-v33 and content/project-track-v33 resources",
-    "data/ai_practical and data/project_track resources"
+    "content/real-world-cases.ts",
+    "content/learning-v4/concept-guides.ts"
   ],
-  "primary_skill": "Existing technical-editorial design system",
-  "specialist_skills": [],
+  "primary_skill": "Existing Signal Editorial design system",
+  "specialist_skills": [
+    "hallmark"
+  ],
   "mcp_tools_used": [
-    "Chrome DevTools MCP"
+    "Playwright browser verification"
   ],
   "commands_run": [
     "npm.cmd run typecheck",
-    "npm.cmd test -- --run",
+    "npm.cmd test",
     "npm.cmd run build",
     "npm.cmd run test:e2e:desktop",
     "npm.cmd run test:e2e:mobile",
-    "Playwright targeted regression and screenshot capture",
-    "Chrome DevTools viewport, overflow, console and interaction checks"
+    "Playwright screenshot capture"
   ],
   "repository_defined_outputs": [
     "Next.js App Router source",
@@ -29,13 +29,14 @@
     "design-work brief, outline, screenshots and QA evidence"
   ],
   "delivered_outputs": [
-    "workspace source tree on codex/v3.3-lite-revision",
+    "workspace source tree",
     "out/",
     "dist/",
-    "design-work/qa/screenshots/v35-home-1440.png",
-    "design-work/qa/screenshots/v35-projects-1024.png",
-    "design-work/qa/screenshots/v35-dashboard-simulator-375.png",
-    "design-work/qa/screenshots/v35-system-768.png"
+    "design-work/qa/screenshots/v36-dashboard-case-1440.png",
+    "design-work/qa/screenshots/v36-trip-case-375.png",
+    "design-work/qa/screenshots/v36-system-concepts-1440.png",
+    "design-work/qa/screenshots/v36-system-concepts-375.png",
+    "design-work/qa/screenshots/v36-system-concepts-768.png"
   ],
   "verification": {
     "structural": true,
@@ -46,9 +47,8 @@
   },
   "quality_score": 94,
   "known_limitations": [
-    "Production deployment was authorized after the owner reviewed the V3.5 preview.",
     "Public simulator cases are deterministic browser fixtures, not live agent requests.",
     "No live sports feed, booking system, database or authentication was added.",
-    "Public Vercel access must be verified after the Git-triggered deployment completes."
+    "Public deployment accessibility is verified after deployment."
   ]
 }

@@ -2,6 +2,7 @@
 
 import { AgentInteractionSimulator } from "@/components/simulator/AgentInteractionSimulator";
 import { AgentCoreExplorer } from "@/components/source/AgentCoreExplorer";
+import { RealWorldCaseFrame } from "@/components/case-study/RealWorldCaseFrame";
 import caseDataVi from "@/content/case-studies.vi.json";
 import { localizeProject } from "@/content/project-copy";
 import { projects } from "@/lib/content";
@@ -56,13 +57,7 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
       </header>
 
       <div className="case-body-v3 page-shell-v2">
-        <section className="case-narrative-section" aria-labelledby="case-situation-title">
-          <div>
-            <p className="eyebrow-v2">01</p>
-            <h2 id="case-situation-title">{labels.situation}</h2>
-            <p className="large-copy-v2">{vi ? viCase.context.userSituation : copy.problem}</p>
-          </div>
-        </section>
+        <RealWorldCaseFrame slug={slug} locale={locale} />
 
         <section className="case-narrative-section" aria-labelledby="case-problem-title">
           <div>

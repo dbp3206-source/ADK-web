@@ -2,9 +2,9 @@
 
 ## Release
 
-Current release: **3.5.0**.
+Current release: **3.6.0**.
 
-The footer exposes the release version, source commit, build date and environment. V3.5 must be reviewed as a preview before any production deployment.
+The footer exposes the release version, source commit, build date and environment. V3.6 is verified before production deployment.
 
 ## Objective
 Turn six Google ADK / Python projects into a polished technical portfolio that a recruiter can understand in 3–7 minutes and an engineer can inspect in depth.

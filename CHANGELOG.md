@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v3.6 final revision - 2026-07-29
+
+- Added six bilingual, project-specific real-world case openings with constraints, artifact previews and simulator deep links.
+- Expanded all 17 System Concepts with beginner-first explanations, examples, practical steps and failure guidance.
+- Reworked Architecture Tuner, Failure Studio and Mastery Passport around natural-language decisions and actionable feedback.
+- Verified 20 unit tests, 32 desktop browser tests, 32 mobile browser tests and a 76-page production build.
+
 ## v2.0 interactive preview — 2026-07-27
 
 - Added complete Vietnamese-default and English route trees under `/vi/...` and `/en/...`; locale switching preserves route, query and hash.

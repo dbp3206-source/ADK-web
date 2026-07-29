@@ -1,4 +1,4 @@
-# Design — ADK Agent Ecosystem V3.3
+# Design — ADK Agent Ecosystem V3.6
 
 A locked system for the bilingual Interactive Agent Field Guide. Every route shares
 the same typography, signal language, accessibility rules and interaction
@@ -99,6 +99,20 @@ between compact control-plane bands and generous evidence-paper passages.
 - Content pages: Long Document with task-led entry points.
 - Navigation: information-rich edge-aligned bar.
 - Footer: statement close without a public preview version string.
+
+## V3.6 case and learning rules
+
+- Project pages begin with one RealWorldCaseFrame before the existing analysis.
+- The frame uses six project accents and six code-native scene motifs; it never
+  relies on a fabricated photograph, fixed height or nested scroll.
+- Artifact previews close the visual column and link to a matching simulator
+  scenario through a stable case id.
+- System Atlas keeps the dark five-layer workbench but teaches the practical
+  definition, recognition signals, examples and application steps first.
+- Dependency, enablement and design questions live in a Deep Dive disclosure.
+- Tuner controls use natural questions and explain why each concept enters the
+  stack. Failure Studio starts with user impact. Passport always offers a next
+  learning action.
 
 ## Hallmark record
 

@@ -12,7 +12,7 @@ export function getReleaseMetadata(): ReleaseMetadata {
     "local";
 
   return {
-    version: "3.5.0",
+    version: "3.6.0",
     commit: fullCommit === "local" ? fullCommit : fullCommit.slice(0, 7),
     builtAt: process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString(),
     environment: process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? "local"

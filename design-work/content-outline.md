@@ -1,8 +1,8 @@
-# V3.3 Content Outline
+# V3.5 Content Outline
 
 ## Home
 
-- Field Guide cover.
+- Hero statement plus Artifact Preview Stack: trip itinerary, script revision and dashboard insight.
 - Interactive ecosystem infographic: ACT to CONNECT.
 - Project Discovery Desk with labeled action and honest match states.
 - Six case-study rows with visual/output preview.
@@ -11,23 +11,23 @@
 
 ## Projects
 
-- Problem-led search and presets.
-- Six projects described by user job, output and architecture step.
-- Comparison view remains available.
+- Human problem filters: memory, writing/review, sources, calculation, parallel work, data QA and agent routing.
+- Six projects described as Situation, Problem, Agent help, Output and New capability.
+- Technical pattern filters stay inside an advanced disclosure.
 
 ## Project pages
 
-- Human-readable situation and goal.
-- Design decisions expressed as narrative, not CASE labels.
-- Simulator: Input, detailed Process, project-specific Output.
-- Technical source and raw details behind disclosure.
+- Public hierarchy: real situation, problem, why the simple approach is insufficient, project approach, simulator, result/value and technical detail.
+- Simulator: Input, four public process blocks and one of six project-specific output renderers.
+- Provenance badge is public; full provenance, raw event, schema, state diff and assertions stay behind disclosure.
 - VI/EN interface and content parity.
 
 ## System
 
 - Easy mode by default.
 - Technical mode for endpoint, Agent Card, schemas and raw trace.
-- Desktop topology, tablet step cards and mobile vertical trace.
+- Easy mode remains a seven-step vertical explanation.
+- Technical mode retains topology on desktop and becomes readable step cards/trace on narrower screens.
 
 ## Learning Center
 
@@ -46,6 +46,7 @@
 ## Delivery
 
 - Build and critical route checks.
-- Browser checks at 320, 768 and 1440 px.
+- Browser checks at 320, 375, 414, 768, 1024 and 1440 px.
 - Final desktop, tablet and mobile screenshots.
-- Save and deploy the exact verified source state through ChatGPT Sites with link sharing.
+- Provide a verified preview for owner approval.
+- Do not deploy production before explicit approval.

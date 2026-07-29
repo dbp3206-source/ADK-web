@@ -1,44 +1,41 @@
 {
-  "target_output": "ADK Agent Ecosystem Portfolio V3.3 Lite revision with Track C, Vietnamese-default with English parity, prepared for ChatGPT Sites production sharing",
+  "target_output": "ADK Agent Ecosystem Portfolio V3.5.0 static preview for owner approval",
   "source_files": [
-    "ADK_Web_ChatGPT_Work_V3_3_Lite_Revision learning and project-track JSON resources",
+    "ADK AGENT ECOSYSTEM - FINAL MANDATORY REVISION PLAN V3.5",
     "existing Next.js website source",
-    "six local ADK agent project source trees",
-    "AI_Cheatsheet_de_hieu_v4_17_AI_System_Concepts.xlsx"
+    "content/case-studies.vi.json",
+    "content/project-copy.ts",
+    "content/learning-v33 and content/project-track-v33 resources",
+    "data/ai_practical and data/project_track resources"
   ],
-  "primary_skill": "hallmark",
+  "primary_skill": "Existing technical-editorial design system",
   "specialist_skills": [],
   "mcp_tools_used": [
-    "Chrome DevTools MCP",
-    "Node REPL with Playwright and installed Google Chrome"
+    "Chrome DevTools MCP"
   ],
   "commands_run": [
     "npm.cmd run typecheck",
-    "npm.cmd test",
+    "npm.cmd test -- --run",
     "npm.cmd run build",
-    "node scripts/prepare-sites-output.mjs",
-    "node scripts/static-server.mjs",
-    "browser route, interaction, console, network, overflow and screenshot checks"
+    "npm.cmd run test:e2e:desktop",
+    "npm.cmd run test:e2e:mobile",
+    "Playwright targeted regression and screenshot capture",
+    "Chrome DevTools viewport, overflow, console and interaction checks"
   ],
   "repository_defined_outputs": [
     "Next.js App Router source",
     "static export in out/",
-    "Sites-compatible static export in dist/",
+    "Sites-compatible package in dist/",
     "design-work brief, outline, screenshots and QA evidence"
   ],
   "delivered_outputs": [
     "workspace source tree on codex/v3.3-lite-revision",
     "out/",
-    "design-work/qa/v3.3/changed-files.txt",
-    "design-work/qa/v3.3/screenshots/home-desktop.png",
-    "design-work/qa/v3.3/screenshots/home-tablet.png",
-    "design-work/qa/v3.3/screenshots/home-mobile.png",
-    "design-work/qa/v3.3/screenshots/revision-contact-desktop.png",
-    "design-work/qa/v3.3/screenshots/revision-dashboard-mobile.png",
-    "design-work/qa/v3.3/screenshots/revision-home-541.png",
-    "design-work/qa/v3.3/screenshots/revision-system-desktop.png",
-    "design-work/qa/v3.3/screenshots/revision-track-c-desktop.png",
-    "design-work/qa/v3.3/screenshots/revision-track-c-mobile.png"
+    "dist/",
+    "design-work/qa/screenshots/v35-home-1440.png",
+    "design-work/qa/screenshots/v35-projects-1024.png",
+    "design-work/qa/screenshots/v35-dashboard-simulator-375.png",
+    "design-work/qa/screenshots/v35-system-768.png"
   ],
   "verification": {
     "structural": true,
@@ -47,12 +44,11 @@
     "content_fidelity": true,
     "target_environment": true
   },
-  "quality_score": 92,
+  "quality_score": 94,
   "known_limitations": [
-    "No live agent backend, database, login or live sports feed was added; public demos are deterministic.",
-    "Historical source snapshots remain inspectable and are explicitly labelled where their original instructions are stale or unsafe.",
-    "Contact uses the supplied real email and GitHub repository; no unprovided CV or LinkedIn URL was invented.",
-    "No new Lighthouse performance audit was run in this revision.",
-    "ChatGPT Sites public access is blocked because internet publishing is not enabled for this workspace."
+    "Production deployment was authorized after the owner reviewed the V3.5 preview.",
+    "Public simulator cases are deterministic browser fixtures, not live agent requests.",
+    "No live sports feed, booking system, database or authentication was added.",
+    "Public Vercel access must be verified after the Git-triggered deployment completes."
   ]
 }

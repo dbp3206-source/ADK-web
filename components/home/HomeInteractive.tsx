@@ -26,11 +26,28 @@ export function HomeHero({ locale }: { locale: Locale }) {
             {dict.hero.stats.map(([value, label, detail]) => <div key={label}><dt>{value}</dt><dd><strong>{label}</strong><span>{detail}</span></dd></div>)}
           </dl>
         </div>
-        <div className="hero-field-guide-mark" aria-hidden="true">
-          <span>REQUEST</span>
-          <strong>ACT</strong><strong>DELEGATE</strong><strong>COMPUTE</strong>
-          <strong>COMPOSE</strong><strong>VERIFY</strong><strong>CONNECT</strong>
-          <span>RESULT</span>
+        <div className="artifact-preview-stack" aria-label={locale === "vi" ? "Ba mẫu đầu ra của agent" : "Three agent output previews"}>
+          <article className="hero-artifact hero-artifact-trip">
+            <header><span className="mono">01 · {locale === "vi" ? "LỊCH TRÌNH" : "ITINERARY"}</span><strong>{locale === "vi" ? "Huế · 3 ngày" : "Hue · 3 days"}</strong></header>
+            <ol>
+              <li><span>{locale === "vi" ? "Ngày 1" : "Day 1"}</span><b>Đại Nội → Đông Ba</b></li>
+              <li><span>{locale === "vi" ? "Ngày 2" : "Day 2"}</span><b>Lăng Minh Mạng → đồi Vọng Cảnh</b></li>
+              <li><span>{locale === "vi" ? "Ngày 3" : "Day 3"}</span><b>Thiên Mụ → Kim Long</b></li>
+            </ol>
+            <small className="mono">state saved · dietary preference retained</small>
+          </article>
+          <article className="hero-artifact hero-artifact-script">
+            <header><span className="mono">02 · {locale === "vi" ? "BẢN SỬA" : "REVISION"}</span><strong>{locale === "vi" ? "Mở bài rõ hơn" : "Sharper opening"}</strong></header>
+            <p><del>{locale === "vi" ? "AI đang thay đổi mọi thứ." : "AI is changing everything."}</del></p>
+            <p><ins>{locale === "vi" ? "Một workflow tốt cho thấy ai quyết định, dữ liệu đi đâu và khi nào cần dừng." : "A useful workflow shows who decides, where data moves and when to stop."}</ins></p>
+            <small className="mono">writer → critic → reviser</small>
+          </article>
+          <article className="hero-artifact hero-artifact-insight">
+            <header><span className="mono">03 · INSIGHT QA</span><strong>{locale === "vi" ? "Tỷ lệ lỗi tăng 4×" : "Error rate rose 4×"}</strong></header>
+            <div><span>T6</span><b>2.1%</b><i aria-hidden="true" /><span>T7</span><b>8.4%</b><i aria-hidden="true" /></div>
+            <p>{locale === "vi" ? "Doanh thu giảm 33%; kết luận đã đối chiếu với dữ liệu nguồn." : "Revenue fell 33%; the conclusion was checked against source data."}</p>
+            <small className="mono">QA passed · sample output</small>
+          </article>
         </div>
       </div>
     </section>

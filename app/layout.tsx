@@ -5,6 +5,7 @@ import { CommandDeck } from "@/components/command/CommandDeck";
 import { LegacyRouteRedirect } from "@/components/layout/LegacyRouteRedirect";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { getReleaseMetadata } from "@/lib/release";
 
 import "./base-v2.css";
 import "./tokens-v3.css";
@@ -57,13 +58,15 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const release = getReleaseMetadata();
+
   return (
     <html lang="vi" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
       <body>
         <LegacyRouteRedirect />
         <SiteHeader />
         <main id="main-content">{children}</main>
-        <SiteFooter />
+        <SiteFooter release={release} />
         <CommandDeck />
       </body>
     </html>

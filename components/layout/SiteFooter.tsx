@@ -4,9 +4,10 @@ import { usePathname } from "next/navigation";
 
 import { StaticLink as Link } from "@/components/layout/StaticLink";
 import { getDictionary, localeFromPath, localizedPath } from "@/lib/i18n";
+import type { ReleaseMetadata } from "@/lib/release";
 import { getUtilityLinks } from "@/lib/site";
 
-export function SiteFooter() {
+export function SiteFooter({ release }: { release: ReleaseMetadata }) {
   const pathname = usePathname();
   const locale = localeFromPath(pathname);
   const dict = getDictionary(locale);
@@ -28,7 +29,12 @@ export function SiteFooter() {
           ].map(([label, href]) => <Link href={localizedPath(locale, href)} key={href}>{label}</Link>)}
           {utilityLinks.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
         </nav>
-        <p className="mono">{dict.footer.colophon}</p>
+        <div className="footer-build">
+          <p className="mono">{dict.footer.colophon}</p>
+          <p className="mono" aria-label={`Release ${release.version}`}>
+            v{release.version} · {release.commit} · {release.builtAt.slice(0, 10)} · {release.environment}
+          </p>
+        </div>
       </div>
     </footer>
   );

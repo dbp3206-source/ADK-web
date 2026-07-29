@@ -25,6 +25,40 @@ interface SimCase {
   outputContent: React.ReactNode | null;
 }
 
+type ProvenanceMode =
+  | "verified-local-replay"
+  | "browser-simulation"
+  | "sample-output"
+  | "partial-tool-test";
+
+interface CaseProvenance {
+  mode: ProvenanceMode;
+  sourceCommit: string;
+  testFile: string;
+  sourceFile: string;
+  capturedAt: string;
+  input: string;
+  process: string[];
+  output: { renderer: string; caseId: string; title: string };
+  mockStatus: string;
+  verifiedBy: string;
+  limitations: string[];
+}
+
+interface CaseRecord {
+  caseData: SimCase;
+  provenance: CaseProvenance;
+  technical: {
+    schema: Record<string, string>;
+    outputKey: string;
+    rawEvent: Record<string, unknown>;
+    toolArgs: Record<string, unknown>;
+    stateDiff: Record<string, unknown>;
+    assertions: Array<{ check: string; status: "pass" | "bounded" }>;
+    failureFixture: Record<string, unknown> | null;
+  };
+}
+
 // ────────────────────────────────────────────────────────────────
 // OUTPUT RENDERERS — project-specific visual output panels
 // ────────────────────────────────────────────────────────────────
@@ -540,7 +574,7 @@ function buildCases(locale: Locale): Record<string, SimCase[]> {
         steps: [
           { title: vi ? "Nhận câu hỏi" : "Receive question", explanation: vi ? "Root agent xác định câu hỏi cần: tìm dữ kiện (tỉ số) và tính toán (hiệu số). Cần dùng cả hai công cụ." : "Root agent identifies question needs: fact-finding (score) and calculation (difference). Both tools needed.", technicalKeyword: "routing", actor: "World Cup Analyst" },
           { title: vi ? "Tìm dữ kiện" : "Find facts", explanation: vi ? "Search Agent dùng Wikipedia API tìm thông tin trận chung kết. Lấy tỉ số thực tế: Argentina 3–3 Pháp (pen. 4–2)." : "Search Agent uses Wikipedia API to find the final match info. Gets actual score: Argentina 3–3 France (pen. 4–2).", technicalKeyword: "tool call · Wikipedia API", actor: "Search Agent", whyItMatters: vi ? "Dữ kiện từ nguồn thực, không phải do model đoán." : "Facts from real source, not model guessing." },
-          { title: vi ? "Tính toán chính xác" : "Precise calculation", explanation: vi ? "Stats Calculator tự viết code Python để tính hiệu số (3–3=0), tỷ lệ thắng và chạy kết quả. Không nhẩm trong đầu." : "Stats Calculator writes Python code to calculate difference (3–3=0), win rate and runs it. Doesn't do mental math.", technicalKeyword: "code executor · Python", actor: "Stats Calculator", whyItMatters: vi ? "Code chạy thật đảm bảo tính toán chính xác 100% — không phải ước lượng." : "Real code execution ensures 100% accurate calculation — not estimation." },
+          { title: vi ? "Tính toán có thể kiểm tra" : "Inspectable calculation", explanation: vi ? "Kịch bản dùng phép tính cố định cho hiệu số (3–3=0) và trình bày công thức để người xem kiểm tra. Website không chạy Python trực tiếp." : "The scenario uses a fixed goal-difference calculation (3–3=0) and exposes the formula for inspection. The website does not execute Python.", technicalKeyword: "calculation fixture", actor: "Stats Calculator", whyItMatters: vi ? "Tách phép tính khỏi phần diễn giải giúp kết quả có thể kiểm tra mà không giả vờ đang chạy code live." : "Separating calculation from narration keeps the result inspectable without implying live code execution." },
           { title: vi ? "Tổng hợp báo cáo" : "Synthesize report", explanation: vi ? "Root agent kết hợp dữ kiện và kết quả tính toán thành báo cáo phân tích có nguồn rõ ràng." : "Root agent combines facts and calculation results into an analysis report with clear sources.", technicalKeyword: "synthesis", actor: "World Cup Analyst" },
         ],
       },
@@ -693,6 +727,59 @@ function buildCases(locale: Locale): Record<string, SimCase[]> {
 // ────────────────────────────────────────────────────────────────
 // OUTPUT DISPATCHER
 // ────────────────────────────────────────────────────────────────
+function buildCaseRecord(caseData: SimCase): CaseRecord {
+  const isFailure = ["failure", "fallback", "validation"].includes(caseData.caseType);
+  const mode: ProvenanceMode =
+    caseData.project === "dashboard-insights" ? "sample-output" : "browser-simulation";
+
+  return {
+    caseData,
+    provenance: {
+      mode,
+      sourceCommit: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "local-preview",
+      testFile: "No case-specific automated test supplied",
+      sourceFile: "components/simulator/AgentInteractionSimulator.tsx",
+      capturedAt: "2026-07-29",
+      input: caseData.prompt,
+      process: caseData.steps.map((step) => `${step.actor}: ${step.title}`),
+      output: { renderer: caseData.outputType, caseId: caseData.id, title: caseData.title },
+      mockStatus: "Deterministic browser fixture; no live backend request",
+      verifiedBy: "Source review; browser QA pending for this release",
+      limitations: [
+        "The interaction demonstrates repository architecture, not a live agent run.",
+        "Displayed values are fixed scenario data and must not be treated as current external data."
+      ]
+    },
+    technical: {
+      schema: {
+        caseId: "string",
+        prompt: "string",
+        steps: "SimStep[]",
+        outputType: "project renderer key"
+      },
+      outputKey: `${caseData.project}.${caseData.id}.output`,
+      rawEvent: {
+        event: "simulator.step",
+        caseId: caseData.id,
+        actor: caseData.steps[0]?.actor ?? "unknown"
+      },
+      toolArgs: { prompt: caseData.prompt, scenario: caseData.caseType },
+      stateDiff: {
+        before: "idle",
+        after: isFailure ? "bounded-fallback" : "artifact-ready"
+      },
+      assertions: [
+        { check: "Input, process and output share the same case ID", status: "pass" },
+        { check: "Raw data is contained in the technical drawer", status: "pass" },
+        { check: "Live execution is not implied", status: "bounded" }
+      ],
+      failureFixture: isFailure
+        ? { trigger: caseData.caseType, response: "Stop within scope and return a bounded fallback." }
+        : null
+    }
+  };
+}
+
 function EnglishOutput({ caseData }: { caseData: SimCase }) {
   const caseOverrides: Record<string, { label: string; body: string; detail: string }> = {
     "TP-01": { label: "Itinerary + state receipt", body: "A three-day Hue itinerary grouped by day and based on the supplied cultural, food and budget preferences.", detail: "The receipt stores destination, duration, priorities and budget." },
@@ -793,6 +880,7 @@ export function AgentInteractionSimulator({
 
   const activeCase = cases[caseIndex];
   if (!activeCase) return null;
+  const caseRecord = buildCaseRecord(activeCase);
 
   const displayPrompt = customPrompt.trim() || activeCase.prompt;
   const isStarted = stepIndex >= 0;
@@ -841,12 +929,6 @@ export function AgentInteractionSimulator({
 
   return (
     <section className="sim-shell" aria-label={vi ? "Simulator tương tác agent" : "Agent interaction simulator"} id={`${slug}-simulator`}>
-      <div className="sim-notice" role="note">
-        {vi
-          ? "Mô phỏng từ kiến trúc repository — không phải request đang chạy trực tiếp."
-          : "Simulated from repository architecture — not a live request."}
-      </div>
-
       <div className="sim-case-bar">
         <span className="sim-case-label mono">{vi ? "Kịch bản" : "Scenario"}</span>
         <div className="sim-case-pills" role="tablist" aria-label={vi ? "Chọn kịch bản" : "Select scenario"}>
@@ -862,6 +944,11 @@ export function AgentInteractionSimulator({
             </button>
           ))}
         </div>
+        <span className={`sim-provenance-badge mode-${caseRecord.provenance.mode}`} role="note">
+          {caseRecord.provenance.mode === "sample-output"
+            ? (vi ? "Đầu ra mẫu" : "Sample output")
+            : (vi ? "Mô phỏng trên trình duyệt" : "Browser simulation")}
+        </span>
       </div>
 
       <div className="sim-three-col">
@@ -933,13 +1020,10 @@ export function AgentInteractionSimulator({
                       {state === "active" && (
                         <div className="sim-step-detail" aria-live="polite">
                           <dl className="sim-step-answers">
-                            <div><dt>{vi ? "Agent hiểu gì?" : "What did the agent understand?"}</dt><dd>{step.explanation}</dd></div>
-                            <div><dt>{vi ? "Ai đang xử lý?" : "Who is handling it?"}</dt><dd>{step.actor}</dd></div>
-                            <div><dt>{vi ? "Tool hoặc sub-agent" : "Tool or sub-agent"}</dt><dd>{step.technicalKeyword || (vi ? "Không cần gọi thêm" : "No additional call")}</dd></div>
-                            <div><dt>{vi ? "Dữ liệu được truyền hoặc đổi" : "Data passed or changed"}</dt><dd>{vi ? `Input của bước ${i + 1} → kết quả trung gian có cấu trúc` : `Step ${i + 1} input → structured intermediate result`}</dd></div>
-                            <div><dt>{vi ? "Kết quả trung gian" : "Intermediate result"}</dt><dd>{step.title}</dd></div>
-                            <div><dt>{vi ? "Vì sao cần bước này?" : "Why is this step needed?"}</dt><dd>{step.whyItMatters || (vi ? "Bước này tạo dữ liệu cần thiết cho bước tiếp theo." : "This step creates the data required by the next step.")}</dd></div>
-                            <div><dt>{vi ? "Nếu lỗi thì sao?" : "What happens on failure?"}</dt><dd>{activeCase.caseType === "failure" || activeCase.caseType === "fallback" || activeCase.caseType === "validation" ? (vi ? "Dừng đúng phạm vi, giữ dữ liệu đã có và trả fallback hoặc câu hỏi làm rõ." : "Stop within scope, preserve available data and return a fallback or clarification.") : (vi ? "Không chuyển dữ liệu rỗng; báo lỗi và cho phép chạy lại bước." : "Do not pass empty data; report the error and allow the step to be retried.")}</dd></div>
+                            <div><dt>{vi ? "Điều đang diễn ra" : "What is happening"}</dt><dd>{step.explanation}</dd></div>
+                            <div><dt>{vi ? "Ai hoặc công cụ nào xử lý" : "Who or what handles it"}</dt><dd><strong>{step.actor}</strong>{step.technicalKeyword ? ` · ${step.technicalKeyword}` : ""}</dd></div>
+                            <div><dt>{vi ? "Bước này tạo ra gì" : "What this creates"}</dt><dd>{vi ? `Kết quả trung gian có cấu trúc: ${step.title}.` : `Structured intermediate result: ${step.title}.`}</dd></div>
+                            <div><dt>{vi ? "Vì sao cần và khi lỗi" : "Why it matters and fallback"}</dt><dd>{step.whyItMatters || (vi ? "Tạo dữ liệu cần thiết cho bước tiếp theo." : "Creates the data required by the next step.")} {activeCase.caseType === "failure" || activeCase.caseType === "fallback" || activeCase.caseType === "validation" ? (vi ? "Nếu lỗi, hệ thống dừng đúng phạm vi và trả câu hỏi làm rõ hoặc fallback." : "On failure, the system stops within scope and returns a clarification or fallback.") : (vi ? "Nếu lỗi, không chuyển dữ liệu rỗng và cho phép chạy lại bước." : "On failure, empty data is not passed forward and the step can be retried.")}</dd></div>
                           </dl>
                         </div>
                       )}
@@ -978,6 +1062,31 @@ export function AgentInteractionSimulator({
           </div>
         </div>
       </div>
+
+      <details className="sim-technical-drawer">
+        <summary>{vi ? "Chi tiết kỹ thuật và nguồn kiểm chứng" : "Technical details and provenance"}</summary>
+        <div className="sim-technical-grid">
+          <section>
+            <h4>{vi ? "Nguồn kiểm chứng" : "Provenance"}</h4>
+            <dl>
+              {Object.entries(caseRecord.provenance).filter(([key]) => !["process", "output", "limitations"].includes(key)).map(([key, value]) => (
+                <div key={key}><dt>{key}</dt><dd>{String(value)}</dd></div>
+              ))}
+            </dl>
+            <p>{caseRecord.provenance.limitations.join(" ")}</p>
+          </section>
+          <section>
+            <h4>{vi ? "Bản ghi kỹ thuật" : "Technical record"}</h4>
+            <pre tabIndex={0}><code>{JSON.stringify({
+              caseId: activeCase.id,
+              input: caseRecord.provenance.input,
+              process: caseRecord.provenance.process,
+              output: caseRecord.provenance.output,
+              ...caseRecord.technical
+            }, null, 2)}</code></pre>
+          </section>
+        </div>
+      </details>
 
       {/* Static fallback for no-JS */}
       <noscript>

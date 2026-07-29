@@ -40,8 +40,8 @@ export function HomePageV2({ locale }: { locale: Locale }) {
       <section className="learning-teaser-v3 page-shell-v2" aria-labelledby="learning-teaser-title">
         <header className="section-head-v2">
           <p className="eyebrow-v2">LEARNING CENTER</p>
-          <h2 id="learning-teaser-title">{locale === "vi" ? "Hiểu rõ hơn về kiến trúc." : "Understand the architecture."}</h2>
-          <p>{locale === "vi" ? "Thực hành với các bài tập flashcards và quizzes." : "Practice with flashcards and quizzes exercises."}</p>
+          <h2 id="learning-teaser-title">{locale === "vi" ? "Ba cách học, cùng một hệ thống." : "Three ways to learn one system."}</h2>
+          <p>{locale === "vi" ? "Chọn AI thực chiến, khám phá sáu project hoặc trực quan hóa 17 concept hệ thống." : "Choose practical AI, explore the six projects or visualize 17 system concepts."}</p>
         </header>
         <Link href={localizedPath(locale, "/learn")} className="primary-action-v2">{locale === "vi" ? "Đến Learning Center →" : "Go to Learning Center →"}</Link>
       </section>

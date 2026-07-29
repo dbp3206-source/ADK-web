@@ -249,7 +249,16 @@ export function SystemConceptsTrack({ locale }: { locale: Locale }) {
 
       <section className="concept-section mastery-passport page-shell-v2" id="mastery-passport">
         <header><p className="eyebrow-v2">MASTERY PASSPORT</p><h2>{vi ? `${mastered}/17 concept bạn có thể tự giải thích.` : `${mastered}/17 concepts you can explain.`}</h2></header>
-        <div className="mastery-meter" aria-label={vi ? "Tiến độ 17 concept" : "17-concept progress"}><span style={{ width: `${(mastered / 17) * 100}%` }} /></div>
+        <div
+          className="mastery-meter"
+          role="progressbar"
+          aria-label={vi ? "Tiến độ 17 concept" : "17-concept progress"}
+          aria-valuemin={0}
+          aria-valuemax={17}
+          aria-valuenow={mastered}
+        >
+          <span style={{ width: `${(mastered / 17) * 100}%` }} />
+        </div>
         <div className="revisit-queue">
           <h3>{vi ? "Hàng đợi explain-back tiếp theo" : "Next explain-back queue"}</h3>
           <ol>{revisit.map((item) => <li key={item.id}><button type="button" onClick={() => { setSelectedId(item.id); document.getElementById("system-atlas")?.scrollIntoView({ behavior: "smooth" }); }}><span className="mono">{item.id}</span>{item.term}</button></li>)}</ol>

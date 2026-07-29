@@ -17,25 +17,28 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
   const copy = localizeProject(project, locale);
   const vi = locale === "vi";
   const labels = {
-    situation: vi ? "Tình huống thực tế" : "The situation",
-    problem: vi ? "Điều gì đang cản trở?" : "What gets in the way?",
-    outcome: vi ? "Output bạn sẽ nhận" : "The output you receive",
-    approach: vi ? "Hệ thống giải quyết ra sao?" : "How the system responds",
-    simulator: vi ? "Xem agent xử lý một yêu cầu" : "Watch the agent handle a request",
+    situation: vi ? "Tình huống thực tế" : "Real situation",
+    problem: vi ? "Vấn đề cần giải quyết" : "Problem to solve",
+    insufficient: vi ? "Tại sao cách đơn giản chưa đủ?" : "Why is the simple approach insufficient?",
+    outcome: vi ? "Kết quả và giá trị" : "Result and value",
+    approach: vi ? "Cách project xử lý" : "How the project handles it",
+    simulator: vi ? "Xem agent làm việc" : "Watch the agent work",
     technical: vi ? "Chi tiết kỹ thuật" : "Technical details",
-    source: vi ? "Mở source, tests và dữ liệu mô phỏng" : "Open source, tests and simulation data",
+    source: vi ? "Mở source, tests và dữ liệu mô phỏng" : "Open source, tests and simulation data"
   };
   const pain = vi ? viCase.context.pain : copy.limitations.slice(0, 3);
   const decisions = vi
     ? viCase.approach.map((item) => ({
         problem: item.problem,
         decision: item.decision,
-        tradeoff: item.tradeoff,
+        value: viCase.effect.whyItMatters,
+        tradeoff: item.tradeoff
       }))
     : copy.decisions.slice(0, 3).map((decision, index) => ({
         problem: pain[index] || copy.problem,
         decision,
-        tradeoff: copy.limitations[index] || copy.safetyNote,
+        value: copy.whatItProves,
+        tradeoff: copy.limitations[index] || copy.safetyNote
       }));
 
   return (
@@ -53,42 +56,40 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
       </header>
 
       <div className="case-body-v3 page-shell-v2">
-        <section className="case-output-first" aria-labelledby="case-output-title">
-          <div>
-            <p className="eyebrow-v2">{labels.outcome}</p>
-            <h2 id="case-output-title">{copy.artifact}</h2>
-          </div>
-          <div className={`case-output-motif output-${slug}`} aria-hidden="true">
-            <i /><i /><i /><i />
-          </div>
-          <p>{vi ? viCase.effect.whyItMatters : copy.whatItProves}</p>
-        </section>
-
         <section className="case-narrative-section" aria-labelledby="case-situation-title">
           <div>
-            <p className="eyebrow-v2">{labels.situation}</p>
-            <h2 id="case-situation-title">{vi ? viCase.context.userSituation : copy.problem}</h2>
+            <p className="eyebrow-v2">01</p>
+            <h2 id="case-situation-title">{labels.situation}</h2>
+            <p className="large-copy-v2">{vi ? viCase.context.userSituation : copy.problem}</p>
+          </div>
+        </section>
+
+        <section className="case-narrative-section" aria-labelledby="case-problem-title">
+          <div>
+            <p className="eyebrow-v2">02 · {labels.problem}</p>
+            <h2 id="case-problem-title">{labels.insufficient}</h2>
           </div>
           <div className="case-problem-list">
-            <h3>{labels.problem}</h3>
             <ul>{pain.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>
         </section>
 
         <section className="case-narrative-section" aria-labelledby="case-approach-title">
           <div>
-            <p className="eyebrow-v2">{labels.approach}</p>
-            <h2 id="case-approach-title">
-              {vi ? viCase.context.success : copy.primaryTimeline.slice(0, 4).join(" → ")}
-            </h2>
+            <p className="eyebrow-v2">03</p>
+            <h2 id="case-approach-title">{labels.approach}</h2>
+            <p>{vi ? viCase.context.success : copy.primaryTimeline.slice(0, 4).join(" → ")}</p>
           </div>
           <div className="case-decision-ledger">
             {decisions.map((item, index) => (
               <article key={`${item.decision}-${index}`}>
                 <span className="mono">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.problem}</h3>
-                <p>{item.decision}</p>
-                <small>{vi ? "Đánh đổi" : "Trade-off"}: {item.tradeoff}</small>
+                <dl>
+                  <div><dt>{vi ? "Vấn đề" : "Problem"}</dt><dd>{item.problem}</dd></div>
+                  <div><dt>{vi ? "Quyết định" : "Decision"}</dt><dd>{item.decision}</dd></div>
+                  <div><dt>{vi ? "Giá trị" : "Value"}</dt><dd>{item.value}</dd></div>
+                  <div><dt>{vi ? "Đánh đổi" : "Trade-off"}</dt><dd>{item.tradeoff}</dd></div>
+                </dl>
               </article>
             ))}
           </div>
@@ -96,7 +97,7 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
 
         <section className="case-simulator-section" aria-labelledby="case-simulator-title">
           <header>
-            <p className="eyebrow-v2">INPUT → PROCESS → OUTPUT</p>
+            <p className="eyebrow-v2">04 · INPUT → PROCESS → OUTPUT</p>
             <h2 id="case-simulator-title">{labels.simulator}</h2>
             <p>
               {vi
@@ -107,6 +108,18 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
           <AgentInteractionSimulator slug={slug} locale={locale} />
         </section>
 
+        <section className="case-output-first" aria-labelledby="case-output-title">
+          <div>
+            <p className="eyebrow-v2">05</p>
+            <h2 id="case-output-title">{labels.outcome}</h2>
+            <h3>{copy.artifact}</h3>
+          </div>
+          <div className={`case-output-motif output-${slug}`} aria-hidden="true">
+            <i /><i /><i /><i />
+          </div>
+          <p>{vi ? viCase.effect.whyItMatters : copy.whatItProves}</p>
+        </section>
+
         <details className="case-technical-details">
           <summary>
             <span>{labels.technical}</span>
@@ -115,8 +128,8 @@ export function CaseStudyV3({ slug, locale }: { slug: string; locale: Locale }) 
           {slug === "worldcup-analyst" ? (
             <p className="technical-context-note">
               {vi
-                ? "Source bên dưới là snapshot lịch sử của project. Demo công khai dùng bộ dữ liệu World Cup 2022 cố định và không cung cấp tỉ số live."
-                : "The source below is a historical project snapshot. The public demo uses a fixed 2022 World Cup dataset and does not provide live scores."}
+                ? "Source bên dưới là snapshot lịch sử của project. Demo công khai dùng bộ dữ liệu World Cup 2022 cố định, rà soát lần cuối ngày 2026-07-29 và không cung cấp tỉ số live."
+                : "The source below is a historical project snapshot. The public demo uses a fixed 2022 World Cup dataset, last reviewed on 2026-07-29, and does not provide live scores."}
             </p>
           ) : null}
           {slug === "love-advisor" ? (

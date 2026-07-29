@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-07-28",
+    "scope": "app",
+    "macrostructure": "Field Guide + Workbench + Long Document",
+    "theme": "Signal Editorial V3.3",
+    "theme_axes": "dark control-plane / paper evidence / cyan signal",
+    "vibe": "interactive agent field guide, technical and approachable",
+    "enrichment": "Tier B code-native ecosystem infographic",
+    "brief": "V3.3 bilingual portfolio, simulator and two-track learning revision"
+  },
+  {
     "date": "2026-07-27",
     "macrostructure": "Map / Diagram",
     "theme": "custom",

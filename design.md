@@ -1,22 +1,22 @@
-# Design — ADK Agent Ecosystem V2
+# Design — ADK Agent Ecosystem V3.3
 
-A locked system for the bilingual interactive portfolio. Every V2 route shares
+A locked system for the bilingual Interactive Agent Field Guide. Every route shares
 the same typography, signal language, accessibility rules and interaction
 voice; project pages vary through their approved macro-compositions.
 
 ## Genre
 
-Signal Editorial: editorial hierarchy and restraint applied to a technical
-control-plane interface.
+Signal Editorial Field Guide: editorial hierarchy and restraint applied to a
+technical ecosystem that beginners can follow and engineers can inspect.
 
 ## Macrostructure families
 
-- Marketing / Home: asymmetric Split Diptych thesis with an interactive
-  architecture proof, followed by varied editorial and workbench sections.
+- Marketing / Home: Field Guide path. A concise cover leads into one horizontal
+  ecosystem route on desktop and one vertical route on mobile.
 - App / System / Labs: Workbench. Controls and inspectable artifacts are the
   primary content.
-- Content / Evidence / Learn / About: long-form paper sections with bounded
-  tables, visible source states and restrained rules.
+- Content / Learn / Contact: long-form paper sections and task-led workbenches
+  with bounded tables, progressive disclosure and restrained rules.
 
 ## Theme
 
@@ -46,7 +46,7 @@ between compact control-plane bands and generous evidence-paper passages.
 ## Motion
 
 - State transitions use `cubic-bezier(.16, 1, .3, 1)`.
-- Trace autoplay advances at approximately 1100 ms.
+- Field Guide and trace autoplay advance at approximately 1100 ms.
 - Only active signal paths travel; content does not perform decorative scroll
   reveals.
 - Reduced motion removes traveling lines and preserves immediate highlights,
@@ -67,10 +67,11 @@ between compact control-plane bands and generous evidence-paper passages.
 
 ## Per-page allowances
 
-- Home may pair one thesis statement with a live architecture canvas.
+- Home uses one lightweight ecosystem infographic; the full topology belongs
+  only on `/system`.
 - System and labs prioritize control density over decoration.
-- Case studies use the six approved macro-compositions and one internal
-  timeline each.
+- Case studies use six project motifs and the shared Input → Process → Output
+  simulator contract.
 - Evidence and print views use the paper surface.
 
 ## What pages must share
@@ -78,7 +79,7 @@ between compact control-plane bands and generous evidence-paper passages.
 - Wordmark and navigation behavior.
 - Cyan active signal and visible focus.
 - Display/body/mono families.
-- Evidence taxonomy, simulation disclosure and interaction labels.
+- Simulation disclosure appears at the relevant simulator, not globally.
 - Mobile drawer, Command Deck, locale behavior and voice controls.
 
 ## What pages may differ on
@@ -86,6 +87,18 @@ between compact control-plane bands and generous evidence-paper passages.
 - Project-specific accent and macro-composition.
 - Internal timeline shape, lab controls and artifact presentation.
 - Density and paper/control-plane ratio.
+
+## V3.3 Field Guide rules
+
+- Audience: recruiters, collaborators, engineers and practical AI learners.
+- Primary use: identify a relevant project, inspect its process/output and learn
+  the underlying technique.
+- Tone: technical, editorial and approachable.
+- Home enrichment: Tier B code-native infographic with semantic signal motion.
+- App pages: Workbench.
+- Content pages: Long Document with task-led entry points.
+- Navigation: information-rich edge-aligned bar.
+- Footer: statement close without a public preview version string.
 
 ## Hallmark record
 
@@ -96,4 +109,5 @@ between compact control-plane bands and generous evidence-paper passages.
   it keeps required destinations rather than imitating N9’s one-link silence.
 - Previous footer: Ft4 dense colophon.
 - V2 footer: Ft5 statement close.
+- V3.3 scope: multi-page system refinement under the existing locked theme.
 

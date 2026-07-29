@@ -1,0 +1,2161 @@
+[
+  {
+    "id": "AIK-001",
+    "order": 1,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Nên biết",
+    "term": "Artificial Intelligence (AI)",
+    "vietnameseMeaning": "Trí tuệ nhân tạo",
+    "explanation": "Artificial Intelligence (AI) là tên gọi chung cho các hệ thống máy tính thực hiện những nhiệm vụ thường cần khả năng nhận biết, dự đoán hoặc tạo nội dung. AI không đồng nghĩa với ý thức hay cách suy nghĩ của con người.",
+    "useWhen": "Tự động hóa, hỗ trợ quyết định, tìm kiếm, dự đoán và tạo nội dung.",
+    "example": "Đời thường: điện thoại lọc ảnh và gợi ý từ khi gõ. Công việc: trợ lý tóm tắt cuộc họp hoặc dự báo nhu cầu.",
+    "commonMistakeOrLimit": "AI là khái niệm bao trùm. Machine Learning và Deep Learning là các nhánh bên trong AI.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "AI",
+      "ML",
+      "Deep Learning",
+      "tự động hóa"
+    ]
+  },
+  {
+    "id": "AIK-002",
+    "order": 2,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Nên biết",
+    "term": "Machine Learning (ML)",
+    "vietnameseMeaning": "Học máy",
+    "explanation": "Machine Learning (ML) là cách xây hệ thống bằng việc cho máy tìm quy luật từ dữ liệu, thay vì viết sẵn mọi quy tắc. Kết quả học được được lưu trong một mô hình.",
+    "useWhen": "Phân loại, dự đoán, chấm điểm, gợi ý và phát hiện bất thường.",
+    "example": "Đời thường: hộp thư học cách nhận ra spam. Công việc: dự đoán khách hàng có nguy cơ rời bỏ.",
+    "commonMistakeOrLimit": "ML cần dữ liệu phù hợp. Dữ liệu nhiều nhưng sai hoặc lệch vẫn tạo ra mô hình kém.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ML",
+      "dữ liệu",
+      "training",
+      "model"
+    ]
+  },
+  {
+    "id": "AIK-003",
+    "order": 3,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Nên biết",
+    "term": "Generative AI",
+    "vietnameseMeaning": "AI tạo sinh",
+    "explanation": "Generative AI là AI tạo ra nội dung mới như văn bản, ảnh, âm thanh hoặc mã lệnh dựa trên mẫu đã học.",
+    "useWhen": "Sáng tạo nội dung, trợ lý tri thức, thiết kế và lập trình.",
+    "example": "Đời thường: tạo ảnh thiệp từ mô tả. Công việc: soạn bản nháp email hoặc ý tưởng chiến dịch.",
+    "commonMistakeOrLimit": "Nội dung mới không đồng nghĩa với nội dung đúng; đầu ra cần được kiểm tra.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ]
+  },
+  {
+    "id": "AIK-004",
+    "order": 4,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Phải biết",
+    "term": "Large Language Model (LLM)",
+    "vietnameseMeaning": "Mô hình ngôn ngữ lớn",
+    "explanation": "Large Language Model (LLM) là mô hình ngôn ngữ lớn được huấn luyện trên lượng văn bản rất lớn để xử lý và tạo ngôn ngữ. Nó tạo câu trả lời bằng cách dự đoán các token tiếp theo dựa trên ngữ cảnh.",
+    "useWhen": "Hỏi đáp, viết, tóm tắt, trích xuất thông tin và làm nền cho agent.",
+    "example": "Chatbot có thể tóm tắt báo cáo, viết email, dịch và hỗ trợ giải thích mã lệnh.",
+    "commonMistakeOrLimit": "LLM không tự bảo đảm sự thật và không 'hiểu' theo nghĩa con người.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ]
+  },
+  {
+    "id": "AIK-005",
+    "order": 5,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Nên biết",
+    "term": "Model",
+    "vietnameseMeaning": "Mô hình",
+    "explanation": "Model là mô hình đã học được một số quy luật từ dữ liệu và có thể dùng các quy luật đó để tạo dự đoán hoặc đầu ra. Có thể hình dung như một chiếc máy đã được hiệu chỉnh cho một nhiệm vụ.",
+    "useWhen": "Là thành phần tạo kết quả trong hầu hết hệ thống Machine Learning và GenAI.",
+    "example": "Một mô hình nhận thông tin khách hàng và trả về xác suất họ sẽ hủy dịch vụ.",
+    "commonMistakeOrLimit": "Algorithm là phương pháp học; model là kết quả cụ thể sau khi học.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "algorithm",
+      "training",
+      "inference",
+      "prediction"
+    ]
+  },
+  {
+    "id": "AIK-006",
+    "order": 6,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Nên biết",
+    "term": "Dataset",
+    "vietnameseMeaning": "Tập dữ liệu",
+    "explanation": "Dataset là tập dữ liệu được dùng để huấn luyện, kiểm tra hoặc vận hành hệ thống AI. Nó có thể là bảng Excel, văn bản, ảnh, âm thanh hoặc dữ liệu cảm biến.",
+    "useWhen": "Là nguyên liệu để xây, kiểm thử và cập nhật mô hình.",
+    "example": "Đời thường: một album ảnh có nhãn mèo/chó. Công việc: lịch sử đơn hàng và trạng thái hoàn tiền.",
+    "commonMistakeOrLimit": "Chất lượng, tính đại diện và quyền sử dụng dữ liệu quan trọng hơn chỉ riêng số lượng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ]
+  },
+  {
+    "id": "AIK-007",
+    "order": 7,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Biết khi cần",
+    "term": "Classification",
+    "vietnameseMeaning": "Phân loại",
+    "explanation": "Classification là bài toán chọn một hoặc nhiều nhãn cho một trường hợp. Đầu ra thường là nhãn kèm mức độ tin cậy.",
+    "useWhen": "Phát hiện gian lận, phân loại nội dung, định tuyến yêu cầu.",
+    "example": "Đời thường: email là spam hay không. Công việc: ticket thuộc nhóm thanh toán, kỹ thuật hay tài khoản.",
+    "commonMistakeOrLimit": "Classification dự đoán nhóm; Regression dự đoán một con số.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ]
+  },
+  {
+    "id": "AIK-008",
+    "order": 8,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Biết khi cần",
+    "term": "Regression",
+    "vietnameseMeaning": "Dự đoán một con số",
+    "explanation": "Regression là bài toán dự đoán một giá trị số có thể thay đổi liên tục.",
+    "useWhen": "Dự báo, định giá, lập kế hoạch nhu cầu.",
+    "example": "Dự đoán doanh thu tháng tới hoặc thời gian giao hàng dự kiến.",
+    "commonMistakeOrLimit": "Tên Regression trong ML không có nghĩa là hệ thống bị 'thụt lùi'.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ]
+  },
+  {
+    "id": "AIK-009",
+    "order": 9,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Biết khi cần",
+    "term": "Anomaly Detection",
+    "vietnameseMeaning": "Phát hiện bất thường",
+    "explanation": "Tìm những trường hợp khác thường so với số đông.",
+    "useWhen": "Gian lận, lỗi máy, an ninh.",
+    "example": "Giao dịch thẻ có hành vi bất thường.",
+    "commonMistakeOrLimit": "Bất thường không phải lúc nào cũng là sai hoặc gian lận.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ]
+  },
+  {
+    "id": "AIK-010",
+    "order": 10,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Biết khi cần",
+    "term": "Recommendation System",
+    "vietnameseMeaning": "Hệ thống gợi ý",
+    "explanation": "Gợi ý thứ người dùng có thể quan tâm.",
+    "useWhen": "Thương mại điện tử, nội dung, quảng cáo.",
+    "example": "Gợi ý phim dựa trên lịch sử xem.",
+    "commonMistakeOrLimit": "Thường kết hợp hành vi cá nhân và người dùng tương tự.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ]
+  },
+  {
+    "id": "AIK-011",
+    "order": 11,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Biết khi cần",
+    "term": "Baseline",
+    "vietnameseMeaning": "Mốc so sánh đơn giản",
+    "explanation": "Mốc đơn giản để biết mô hình mới có thật sự tốt hơn không.",
+    "useWhen": "Đánh giá giá trị thật của AI.",
+    "example": "Dự đoán tháng sau bằng đúng doanh thu tháng này.",
+    "commonMistakeOrLimit": "Mô hình phức tạp mà không hơn baseline thì chưa đáng dùng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-012",
+    "order": 12,
+    "module": "1. Tư duy chọn bài toán AI",
+    "priority": "Phải biết",
+    "term": "Human-in-the-loop",
+    "vietnameseMeaning": "Con người tham gia phê duyệt",
+    "explanation": "Con người duyệt hoặc can thiệp ở bước quan trọng.",
+    "useWhen": "Dùng tại các quyết định rủi ro cao, chi tiền, gửi thông tin hoặc thay đổi dữ liệu.",
+    "example": "Nhân viên duyệt trước khi AI gửi email hoàn tiền.",
+    "commonMistakeOrLimit": "Giảm tự động hóa nhưng tăng trách nhiệm và an toàn.",
+    "designQuestion": "Quyết định nào cần người duyệt và người duyệt cần thấy bằng chứng gì?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-013",
+    "order": 13,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "Prompt",
+    "vietnameseMeaning": "Yêu cầu gửi cho mô hình",
+    "explanation": "Prompt là nội dung người dùng hoặc ứng dụng gửi cho mô hình để mô tả việc cần làm và thông tin cần dùng.",
+    "useWhen": "Điều khiển nhiệm vụ, phạm vi, giọng điệu và định dạng đầu ra.",
+    "example": "“Tóm tắt báo cáo này thành 5 ý, dùng ngôn ngữ dành cho giám đốc không chuyên kỹ thuật.”",
+    "commonMistakeOrLimit": "Prompt tốt giúp rõ yêu cầu nhưng không thay thế dữ liệu đúng, công cụ phù hợp và kiểm tra kết quả.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "instruction",
+      "input",
+      "context",
+      "output"
+    ]
+  },
+  {
+    "id": "AIK-014",
+    "order": 14,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "System Prompt",
+    "vietnameseMeaning": "Hướng dẫn cấp ứng dụng",
+    "explanation": "System Prompt là hướng dẫn cấp ứng dụng đặt vai trò, nguyên tắc và giới hạn chung cho trợ lý.",
+    "useWhen": "Thiết kế hành vi nhất quán cho chatbot hoặc agent.",
+    "example": "“Bạn là trợ lý chăm sóc khách hàng; chỉ dùng chính sách đã cung cấp và không tự hứa hoàn tiền.”",
+    "commonMistakeOrLimit": "Mức ưu tiên và cách thực thi phụ thuộc nền tảng; system prompt không phải lớp bảo mật duy nhất.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "role",
+      "policy",
+      "behavior",
+      "guardrails"
+    ]
+  },
+  {
+    "id": "AIK-015",
+    "order": 15,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Prompt Engineering",
+    "vietnameseMeaning": "Thiết kế yêu cầu hiệu quả",
+    "explanation": "Thiết kế hướng dẫn, dữ liệu và cấu trúc prompt để mô hình làm đúng việc.",
+    "useWhen": "Xây workflow GenAI nhanh.",
+    "example": "Nêu vai trò, mục tiêu, tiêu chí và mẫu đầu ra.",
+    "commonMistakeOrLimit": "Không thay thế dữ liệu tốt, công cụ hay kiểm thử.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-016",
+    "order": 16,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Zero-shot Prompting",
+    "vietnameseMeaning": "Yêu cầu không kèm ví dụ",
+    "explanation": "Yêu cầu mô hình làm việc mà không đưa ví dụ mẫu.",
+    "useWhen": "Nhiệm vụ đơn giản hoặc quen thuộc.",
+    "example": "“Phân loại câu này là tích cực hay tiêu cực.”",
+    "commonMistakeOrLimit": "Nhanh nhưng có thể thiếu ổn định.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-017",
+    "order": 17,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Few-shot Prompting",
+    "vietnameseMeaning": "Yêu cầu có vài ví dụ mẫu",
+    "explanation": "Đưa vài ví dụ mẫu để mô hình bắt chước.",
+    "useWhen": "Ổn định định dạng và hành vi.",
+    "example": "Cho 3 ticket và nhãn đúng trước khi phân loại ticket mới.",
+    "commonMistakeOrLimit": "Tốn ngữ cảnh nhưng thường rõ hơn zero-shot.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-018",
+    "order": 18,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "Structured Output",
+    "vietnameseMeaning": "Đầu ra có cấu trúc",
+    "explanation": "Ép đầu ra theo cấu trúc rõ như JSON hoặc khuôn dữ liệu.",
+    "useWhen": "Dùng khi kết quả phải đưa vào phần mềm, bảng, form hoặc bước tự động tiếp theo.",
+    "example": "Trả về name, risk_score và reason.",
+    "commonMistakeOrLimit": "Dễ kiểm tra và xử lý tự động hơn văn bản tự do.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-019",
+    "order": 19,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Token",
+    "vietnameseMeaning": "Mảnh văn bản mô hình xử lý",
+    "explanation": "Token là mảnh nhỏ mà LLM dùng để đọc và tạo văn bản. Một từ có thể là một token, nhiều token hoặc được ghép với dấu câu.",
+    "useWhen": "Ước lượng độ dài ngữ cảnh, tốc độ và chi phí sử dụng LLM.",
+    "example": "Một đoạn văn dài sẽ được chia thành nhiều token trước khi mô hình xử lý.",
+    "commonMistakeOrLimit": "Token không hoàn toàn giống từ; số token thay đổi theo ngôn ngữ và bộ tách token.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-020",
+    "order": 20,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "Context Window",
+    "vietnameseMeaning": "Cửa sổ ngữ cảnh",
+    "explanation": "Context Window là lượng thông tin tối đa mô hình có thể xem trong một lần xử lý, gồm yêu cầu, lịch sử chat và tài liệu được đưa vào.",
+    "useWhen": "Thiết kế chatbot, xử lý tài liệu dài và kiểm soát chi phí.",
+    "example": "Nếu cuộc trò chuyện và tài liệu quá dài, ứng dụng phải cắt bớt, tóm tắt hoặc tìm lại phần liên quan.",
+    "commonMistakeOrLimit": "Context Window không phải bộ nhớ lâu dài; thông tin ngoài cửa sổ có thể không được mô hình nhìn thấy.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-021",
+    "order": 21,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Temperature",
+    "vietnameseMeaning": "Mức ngẫu nhiên của đầu ra",
+    "explanation": "Nút điều chỉnh mức ngẫu nhiên của câu trả lời.",
+    "useWhen": "Kiểm soát tính ổn định và đa dạng.",
+    "example": "Thấp cho trích xuất dữ liệu; cao hơn cho ý tưởng sáng tạo.",
+    "commonMistakeOrLimit": "Không phải thước đo độ thông minh.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-022",
+    "order": 22,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "Hallucination",
+    "vietnameseMeaning": "Thông tin nghe hợp lý nhưng sai hoặc không có căn cứ",
+    "explanation": "Hallucination là khi mô hình tạo thông tin nghe hợp lý nhưng sai, không có trong nguồn hoặc không thể kiểm chứng.",
+    "useWhen": "Là rủi ro cần đo và giảm trong ứng dụng GenAI.",
+    "example": "Mô hình bịa số trang, tên điều luật hoặc doanh thu không có trong báo cáo.",
+    "commonMistakeOrLimit": "RAG, grounding và tool có thể giảm rủi ro nhưng không bảo đảm loại bỏ hoàn toàn.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-023",
+    "order": 23,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Phải biết",
+    "term": "Grounding",
+    "vietnameseMeaning": "Gắn câu trả lời với nguồn dữ liệu",
+    "explanation": "Grounding là cách gắn câu trả lời với dữ liệu hoặc bằng chứng cụ thể được cung cấp cho hệ thống.",
+    "useWhen": "Tăng khả năng kiểm chứng trong hỏi đáp doanh nghiệp.",
+    "example": "Chatbot trả lời chính sách và kèm đoạn tài liệu, tên file hoặc số trang làm căn cứ.",
+    "commonMistakeOrLimit": "Có nguồn không tự động bảo đảm câu trả lời diễn giải nguồn hoàn toàn đúng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ]
+  },
+  {
+    "id": "AIK-024",
+    "order": 24,
+    "module": "2. Làm việc hiệu quả với LLM",
+    "priority": "Nên biết",
+    "term": "Citation",
+    "vietnameseMeaning": "Dẫn nguồn",
+    "explanation": "Chỉ ra nguồn hoặc đoạn chứng minh cho câu trả lời.",
+    "useWhen": "Tăng khả năng kiểm chứng.",
+    "example": "Gắn tên tài liệu và số trang.",
+    "commonMistakeOrLimit": "Có citation không tự động đảm bảo diễn giải hoàn toàn đúng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-025",
+    "order": 25,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "RAG",
+    "vietnameseMeaning": "Tạo câu trả lời có bước tìm tài liệu",
+    "explanation": "RAG (Retrieval-Augmented Generation) kết hợp bước tìm thông tin với bước tạo câu trả lời. Hệ thống tìm các đoạn có vẻ liên quan trong nguồn được phép dùng rồi đưa chúng vào ngữ cảnh của LLM.",
+    "useWhen": "Dùng khi câu trả lời phải dựa trên tài liệu riêng, thay đổi thường xuyên hoặc cần dẫn nguồn.",
+    "example": "Hỏi chính sách nghỉ phép; hệ thống tìm các đoạn liên quan trong sổ tay nhân viên rồi LLM giải thích lại.",
+    "commonMistakeOrLimit": "RAG không bảo đảm luôn tìm đúng. Chất lượng phụ thuộc tài liệu, cách chia đoạn, tìm kiếm và cách LLM dùng nguồn.",
+    "designQuestion": "Nguồn nào được phép dùng? Tài liệu được cập nhật thế nào? Nếu không tìm thấy bằng chứng thì làm gì?",
+    "keywords": [
+      "retrieval",
+      "knowledge base",
+      "grounding",
+      "citation"
+    ]
+  },
+  {
+    "id": "AIK-026",
+    "order": 26,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Retrieval",
+    "vietnameseMeaning": "Tìm và lấy thông tin liên quan",
+    "explanation": "Retrieval là bước tìm và lấy những tài liệu hoặc đoạn thông tin có khả năng liên quan đến câu hỏi.",
+    "useWhen": "Tìm kiếm, RAG và trợ lý tri thức.",
+    "example": "Từ 10.000 trang tài liệu, hệ thống chọn 5 đoạn phù hợp nhất để đưa cho LLM.",
+    "commonMistakeOrLimit": "Retrieval chỉ chọn nguồn; LLM hoặc ứng dụng mới tạo câu trả lời cuối.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-027",
+    "order": 27,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Embedding",
+    "vietnameseMeaning": "Biểu diễn ý nghĩa bằng dãy số",
+    "explanation": "Embedding là dãy số biểu diễn một phần ý nghĩa hoặc đặc điểm của văn bản, ảnh hay đối tượng. Các nội dung giống nhau thường có embedding gần nhau.",
+    "useWhen": "Tìm kiếm theo ý nghĩa, RAG, gợi ý và phân nhóm.",
+    "example": "“Xe hơi” và “ô tô” có thể nằm gần nhau dù không dùng cùng từ.",
+    "commonMistakeOrLimit": "Khoảng cách gần chỉ là tín hiệu tương đồng của mô hình embedding, không phải bằng chứng hai nội dung giống hệt.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-028",
+    "order": 28,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Knowledge Base",
+    "vietnameseMeaning": "Kho tri thức",
+    "explanation": "Kho tài liệu hoặc tri thức mà hệ thống được phép tra cứu.",
+    "useWhen": "Làm nguồn cho tìm kiếm và RAG.",
+    "example": "Wiki nội bộ, PDF, ticket cũ.",
+    "commonMistakeOrLimit": "Cần cập nhật, phân quyền và làm sạch.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-029",
+    "order": 29,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Chunking",
+    "vietnameseMeaning": "Chia tài liệu thành đoạn",
+    "explanation": "Chia tài liệu dài thành các đoạn nhỏ để dễ tìm.",
+    "useWhen": "Chuẩn bị dữ liệu cho RAG.",
+    "example": "Chia PDF 100 trang thành đoạn 500 token.",
+    "commonMistakeOrLimit": "Đoạn quá nhỏ mất ngữ cảnh; quá lớn làm tìm kiếm kém chính xác.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-030",
+    "order": 30,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Indexing",
+    "vietnameseMeaning": "Lập chỉ mục để tìm nhanh",
+    "explanation": "Chuẩn bị cấu trúc giúp tìm dữ liệu nhanh.",
+    "useWhen": "Tìm kiếm quy mô lớn.",
+    "example": "Tạo embedding và lưu kèm vị trí tài liệu.",
+    "commonMistakeOrLimit": "Phải cập nhật index khi tài liệu thay đổi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-031",
+    "order": 31,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Vector Database",
+    "vietnameseMeaning": "Cơ sở dữ liệu vector",
+    "explanation": "Kho lưu embedding và tìm các vector gần nhau.",
+    "useWhen": "Semantic search và RAG.",
+    "example": "Tìm đoạn có ý nghĩa gần câu hỏi dù không trùng từ.",
+    "commonMistakeOrLimit": "Ví dụ hệ thống có thể lưu vector cùng thông tin mô tả.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-032",
+    "order": 32,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Semantic Search",
+    "vietnameseMeaning": "Tìm kiếm theo ý nghĩa",
+    "explanation": "Tìm theo ý nghĩa thay vì chỉ trùng chữ.",
+    "useWhen": "Tìm kiếm tài liệu và hỗ trợ khách hàng.",
+    "example": "Tìm “xin nghỉ” khi tài liệu dùng từ “leave request”.",
+    "commonMistakeOrLimit": "Dựa trên embedding.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-033",
+    "order": 33,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Keyword Search",
+    "vietnameseMeaning": "Tìm kiếm theo từ khóa",
+    "explanation": "Tìm các đoạn chứa đúng từ hoặc cụm từ.",
+    "useWhen": "Tra mã, tên riêng, thuật ngữ chính xác.",
+    "example": "Tìm mã sản phẩm “AB-1024”.",
+    "commonMistakeOrLimit": "Mạnh với từ khóa chính xác nhưng yếu với cách diễn đạt khác.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-034",
+    "order": 34,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Hybrid Search",
+    "vietnameseMeaning": "Tìm kiếm kết hợp",
+    "explanation": "Kết hợp tìm theo từ khóa và theo ý nghĩa.",
+    "useWhen": "RAG doanh nghiệp.",
+    "example": "Vừa tìm đúng mã hợp đồng vừa tìm nội dung liên quan.",
+    "commonMistakeOrLimit": "Thường đáng tin hơn chỉ dùng một kiểu tìm.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-035",
+    "order": 35,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Phải biết",
+    "term": "Reranking",
+    "vietnameseMeaning": "Xếp hạng lại kết quả",
+    "explanation": "Sắp xếp lại kết quả tìm kiếm bằng mô hình hiểu sâu hơn.",
+    "useWhen": "Nâng chất lượng ngữ cảnh cho RAG.",
+    "example": "Từ 30 đoạn ban đầu chọn 5 đoạn tốt nhất.",
+    "commonMistakeOrLimit": "Tăng chất lượng nhưng thêm độ trễ và chi phí.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-036",
+    "order": 36,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Metadata Filtering",
+    "vietnameseMeaning": "Lọc theo thông tin mô tả",
+    "explanation": "Lọc tài liệu theo thuộc tính trước hoặc trong khi tìm.",
+    "useWhen": "Phân quyền và tăng độ chính xác.",
+    "example": "Chỉ tìm tài liệu phòng HR năm 2026.",
+    "commonMistakeOrLimit": "Thông tin mô tả phải được gắn đúng và đầy đủ.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-037",
+    "order": 37,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Nên biết",
+    "term": "Query Rewriting",
+    "vietnameseMeaning": "Viết lại truy vấn tìm kiếm",
+    "explanation": "Viết lại câu hỏi người dùng thành truy vấn dễ tìm hơn.",
+    "useWhen": "Cải thiện retrieval.",
+    "example": "“Cái luật nghỉ đó” thành “chính sách nghỉ phép có lương”.",
+    "commonMistakeOrLimit": "Phải giữ đúng ý người dùng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-038",
+    "order": 38,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Biết khi cần",
+    "term": "Context Compression",
+    "vietnameseMeaning": "Rút gọn ngữ cảnh",
+    "explanation": "Rút gọn các đoạn tìm được nhưng giữ phần cần cho câu hỏi.",
+    "useWhen": "Tiết kiệm ngữ cảnh và chi phí.",
+    "example": "Từ 10 trang lấy ra 8 câu liên quan.",
+    "commonMistakeOrLimit": "Nén quá mạnh có thể mất bằng chứng quan trọng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-039",
+    "order": 39,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Biết khi cần",
+    "term": "Knowledge Graph",
+    "vietnameseMeaning": "Đồ thị tri thức",
+    "explanation": "Bản đồ gồm các đối tượng và mối quan hệ giữa chúng.",
+    "useWhen": "Tìm quan hệ, suy luận và quản trị tri thức.",
+    "example": "Lan làm việc tại Công ty A; Công ty A thuộc Tập đoàn B.",
+    "commonMistakeOrLimit": "Cần thiết kế ontology hoặc khuôn dữ liệu quan hệ.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-040",
+    "order": 40,
+    "module": "3. RAG & hệ thống tri thức",
+    "priority": "Biết khi cần",
+    "term": "Graph RAG",
+    "vietnameseMeaning": "RAG dùng mạng lưới quan hệ",
+    "explanation": "Dùng mạng lưới thực thể và quan hệ để truy xuất thông tin.",
+    "useWhen": "Câu hỏi nhiều bước và dữ liệu có quan hệ.",
+    "example": "Nối khách hàng, hợp đồng, công ty và giao dịch.",
+    "commonMistakeOrLimit": "Phức tạp hơn RAG vector thông thường.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "RAG",
+      "tìm kiếm",
+      "embedding",
+      "dữ liệu"
+    ]
+  },
+  {
+    "id": "AIK-041",
+    "order": 41,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Phải biết",
+    "term": "Tool Calling / Function Calling",
+    "vietnameseMeaning": "Gọi công cụ / hàm",
+    "explanation": "Tool Calling là khả năng để mô hình yêu cầu ứng dụng gọi một công cụ hoặc hàm có cấu trúc, thay vì tự bịa dữ liệu hoặc hành động.",
+    "useWhen": "Dùng khi AI phải lấy dữ liệu thật, tính toán hoặc kích hoạt hành động thay vì chỉ viết văn bản.",
+    "example": "Người dùng hỏi trạng thái đơn hàng; mô hình chọn hàm get_order_status với đúng mã đơn.",
+    "commonMistakeOrLimit": "Mô hình chỉ đề xuất hoặc tạo lệnh gọi; ứng dụng phải kiểm tra quyền, dữ liệu đầu vào và kết quả.",
+    "designQuestion": "Tool có input/output rõ chưa? Ai cấp quyền? Lỗi hoặc timeout xử lý thế nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-042",
+    "order": 42,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Phải biết",
+    "term": "API",
+    "vietnameseMeaning": "Giao diện để phần mềm trao đổi",
+    "explanation": "API là bộ quy tắc để một phần mềm gửi yêu cầu và nhận dữ liệu hoặc hành động từ phần mềm khác.",
+    "useWhen": "Tích hợp phần mềm nói chung, bao gồm cả hệ thống AI.",
+    "example": "Ứng dụng gọi API CRM để lấy hồ sơ khách hàng theo mã.",
+    "commonMistakeOrLimit": "API là khái niệm rộng; MCP và A2A là các chuẩn chuyên biệt hơn cho một số kiểu tích hợp AI.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-043",
+    "order": 43,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Biết khi cần",
+    "term": "API Endpoint",
+    "vietnameseMeaning": "Địa chỉ kỹ thuật để gọi dịch vụ",
+    "explanation": "Địa chỉ mà ứng dụng gọi để sử dụng mô hình.",
+    "useWhen": "Tích hợp AI vào web và app.",
+    "example": "POST /predict hoặc /chat.",
+    "commonMistakeOrLimit": "Cần xác thực, quota và theo dõi lỗi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-044",
+    "order": 44,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Phải biết",
+    "term": "MCP",
+    "vietnameseMeaning": "Chuẩn kết nối ứng dụng AI với hệ thống ngoài",
+    "explanation": "MCP (Model Context Protocol) là một chuẩn mở giúp ứng dụng AI kết nối với công cụ, dữ liệu và quy trình bên ngoài theo một cách thống nhất. Có thể hình dung như một loại ổ cắm chung cho ứng dụng AI.",
+    "useWhen": "Dùng để chuẩn hóa cách ứng dụng AI khám phá và dùng nhiều nguồn dữ liệu/công cụ.",
+    "example": "Một ứng dụng AI kết nối MCP Server để liệt kê và đọc các file trong thư mục đã được cấp quyền.",
+    "commonMistakeOrLimit": "MCP là giao thức kết nối, không phải mô hình AI. Quyền truy cập và an toàn vẫn do hệ thống triển khai kiểm soát.",
+    "designQuestion": "Có thực sự cần chuẩn MCP hay API trực tiếp đã đủ? Quyền của từng server là gì?",
+    "keywords": [
+      "client",
+      "server",
+      "tools",
+      "resources",
+      "protocol"
+    ]
+  },
+  {
+    "id": "AIK-045",
+    "order": 45,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Nên biết",
+    "term": "MCP Client",
+    "vietnameseMeaning": "Bên kết nối và sử dụng MCP Server",
+    "explanation": "Phần ở phía ứng dụng AI dùng để kết nối MCP server.",
+    "useWhen": "Cho agent khám phá và sử dụng công cụ.",
+    "example": "Ứng dụng chatbot nhìn thấy và gọi công cụ đọc file.",
+    "commonMistakeOrLimit": "Client quyết định cách hiển thị và cho phép gọi công cụ.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-046",
+    "order": 46,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Nên biết",
+    "term": "MCP Server",
+    "vietnameseMeaning": "Bên cung cấp công cụ hoặc dữ liệu qua MCP",
+    "explanation": "Phần cung cấp các công cụ hoặc tài nguyên theo chuẩn MCP.",
+    "useWhen": "Đóng gói khả năng để nhiều AI client sử dụng.",
+    "example": "Server cung cấp list_files và read_file.",
+    "commonMistakeOrLimit": "Cần quản lý quyền, xác thực và phạm vi truy cập.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-047",
+    "order": 47,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Nên biết",
+    "term": "Code Executor",
+    "vietnameseMeaning": "Công cụ chạy mã lệnh",
+    "explanation": "Công cụ cho AI chạy code để tính toán hoặc xử lý dữ liệu.",
+    "useWhen": "Phân tích dữ liệu, toán và tự động hóa.",
+    "example": "Chạy Python tính tổng doanh thu.",
+    "commonMistakeOrLimit": "Mạnh nhưng cần sandbox và giới hạn quyền.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-048",
+    "order": 48,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Nên biết",
+    "term": "Sandbox",
+    "vietnameseMeaning": "Môi trường chạy cô lập",
+    "explanation": "Môi trường cô lập để AI chạy code hoặc thao tác mà không ảnh hưởng hệ thống chính.",
+    "useWhen": "Code execution và thử nghiệm an toàn.",
+    "example": "Chạy Python trong container giới hạn.",
+    "commonMistakeOrLimit": "Cần giới hạn mạng, file, thời gian và tài nguyên.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-049",
+    "order": 49,
+    "module": "4. Tool Calling, API & MCP",
+    "priority": "Nên biết",
+    "term": "Callback",
+    "vietnameseMeaning": "Hàm chạy khi có sự kiện",
+    "explanation": "Hàm tự chạy trước hoặc sau một sự kiện trong quy trình.",
+    "useWhen": "Logging, kiểm tra, biến đổi dữ liệu.",
+    "example": "Sau khi công cụ chạy thì ghi audit log.",
+    "commonMistakeOrLimit": "Giúp chèn logic kiểm soát mà không đổi toàn bộ agent.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-050",
+    "order": 50,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Phải biết",
+    "term": "AI Agent",
+    "vietnameseMeaning": "Tác nhân AI thực hiện công việc nhiều bước",
+    "explanation": "AI Agent là ứng dụng dùng mô hình AI để chọn bước tiếp theo, gọi công cụ và theo dõi trạng thái nhằm hoàn thành một mục tiêu. Mức tự động phụ thuộc cách hệ thống được thiết kế.",
+    "useWhen": "Dùng cho mục tiêu nhiều bước, khi hệ thống cần chọn hành động tiếp theo và giữ trạng thái.",
+    "example": "Agent xử lý yêu cầu đi công tác: lấy lịch, tìm chuyến bay, so sánh và tạo bản đề xuất để người dùng duyệt.",
+    "commonMistakeOrLimit": "Agent không có ý thức. Cần giới hạn quyền, kiểm tra lỗi, nhật ký và điểm dừng cho con người.",
+    "designQuestion": "Có cần agent tự quyết định hay workflow cố định an toàn hơn?",
+    "keywords": [
+      "planning",
+      "tool calling",
+      "memory",
+      "orchestration"
+    ]
+  },
+  {
+    "id": "AIK-051",
+    "order": 51,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Phải biết",
+    "term": "Workflow Agent",
+    "vietnameseMeaning": "Agent theo quy trình định sẵn",
+    "explanation": "Agent chạy theo quy trình định sẵn.",
+    "useWhen": "Dùng khi quy trình đã rõ và cần chạy ổn định, dễ kiểm thử.",
+    "example": "Luôn trích xuất dữ liệu trước, rồi phân tích, rồi QA.",
+    "commonMistakeOrLimit": "Ít linh hoạt hơn agent tự lập kế hoạch nhưng dễ kiểm thử.",
+    "designQuestion": "Bước nào cố định? Bước nào cần model? Có checkpoint và retry không?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-052",
+    "order": 52,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Phải biết",
+    "term": "Orchestration",
+    "vietnameseMeaning": "Điều phối quy trình",
+    "explanation": "Điều phối nhiều bước, công cụ hoặc agent theo đúng thứ tự.",
+    "useWhen": "Dùng để điều phối model, retrieval, tools, approvals và các bước xử lý.",
+    "example": "Đọc file → phân tích → kiểm tra → tạo báo cáo.",
+    "commonMistakeOrLimit": "Có thể do code cố định hoặc LLM quyết định.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-053",
+    "order": 53,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Planning",
+    "vietnameseMeaning": "Lập kế hoạch các bước",
+    "explanation": "Agent chia mục tiêu lớn thành các bước nhỏ.",
+    "useWhen": "Nhiệm vụ dài và nhiều bước.",
+    "example": "Muốn phân tích thị trường: tìm dữ liệu, so sánh, viết kết luận.",
+    "commonMistakeOrLimit": "Kế hoạch cần được giới hạn và kiểm tra.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-054",
+    "order": 54,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Memory",
+    "vietnameseMeaning": "Bộ nhớ của ứng dụng agent",
+    "explanation": "Memory là tên gọi chung cho thông tin ứng dụng agent lưu để dùng lại trong các bước hoặc phiên sau.",
+    "useWhen": "Giữ mạch công việc và cá nhân hóa.",
+    "example": "Ứng dụng lưu sở thích “báo cáo ngắn, có bảng” để áp dụng cho lần sau.",
+    "commonMistakeOrLimit": "Bộ nhớ thường nằm trong ứng dụng hoặc kho dữ liệu, không có nghĩa mô hình tự nhớ vô hạn.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-055",
+    "order": 55,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Phải biết",
+    "term": "Session State",
+    "vietnameseMeaning": "Trạng thái tạm của phiên",
+    "explanation": "Session State là dữ liệu tạm mô tả phiên đang diễn ra, như lựa chọn, kết quả trung gian và bước hiện tại.",
+    "useWhen": "Dùng để giữ dữ liệu trung gian và tiến độ của một workflow.",
+    "example": "Trong phiên đặt chuyến đi, hệ thống giữ ngày đi, ngân sách và thành phố đã chọn.",
+    "commonMistakeOrLimit": "Khác Context Window: state là dữ liệu ứng dụng quản lý; context là phần thông tin được đưa cho mô hình trong một lần gọi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-056",
+    "order": 56,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Long-term Memory",
+    "vietnameseMeaning": "Bộ nhớ lưu qua nhiều phiên",
+    "explanation": "Long-term Memory là thông tin được ứng dụng lưu qua nhiều phiên để dùng lại về sau.",
+    "useWhen": "Cá nhân hóa lâu dài và tiếp tục công việc giữa các phiên.",
+    "example": "Nhớ người dùng thường muốn khách sạn gần ga và không muốn chuyến bay quá sớm.",
+    "commonMistakeOrLimit": "Phải có quyền xem, sửa và xóa; không nên lưu mọi thứ mặc định.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-057",
+    "order": 57,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Single-agent System",
+    "vietnameseMeaning": "Hệ thống một agent chính",
+    "explanation": "Một agent chịu trách nhiệm chính cho toàn bộ nhiệm vụ.",
+    "useWhen": "Ứng dụng đơn giản hoặc phạm vi rõ.",
+    "example": "Một trợ lý dùng nhiều công cụ để xử lý ticket.",
+    "commonMistakeOrLimit": "Dễ xây và debug hơn multi-agent.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-058",
+    "order": 58,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Multi-agent System",
+    "vietnameseMeaning": "Hệ thống nhiều agent",
+    "explanation": "Nhiều agent có vai trò khác nhau phối hợp.",
+    "useWhen": "Bài toán lớn có chuyên môn tách biệt.",
+    "example": "Agent nghiên cứu, agent tính toán và agent tổng hợp.",
+    "commonMistakeOrLimit": "Tăng phức tạp giao tiếp, chi phí và kiểm soát.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-059",
+    "order": 59,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Reflection / Self-critique",
+    "vietnameseMeaning": "Tự kiểm tra bản nháp",
+    "explanation": "Cho mô hình kiểm tra hoặc phê bình bản nháp trước khi trả lời.",
+    "useWhen": "Nâng chất lượng đầu ra.",
+    "example": "Agent QA tìm điểm thiếu số liệu rồi yêu cầu sửa.",
+    "commonMistakeOrLimit": "Có thể tăng thời gian và vẫn không đảm bảo đúng tuyệt đối.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-060",
+    "order": 60,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "A2A (Agent-to-Agent)",
+    "vietnameseMeaning": "Chuẩn giao tiếp giữa các agent",
+    "explanation": "Agent2Agent (A2A) là chuẩn mở giúp các ứng dụng agent độc lập khám phá năng lực, trao đổi và giao việc cho nhau.",
+    "useWhen": "Kết nối nhiều agent được xây bằng framework hoặc nhà cung cấp khác nhau.",
+    "example": "Agent tổng đài giao yêu cầu phân tích bóng đá cho một agent chuyên môn chạy trên hệ thống khác.",
+    "commonMistakeOrLimit": "A2A tập trung agent–agent; MCP thường tập trung ứng dụng AI–công cụ/dữ liệu. Cách triển khai discovery và bảo mật phụ thuộc môi trường.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "Agent Card",
+      "interoperability",
+      "delegation"
+    ]
+  },
+  {
+    "id": "AIK-061",
+    "order": 61,
+    "module": "5. Agent, workflow & orchestration",
+    "priority": "Nên biết",
+    "term": "Agent Card",
+    "vietnameseMeaning": "Danh thiếp năng lực của agent",
+    "explanation": "Danh thiếp máy đọc được mô tả agent là ai và làm được gì.",
+    "useWhen": "Discovery trong hệ A2A.",
+    "example": "Agent du lịch công bố năng lực lập lịch trình.",
+    "commonMistakeOrLimit": "Giúp agent khác biết cách gọi đúng chuyên gia.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "agent",
+      "công cụ",
+      "API",
+      "tích hợp"
+    ]
+  },
+  {
+    "id": "AIK-062",
+    "order": 62,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Phải biết",
+    "term": "Evaluation / Evals",
+    "vietnameseMeaning": "Bộ đánh giá hệ thống AI",
+    "explanation": "Bộ bài kiểm tra đo hệ thống AI có làm đúng nhiệm vụ không.",
+    "useWhen": "Dùng để biết thay đổi model, prompt, RAG hoặc workflow có thực sự tốt hơn.",
+    "example": "100 câu hỏi nội bộ có đáp án và tiêu chí chấm.",
+    "commonMistakeOrLimit": "Phải phản ánh tình huống thật, không chỉ benchmark chung.",
+    "designQuestion": "Bộ test có phản ánh tình huống thật và lỗi nghiêm trọng không?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-063",
+    "order": 63,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Offline Evaluation",
+    "vietnameseMeaning": "Đánh giá trước khi phục vụ người dùng",
+    "explanation": "Đánh giá trước khi đưa cho người dùng thật.",
+    "useWhen": "Kiểm soát chất lượng phát hành.",
+    "example": "Chạy bộ test cố định trên phiên bản mới.",
+    "commonMistakeOrLimit": "Nhanh và an toàn nhưng không thay thế dữ liệu thực tế.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-064",
+    "order": 64,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Online Evaluation",
+    "vietnameseMeaning": "Đánh giá trong vận hành thật",
+    "explanation": "Đánh giá khi hệ thống đang phục vụ người dùng.",
+    "useWhen": "Đo tác động thực tế.",
+    "example": "Theo dõi tỷ lệ giải quyết ticket và feedback.",
+    "commonMistakeOrLimit": "Cần bảo vệ người dùng và triển khai thận trọng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-065",
+    "order": 65,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Biết khi cần",
+    "term": "Accuracy",
+    "vietnameseMeaning": "Độ chính xác tổng thể",
+    "explanation": "Accuracy là tỷ lệ dự đoán đúng trên tổng số trường hợp.",
+    "useWhen": "Đánh giá nhanh khi các nhóm dữ liệu tương đối cân bằng.",
+    "example": "Mô hình trả lời đúng 90 trong 100 trường hợp thì accuracy là 90%.",
+    "commonMistakeOrLimit": "Nếu 99% giao dịch là bình thường, mô hình luôn đoán 'bình thường' vẫn có accuracy cao nhưng vô dụng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-066",
+    "order": 66,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Precision",
+    "vietnameseMeaning": "Độ đúng của các cảnh báo dương",
+    "explanation": "Precision trả lời: trong những trường hợp mô hình đã cảnh báo là 'có', bao nhiêu trường hợp thật sự đúng.",
+    "useWhen": "Quan trọng khi cảnh báo nhầm gây tốn chi phí hoặc làm phiền người dùng.",
+    "example": "Mô hình báo 100 giao dịch gian lận, trong đó 80 giao dịch thật sự gian lận: precision là 80%.",
+    "commonMistakeOrLimit": "Precision cao nghĩa là ít báo động giả, nhưng có thể vẫn bỏ sót nhiều trường hợp.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-067",
+    "order": 67,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Recall",
+    "vietnameseMeaning": "Khả năng tìm đủ trường hợp dương",
+    "explanation": "Recall trả lời: trong tất cả trường hợp thật sự cần tìm, mô hình phát hiện được bao nhiêu.",
+    "useWhen": "Quan trọng khi bỏ sót gây hậu quả lớn.",
+    "example": "Có 100 giao dịch gian lận thật, mô hình phát hiện 90: recall là 90%.",
+    "commonMistakeOrLimit": "Recall cao có thể đi kèm nhiều cảnh báo nhầm; cần xem cùng Precision.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-068",
+    "order": 68,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "F1 Score",
+    "vietnameseMeaning": "Điểm cân bằng Precision–Recall",
+    "explanation": "Điểm cân bằng giữa precision và recall.",
+    "useWhen": "Khi cần cân bằng báo nhầm và bỏ sót.",
+    "example": "So sánh hai mô hình phát hiện gian lận.",
+    "commonMistakeOrLimit": "Hữu ích khi dữ liệu lệch lớp.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-069",
+    "order": 69,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Biết khi cần",
+    "term": "Confusion Matrix",
+    "vietnameseMeaning": "Ma trận nhầm lẫn",
+    "explanation": "Bảng đếm đúng/sai theo từng kiểu dự đoán.",
+    "useWhen": "Hiểu mô hình sai theo cách nào.",
+    "example": "True positive, false positive, true negative, false negative.",
+    "commonMistakeOrLimit": "Cơ sở tính nhiều metric phân loại.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-070",
+    "order": 70,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "A/B Testing",
+    "vietnameseMeaning": "Thử nghiệm hai phiên bản",
+    "explanation": "Cho hai phiên bản chạy với hai nhóm người dùng để so sánh.",
+    "useWhen": "Đo tác động sản phẩm trong thực tế.",
+    "example": "So chatbot cũ và chatbot mới về tỷ lệ giải quyết ticket.",
+    "commonMistakeOrLimit": "Cần thiết kế thử nghiệm và cỡ mẫu phù hợp.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-071",
+    "order": 71,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Model Monitoring",
+    "vietnameseMeaning": "Giám sát mô hình",
+    "explanation": "Theo dõi mô hình sau khi triển khai.",
+    "useWhen": "Phát hiện mô hình xuống cấp.",
+    "example": "Theo dõi accuracy, latency và tỷ lệ lỗi.",
+    "commonMistakeOrLimit": "Cần metric kỹ thuật và metric kinh doanh.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-072",
+    "order": 72,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Phải biết",
+    "term": "Observability",
+    "vietnameseMeaning": "Khả năng quan sát hệ thống",
+    "explanation": "Khả năng nhìn rõ hệ thống đã làm gì và vì sao lỗi.",
+    "useWhen": "Dùng để thấy một yêu cầu đã đi qua bước nào, tốn bao nhiêu và lỗi ở đâu.",
+    "example": "Xem trace từ prompt đến retrieval, công cụ và output.",
+    "commonMistakeOrLimit": "Bao gồm log, metric và trace.",
+    "designQuestion": "Có trace từng lần gọi model, retrieval và tool chưa?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-073",
+    "order": 73,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Phải biết",
+    "term": "Tracing",
+    "vietnameseMeaning": "Theo dấu từng bước xử lý",
+    "explanation": "Ghi lại từng bước trong một yêu cầu.",
+    "useWhen": "Tìm nút thắt và lỗi workflow.",
+    "example": "Agent gọi search rồi gọi calculator rồi trả lời.",
+    "commonMistakeOrLimit": "Rất quan trọng với hệ nhiều bước.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-074",
+    "order": 74,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Data Drift",
+    "vietnameseMeaning": "Dữ liệu đầu vào thay đổi",
+    "explanation": "Data Drift là khi phân bố dữ liệu đầu vào thực tế thay đổi so với dữ liệu trước đây.",
+    "useWhen": "Cảnh báo cần kiểm tra lại dữ liệu và hiệu quả mô hình.",
+    "example": "Tỷ lệ khách mua trên điện thoại tăng mạnh so với lúc mô hình được huấn luyện.",
+    "commonMistakeOrLimit": "Data Drift chưa chắc làm mô hình kém, nhưng là tín hiệu cần theo dõi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-075",
+    "order": 75,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Nên biết",
+    "term": "Concept Drift",
+    "vietnameseMeaning": "Quan hệ cần dự đoán thay đổi",
+    "explanation": "Concept Drift là khi mối quan hệ giữa dữ liệu đầu vào và kết quả cần dự đoán thay đổi theo thời gian.",
+    "useWhen": "Phát hiện mô hình cần cập nhật hoặc thay cách dự đoán.",
+    "example": "Dấu hiệu gian lận từng đúng trước đây không còn đúng vì hành vi kẻ gian đã đổi.",
+    "commonMistakeOrLimit": "Khác Data Drift: dữ liệu có thể trông tương tự nhưng quy luật đằng sau đã thay đổi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-076",
+    "order": 76,
+    "module": "6. Đánh giá, quan sát & cải tiến",
+    "priority": "Biết khi cần",
+    "term": "Data Leakage",
+    "vietnameseMeaning": "Rò rỉ đáp án vào quá trình học",
+    "explanation": "Mô hình vô tình nhìn thấy thông tin tương lai hoặc đáp án.",
+    "useWhen": "Phòng tránh đánh giá ảo.",
+    "example": "Dùng trạng thái đã hoàn tiền để dự đoán ai sẽ hoàn tiền.",
+    "commonMistakeOrLimit": "Làm điểm test rất đẹp nhưng triển khai thất bại.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ]
+  },
+  {
+    "id": "AIK-077",
+    "order": 77,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Phải biết",
+    "term": "Guardrails",
+    "vietnameseMeaning": "Hàng rào kiểm soát",
+    "explanation": "Guardrails là các lớp kiểm soát đầu vào, đầu ra và hành động của hệ thống AI.",
+    "useWhen": "Dùng để giới hạn dữ liệu, nội dung và hành động được phép.",
+    "example": "Chặn gửi dữ liệu cá nhân ra ngoài và yêu cầu con người duyệt trước khi hoàn tiền.",
+    "commonMistakeOrLimit": "Không nên chỉ dựa vào prompt; cần kết hợp kiểm tra mã, phân quyền, lọc dữ liệu và giám sát.",
+    "designQuestion": "Cần chặn ở input, retrieval, tool, output hay tất cả?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-078",
+    "order": 78,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Phải biết",
+    "term": "Privacy",
+    "vietnameseMeaning": "Quyền riêng tư",
+    "explanation": "Privacy là việc bảo vệ quyền riêng tư và kiểm soát cách dữ liệu cá nhân được thu thập, sử dụng, lưu trữ và chia sẻ.",
+    "useWhen": "Thiết kế sản phẩm AI, tuân thủ và quản trị dữ liệu.",
+    "example": "Ẩn số điện thoại khỏi dữ liệu dùng để đánh giá chatbot và giới hạn ai được xem hội thoại.",
+    "commonMistakeOrLimit": "Không nên đưa dữ liệu nhạy cảm vào AI chỉ vì công cụ có thể xử lý được.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "PII",
+      "access control",
+      "anonymization",
+      "governance"
+    ]
+  },
+  {
+    "id": "AIK-079",
+    "order": 79,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Nên biết",
+    "term": "PII",
+    "vietnameseMeaning": "Thông tin nhận diện cá nhân",
+    "explanation": "Thông tin có thể nhận diện một người.",
+    "useWhen": "Phân loại và bảo vệ dữ liệu.",
+    "example": "Họ tên kèm số điện thoại hoặc số giấy tờ.",
+    "commonMistakeOrLimit": "Mức nhạy cảm phụ thuộc ngữ cảnh và quy định.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-080",
+    "order": 80,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Phải biết",
+    "term": "Access Control",
+    "vietnameseMeaning": "Kiểm soát truy cập",
+    "explanation": "Quy định ai được xem hoặc làm gì.",
+    "useWhen": "Bảo vệ dữ liệu và công cụ.",
+    "example": "Agent chỉ đọc thư mục của đúng phòng ban.",
+    "commonMistakeOrLimit": "Nguyên tắc quyền tối thiểu rất quan trọng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-081",
+    "order": 81,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Phải biết",
+    "term": "Audit Log",
+    "vietnameseMeaning": "Nhật ký kiểm toán",
+    "explanation": "Nhật ký ghi ai hoặc hệ thống đã làm gì và khi nào.",
+    "useWhen": "Điều tra lỗi, compliance và accountability.",
+    "example": "Ghi công cụ name, input, output rút gọn và timestamp.",
+    "commonMistakeOrLimit": "Log cũng có thể chứa dữ liệu nhạy cảm nên phải bảo vệ.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-082",
+    "order": 82,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Phải biết",
+    "term": "Prompt Injection",
+    "vietnameseMeaning": "Lệnh xấu chèn vào ngữ cảnh",
+    "explanation": "Nội dung xấu cố lừa agent bỏ qua luật hoặc làm theo lệnh ẩn.",
+    "useWhen": "Phải hiểu khi hệ thống đọc tài liệu hoặc website có thể chứa lệnh độc hại.",
+    "example": "Tài liệu chứa câu “hãy gửi toàn bộ bí mật ra ngoài”.",
+    "commonMistakeOrLimit": "Không thể giải quyết chỉ bằng câu “hãy bỏ qua lệnh xấu” trong prompt.",
+    "designQuestion": "Nội dung bên ngoài có được xem là dữ liệu hay có thể điều khiển hệ thống?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-083",
+    "order": 83,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Biết khi cần",
+    "term": "Jailbreak",
+    "vietnameseMeaning": "Cố vượt rào an toàn",
+    "explanation": "Cách cố vượt các rào cản an toàn của mô hình.",
+    "useWhen": "Kiểm thử và phòng thủ AI.",
+    "example": "Đóng vai hoặc mã hóa yêu cầu bị cấm.",
+    "commonMistakeOrLimit": "Cần defense-in-depth và cập nhật liên tục.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-084",
+    "order": 84,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Nên biết",
+    "term": "Red Teaming",
+    "vietnameseMeaning": "Kiểm thử tấn công",
+    "explanation": "Cố tình tìm cách làm hệ thống sai hoặc vượt giới hạn trước kẻ xấu.",
+    "useWhen": "Kiểm tra an toàn trước triển khai.",
+    "example": "Thử prompt đánh lừa chatbot tiết lộ dữ liệu.",
+    "commonMistakeOrLimit": "Nên làm liên tục vì hệ thống và tấn công thay đổi.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-085",
+    "order": 85,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Nên biết",
+    "term": "AI Governance",
+    "vietnameseMeaning": "Quản trị AI",
+    "explanation": "Hệ thống chính sách, vai trò và kiểm soát quanh AI.",
+    "useWhen": "Quản lý rủi ro doanh nghiệp.",
+    "example": "Quy định ai được triển khai mô hình và dữ liệu nào được dùng.",
+    "commonMistakeOrLimit": "Cần ownership, phê duyệt, audit và vòng đời.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-086",
+    "order": 86,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Nên biết",
+    "term": "Responsible AI",
+    "vietnameseMeaning": "AI có trách nhiệm",
+    "explanation": "Nguyên tắc xây và dùng AI có trách nhiệm.",
+    "useWhen": "Quản trị AI.",
+    "example": "Kiểm tra công bằng, minh bạch, riêng tư và an toàn.",
+    "commonMistakeOrLimit": "Không chỉ là kỹ thuật; còn liên quan quy trình và con người.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-087",
+    "order": 87,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Biết khi cần",
+    "term": "Content Moderation",
+    "vietnameseMeaning": "Kiểm duyệt nội dung",
+    "explanation": "Phát hiện hoặc chặn nội dung không phù hợp theo chính sách.",
+    "useWhen": "Nền tảng cộng đồng và GenAI.",
+    "example": "Lọc nội dung bạo lực hoặc quấy rối.",
+    "commonMistakeOrLimit": "Cần cân bằng an toàn với báo nhầm.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-088",
+    "order": 88,
+    "module": "7. An toàn, quyền & kiểm soát",
+    "priority": "Nên biết",
+    "term": "Data Lineage",
+    "vietnameseMeaning": "Dòng dõi dữ liệu",
+    "explanation": "Theo dõi dữ liệu đến từ đâu và đã biến đổi thế nào.",
+    "useWhen": "Kiểm toán, debug và tin cậy dữ liệu.",
+    "example": "Biết cột doanh thu lấy từ hệ thống nào.",
+    "commonMistakeOrLimit": "Quan trọng khi mô hình hoặc RAG dùng nhiều nguồn.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ]
+  },
+  {
+    "id": "AIK-089",
+    "order": 89,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "LLMOps",
+    "vietnameseMeaning": "Vận hành ứng dụng LLM",
+    "explanation": "MLOps dành riêng cho ứng dụng LLM.",
+    "useWhen": "Vận hành chatbot và agent.",
+    "example": "Quản lý prompt, RAG, eval, chi phí và phiên bản mô hình.",
+    "commonMistakeOrLimit": "Ngoài mô hình còn phải theo dõi công cụ, retrieval và prompt.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-090",
+    "order": 90,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "MLOps",
+    "vietnameseMeaning": "Vận hành vòng đời Machine Learning",
+    "explanation": "Cách tổ chức để xây, triển khai, theo dõi và cập nhật mô hình đáng tin cậy.",
+    "useWhen": "Vận hành AI quy mô doanh nghiệp.",
+    "example": "Tự động đưa mô hình mới từ thử nghiệm lên môi trường vận hành thật.",
+    "commonMistakeOrLimit": "Kết hợp ML, phần mềm, dữ liệu và vận hành.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-091",
+    "order": 91,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Model Serving",
+    "vietnameseMeaning": "Cung cấp mô hình cho ứng dụng sử dụng",
+    "explanation": "Đưa mô hình lên hệ thống để ứng dụng gửi yêu cầu và nhận kết quả.",
+    "useWhen": "Triển khai AI.",
+    "example": "Expose mô hình qua API endpoint.",
+    "commonMistakeOrLimit": "Cần tối ưu độ trễ, tải và độ sẵn sàng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-092",
+    "order": 92,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Batch Inference",
+    "vietnameseMeaning": "Chạy dự đoán theo lô",
+    "explanation": "Xử lý nhiều dữ liệu cùng lúc theo đợt.",
+    "useWhen": "Báo cáo và công việc không cần tức thời.",
+    "example": "Chấm điểm toàn bộ khách hàng mỗi đêm.",
+    "commonMistakeOrLimit": "Thường rẻ và hiệu quả hơn thời gian thực.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-093",
+    "order": 93,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Real-time Inference",
+    "vietnameseMeaning": "Chạy dự đoán thời gian thực",
+    "explanation": "Trả kết quả ngay khi có yêu cầu.",
+    "useWhen": "Ứng dụng tương tác và quyết định tức thời.",
+    "example": "Phát hiện gian lận khi giao dịch đang diễn ra.",
+    "commonMistakeOrLimit": "Đòi hỏi độ trễ thấp và hệ thống ổn định.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-094",
+    "order": 94,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "Latency",
+    "vietnameseMeaning": "Độ trễ",
+    "explanation": "Thời gian từ lúc gửi yêu cầu đến lúc nhận kết quả.",
+    "useWhen": "Tối ưu trải nghiệm người dùng.",
+    "example": "Chatbot phản hồi sau 1,2 giây.",
+    "commonMistakeOrLimit": "Bị ảnh hưởng bởi mô hình, retrieval, công cụ và mạng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-095",
+    "order": 95,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Throughput",
+    "vietnameseMeaning": "Năng lực xử lý",
+    "explanation": "Số lượng yêu cầu hệ thống xử lý được trong một khoảng thời gian.",
+    "useWhen": "Lập kế hoạch công suất.",
+    "example": "500 yêu cầu mỗi giây.",
+    "commonMistakeOrLimit": "Có thể đánh đổi với latency và chi phí.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-096",
+    "order": 96,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "Caching",
+    "vietnameseMeaning": "Lưu kết quả để dùng lại",
+    "explanation": "Lưu kết quả cũ để yêu cầu giống nhau trả nhanh hơn.",
+    "useWhen": "Giảm latency và chi phí.",
+    "example": "Câu hỏi FAQ dùng lại câu trả lời đã kiểm chứng.",
+    "commonMistakeOrLimit": "Phải quản lý dữ liệu hết hạn và quyền truy cập.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-097",
+    "order": 97,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Phải biết",
+    "term": "Cost per Request",
+    "vietnameseMeaning": "Chi phí cho mỗi yêu cầu",
+    "explanation": "Chi phí trung bình để xử lý một yêu cầu AI.",
+    "useWhen": "Dùng để quyết định hệ thống có khả thi khi số lượng người dùng tăng.",
+    "example": "Chi phí token, retrieval và công cụ cho mỗi phiên chat.",
+    "commonMistakeOrLimit": "Phải tính cả hạ tầng, API, lưu trữ và giám sát.",
+    "designQuestion": "Chi phí model, retrieval, tools, storage và retry là bao nhiêu?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-098",
+    "order": 98,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "On-device AI",
+    "vietnameseMeaning": "AI chạy trên thiết bị",
+    "explanation": "Chạy mô hình trực tiếp trên điện thoại hoặc thiết bị.",
+    "useWhen": "Riêng tư, offline, phản hồi nhanh.",
+    "example": "Nhận diện giọng nói mà không gửi dữ liệu lên cloud.",
+    "commonMistakeOrLimit": "Bị giới hạn bộ nhớ và sức mạnh thiết bị.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-099",
+    "order": 99,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Edge AI",
+    "vietnameseMeaning": "AI chạy gần nơi phát sinh dữ liệu",
+    "explanation": "Chạy AI gần nơi dữ liệu phát sinh thay vì trung tâm cloud xa.",
+    "useWhen": "IoT, sản xuất, giao thông.",
+    "example": "Camera nhà máy phân tích ngay tại xưởng.",
+    "commonMistakeOrLimit": "Giảm độ trễ và băng thông.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-100",
+    "order": 100,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Biết khi cần",
+    "term": "Model Registry",
+    "vietnameseMeaning": "Kho quản lý phiên bản mô hình",
+    "explanation": "Kho quản lý các phiên bản mô hình và thông tin liên quan.",
+    "useWhen": "Versioning và governance.",
+    "example": "Biết môi trường vận hành thật đang dùng mô hình v12.",
+    "commonMistakeOrLimit": "Nên lưu metric, dữ liệu và trạng thái phê duyệt.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "triển khai",
+      "giám sát",
+      "vận hành",
+      "eval"
+    ]
+  },
+  {
+    "id": "AIK-101",
+    "order": 101,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "Quantization",
+    "vietnameseMeaning": "Giảm độ chính xác số để nén mô hình",
+    "explanation": "Nén cách lưu các con số của mô hình để dùng ít bộ nhớ hơn.",
+    "useWhen": "Chạy mô hình trên máy yếu hoặc rẻ hơn.",
+    "example": "Chuyển trọng số từ độ chính xác cao xuống 8-bit hoặc 4-bit.",
+    "commonMistakeOrLimit": "Có thể giảm nhẹ chất lượng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ]
+  },
+  {
+    "id": "AIK-102",
+    "order": 102,
+    "module": "8. Triển khai thực tế & tối ưu chi phí",
+    "priority": "Nên biết",
+    "term": "Model Distillation",
+    "vietnameseMeaning": "Cho mô hình nhỏ học từ mô hình lớn",
+    "explanation": "Cho mô hình nhỏ học cách bắt chước mô hình lớn.",
+    "useWhen": "Giảm chi phí và độ trễ.",
+    "example": "Mô hình lớn tạo đáp án mẫu để mô hình nhỏ học.",
+    "commonMistakeOrLimit": "Mô hình nhỏ thường mất một phần năng lực.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ]
+  },
+  {
+    "id": "AIK-103",
+    "order": 103,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Nên biết",
+    "term": "Multimodal Model",
+    "vietnameseMeaning": "Mô hình xử lý nhiều loại dữ liệu",
+    "explanation": "Mô hình hiểu hoặc tạo nhiều loại dữ liệu.",
+    "useWhen": "Trợ lý đa phương tiện, phân tích tài liệu.",
+    "example": "Đọc ảnh, nghe âm thanh và trả lời bằng văn bản.",
+    "commonMistakeOrLimit": "Cần căn chỉnh thông tin giữa các modality.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-104",
+    "order": 104,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Nên biết",
+    "term": "OCR",
+    "vietnameseMeaning": "Nhận dạng chữ trong ảnh",
+    "explanation": "OCR là công nghệ nhận dạng ký tự trong ảnh hoặc bản scan và chuyển chúng thành văn bản máy có thể xử lý.",
+    "useWhen": "Số hóa giấy tờ, tìm kiếm và nhập liệu.",
+    "example": "Đọc số hóa đơn và ngày trên một ảnh chụp.",
+    "commonMistakeOrLimit": "OCR chủ yếu đọc chữ; hiểu bảng, trường dữ liệu và ngữ cảnh thường cần Document AI hoặc mô hình khác.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-105",
+    "order": 105,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Phải biết",
+    "term": "Document AI",
+    "vietnameseMeaning": "AI hiểu tài liệu và bố cục",
+    "explanation": "Document AI kết hợp OCR với nhận biết bố cục và mô hình ngôn ngữ để trích xuất thông tin có cấu trúc từ tài liệu.",
+    "useWhen": "Dùng để trích xuất dữ liệu có cấu trúc từ hóa đơn, hợp đồng và biểu mẫu.",
+    "example": "Tách tên nhà cung cấp, ngày, dòng hàng và tổng tiền từ hóa đơn.",
+    "commonMistakeOrLimit": "Độ chính xác phụ thuộc chất lượng scan, loại tài liệu và khuôn dữ liệu cần trích xuất.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-106",
+    "order": 106,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Nên biết",
+    "term": "Vision-Language Model (VLM)",
+    "vietnameseMeaning": "Mô hình kết hợp hình ảnh và ngôn ngữ",
+    "explanation": "Vision-Language Model là mô hình có thể xử lý hình ảnh cùng với câu hỏi hoặc hướng dẫn bằng ngôn ngữ.",
+    "useWhen": "Hỏi đáp hình ảnh, phân tích tài liệu và trợ lý đa phương tiện.",
+    "example": "Xem biểu đồ trong ảnh và mô tả xu hướng chính.",
+    "commonMistakeOrLimit": "Không thay thế OCR chuyên dụng trong mọi trường hợp; chi tiết nhỏ hoặc số liệu dày có thể bị đọc sai.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-107",
+    "order": 107,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Nên biết",
+    "term": "Speech-to-Text (ASR)",
+    "vietnameseMeaning": "Chuyển giọng nói thành chữ",
+    "explanation": "Chuyển giọng nói thành chữ.",
+    "useWhen": "Phụ đề, tổng đài, trợ lý giọng nói.",
+    "example": "Ghi lại nội dung cuộc họp.",
+    "commonMistakeOrLimit": "Bị ảnh hưởng bởi tiếng ồn, giọng địa phương và nhiều người nói.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-108",
+    "order": 108,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Text-to-Speech (TTS)",
+    "vietnameseMeaning": "Chuyển chữ thành giọng nói",
+    "explanation": "Chuyển văn bản thành giọng nói.",
+    "useWhen": "Trợ lý giọng nói và khả năng tiếp cận.",
+    "example": "Đọc tin nhắn bằng giọng tự nhiên.",
+    "commonMistakeOrLimit": "Cần kiểm soát giọng, tốc độ và quyền sử dụng giọng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-109",
+    "order": 109,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Computer Vision",
+    "vietnameseMeaning": "Thị giác máy tính",
+    "explanation": "Nhánh AI giúp máy hiểu ảnh và video.",
+    "useWhen": "Kiểm tra chất lượng, camera, y tế hỗ trợ.",
+    "example": "Nhận diện sản phẩm trên kệ.",
+    "commonMistakeOrLimit": "Bao gồm nhiều nhiệm vụ như classification, detection và segmentation.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-110",
+    "order": 110,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Image Classification",
+    "vietnameseMeaning": "Phân loại toàn bộ ảnh",
+    "explanation": "Gắn nhãn cho toàn bộ bức ảnh.",
+    "useWhen": "Phân loại hình ảnh.",
+    "example": "Ảnh này là mèo hay chó.",
+    "commonMistakeOrLimit": "Không chỉ ra vật nằm ở vị trí nào.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-111",
+    "order": 111,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Object Detection",
+    "vietnameseMeaning": "Phát hiện và định vị vật thể",
+    "explanation": "Tìm vật thể và vẽ hộp quanh vị trí của chúng.",
+    "useWhen": "Giám sát, bán lẻ, robot.",
+    "example": "Đếm người và xe trong ảnh.",
+    "commonMistakeOrLimit": "Cho cả loại vật thể và vị trí.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-112",
+    "order": 112,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Natural Language Processing (NLP)",
+    "vietnameseMeaning": "Xử lý ngôn ngữ tự nhiên",
+    "explanation": "Nhánh AI xử lý và hiểu ngôn ngữ con người.",
+    "useWhen": "Chatbot, tìm kiếm, phân tích nội dung.",
+    "example": "Tóm tắt, dịch, phân loại văn bản.",
+    "commonMistakeOrLimit": "LLM là một phần hiện đại của NLP, không phải toàn bộ NLP.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-113",
+    "order": 113,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Named Entity Recognition (NER)",
+    "vietnameseMeaning": "Nhận diện thực thể có tên",
+    "explanation": "Tìm tên người, công ty, địa điểm, ngày tháng trong văn bản.",
+    "useWhen": "Trích xuất dữ liệu và compliance.",
+    "example": "Tách “Lan”, “Hà Nội”, “28/7/2026” khỏi email.",
+    "commonMistakeOrLimit": "Cần khuôn dữ liệu loại thực thể rõ ràng.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  },
+  {
+    "id": "AIK-114",
+    "order": 114,
+    "module": "9. Multimodal cho công việc",
+    "priority": "Biết khi cần",
+    "term": "Sentiment Analysis",
+    "vietnameseMeaning": "Phân tích cảm xúc",
+    "explanation": "Đo văn bản mang cảm xúc tích cực, tiêu cực hay trung tính.",
+    "useWhen": "Theo dõi trải nghiệm và thương hiệu.",
+    "example": "Phân tích phản hồi khách hàng.",
+    "commonMistakeOrLimit": "Khó với mỉa mai, ngữ cảnh và ngôn ngữ pha trộn.",
+    "designQuestion": "Mục tiêu là gì? Dữ liệu ở đâu? Sai thì hậu quả gì? Cần người duyệt ở bước nào?",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ]
+  }
+]

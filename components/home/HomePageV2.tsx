@@ -1,8 +1,7 @@
 import { CapabilityLadderV2, HomeHero } from "@/components/home/HomeInteractive";
+import { EcosystemFieldGuide } from "@/components/home/EcosystemFieldGuide";
 import { ProjectDiscoveryDesk } from "@/components/home/ProjectDiscoveryDesk";
 import { StaticLink as Link } from "@/components/layout/StaticLink";
-import { DeferredAgentCore } from "@/components/source/DeferredAgentCore";
-import { StaticAgentCoreFallback } from "@/components/source/StaticAgentCoreFallback";
 import { localizeProject, patternByProject } from "@/content/project-copy";
 import { projects } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
@@ -15,6 +14,7 @@ export function HomePageV2({ locale }: { locale: Locale }) {
   return (
     <div className="v2-page">
       <HomeHero locale={locale} />
+      <EcosystemFieldGuide locale={locale} />
       <CapabilityLadderV2 locale={locale} />
       
       <ProjectDiscoveryDesk locale={locale} />
@@ -36,10 +36,6 @@ export function HomePageV2({ locale }: { locale: Locale }) {
           );
         })}
       </section>
-
-      <div className="agent-core-home">
-        <DeferredAgentCore locale={locale} fallback={<StaticAgentCoreFallback locale={locale} />} />
-      </div>
 
       <section className="learning-teaser-v3 page-shell-v2" aria-labelledby="learning-teaser-title">
         <header className="section-head-v2">

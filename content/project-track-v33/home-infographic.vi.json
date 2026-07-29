@@ -1,0 +1,62 @@
+[
+  {
+    "order": 1,
+    "verb": "ACT",
+    "project": "Trip Planner",
+    "question": "Agent có thể nhớ thông tin bạn đã cung cấp không?",
+    "simpleCapability": "Biết gọi công cụ và giữ dữ liệu trong phiên.",
+    "sampleInput": "Lên lịch Huế ba ngày.",
+    "sampleOutput": "Lịch trình và phiếu thông tin đã ghi nhớ.",
+    "visual": "map-route-state-ticket"
+  },
+  {
+    "order": 2,
+    "verb": "DELEGATE",
+    "project": "Script Team",
+    "question": "Nhiều vai trò có thể cùng hoàn thiện một nội dung không?",
+    "simpleCapability": "Biết giao việc cho người viết, người phản biện và người sửa.",
+    "sampleInput": "Viết kịch bản video 60 giây.",
+    "sampleOutput": "Bản nháp, góp ý và bản sửa.",
+    "visual": "manuscript-redline"
+  },
+  {
+    "order": 3,
+    "verb": "COMPUTE",
+    "project": "World Cup Analyst",
+    "question": "Làm sao tách tìm dữ kiện khỏi tính toán?",
+    "simpleCapability": "Biết gọi agent tìm nguồn và dùng code để tính.",
+    "sampleInput": "So sánh hiệu suất hai đội.",
+    "sampleOutput": "Nguồn, công thức và bản phân tích.",
+    "visual": "evidence-calculation-desk"
+  },
+  {
+    "order": 4,
+    "verb": "COMPOSE",
+    "project": "Love Advisor",
+    "question": "Hai hướng phân tích có thể chạy cùng lúc không?",
+    "simpleCapability": "Biết chạy hai nhánh rồi chỉ tổng hợp khi đủ dữ liệu.",
+    "sampleInput": "So sánh hai phong cách giao tiếp.",
+    "sampleOutput": "Hai góc nhìn và bản tổng hợp.",
+    "visual": "dual-lane-synthesis"
+  },
+  {
+    "order": 5,
+    "verb": "VERIFY",
+    "project": "Dashboard Insights",
+    "question": "Làm sao kiểm tra kết luận trước khi dùng?",
+    "simpleCapability": "Biết tính bằng code, nối kết luận với dữ liệu và QA.",
+    "sampleInput": "Tìm điểm bất thường trong bảng doanh thu.",
+    "sampleOutput": "Số liệu, bằng chứng, QA và report.",
+    "visual": "data-claim-qa"
+  },
+  {
+    "order": 6,
+    "verb": "CONNECT",
+    "project": "A2A Orchestrator",
+    "question": "Nhiều agent chạy riêng có thể tìm và gọi nhau không?",
+    "simpleCapability": "Biết chọn đúng specialist và xử lý timeout/fallback.",
+    "sampleInput": "Chuyển yêu cầu tới agent phù hợp.",
+    "sampleOutput": "Quyết định route và artifact trả về.",
+    "visual": "network-control-plane"
+  }
+]

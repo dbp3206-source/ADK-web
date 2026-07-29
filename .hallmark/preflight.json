@@ -1,9 +1,10 @@
 {
-  "date": "2026-07-27",
-  "designSystem": "DESIGN_TOKENS.json",
+  "date": "2026-07-28",
+  "designSystem": "design.md + tokens.css + app/tokens-v3.css",
   "fontStack": "Space Grotesk + Inter + JetBrains Mono",
   "palette": "Cobalt Technical Editorial with six project accents",
   "motion": "motion-cut except trace state feedback and navigation drawer",
   "spacing": "4-point scale",
-  "framework": "greenfield Next.js App Router"
+  "framework": "Next.js 16 App Router, static export",
+  "scope": "multi-page V3.3 redesign preserving the existing system"
 }

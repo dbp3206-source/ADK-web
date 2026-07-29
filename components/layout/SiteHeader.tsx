@@ -70,9 +70,12 @@ export function SiteHeader() {
   };
 
   return (
+    <>
+    <a className="skip-link" href="#main-content">{dict.common.skip}</a>
     <header className="site-header site-header-v2">
       <div className="header-signal">
-        <span>ADK AGENT ECOSYSTEM</span><span>{dict.common.simulation}</span>
+        <span>ADK AGENT ECOSYSTEM</span>
+        <span>{locale === "vi" ? "INTERACTIVE AGENT FIELD GUIDE" : "INTERACTIVE AGENT FIELD GUIDE"}</span>
       </div>
       <div className="header-main">
         <Link className="wordmark" href={localizedPath(locale, "/")} aria-label={`ADK / ECOSYSTEM — ${dict.nav.home}`}>
@@ -113,5 +116,6 @@ export function SiteHeader() {
         </div>
       ) : null}
     </header>
+    </>
   );
 }

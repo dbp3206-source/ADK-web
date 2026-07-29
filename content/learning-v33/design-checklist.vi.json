@@ -1,0 +1,92 @@
+[
+  {
+    "id": "CHECK-01",
+    "category": "1. Bài toán",
+    "mainQuestion": "Người dùng đang mất thời gian hoặc mắc lỗi ở bước nào?",
+    "checkQuestion": "Mục tiêu có đo được không?",
+    "principle": "Không dùng AI chỉ vì muốn có chatbot.",
+    "requiredOutput": "Metric công việc",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-02",
+    "category": "2. Đầu vào",
+    "mainQuestion": "Dữ liệu đến từ đâu, định dạng gì, ai sở hữu?",
+    "checkQuestion": "Có PII hoặc dữ liệu nhạy cảm không?",
+    "principle": "Không đưa mọi dữ liệu vào prompt mặc định.",
+    "requiredOutput": "Data map",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-03",
+    "category": "3. Kiến thức",
+    "mainQuestion": "Thông tin nằm trong model, prompt hay tài liệu riêng?",
+    "checkQuestion": "Có cần RAG và citation không?",
+    "principle": "Không dùng fine-tuning để thay cho nguồn cập nhật.",
+    "requiredOutput": "Knowledge plan",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-04",
+    "category": "4. Hành động",
+    "mainQuestion": "AI chỉ đề xuất hay được phép thay đổi hệ thống?",
+    "checkQuestion": "Tool/API/MCP nào cần gọi?",
+    "principle": "Quyền tối thiểu và xác nhận trước hành động quan trọng.",
+    "requiredOutput": "Tool contract",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-05",
+    "category": "5. Workflow",
+    "mainQuestion": "Các bước nào cố định, bước nào cần model quyết định?",
+    "checkQuestion": "Có retry, timeout, fallback, checkpoint không?",
+    "principle": "Ưu tiên workflow trước agent.",
+    "requiredOutput": "Flow diagram",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-06",
+    "category": "6. Output",
+    "mainQuestion": "Kết quả là text, JSON, bảng hay hành động?",
+    "checkQuestion": "Schema có kiểm tra được không?",
+    "principle": "Không dựa vào văn bản tự do cho bước tự động.",
+    "requiredOutput": "Output schema",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-07",
+    "category": "7. An toàn",
+    "mainQuestion": "Prompt injection, data leakage, nội dung xấu và lạm quyền được xử lý thế nào?",
+    "checkQuestion": "Bước nào cần human approval?",
+    "principle": "Guardrails phải có nhiều lớp.",
+    "requiredOutput": "Risk register",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-08",
+    "category": "8. Evals",
+    "mainQuestion": "Hệ thống được chấm bằng bộ test nào?",
+    "checkQuestion": "Đo factuality, tool success, latency và tác động công việc chưa?",
+    "principle": "Không đánh giá chỉ bằng vài demo đẹp.",
+    "requiredOutput": "Eval set",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-09",
+    "category": "9. Observability",
+    "mainQuestion": "Có log/trace prompt, retrieval, tool và lỗi không?",
+    "checkQuestion": "Có thể tìm nguyên nhân khi người dùng báo sai không?",
+    "principle": "Bảo vệ log vì có thể chứa dữ liệu nhạy cảm.",
+    "requiredOutput": "Trace plan",
+    "defaultStatus": "Chưa"
+  },
+  {
+    "id": "CHECK-10",
+    "category": "10. Vận hành",
+    "mainQuestion": "Chi phí mỗi yêu cầu, tải cao điểm và model fallback là gì?",
+    "checkQuestion": "Ai chịu trách nhiệm khi hệ thống lỗi?",
+    "principle": "Có kế hoạch rollback và cập nhật nguồn.",
+    "requiredOutput": "Runbook",
+    "defaultStatus": "Chưa"
+  }
+]

@@ -115,6 +115,22 @@ function ScriptOutput({ caseId }: { caseId: string }) {
       </div>
     );
   }
+  if (caseId === "ST-02") {
+    return (
+      <div className="sim-output-script">
+        <div className="sim-output-label">Phản biện có giới hạn</div>
+        <div className="sim-critique">
+          <div className="sim-critique-item"><span className="sim-score">OPENING</span><p>Câu mở đầu còn chung chung. Đề xuất mở bằng kết quả cụ thể: sáu agent tương ứng sáu lớp kiến trúc.</p></div>
+          <div className="sim-critique-item"><span className="sim-critique-pass">CTA</span><p>CTA đã có hành động rõ, nhưng nên nói chính xác người xem sẽ mở case study và simulator.</p></div>
+          <div className="sim-critique-item"><span className="sim-critique-pass">SCOPE</span><p>Phần thân bài được giữ nguyên đúng yêu cầu; Reviser chỉ thay opening và CTA.</p></div>
+        </div>
+        <div className="sim-manuscript sim-revision">
+          <p><strong>Opening mới:</strong> “Sáu agent này không chỉ trả lời khác nhau; mỗi agent chứng minh một lớp kiến trúc khác nhau.”</p>
+          <p><strong>CTA mới:</strong> “Mở từng case study để xem trace, output và source tạo nên lớp kiến trúc đó.”</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="sim-output-script">
       <div className="sim-output-tabs" role="tablist">
@@ -148,61 +164,127 @@ function ScriptOutput({ caseId }: { caseId: string }) {
 }
 
 function WorldCupOutput({ caseId }: { caseId: string }) {
-  return (
-    <div className="sim-output-worldcup">
-      <div className="sim-output-label">Báo cáo phân tích</div>
-      <div className="sim-source-card">
-        <span className="sim-source-label">Nguồn · Wikipedia</span>
-        <p>Argentina 3–3 Pháp (pen. 4–2) — Chung kết World Cup 2022, Lusail, Qatar</p>
-        <a className="sim-source-link" href="https://vi.wikipedia.org/wiki/Chung_k%E1%BA%BFt_FIFA_World_Cup_2022" target="_blank" rel="noopener noreferrer">↗ Xem nguồn</a>
+  if (caseId === "WC-01") {
+    return (
+      <div className="sim-output-worldcup">
+        <div className="sim-output-label">Báo cáo phân tích · Chung kết 2022</div>
+        <div className="sim-source-card">
+          <span className="sim-source-label">Nguồn · Wikipedia</span>
+          <p>Argentina 3–3 Pháp sau 120 phút; Argentina thắng luân lưu 4–2.</p>
+          <a className="sim-source-link" href="https://vi.wikipedia.org/wiki/Chung_k%E1%BA%BFt_FIFA_World_Cup_2022" target="_blank" rel="noopener noreferrer">↗ Xem nguồn</a>
+        </div>
+        <div className="sim-formula-tape">
+          <span className="sim-formula-label">Tính toán (Python)</span>
+          <pre className="sim-formula-code">{`match_goal_difference = 3 - 3
+# → 0 sau hiệp phụ
+
+shootout_difference = 4 - 2
+# → 2 ở loạt luân lưu (báo cáo riêng)`}</pre>
+        </div>
+        <div className="sim-report-excerpt">
+          <p><strong>Kết luận:</strong> trận đấu hòa 3–3 sau hiệp phụ; Argentina vô địch nhờ thắng loạt luân lưu 4–2.</p>
+          <p className="sim-output-note">Không cộng bàn luân lưu vào tỉ số trận đấu.</p>
+        </div>
       </div>
-      <div className="sim-formula-tape">
-        <span className="sim-formula-label">Tính toán (Python)</span>
-        <pre className="sim-formula-code">{`bàn_thắng_arg = 3
-bàn_thắng_phap = 3
-hiệu_số = bàn_thắng_arg - bàn_thắng_phap
-# → 0 (hòa, đá penalty)
-tỷ_lệ_thắng_arg_wc22 = 7/7  # 7 trận thắng/7 trận`}</pre>
+    );
+  }
+  if (caseId === "WC-02") {
+    return (
+      <div className="sim-output-worldcup">
+        <div className="sim-output-label">Hồ sơ phong độ · Argentina 2022</div>
+        <div className="sim-data-preview">
+          <table className="sim-data-table">
+            <thead><tr><th>Phân loại</th><th>Số trận</th><th>Bàn thắng</th><th>Bàn thua</th></tr></thead>
+            <tbody>
+              <tr><td>Thắng trong 90 phút</td><td>4</td><td rowSpan={3}>15</td><td rowSpan={3}>8</td></tr>
+              <tr><td>Hòa, thắng penalty</td><td>2</td></tr>
+              <tr><td>Thua</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="sim-report-excerpt">
+          <p><strong>Nhận định:</strong> Argentina phục hồi sau trận mở màn thua Saudi Arabia, sau đó không thua trong thời gian thi đấu chính thức ở sáu trận còn lại.</p>
+          <p className="sim-output-note">Penalty shoot-out được tách khỏi kết quả hòa sau hiệp phụ để tránh diễn giải sai thống kê.</p>
+        </div>
       </div>
-      <div className="sim-report-excerpt">
-        <p><strong>Kết luận:</strong> Argentina vô địch World Cup 2022. Trận chung kết kết thúc 3–3 sau 120 phút, Argentina thắng penalty 4–2.</p>
-        <p className="sim-output-note">Số liệu từ Wikipedia — cập nhật đến ngày truy cập.</p>
+    );
+  }
+  if (caseId === "WC-03") {
+    return (
+      <div className="sim-output-worldcup">
+        <div className="sim-output-label">Từ chối đúng phạm vi dữ liệu</div>
+        <div className="sim-error-card">
+          <span className="sim-error-icon">!</span>
+          <div>
+            <strong>Không có nguồn tỉ số trực tiếp.</strong>
+            <p>Demo chỉ dùng dữ liệu World Cup 2022 cố định nên không tạo một tỉ số có vẻ chính xác cho trận đang diễn ra.</p>
+          </div>
+        </div>
+        <div className="sim-report-excerpt">
+          <p><strong>Bước tiếp theo:</strong> kiểm tra trang chính thức của giải đấu hoặc nhà cung cấp live-score được cấp quyền.</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
 }
 
 function LoveOutput({ caseId }: { caseId: string }) {
-  const [lane, setLane] = useState<"both" | "appearance" | "personality">("both");
+  const [lane, setLane] = useState<"both" | "communication" | "planning">("both");
+  if (caseId === "LA-02") {
+    return (
+      <div className="sim-output-love">
+        <div className="sim-output-label">Chỉ phân tích giao tiếp</div>
+        <div className="sim-lane sim-lane-a">
+          <strong>Preference brief</strong>
+          <p>Trao đổi thẳng và cụ thể; cho phép một khoảng suy nghĩ trước khi yêu cầu phản hồi.</p>
+          <p>Điểm cần thống nhất trực tiếp: thời gian phản hồi mong đợi và trường hợp nào cần trả lời ngay.</p>
+        </div>
+        <p className="sim-output-note">Nhánh lập kế hoạch không chạy vì input không yêu cầu nội dung đó.</p>
+      </div>
+    );
+  }
+  if (caseId === "LA-03") {
+    return (
+      <div className="sim-output-love">
+        <div className="sim-output-label">Cần làm rõ trước khi phân tích</div>
+        <div className="sim-clarification">
+          <p>Bạn muốn làm rõ cách trao đổi, cách lập kế hoạch chung, hay cả hai?</p>
+          <p>Bạn có thể nêu một hành vi quan sát được hoặc một tình huống cụ thể để hệ thống không phải suy đoán.</p>
+        </div>
+        <p className="sim-output-note">Không tạo hồ sơ tính cách và không suy luận thuộc tính nhạy cảm từ thông tin mơ hồ.</p>
+      </div>
+    );
+  }
   return (
     <div className="sim-output-love">
-      <div className="sim-output-label">Phân tích song song</div>
+      <div className="sim-output-label">Hai góc nhìn an toàn</div>
       <div className="sim-dual-lane-tabs" role="tablist">
         <button role="tab" aria-selected={lane === "both"} onClick={() => setLane("both")}>Cả hai</button>
-        <button role="tab" aria-selected={lane === "appearance"} onClick={() => setLane("appearance")}>Ngoại hình</button>
-        <button role="tab" aria-selected={lane === "personality"} onClick={() => setLane("personality")}>Tính cách</button>
+        <button role="tab" aria-selected={lane === "communication"} onClick={() => setLane("communication")}>Giao tiếp</button>
+        <button role="tab" aria-selected={lane === "planning"} onClick={() => setLane("planning")}>Lập kế hoạch</button>
       </div>
       <div className="sim-dual-lane">
-        {(lane === "both" || lane === "appearance") && (
+        {(lane === "both" || lane === "communication") && (
           <div className="sim-lane sim-lane-a">
-            <strong>Nhánh A · Ngoại hình</strong>
-            <p>Kibbe: Gợi ý Natural/Dramatic — trang phục có cấu trúc, đường nét rõ ràng.</p>
-            <p>Seasonal Color: Mùa Đông — màu tương phản cao.</p>
+            <strong>Nhánh A · Giao tiếp</strong>
+            <p>Ưu tiên trao đổi thẳng, tóm tắt quyết định bằng văn bản và dành thời gian suy nghĩ trước khi phản hồi.</p>
+            <p>Điểm chưa chắc chắn: tần suất liên lạc phù hợp cần được hai bên thống nhất.</p>
           </div>
         )}
-        {(lane === "both" || lane === "personality") && (
+        {(lane === "both" || lane === "planning") && (
           <div className="sim-lane sim-lane-b">
-            <strong>Nhánh B · Tính cách</strong>
-            <p>Big Five: Openness cao, Agreeableness trung bình — cần đối tác tự chủ.</p>
-            <p>Attachment: Secure — phù hợp nhất với Secure hoặc recovered Anxious.</p>
+            <strong>Nhánh B · Lập kế hoạch</strong>
+            <p>Ưu tiên kế hoạch có mốc rõ, vẫn chừa khoảng linh hoạt và xác nhận lại khi điều kiện thay đổi.</p>
+            <p>Điểm chưa chắc chắn: mức độ chi tiết nên được điều chỉnh theo từng tình huống.</p>
           </div>
         )}
       </div>
       {lane === "both" && (
         <div className="sim-synthesis-gate">
           <span className="sim-gate-label">Tổng hợp</span>
-          <p>Đối tác lý tưởng: tự lập, giá trị sống rõ ràng, thích trải nghiệm mới, phong cách chỉn chu.</p>
-          <p className="sim-output-note">Phân tích dựa trên framework học thuật — không phải dự đoán xác suất.</p>
+          <p>Gợi ý cách phối hợp: thống nhất kỳ vọng bằng câu hỏi cụ thể, ghi lại quyết định quan trọng và chọn trước phần nào cố định, phần nào linh hoạt.</p>
+          <p className="sim-output-note">Mẫu chỉ tổng hợp sở thích người dùng đã cung cấp; không chẩn đoán hoặc suy luận thuộc tính nhạy cảm.</p>
         </div>
       )}
     </div>
@@ -210,6 +292,49 @@ function LoveOutput({ caseId }: { caseId: string }) {
 }
 
 function DashboardOutput({ caseId }: { caseId: string }) {
+  if (caseId === "DI-02") {
+    return (
+      <div className="sim-output-dashboard">
+        <div className="sim-output-label">Claim audit · QA đã chặn</div>
+        <div className="sim-claim-audit">
+          <div className="sim-claim-rejected">
+            <span className="mono">CLAIM BỊ LOẠI</span>
+            <p>“Doanh thu đang tăng ổn định trong sáu tháng.”</p>
+            <small>Nguồn hiện tại chỉ có hai tháng dữ liệu, không đủ chứng minh xu hướng sáu tháng.</small>
+          </div>
+          <div className="sim-claim-approved">
+            <span className="mono">CLAIM ĐÃ SỬA</span>
+            <p>“Dữ liệu T6–T7 cho thấy doanh thu giảm 33%; cần thêm kỳ dữ liệu trước khi kết luận xu hướng dài hạn.”</p>
+          </div>
+        </div>
+        <div className="sim-qa-verdict">
+          <span className="sim-qa-stamp">QA · REVISION REQUIRED</span>
+          <p>Báo cáo chỉ được phát hành sau khi claim vượt quá bằng chứng đã bị thay thế.</p>
+        </div>
+      </div>
+    );
+  }
+  if (caseId === "DI-03") {
+    return (
+      <div className="sim-output-dashboard">
+        <div className="sim-output-label">So sánh lịch sử · T6 → T7</div>
+        <div className="sim-data-preview">
+          <table className="sim-data-table">
+            <thead><tr><th>Chỉ số</th><th>T6/2025</th><th>T7/2025</th><th>Thay đổi</th></tr></thead>
+            <tbody>
+              <tr><td>Doanh thu</td><td>1.2 tỷ</td><td>0.8 tỷ</td><td className="sim-negative-cell">−33%</td></tr>
+              <tr><td>Đơn hàng</td><td>4,200</td><td>2,900</td><td className="sim-negative-cell">−31%</td></tr>
+              <tr><td>Tỷ lệ lỗi</td><td>2.1%</td><td>8.4%</td><td className="sim-negative-cell">4×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="sim-qa-verdict">
+          <span className="sim-qa-stamp">RAG · 2 PERIODS</span>
+          <p>Báo cáo tháng 6 được lấy từ archive và đối chiếu với dữ liệu tháng 7 trước khi tính chênh lệch.</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="sim-output-dashboard">
       <div className="sim-output-label">Báo cáo insights</div>
@@ -241,7 +366,7 @@ function DashboardOutput({ caseId }: { caseId: string }) {
 function A2AOutput({ caseId }: { caseId: string }) {
   const agents = [
     { name: "Trip Planner", port: 8001, selected: caseId === "A2A-01" },
-    { name: "Script Team", port: 8002, selected: false },
+    { name: "Script Team", port: 8002, selected: caseId === "A2A-02" },
     { name: "World Cup Analyst", port: 8003, selected: false },
     { name: "Love Advisor", port: 8004, selected: false },
     { name: "Dashboard Insights", port: 8005, selected: false },
@@ -261,6 +386,34 @@ function A2AOutput({ caseId }: { caseId: string }) {
         <div className="sim-error-card">
           <span className="sim-error-icon">?</span>
           <p>Không thể xác định agent phù hợp. Orchestrator hỏi lại thay vì chọn bừa.</p>
+        </div>
+      </div>
+    );
+  }
+  if (caseId === "A2A-02") {
+    return (
+      <div className="sim-output-a2a">
+        <div className="sim-output-label">Routing · Script Team</div>
+        <div className="sim-agent-map">
+          {agents.map((agent) => (
+            <div key={agent.name} className={`sim-agent-card${agent.selected ? " sim-agent-selected" : ""}`}>
+              <span className="sim-agent-port">:{agent.port}</span>
+              <strong>{agent.name}</strong>
+              {agent.selected ? <span className="sim-agent-badge">Đã chọn</span> : null}
+            </div>
+          ))}
+        </div>
+        <div className="sim-route-reason">
+          <strong>Lý do routing:</strong>
+          <p>“Viết kịch bản YouTube” khớp capability script writing, review và revision của Script Team.</p>
+        </div>
+        <div className="sim-agent-card-detail">
+          <span className="sim-state-label">Remote receipt</span>
+          <dl>
+            <div><dt>endpoint</dt><dd>http://localhost:8002</dd></div>
+            <div><dt>workflow</dt><dd>Drafter → Critic → Reviser</dd></div>
+            <div><dt>artifact</dt><dd>script_draft + critique + final_script</dd></div>
+          </dl>
         </div>
       </div>
     );
@@ -406,51 +559,51 @@ function buildCases(locale: Locale): Record<string, SimCase[]> {
       },
       {
         id: "WC-03", project: "worldcup-analyst", caseType: "validation",
-        title: vi ? "Trận đang diễn ra" : "Live match",
-        prompt: vi ? "Tỉ số hiện tại của trận Pháp đang đá là bao nhiêu?" : "What's the current score of France's ongoing match?",
+        title: vi ? "Yêu cầu dữ liệu ngoài phạm vi" : "Out-of-scope data request",
+        prompt: vi ? "Cho tôi tỉ số trực tiếp của một trận đang thi đấu." : "Give me the live score of a match in progress.",
         outputType: "worldcup",
         outputContent: null,
         steps: [
-          { title: vi ? "Tìm kiếm thông tin" : "Search", explanation: vi ? "Search Agent tìm trên Wikipedia — nhưng Wikipedia không cập nhật tỉ số trực tiếp theo thời gian thực." : "Search Agent searches Wikipedia — but Wikipedia doesn't update live scores in real time.", technicalKeyword: "search · data limitation", actor: "Search Agent" },
-          { title: vi ? "Cảnh báo rõ ràng" : "Clear warning", explanation: vi ? "Analyst thông báo rõ: dữ liệu search có độ trễ, không thể cung cấp tỉ số trực tiếp. Đề xuất nguồn live thay thế." : "Analyst clearly states: search data has lag, cannot provide live score. Suggests live sources instead.", technicalKeyword: "honesty · limitation", actor: "World Cup Analyst", whyItMatters: vi ? "Agent trung thực về giới hạn quan trọng hơn cố trả lời sai." : "Agent honesty about limitations is more important than giving a wrong answer." },
+          { title: vi ? "Kiểm tra phạm vi dữ liệu" : "Check data scope", explanation: vi ? "Demo chỉ có bộ dữ liệu World Cup 2022 cố định; không có nguồn tỉ số trực tiếp." : "The demo only has a fixed 2022 World Cup dataset and no live-score source.", technicalKeyword: "fixed dataset · scope", actor: "Search Agent" },
+          { title: vi ? "Từ chối đúng phạm vi" : "Decline within scope", explanation: vi ? "Analyst không tạo tỉ số giả. Kết quả nêu giới hạn và đề nghị người dùng kiểm tra nguồn chính thức có cập nhật trực tiếp." : "The analyst does not invent a score. It states the limitation and directs the user to an official live source.", technicalKeyword: "honest fallback", actor: "World Cup Analyst", whyItMatters: vi ? "Không có dữ liệu đáng tin thì không nên tạo một con số có vẻ chính xác." : "Without trustworthy data, the system should not produce a precise-looking number." },
         ],
       },
     ],
     "love-advisor": [
       {
         id: "LA-01", project: "love-advisor", caseType: "happy",
-        title: vi ? "Phân tích gu người yêu" : "Analyze partner preferences",
-        prompt: vi ? "Tôi thích người tự lập, thẳng thắn, phong cách chỉn chu và thích khám phá." : "I like someone independent, direct, well-dressed and adventurous.",
+        title: vi ? "Phối hợp giao tiếp và kế hoạch" : "Coordinate communication and planning",
+        prompt: vi ? "Tôi thích trao đổi thẳng, cần thời gian suy nghĩ và muốn kế hoạch có mốc rõ nhưng vẫn linh hoạt." : "I prefer direct communication, time to think, and plans with clear milestones plus flexibility.",
         outputType: "love",
         outputContent: null,
         steps: [
-          { title: vi ? "Nhận mô tả" : "Receive description", explanation: vi ? "Agent tiếp nhận mô tả sở thích về cả ngoại hình (phong cách chỉn chu) và tính cách (tự lập, thẳng thắn, thích khám phá)." : "Agent receives preference description covering both appearance (well-dressed) and personality (independent, direct, adventurous).", technicalKeyword: "input parsing", actor: "Love Advisor Pipeline" },
-          { title: vi ? "Phân tích song song" : "Parallel analysis", explanation: vi ? "Hai nhánh chạy đồng thời: Nhánh A phân tích gu ngoại hình theo Kibbe và Seasonal Color. Nhánh B phân tích gu tính cách theo Big Five và Attachment Theory." : "Two branches run simultaneously: Branch A analyzes appearance preferences via Kibbe & Seasonal Color. Branch B analyzes personality preferences via Big Five & Attachment Theory.", technicalKeyword: "parallel agents", actor: "Appearance Agent + Personality Agent", whyItMatters: vi ? "Chạy song song tiết kiệm thời gian vì hai phân tích hoàn toàn độc lập nhau." : "Parallel execution saves time since the two analyses are completely independent." },
-          { title: vi ? "Tổng hợp kết quả" : "Synthesize", explanation: vi ? "Synthesis Agent đọc cả hai kết quả và tạo bản tư vấn tổng hợp, kết nối gu ngoại hình và tính cách lại với nhau." : "Synthesis Agent reads both results and creates a combined recommendation connecting appearance and personality preferences.", technicalKeyword: "synthesis", actor: "Synthesis Agent" },
-          { title: vi ? "Trả báo cáo" : "Return report", explanation: vi ? "Người dùng nhận bản phân tích cá nhân hóa dựa trên framework học thuật — không phải lời khuyên cảm tính." : "User receives personalized analysis based on academic frameworks — not subjective advice.", technicalKeyword: "PartnerPlan", actor: "Love Advisor Pipeline" },
+          { title: vi ? "Nhận sở thích đã nêu" : "Read stated preferences", explanation: vi ? "Pipeline chỉ dùng các sở thích giao tiếp và lập kế hoạch mà người dùng chủ động cung cấp." : "The pipeline only uses communication and planning preferences explicitly supplied by the user.", technicalKeyword: "bounded input", actor: "Preference Pipeline" },
+          { title: vi ? "Chạy hai nhánh" : "Run two branches", explanation: vi ? "Nhánh A tóm tắt cách giao tiếp. Nhánh B tóm tắt cách lập kế hoạch. Hai nhánh không suy luận ngoại hình, sức khỏe hoặc đặc điểm nhạy cảm." : "Branch A summarizes communication preferences. Branch B summarizes planning preferences. Neither infers appearance, health or sensitive traits.", technicalKeyword: "parallel agents", actor: "Communication + Planning", whyItMatters: vi ? "Hai công việc độc lập có thể chạy cùng lúc nhưng vẫn giữ ranh giới dữ liệu." : "Independent tasks can run together while keeping clear data boundaries." },
+          { title: vi ? "Chờ đủ hai kết quả" : "Wait for both outputs", explanation: vi ? "Cổng tổng hợp chỉ mở khi cả hai nhánh đã trả kết quả hợp lệ." : "The synthesis gate opens only after both branches return valid output.", technicalKeyword: "synthesis gate", actor: "Synthesis Agent" },
+          { title: vi ? "Trả gợi ý có giới hạn" : "Return bounded guidance", explanation: vi ? "Kết quả đề xuất cách phối hợp và ghi rõ điều gì còn cần hai bên thống nhất." : "The result suggests a coordination approach and states what still needs mutual agreement.", technicalKeyword: "structured output", actor: "Preference Pipeline" },
         ],
       },
       {
         id: "LA-02", project: "love-advisor", caseType: "happy",
-        title: vi ? "Chỉ phân tích tính cách" : "Personality-only analysis",
-        prompt: vi ? "Tôi muốn biết kiểu gắn bó và ngôn ngữ tình yêu phù hợp nhất với tôi. Tôi hay lo lắng quá mức trong mối quan hệ." : "I want to know the best attachment style and love language match for me. I tend to over-worry in relationships.",
+        title: vi ? "Chỉ phân tích cách giao tiếp" : "Communication-only analysis",
+        prompt: vi ? "Tôi muốn trao đổi thẳng nhưng cần thời gian suy nghĩ trước khi trả lời." : "I prefer direct communication but need time to think before replying.",
         outputType: "love",
         outputContent: null,
         steps: [
-          { title: vi ? "Phân tích đầu vào" : "Analyze input", explanation: vi ? "Agent nhận ra từ 'lo lắng quá mức' — dấu hiệu của Anxious Attachment. Tập trung vào phân tích tính cách." : "Agent recognizes 'over-worry' — indicator of Anxious Attachment. Focuses on personality analysis.", technicalKeyword: "intent · attachment cue", actor: "Love Advisor Pipeline" },
-          { title: vi ? "Nghiên cứu gắn bó" : "Attachment research", explanation: vi ? "Personality Agent tìm tài liệu về Anxious Attachment và các kiểu gắn bó tương thích theo Attachment Theory." : "Personality Agent researches Anxious Attachment and compatible attachment styles per Attachment Theory.", technicalKeyword: "attachment theory", actor: "Personality Agent" },
-          { title: vi ? "Tổng hợp tư vấn" : "Synthesize advice", explanation: vi ? "Synthesis Agent đưa ra: kiểu gắn bó phù hợp nhất (Secure), ngôn ngữ tình yêu ưu tiên (Words of Affirmation, Quality Time) và các dấu hiệu cần tránh." : "Synthesis Agent outputs: best attachment style match (Secure), priority love languages (Words of Affirmation, Quality Time) and red flags to avoid.", technicalKeyword: "synthesis · Love Languages", actor: "Synthesis Agent" },
+          { title: vi ? "Giới hạn phạm vi" : "Bound the scope", explanation: vi ? "Pipeline chỉ xử lý sở thích giao tiếp đã nêu và bỏ qua nhánh lập kế hoạch." : "The pipeline handles only the stated communication preferences and skips the planning branch.", technicalKeyword: "scope selection", actor: "Preference Pipeline" },
+          { title: vi ? "Tóm tắt nhu cầu" : "Summarize needs", explanation: vi ? "Communication Agent ghi nhận hai nhu cầu: nói rõ vấn đề và cho phép khoảng dừng trước khi phản hồi." : "The Communication Agent records two needs: clear discussion and room to pause before responding.", technicalKeyword: "structured summary", actor: "Communication Agent" },
+          { title: vi ? "Đề xuất cách phối hợp" : "Suggest coordination", explanation: vi ? "Kết quả đề xuất báo trước khi cần phản hồi ngay và thống nhất một khoảng thời gian phù hợp để quay lại cuộc trao đổi." : "The result suggests flagging urgent responses and agreeing on a reasonable time to return to the discussion.", technicalKeyword: "bounded guidance", actor: "Synthesis Agent" },
         ],
       },
       {
         id: "LA-03", project: "love-advisor", caseType: "validation",
-        title: vi ? "Mô tả mâu thuẫn" : "Contradictory description",
-        prompt: vi ? "Tôi muốn người vừa hướng nội hoàn toàn vừa rất thích tụ tập đông người." : "I want someone who is completely introverted but also loves large gatherings.",
+        title: vi ? "Sở thích chưa đủ rõ" : "Preferences need clarification",
+        prompt: vi ? "Tôi muốn mọi kế hoạch thật chi tiết nhưng cũng không muốn bị ràng buộc." : "I want every plan to be highly detailed but I also do not want constraints.",
         outputType: "love",
         outputContent: null,
         steps: [
-          { title: vi ? "Phát hiện mâu thuẫn" : "Detect contradiction", explanation: vi ? "Agent nhận ra 'hướng nội hoàn toàn' và 'thích tụ tập đông người' là hai đặc điểm mâu thuẫn nhau theo định nghĩa Big Five." : "Agent recognizes 'completely introverted' and 'loves large gatherings' are contradictory per Big Five definition.", technicalKeyword: "contradiction · Big Five", actor: "Personality Agent" },
-          { title: vi ? "Phản hồi trung thực" : "Honest response", explanation: vi ? "Agent không cố tư vấn bất khả thi. Giải thích mâu thuẫn và đề xuất cách diễn đạt lại sở thích." : "Agent doesn't try to advise on the impossible. Explains the contradiction and suggests ways to re-frame preferences.", technicalKeyword: "honesty · reframing", actor: "Synthesis Agent", whyItMatters: vi ? "Tư vấn tốt không cố tư vấn những điều không thực tế." : "Good advice doesn't try to advise on unrealistic scenarios." },
+          { title: vi ? "Phát hiện điểm cần làm rõ" : "Detect ambiguity", explanation: vi ? "Planning Agent nhận ra yêu cầu cần vừa chi tiết vừa linh hoạt nhưng chưa nói phần nào thuộc mỗi nhóm." : "The Planning Agent sees a request for both detail and flexibility without saying which parts belong to each.", technicalKeyword: "ambiguity detection", actor: "Planning Agent" },
+          { title: vi ? "Hỏi lại có mục tiêu" : "Ask a focused question", explanation: vi ? "Agent hỏi phần nào phải cố định, chẳng hạn thời gian hoặc ngân sách, và phần nào có thể thay đổi." : "The agent asks what must stay fixed, such as timing or budget, and what may change.", technicalKeyword: "clarification", actor: "Synthesis Agent", whyItMatters: vi ? "Hỏi đúng phần còn thiếu tốt hơn tự gán sở thích cho người dùng." : "Clarifying missing constraints is better than assigning preferences to the user." },
         ],
       },
     ],
@@ -540,7 +693,72 @@ function buildCases(locale: Locale): Record<string, SimCase[]> {
 // ────────────────────────────────────────────────────────────────
 // OUTPUT DISPATCHER
 // ────────────────────────────────────────────────────────────────
-function OutputPanel({ caseData }: { caseData: SimCase }) {
+function EnglishOutput({ caseData }: { caseData: SimCase }) {
+  const caseOverrides: Record<string, { label: string; body: string; detail: string }> = {
+    "TP-01": { label: "Itinerary + state receipt", body: "A three-day Hue itinerary grouped by day and based on the supplied cultural, food and budget preferences.", detail: "The receipt stores destination, duration, priorities and budget." },
+    "TP-02": { label: "Session state read", body: "The agent returns only the trip fields already stored in the current session.", detail: "Missing fields are omitted rather than invented." },
+    "TP-03": { label: "Clarification request", body: "The agent asks for trip duration and budget before creating an itinerary.", detail: "No itinerary is produced from incomplete input." },
+    "ST-01": { label: "Draft + critique + revision", body: "A 60-second portfolio script moves through Drafter, Critic and Reviser.", detail: "The final version addresses the full structured critique." },
+    "ST-02": { label: "Bounded critique", body: "Only the opening and call to action are reviewed and rewritten.", detail: "The body remains unchanged, proving the scope constraint was preserved." },
+    "ST-03": { label: "Handoff failure", body: "Critic receives no draft and stops instead of reviewing empty data.", detail: "Coordinator records the failure and requests a new Drafter run." },
+    "WC-01": { label: "Source + calculation", body: "The fixed 2022 final score is retrieved and the goal difference after extra time is calculated as zero.", detail: "The penalty result is reported separately from the match score." },
+    "WC-02": { label: "Tournament form profile", body: "Argentina's seven-match run is summarized as four regulation wins, two draws won on penalties and one loss.", detail: "The report separates shoot-outs from results after extra time." },
+    "WC-03": { label: "Out-of-scope refusal", body: "The demo declines a live-score request because it has no live data source.", detail: "It directs the user to an authorized official source instead of inventing a score." },
+    "LA-01": { label: "Two preference lanes", body: "Communication and planning preferences run independently before a bounded synthesis.", detail: "Only preferences explicitly supplied by the user are used." },
+    "LA-02": { label: "Communication-only brief", body: "The result summarizes direct communication and requested thinking time.", detail: "The planning branch does not run because it was not requested." },
+    "LA-03": { label: "Safe clarification", body: "The system asks which observable communication or planning situation should be examined.", detail: "It does not infer personality or sensitive traits from vague input." },
+    "DI-01": { label: "Anomaly report", body: "The sample flags July's error-rate increase and revenue decline from the displayed rows.", detail: "QA approves the report after mapping each claim to source data." },
+    "DI-02": { label: "Rejected claim + revision", body: "QA removes a six-month trend claim because only two months of evidence exist.", detail: "The revised claim states the evidence limit before publication." },
+    "DI-03": { label: "Historical comparison", body: "June archive data is compared with July for revenue, orders and error rate.", detail: "RAG provenance and the calculated deltas remain visible." },
+    "A2A-01": { label: "Route to Trip Planner", body: "The travel request matches Trip Planner's declared capabilities and endpoint.", detail: "The returned receipt identifies the selected remote agent." },
+    "A2A-02": { label: "Route to Script Team", body: "The YouTube script request matches Script Team's writing, review and revision capabilities.", detail: "The receipt identifies port 8002 and the Drafter-to-Reviser workflow." },
+    "A2A-03": { label: "Clarification fallback", body: "No specialist is selected for an ambiguous request.", detail: "The orchestrator asks what job the user needs instead of guessing." },
+  };
+  const outputs: Record<string, { label: string; body: string; detail: string }> = {
+    "trip-planner": {
+      label: "Itinerary + state receipt",
+      body: "A three-day Hue itinerary organized by day, based on the supplied cultural and food preferences.",
+      detail: "Saved state: destination = Hue; duration = 3 days; priorities = culture and local food.",
+    },
+    "script-team": {
+      label: "Draft + critique + revision",
+      body: "A 60-second portfolio script with a clearer opening, a structured critique and a revised final version.",
+      detail: "The revision addresses the critique while keeping the requested call to action.",
+    },
+    "worldcup-analyst": {
+      label: "Sources + calculation + memo",
+      body: "Fixed dataset: Argentina 3-3 France after extra time in the 2022 World Cup final; Argentina won 4-2 on penalties.",
+      detail: "Calculated goal difference after extra time: 0. The demo does not provide live scores.",
+    },
+    "love-advisor": {
+      label: "Two preference lenses + synthesis",
+      body: "Communication preferences and planning preferences are summarized independently.",
+      detail: "The synthesis suggests a coordination approach and states remaining uncertainty. No diagnosis or sensitive inference.",
+    },
+    "dashboard-insights": {
+      label: "Data + claim mapping + QA",
+      body: "The prepared sample flags a July error-rate increase and maps the claim back to the displayed rows.",
+      detail: "QA checks the claim before the report is shown and removes conclusions unsupported by the sample.",
+    },
+    "a2a-orchestrator": {
+      label: "Route + Agent Card + returned artifact",
+      body: "The request is matched to Trip Planner using its declared trip-planning and session-state capabilities.",
+      detail: "If no specialist matches clearly, the orchestrator asks for clarification instead of guessing.",
+    },
+  };
+  const output = caseOverrides[caseData.id] ?? outputs[caseData.project];
+  return (
+    <div className={`sim-output-english sim-output-${caseData.outputType}`}>
+      <div className="sim-output-label">{output.label}</div>
+      <h4>{caseData.title}</h4>
+      <p>{output.body}</p>
+      <p className="sim-output-note">{output.detail}</p>
+    </div>
+  );
+}
+
+function OutputPanel({ caseData, locale }: { caseData: SimCase; locale: Locale }) {
+  if (locale === "en") return <EnglishOutput caseData={caseData} />;
   switch (caseData.outputType) {
     case "trip": return <TripOutput caseId={caseData.id} />;
     case "script": return <ScriptOutput caseId={caseData.id} />;
@@ -676,13 +894,13 @@ export function AgentInteractionSimulator({
               )}
             </div>
             <div className="sim-controls" role="group" aria-label={vi ? "Điều khiển" : "Controls"}>
-              <button onClick={() => setStepIndex(prev => Math.max(0, prev - 1))} disabled={stepIndex <= 0} aria-label={vi ? "Bước trước" : "Previous step"}>‹</button>
+              <button onClick={() => setStepIndex(prev => Math.max(0, prev - 1))} disabled={stepIndex <= 0} aria-label={vi ? "Bước trước" : "Previous step"} title={vi ? "Bước trước" : "Previous step"}>‹</button>
               {playing
-                ? <button onClick={handlePause} aria-label={vi ? "Tạm dừng" : "Pause"}>⏸</button>
-                : <button onClick={handlePlay} aria-label={vi ? "Phát" : "Play"}>▶</button>
+                ? <button onClick={handlePause} aria-label={vi ? "Tạm dừng" : "Pause"} title={vi ? "Tạm dừng" : "Pause"}>⏸</button>
+                : <button onClick={handlePlay} aria-label={vi ? "Xem nhanh 30 giây" : "30-second guided view"} title={vi ? "Xem nhanh 30 giây" : "30-second guided view"}>▶</button>
               }
-              <button onClick={() => { if (!sent) handleSend(); setStepIndex(prev => Math.min(activeCase.steps.length - 1, prev + 1)); }} disabled={isFinished} aria-label={vi ? "Bước sau" : "Next step"}>›</button>
-              <button onClick={handleReset} aria-label={vi ? "Chạy lại" : "Restart"}>↺</button>
+              <button onClick={() => { if (!sent) handleSend(); setStepIndex(prev => Math.min(activeCase.steps.length - 1, prev + 1)); }} disabled={isFinished} aria-label={vi ? "Bước sau" : "Next step"} title={vi ? "Bước sau" : "Next step"}>›</button>
+              <button onClick={handleReset} aria-label={vi ? "Chạy lại" : "Restart"} title={vi ? "Chạy lại" : "Restart"}>↺</button>
             </div>
             {sent && (
               <div className="sim-step-counter mono" aria-live="polite">
@@ -714,11 +932,15 @@ export function AgentInteractionSimulator({
                       <span className="sim-step-actor mono">{step.actor}</span>
                       {state === "active" && (
                         <div className="sim-step-detail" aria-live="polite">
-                          <p className="sim-step-explanation">{step.explanation}</p>
-                          {step.whyItMatters && <p className="sim-step-why"><em>{vi ? "Tại sao điều này quan trọng:" : "Why this matters:"} {step.whyItMatters}</em></p>}
-                          {step.technicalKeyword && (
-                            <span className="sim-step-keyword mono">{step.technicalKeyword}</span>
-                          )}
+                          <dl className="sim-step-answers">
+                            <div><dt>{vi ? "Agent hiểu gì?" : "What did the agent understand?"}</dt><dd>{step.explanation}</dd></div>
+                            <div><dt>{vi ? "Ai đang xử lý?" : "Who is handling it?"}</dt><dd>{step.actor}</dd></div>
+                            <div><dt>{vi ? "Tool hoặc sub-agent" : "Tool or sub-agent"}</dt><dd>{step.technicalKeyword || (vi ? "Không cần gọi thêm" : "No additional call")}</dd></div>
+                            <div><dt>{vi ? "Dữ liệu được truyền hoặc đổi" : "Data passed or changed"}</dt><dd>{vi ? `Input của bước ${i + 1} → kết quả trung gian có cấu trúc` : `Step ${i + 1} input → structured intermediate result`}</dd></div>
+                            <div><dt>{vi ? "Kết quả trung gian" : "Intermediate result"}</dt><dd>{step.title}</dd></div>
+                            <div><dt>{vi ? "Vì sao cần bước này?" : "Why is this step needed?"}</dt><dd>{step.whyItMatters || (vi ? "Bước này tạo dữ liệu cần thiết cho bước tiếp theo." : "This step creates the data required by the next step.")}</dd></div>
+                            <div><dt>{vi ? "Nếu lỗi thì sao?" : "What happens on failure?"}</dt><dd>{activeCase.caseType === "failure" || activeCase.caseType === "fallback" || activeCase.caseType === "validation" ? (vi ? "Dừng đúng phạm vi, giữ dữ liệu đã có và trả fallback hoặc câu hỏi làm rõ." : "Stop within scope, preserve available data and return a fallback or clarification.") : (vi ? "Không chuyển dữ liệu rỗng; báo lỗi và cho phép chạy lại bước." : "Do not pass empty data; report the error and allow the step to be retried.")}</dd></div>
+                          </dl>
                         </div>
                       )}
                     </div>
@@ -751,7 +973,7 @@ export function AgentInteractionSimulator({
                 <span>{vi ? "Đang xử lý..." : "Processing..."}</span>
               </div>
             ) : (
-              <OutputPanel caseData={activeCase} />
+              <OutputPanel caseData={activeCase} locale={locale} />
             )}
           </div>
         </div>

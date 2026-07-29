@@ -1,50 +1,51 @@
-# V2.2 Content Outline
+# V3.3 Content Outline
 
 ## Home
 
-- Editorial thesis cover.
-- Recruiter snapshot and real owner actions when configured.
-- Six-step capability ladder.
-- Agent Core & Artifact Explorer.
-- Featured verified replay entries.
-- Learning Center bridge.
-- Builder/contact section.
+- Field Guide cover.
+- Interactive ecosystem infographic: ACT to CONNECT.
+- Project Discovery Desk with labeled action and honest match states.
+- Six case-study rows with visual/output preview.
+- Three-track Learning Center preview.
+- Owner and contact actions.
 
 ## Projects
 
-- Six-project editorial index.
-- Pattern and replay-mode filters.
-- Project pages with one internal timeline, Verified Replay Player, exact source metadata and project-specific output.
+- Problem-led search and presets.
+- Six projects described by user job, output and architecture step.
+- Comparison view remains available.
+
+## Project pages
+
+- Human-readable situation and goal.
+- Design decisions expressed as narrative, not CASE labels.
+- Simulator: Input, detailed Process, project-specific Output.
+- Technical source and raw details behind disclosure.
+- VI/EN interface and content parity.
 
 ## System
 
-- Existing interactive System Explorer.
-- Clear browser-simulation notice.
-- Links into verified project replays and source.
+- Easy mode by default.
+- Technical mode for endpoint, Agent Card, schemas and raw trace.
+- Desktop topology, tablet step cards and mobile vertical trace.
 
 ## Learning Center
 
-- Six learning paths.
-- Flashcard Studio: 60 VI + 60 EN.
-- Question Bank: 90 VI + 90 EN.
-- Twelve practice activities.
-- 20- and 30-question mock exams.
-- Local progress and user-initiated voice.
+- Landing with three tracks.
+- Track A: Decision Wizard, nine modules, 114-item paginated dictionary, eight Workflow Labs, ten-part Checklist Auditor, fourteen Compare Lab groups and optional foundation reference.
+- Track B: six project libraries with architecture, source tour, simulator, failure/debug prompts and interview questions.
+- Track C: a five-layer System Atlas for 17 AI concepts, Architecture Tuner, Failure Injection Studio and a locally persisted Mastery Passport.
 
 ## Contact
 
-- Real configured actions only.
-- No fake form or missing-data placeholder.
+- Owner name, role, email and GitHub from real config.
+- Copy-email action and highlighted project links.
+- Email and GitHub links use a high-contrast five-color click cycle with persisted state.
+- No form or configuration warning.
 
-## Redirect-only routes
+## Delivery
 
-- Evidence → Projects.
-- About → Home `#builder` or Contact.
-
-## Internal deliverables
-
-- Project source map.
-- Root-agent exact-source extracts.
-- Runtime/runbook/environment reports.
-- Sanitized replay fixtures and validation.
-- Acceptance and browser QA evidence.
+- Build and critical route checks.
+- Browser checks at 320, 768 and 1440 px.
+- Final desktop, tablet and mobile screenshots.
+- Save and deploy the exact verified source state through ChatGPT Sites with link sharing.

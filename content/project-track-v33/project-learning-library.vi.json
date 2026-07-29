@@ -1,0 +1,164 @@
+[
+  {
+    "slug": "trip-planner",
+    "project": "Trip Planner",
+    "architectureStep": "ACT",
+    "beginnerQuestion": "Agent có thể nhớ thông tin bạn đã cung cấp không?",
+    "dictionaryTopics": [
+      "Tool Calling",
+      "Session State",
+      "Validation",
+      "State Diff"
+    ],
+    "activityTypes": [
+      "matching",
+      "state-diff",
+      "missing-input",
+      "source-hotspot"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  },
+  {
+    "slug": "script-team",
+    "project": "Script Team",
+    "architectureStep": "DELEGATE",
+    "beginnerQuestion": "Nhiều vai trò có thể cùng hoàn thiện một nội dung không?",
+    "dictionaryTopics": [
+      "Transfer",
+      "Roles",
+      "Output Key",
+      "Structured Feedback"
+    ],
+    "activityTypes": [
+      "role-matching",
+      "ordering",
+      "output-key-debug",
+      "revision-diff"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  },
+  {
+    "slug": "worldcup-analyst",
+    "project": "World Cup Analyst",
+    "architectureStep": "COMPUTE",
+    "beginnerQuestion": "Làm sao tách tìm dữ kiện khỏi tính toán?",
+    "dictionaryTopics": [
+      "Agent as Tool",
+      "Retrieval",
+      "Code Executor",
+      "Source Scope"
+    ],
+    "activityTypes": [
+      "source-vs-calculation",
+      "formula",
+      "empty-search",
+      "architecture-choice"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  },
+  {
+    "slug": "love-advisor",
+    "project": "Love Advisor",
+    "architectureStep": "COMPOSE",
+    "beginnerQuestion": "Hai hướng phân tích có thể chạy cùng lúc không?",
+    "dictionaryTopics": [
+      "Parallel",
+      "Synthesis Gate",
+      "Structured Output",
+      "Uncertainty"
+    ],
+    "activityTypes": [
+      "branch-ordering",
+      "synthesis-lock",
+      "safe-output-classification",
+      "schema-check"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  },
+  {
+    "slug": "dashboard-insights",
+    "project": "Dashboard Insights",
+    "architectureStep": "VERIFY",
+    "beginnerQuestion": "Làm sao kiểm tra kết luận trước khi dùng?",
+    "dictionaryTopics": [
+      "Data Quality",
+      "Calculation",
+      "Claim-to-row",
+      "QA Loop"
+    ],
+    "activityTypes": [
+      "claim-to-row",
+      "qa-reject",
+      "revision-loop",
+      "no-anomaly"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  },
+  {
+    "slug": "a2a-orchestrator",
+    "project": "A2A Orchestrator",
+    "architectureStep": "CONNECT",
+    "beginnerQuestion": "Nhiều agent chạy riêng có thể tìm và gọi nhau không?",
+    "dictionaryTopics": [
+      "Agent Card",
+      "Routing",
+      "Remote Boundary",
+      "Fallback"
+    ],
+    "activityTypes": [
+      "routing",
+      "mcp-vs-a2a",
+      "no-match",
+      "failure-sequence"
+    ],
+    "requiredSections": [
+      "Project giải quyết vấn đề gì?",
+      "Các role/agent nào tham gia?",
+      "Tool nào được gọi?",
+      "State hoặc output key nào thay đổi?",
+      "Output là gì?",
+      "Điều gì có thể lỗi?",
+      "Source nằm ở đâu?"
+    ]
+  }
+]

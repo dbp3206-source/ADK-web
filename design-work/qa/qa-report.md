@@ -1,91 +1,62 @@
-# QA Report — Interactive V2
+# QA Report - V3.3 Lite Revision
 
 ## Summary
 
-Version 2.0.0 implements the approved Tier 1 interactive portfolio and selected Tier 2 features in the existing Next.js 16 static-export architecture. Vietnamese is the default; English has structural dictionary parity. The result does not add a live AI backend or invent owner, repository, commit, screenshot, test, metric, latency, uptime or testimonial evidence.
+The existing Next.js portfolio was revised in place. The visual direction remains the locked technical-editorial system, extended with a Field Guide, problem-led project discovery, complete case studies, detailed deterministic simulators, an easy/technical System Explorer, and three Learning tracks.
 
 ## Inputs and route
 
-- Read all 82 files in the V2 revision package before implementation.
-- Verified all 81 manifest-listed resources by SHA-256; the manifest itself is the only additional package file.
-- Read and visually reviewed both supplied PDFs.
-- Primary visual workflow: Hallmark (`Signal Editorial V3`, Workbench + Split Diptych).
-- Supporting workflow: PDF inspection.
-- Target environment: Next.js App Router, TypeScript strict mode, npm, static export.
+- Revision resources: `ADK_Web_ChatGPT_Work_V3_3_Lite_Revision`.
+- Source authority: existing website source plus the six local ADK agent project source trees.
+- Primary design workflow: Hallmark, using the existing design system as the source of truth.
+- Target environment: Next.js App Router, TypeScript strict mode, static export.
+- Rollback baseline: branch `main` at commit `234d39f`.
+- Working branch: `codex/v3.3-lite-revision`.
 
 ## Implemented surface
 
-- Root Vietnamese home plus `/vi/...` and `/en/...`.
-- Projects index, six localized case studies, System, Learn, four lessons, Evidence, About, Contact and 404.
-- Legacy route fallback redirects.
-- Three discovery modes, progress rail, audience switcher and capability inspector.
-- Five-preset System Explorer with seven steps and complete contract inspector.
-- Six deterministic micro-labs.
-- User-initiated Voice Guide with feature detection, transport controls, section navigation, locale voice preference and visible transcript.
-- Accessible Ctrl/Cmd+K Command Deck.
-- Artifact gallery, pattern comparator, project comparison view, sticky TOCs, copy deep link and print/paper mode.
-- Conditional owner/CV/GitHub/LinkedIn/contact actions.
+- Home: ecosystem Field Guide, capability workbench and labelled Discovery Desk with honest no-match and tied-match handling.
+- Projects: problem-led index and six output-first case studies with VI/EN parity.
+- Simulators: operational trace questions for every step and six distinct artifact renderers.
+- Safety and time scope: fixed 2022 World Cup public dataset; Love Advisor public scenarios limited to communication and planning preferences.
+- System: default easy vertical trace plus the existing full technical explorer.
+- Learning: Track A practical AI library, Track B project-by-project architecture learning, and Track C for 17 AI system concepts.
+- Track C: five-layer dependency atlas, constraint-based Architecture Tuner, Failure Injection Studio and locally persisted Mastery Passport.
+- Contact: real email copy action, owner role, featured projects, GitHub repository and a five-color click interaction on the primary links.
+- Follow-up fixes: wrapped capability labels, distinct input/output per simulator scenario, non-overlapping Dashboard QA verdict, reliable System mode tabs and readable 01–07 technical headings.
+- P0: removed global simulation banner, stale public version labels, nested main landmarks, vertical nested scrolling and mobile overflow risks.
 
-## Verification result
+## Verification
 
 - TypeScript strict typecheck: pass.
-- Unit tests: 14/14 pass across 5 files.
-- Production build and 55-page static generation: pass.
-- Playwright: 64/64 pass in one final run across desktop Chromium and mobile Chromium.
-- Responsive widths: 320, 375, 414, 768, 1024 and 1440 px; no page-level overflow on tested core routes.
-- axe-core: no serious or critical findings on core pages and all six case studies.
-- Keyboard: mobile drawer focus trap/restore, Command Deck, filters, trace controls and labs verified.
-- Reduced motion: information and controls preserved.
-- Direct localized route refresh, old-route fallback and custom 404: pass.
-- Console checks: no uncaught errors on acceptance routes.
-- Placeholder external links: absent.
+- Unit tests: 18/18 pass across 6 files.
+- Production build: pass; 76 static pages generated.
+- Browser route audit: 26 VI/EN routes at 1440 px and 320 px, 52 rendered combinations.
+- Browser findings after fixes: no horizontal overflow, broken images, failed requests, console errors, nested vertical scrollers or duplicate `main` landmarks.
+- English parity check: no Vietnamese diacritic leakage above the audit threshold on the tested EN routes.
+- Interactions verified: Field Guide selection, Discovery no-match and preset match, simulator trace, World Cup out-of-scope handling, Love Advisor safe presets, System mode switch, Learning search/filter, workflow failure state, checklist state and project switching.
+- Follow-up simulator matrix: 18/18 scenarios across six projects have distinct inputs and distinct outputs within each project.
+- Follow-up responsive checks: capability labels at 541 px, Dashboard QA at 430 px, System tabs at 390 px and Track C at 390/1440 px all pass without horizontal overflow.
+- Track C interactions verified: concept selection, mastery persistence, scenario selection, range controls and diagnostic feedback.
+- Contact link interaction verified: five click-triggered colors cycle in order and remain readable after visited state.
+- Final screenshots: desktop 1440 x 900, tablet 768 x 1024 and mobile 320 x 720.
 
-## Lighthouse mobile baseline
+## Visual review and fixes
 
-Stable audit using a dedicated Chrome debugging session:
+- Removed `content-visibility` placeholders from user-facing sections that produced blank full-page captures.
+- Expanded condensed source views and simulator prompt fields to remove vertical nested scrolling.
+- Confirmed stable page width and readable content at 320, 768 and 1440 px.
+- Hallmark pre-emit critique: Philosophy 5, Hierarchy 5, Execution 4, Specificity 5, Restraint 4, Variety 5.
+- Quality score: **92/100**.
 
-- Performance: 66
-- Accessibility: 100
-- Best Practices: 100
-- SEO: 100
-- FCP: 3.0 s
-- simulated LCP: 7.0 s
-- TBT: 250 ms
-- CLS: 0
-- Speed Index: 3.0 s
+## Asset and license notes
 
-The observed LCP trace breakdown recorded about 16 ms time-to-first-byte and about 1.12 s element render delay for the hero H1. Lighthouse’s throttled simulation still reports 7.0 s, so the performance budget is not claimed as met. Micro-labs below the fold load through an IntersectionObserver boundary.
+No new external visual asset, stock image, generated image or third-party template was added. The revision uses repository-owned UI, data resources and source snapshots.
 
-## Visual review
+## Limitations
 
-Rendered screenshots cover Home at all six approved widths and Home/System/Dashboard/A2A at 375 and 1440. Fixes made after visual and axe review include mobile lab min-width handling, focusable horizontal scroll regions, paper/dark contrast corrections, footer eager rendering, removal of duplicate System voice controls and desktop menu simplification.
-
-## Trust and evidence
-
-- Every trace visibly displays the localized simulation notice.
-- Every lab states that it is a local simulation without a model or live service.
-- Evidence uses: Documented in supplied material, Located in repository, Verified locally, Proposed upgrade and Needs verification.
-- Source excerpt remains pending without a verified path and commit.
-- Love Advisor avoids appearance scoring, diagnosis and sensitive-trait inference.
-- No “production-ready” status is used.
-
-## Benchmark
-
-Official V2 score: **87/100**.
-
-The package defines a hard cap of roughly 86–88 when owner identity/contact/CV and verified project repository evidence are absent. The implemented technical surface passes its functional and accessibility acceptance suite, but the overall portfolio cannot honestly reach the 96 target until those owner inputs are supplied. Mobile Lighthouse performance is also an explicit technical limitation.
-
-## Remaining owner inputs
-
-- Name and approved professional headline.
-- Real email or another real contact action.
-- GitHub and LinkedIn URLs.
-- CV URL.
-- Six project repository URLs.
-- At least two verified repository paths, commits, source excerpts, tests and screenshots.
-
-## Delivery state
-
-- Static preview artifact is ready.
-- Public preview may be shared.
-- Production deployment is intentionally not created before owner preview approval.
+1. Public demos are deterministic and do not call live agents or live sports services.
+2. Historical source snapshots remain visible with explicit warnings where needed.
+3. No unprovided CV or LinkedIn URL was invented.
+4. No new Lighthouse audit was run.
+5. ChatGPT Sites rejected the requested `public` access mode because internet publishing is not enabled for this workspace. The saved/deployed version can be completed, but "anyone with the link" remains blocked by workspace policy until an administrator enables public Sites publishing.

@@ -3,57 +3,34 @@
 import { useMemo, useState } from "react";
 
 import { localizeProject, controlOwnerByProject, patternByProject } from "@/content/project-copy";
-import { SystemExplorerV2 } from "@/components/trace/SystemExplorerV2";
 import { projects } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
 
 export function HomeHero({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
-  const [step, setStep] = useState(0);
-
-  const steps = [
-    { verb: "ACT", label: locale === "vi" ? "Hành động" : "Act", desc: locale === "vi" ? "Agent có thể thực hiện hành động và ghi nhớ kết quả" : "Agent can take actions and remember results" },
-    { verb: "DELEGATE", label: locale === "vi" ? "Phân công" : "Delegate", desc: locale === "vi" ? "Nhiều vai trò cùng hoàn thiện một nội dung" : "Multiple roles collaborate to complete one piece" },
-    { verb: "COMPUTE", label: locale === "vi" ? "Tính toán" : "Compute", desc: locale === "vi" ? "Tách tìm dữ kiện khỏi tính toán số liệu" : "Separating fact-finding from numeric computation" },
-    { verb: "COMPOSE", label: locale === "vi" ? "Kết hợp" : "Compose", desc: locale === "vi" ? "Hai hướng phân tích chạy song song rồi tổng hợp" : "Two analysis paths run in parallel then merge" },
-    { verb: "VERIFY", label: locale === "vi" ? "Kiểm chứng" : "Verify", desc: locale === "vi" ? "Kết quả được kiểm tra trước khi dùng" : "Results are verified before being used" },
-    { verb: "CONNECT", label: locale === "vi" ? "Kết nối" : "Connect", desc: locale === "vi" ? "Các agent riêng biệt tìm và gọi nhau qua mạng" : "Independent agents discover and call each other" },
-  ];
 
   return (
     <section className="hero-v2">
-      <div className="hero-grid-v2">
+      <div className="hero-grid-v2 hero-grid-field-guide">
         <div className="hero-copy-v2">
           <p className="eyebrow-v2">{dict.hero.eyebrow}</p>
           <h1>{dict.hero.title}</h1>
           <p className="lede-v2">{dict.hero.subtitle}</p>
-
-          {/* Six-step signal */}
-          <nav className="hero-step-signal" aria-label={locale === "vi" ? "Sáu bước kiến trúc" : "Six architecture steps"}>
-            {steps.map((s, i) => (
-              <button
-                key={s.verb}
-                type="button"
-                className={`step-pill${step === i ? " is-active" : ""}`}
-                onClick={() => setStep(i)}
-                aria-pressed={step === i}
-              >
-                <span className="mono">{s.verb}</span>
-              </button>
-            ))}
-          </nav>
-          <p className="step-desc" aria-live="polite">{steps[step].desc}</p>
-
           <div className="v2-primary-actions">
-            <a className="primary-action-v2" href={localizedPath(locale, "/system")}>{dict.hero.ctaPrimary}</a>
+            <a className="primary-action-v2" href="#field-guide-title">
+              {locale === "vi" ? "Đi theo sáu bước" : "Follow the six steps"}
+            </a>
             <a className="secondary-action-v2" href={localizedPath(locale, "/projects")}>{dict.hero.ctaSecondary}</a>
           </div>
           <dl className="hero-stats-v2" aria-label={locale === "vi" ? "Quy mô hệ project" : "Project ecosystem scale"}>
             {dict.hero.stats.map(([value, label, detail]) => <div key={label}><dt>{value}</dt><dd><strong>{label}</strong><span>{detail}</span></dd></div>)}
           </dl>
         </div>
-        <div className="hero-control-plane">
-          <SystemExplorerV2 locale={locale} compact />
+        <div className="hero-field-guide-mark" aria-hidden="true">
+          <span>REQUEST</span>
+          <strong>ACT</strong><strong>DELEGATE</strong><strong>COMPUTE</strong>
+          <strong>COMPOSE</strong><strong>VERIFY</strong><strong>CONNECT</strong>
+          <span>RESULT</span>
         </div>
       </div>
     </section>

@@ -100,9 +100,9 @@ const vi = {
     deepLink: "Sao chép liên kết bước này"
   },
   projects: {
-    eyebrow: "PROJECT INDEX · ACT → CONNECT",
-    title: "Sáu hệ thống. Sáu mô hình kiểm soát khác nhau.",
-    subtitle: "Mỗi project thêm một lớp kiến trúc và một failure mode mới.",
+    eyebrow: "PROJECT INDEX · VIỆC CẦN LÀM → OUTPUT",
+    title: "Bắt đầu từ vấn đề bạn muốn giải quyết.",
+    subtitle: "Sáu project cho thấy sáu cách biến một yêu cầu thành output có thể kiểm tra.",
     search: "Tìm project hoặc công nghệ",
     filters: "Lọc theo pattern",
     ladder: "Dạng lộ trình",
@@ -205,10 +205,9 @@ const vi = {
   },
   footer: {
     statement: "Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent.",
-    note: "V2.2 preview · replay đã phân mode · không có backend agent trực tiếp",
     thesis: "Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent.",
     trace: "Theo dõi một request qua hệ thống",
-    colophon: "V2.2 · Việt/Anh · verified replay và browser simulation · không có live agent backend"
+    colophon: "Việt / Anh · mô phỏng deterministic · source nằm trong chi tiết kỹ thuật"
   }
 };
 
@@ -252,8 +251,8 @@ const en: Dictionary = {
     stepList: "Step list", deepLink: "Copy a link to this step"
   },
   projects: {
-    eyebrow: "PROJECT INDEX · ACT → CONNECT", title: "Six systems. Six different control models.",
-    subtitle: "Each project adds an architectural layer and a new failure mode.", search: "Search projects or technologies",
+    eyebrow: "PROJECT INDEX · JOB → OUTPUT", title: "Start with the problem you need to solve.",
+    subtitle: "Six projects show six ways to turn a request into an inspectable output.", search: "Search a problem, project or technology",
     filters: "Filter by pattern", ladder: "Ladder view", table: "Comparison view", clear: "Clear filters",
     empty: "No project matches all selected patterns. Clear one filter.", pattern: "Pattern", maturity: "Maturity", evidence: "Evidence"
   },
@@ -299,10 +298,9 @@ const en: Dictionary = {
   command: { title: "Command Deck", open: "Open Command Deck", short: "Commands", startTrace: "Start a system trace", startVoice: "Start or stop voice guide", resetProgress: "Reset exploration progress", search: "Search pages, projects or actions", empty: "No matching command." },
   footer: {
     statement: "Not six chatbots. Six architectural steps toward an agent ecosystem.",
-    note: "V2.2 preview · replay modes are explicit · no live agent backend",
     thesis: "Not six chatbots. Six architectural steps toward an agent ecosystem.",
     trace: "Follow a request across the system",
-    colophon: "V2.2 · Vietnamese/English · verified replay and browser simulation · no live agent backend"
+    colophon: "Vietnamese / English · deterministic simulations · source inside technical details"
   }
 };
 

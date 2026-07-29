@@ -60,7 +60,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="vi" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
       <body>
-        <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
         <LegacyRouteRedirect />
         <SiteHeader />
         <main id="main-content">{children}</main>

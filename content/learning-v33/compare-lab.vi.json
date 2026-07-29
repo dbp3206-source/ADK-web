@@ -1,0 +1,372 @@
+[
+  {
+    "id": "CMP-01",
+    "group": "AI vs ML vs Deep Learning",
+    "concept": "Artificial Intelligence (AI)",
+    "mainRole": "Khái niệm bao trùm cho hệ thống làm nhiệm vụ cần nhận biết, dự đoán hoặc tạo nội dung.",
+    "analogy": "Chiếc ô lớn",
+    "useWhen": "Khi nói về toàn bộ lĩnh vực hoặc sản phẩm AI.",
+    "notSuitableWhen": "Khi cần mô tả chính xác phương pháp kỹ thuật bên trong.",
+    "keyDifference": "ML và Deep Learning là các nhánh của AI."
+  },
+  {
+    "id": "CMP-02",
+    "group": "AI vs ML vs Deep Learning",
+    "concept": "Machine Learning (ML)",
+    "mainRole": "Cho hệ thống học quy luật từ dữ liệu.",
+    "analogy": "Một khu vực dưới chiếc ô",
+    "useWhen": "Khi bài toán dùng dữ liệu để dự đoán hoặc phân loại.",
+    "notSuitableWhen": "Khi hệ thống chỉ dùng quy tắc viết sẵn.",
+    "keyDifference": "ML là một cách xây AI, không phải toàn bộ AI."
+  },
+  {
+    "id": "CMP-03",
+    "group": "AI vs ML vs Deep Learning",
+    "concept": "Deep Learning",
+    "mainRole": "ML dùng mạng nơ-ron nhiều tầng.",
+    "analogy": "Một phòng chuyên sâu trong khu vực ML",
+    "useWhen": "Ảnh, âm thanh, ngôn ngữ và dữ liệu phức tạp.",
+    "notSuitableWhen": "Dữ liệu ít, bài toán đơn giản hoặc cần giải thích rất rõ.",
+    "keyDifference": "Deep Learning nằm trong ML và thường tốn tài nguyên hơn."
+  },
+  {
+    "id": "CMP-04",
+    "group": "Algorithm vs Model",
+    "concept": "Algorithm",
+    "mainRole": "Phương pháp hoặc tập bước dùng để học hay giải bài toán.",
+    "analogy": "Công thức nấu ăn",
+    "useWhen": "Khi chọn cách huấn luyện hoặc xử lý.",
+    "notSuitableWhen": "Khi nói về kết quả đã học cụ thể.",
+    "keyDifference": "Algorithm là cách làm."
+  },
+  {
+    "id": "CMP-05",
+    "group": "Algorithm vs Model",
+    "concept": "Model",
+    "mainRole": "Kết quả cụ thể sau khi thuật toán học trên dữ liệu.",
+    "analogy": "Món ăn đã nấu xong",
+    "useWhen": "Khi dùng để dự đoán hoặc tạo đầu ra.",
+    "notSuitableWhen": "Khi mô tả phương pháp học tổng quát.",
+    "keyDifference": "Model là thứ đã học và được đem ra sử dụng."
+  },
+  {
+    "id": "CMP-06",
+    "group": "Training vs Inference",
+    "concept": "Training",
+    "mainRole": "Giai đoạn điều chỉnh mô hình bằng dữ liệu.",
+    "analogy": "Luyện tập trước kỳ thi",
+    "useWhen": "Khi xây mới hoặc cập nhật mô hình.",
+    "notSuitableWhen": "Khi chỉ cần dùng mô hình đã có để trả kết quả.",
+    "keyDifference": "Training tạo hoặc thay đổi mô hình."
+  },
+  {
+    "id": "CMP-07",
+    "group": "Training vs Inference",
+    "concept": "Inference",
+    "mainRole": "Giai đoạn chạy mô hình đã học với dữ liệu mới.",
+    "analogy": "Làm bài thi",
+    "useWhen": "Khi phục vụ dự đoán hoặc câu trả lời thật.",
+    "notSuitableWhen": "Khi muốn mô hình học thêm kiến thức hoặc hành vi.",
+    "keyDifference": "Inference sử dụng mô hình, không huấn luyện nó."
+  },
+  {
+    "id": "CMP-08",
+    "group": "Parameter vs Hyperparameter",
+    "concept": "Parameter",
+    "mainRole": "Các con số mô hình tự điều chỉnh khi huấn luyện.",
+    "analogy": "Kiến thức người học tự hình thành",
+    "useWhen": "Khi nói về phần mô hình học từ dữ liệu.",
+    "notSuitableWhen": "Khi nói về thiết lập do người xây chọn.",
+    "keyDifference": "Parameter được học."
+  },
+  {
+    "id": "CMP-09",
+    "group": "Parameter vs Hyperparameter",
+    "concept": "Hyperparameter",
+    "mainRole": "Thiết lập người xây chọn để điều khiển quá trình học.",
+    "analogy": "Lịch học và số buổi luyện",
+    "useWhen": "Khi tinh chỉnh learning rate, số lớp hoặc batch size.",
+    "notSuitableWhen": "Khi nói về trọng số đã được mô hình học.",
+    "keyDifference": "Hyperparameter được cấu hình."
+  },
+  {
+    "id": "CMP-10",
+    "group": "Classification vs Regression vs Clustering",
+    "concept": "Classification",
+    "mainRole": "Dự đoán một nhãn hoặc nhóm đã biết trước.",
+    "analogy": "Xếp thư vào ngăn có tên",
+    "useWhen": "Spam/không spam, loại ticket.",
+    "notSuitableWhen": "Khi đầu ra là một con số liên tục.",
+    "keyDifference": "Cần danh sách lớp hoặc nhãn mục tiêu."
+  },
+  {
+    "id": "CMP-11",
+    "group": "Classification vs Regression vs Clustering",
+    "concept": "Regression",
+    "mainRole": "Dự đoán một con số liên tục.",
+    "analogy": "Ước lượng giá",
+    "useWhen": "Doanh thu, giá nhà, thời gian giao hàng.",
+    "notSuitableWhen": "Khi cần chọn nhãn hoặc tự tìm nhóm.",
+    "keyDifference": "Đầu ra chính là giá trị số."
+  },
+  {
+    "id": "CMP-12",
+    "group": "Classification vs Regression vs Clustering",
+    "concept": "Clustering",
+    "mainRole": "Tự gom đối tượng thành nhóm khi chưa có nhãn sẵn.",
+    "analogy": "Tự sắp đồ giống nhau thành cụm",
+    "useWhen": "Phân khúc khách hàng và khám phá dữ liệu.",
+    "notSuitableWhen": "Khi đã có nhãn đúng và cần dự đoán nhãn.",
+    "keyDifference": "Nhóm được khám phá, không phải nhãn có sẵn."
+  },
+  {
+    "id": "CMP-13",
+    "group": "Accuracy vs Precision vs Recall vs F1",
+    "concept": "Accuracy",
+    "mainRole": "Tỷ lệ đúng trên toàn bộ dự đoán.",
+    "analogy": "Tổng điểm đúng",
+    "useWhen": "Dữ liệu các lớp tương đối cân bằng.",
+    "notSuitableWhen": "Lớp cần tìm rất hiếm.",
+    "keyDifference": "Nhìn tổng thể nhưng có thể che giấu lỗi ở lớp hiếm."
+  },
+  {
+    "id": "CMP-14",
+    "group": "Accuracy vs Precision vs Recall vs F1",
+    "concept": "Precision",
+    "mainRole": "Trong các cảnh báo dương, tỷ lệ cảnh báo đúng.",
+    "analogy": "Báo động có đáng tin không?",
+    "useWhen": "Khi báo nhầm gây tốn kém.",
+    "notSuitableWhen": "Khi bỏ sót nguy hiểm hơn báo nhầm.",
+    "keyDifference": "Tập trung vào chất lượng cảnh báo."
+  },
+  {
+    "id": "CMP-15",
+    "group": "Accuracy vs Precision vs Recall vs F1",
+    "concept": "Recall",
+    "mainRole": "Trong các trường hợp dương thật, tỷ lệ tìm được.",
+    "analogy": "Đã tìm đủ chưa?",
+    "useWhen": "Khi bỏ sót gây hậu quả lớn.",
+    "notSuitableWhen": "Khi mỗi cảnh báo nhầm rất đắt.",
+    "keyDifference": "Tập trung vào mức độ bao phủ."
+  },
+  {
+    "id": "CMP-16",
+    "group": "Accuracy vs Precision vs Recall vs F1",
+    "concept": "F1 Score",
+    "mainRole": "Điểm cân bằng giữa Precision và Recall.",
+    "analogy": "Điểm thỏa hiệp",
+    "useWhen": "Khi cần một con số cân bằng hai mục tiêu.",
+    "notSuitableWhen": "Khi chi phí Precision và Recall rất khác nhau.",
+    "keyDifference": "Không phản ánh True Negative và cần hiểu bối cảnh."
+  },
+  {
+    "id": "CMP-17",
+    "group": "Overfitting vs Underfitting",
+    "concept": "Overfitting",
+    "mainRole": "Học quá sát dữ liệu cũ nên kém với dữ liệu mới.",
+    "analogy": "Học thuộc đáp án",
+    "useWhen": "Khi train tốt nhưng test hoặc thực tế kém.",
+    "notSuitableWhen": "Khi cả train và test đều kém.",
+    "keyDifference": "Mô hình quá nhạy hoặc quá phức tạp so với dữ liệu."
+  },
+  {
+    "id": "CMP-18",
+    "group": "Overfitting vs Underfitting",
+    "concept": "Underfitting",
+    "mainRole": "Chưa học đủ quy luật nên cả dữ liệu cũ và mới đều kém.",
+    "analogy": "Chưa học bài",
+    "useWhen": "Khi cả train và test đều có lỗi cao.",
+    "notSuitableWhen": "Khi train rất tốt nhưng test kém.",
+    "keyDifference": "Mô hình hoặc dữ liệu đầu vào chưa đủ sức biểu diễn bài toán."
+  },
+  {
+    "id": "CMP-19",
+    "group": "Prompt vs System Prompt",
+    "concept": "Prompt",
+    "mainRole": "Yêu cầu cụ thể cho một lượt hoặc nhiệm vụ.",
+    "analogy": "Đề bài",
+    "useWhen": "Khi người dùng yêu cầu tóm tắt, phân tích hoặc viết.",
+    "notSuitableWhen": "Khi cần đặt chính sách chung cho toàn ứng dụng.",
+    "keyDifference": "Thường thay đổi theo từng nhiệm vụ."
+  },
+  {
+    "id": "CMP-20",
+    "group": "Prompt vs System Prompt",
+    "concept": "System Prompt",
+    "mainRole": "Hướng dẫn cấp ứng dụng về vai trò và giới hạn.",
+    "analogy": "Nội quy lớp học",
+    "useWhen": "Khi xây chatbot hoặc agent có hành vi nhất quán.",
+    "notSuitableWhen": "Khi chỉ cần hỏi một câu đơn lẻ.",
+    "keyDifference": "Đặt nền cho nhiều lượt nhưng không thay thế guardrails kỹ thuật."
+  },
+  {
+    "id": "CMP-21",
+    "group": "Context Window vs Session State vs Long-term Memory",
+    "concept": "Context Window",
+    "mainRole": "Thông tin mô hình nhìn thấy trong một lần xử lý.",
+    "analogy": "Mặt bàn đang mở",
+    "useWhen": "Khi xử lý prompt, lịch sử chat và tài liệu hiện tại.",
+    "notSuitableWhen": "Khi cần lưu dữ liệu chắc chắn qua nhiều phiên.",
+    "keyDifference": "Bị giới hạn độ dài và do ứng dụng đưa vào."
+  },
+  {
+    "id": "CMP-22",
+    "group": "Context Window vs Session State vs Long-term Memory",
+    "concept": "Session State",
+    "mainRole": "Dữ liệu tạm của phiên do ứng dụng quản lý.",
+    "analogy": "Giấy nháp của phiên làm việc",
+    "useWhen": "Giữ lựa chọn và kết quả trung gian.",
+    "notSuitableWhen": "Khi cần nhớ lâu qua các phiên.",
+    "keyDifference": "Không nhất thiết toàn bộ state được đưa vào context."
+  },
+  {
+    "id": "CMP-23",
+    "group": "Context Window vs Session State vs Long-term Memory",
+    "concept": "Long-term Memory",
+    "mainRole": "Thông tin lưu qua nhiều phiên.",
+    "analogy": "Sổ hồ sơ lâu dài",
+    "useWhen": "Cá nhân hóa hoặc tiếp tục công việc sau này.",
+    "notSuitableWhen": "Dữ liệu nhạy cảm không có lý do lưu.",
+    "keyDifference": "Cần quyền xem, sửa, xóa và thời hạn lưu."
+  },
+  {
+    "id": "CMP-24",
+    "group": "RAG vs Fine-tuning vs Prompt Engineering",
+    "concept": "RAG",
+    "mainRole": "Tìm nguồn liên quan rồi đưa vào ngữ cảnh trước khi trả lời.",
+    "analogy": "Mở tài liệu tham khảo",
+    "useWhen": "Kiến thức riêng hoặc thay đổi thường xuyên.",
+    "notSuitableWhen": "Khi mục tiêu chính là đổi phong cách hoặc hành vi cố định.",
+    "keyDifference": "Cập nhật nguồn nhanh, không đổi trọng số mô hình."
+  },
+  {
+    "id": "CMP-25",
+    "group": "RAG vs Fine-tuning vs Prompt Engineering",
+    "concept": "Fine-tuning",
+    "mainRole": "Huấn luyện thêm để đổi hành vi hoặc kỹ năng.",
+    "analogy": "Đào tạo thêm cho nhân viên",
+    "useWhen": "Nhiệm vụ và định dạng lặp lại, dữ liệu huấn luyện đủ tốt.",
+    "notSuitableWhen": "Cập nhật tin tức hoặc tài liệu thay đổi hàng ngày.",
+    "keyDifference": "Thay đổi trọng số mô hình và tốn công đánh giá."
+  },
+  {
+    "id": "CMP-26",
+    "group": "RAG vs Fine-tuning vs Prompt Engineering",
+    "concept": "Prompt Engineering",
+    "mainRole": "Viết hướng dẫn và cấu trúc đầu vào rõ hơn.",
+    "analogy": "Viết đề bài tốt",
+    "useWhen": "Cải thiện nhanh, ít hạ tầng.",
+    "notSuitableWhen": "Khi model thiếu dữ liệu thật hoặc cần hành động trên hệ thống.",
+    "keyDifference": "Không thay đổi model và thường là bước nên thử trước."
+  },
+  {
+    "id": "CMP-27",
+    "group": "Tool Calling vs Workflow vs AI Agent",
+    "concept": "Tool Calling",
+    "mainRole": "Mô hình chọn một công cụ hoặc hàm để gọi.",
+    "analogy": "Gọi đúng dụng cụ",
+    "useWhen": "Lấy dữ liệu, tính toán hoặc thực hiện một hành động cụ thể.",
+    "notSuitableWhen": "Quy trình dài cần nhiều bước và trạng thái.",
+    "keyDifference": "Là một khả năng, không phải toàn bộ hệ agent."
+  },
+  {
+    "id": "CMP-28",
+    "group": "Tool Calling vs Workflow vs AI Agent",
+    "concept": "Workflow",
+    "mainRole": "Chuỗi bước được định sẵn bằng code hoặc quy tắc.",
+    "analogy": "Dây chuyền",
+    "useWhen": "Quy trình ổn định, dễ kiểm soát.",
+    "notSuitableWhen": "Tình huống thay đổi nhiều và không thể liệt kê trước.",
+    "keyDifference": "Thứ tự xử lý chủ yếu do người thiết kế quyết định."
+  },
+  {
+    "id": "CMP-29",
+    "group": "Tool Calling vs Workflow vs AI Agent",
+    "concept": "AI Agent",
+    "mainRole": "Ứng dụng dùng mô hình để chọn bước, công cụ và theo dõi trạng thái.",
+    "analogy": "Nhân viên điều phối có sổ việc",
+    "useWhen": "Mục tiêu nhiều bước và cần thích nghi.",
+    "notSuitableWhen": "Hành động rủi ro cao mà không có giới hạn hoặc phê duyệt.",
+    "keyDifference": "Linh hoạt hơn workflow nhưng khó kiểm thử và kiểm soát hơn."
+  },
+  {
+    "id": "CMP-30",
+    "group": "API vs MCP vs A2A",
+    "concept": "API",
+    "mainRole": "Giao diện chung để phần mềm gọi phần mềm.",
+    "analogy": "Cửa giao dịch giữa hai hệ thống",
+    "useWhen": "Mọi loại tích hợp phần mềm.",
+    "notSuitableWhen": "Khi cần chuẩn chuyên biệt để agent khám phá tool hoặc agent khác.",
+    "keyDifference": "Khái niệm rộng nhất trong ba loại."
+  },
+  {
+    "id": "CMP-31",
+    "group": "API vs MCP vs A2A",
+    "concept": "MCP",
+    "mainRole": "Chuẩn mở để ứng dụng AI kết nối công cụ và nguồn dữ liệu.",
+    "analogy": "Ổ cắm chung cho ứng dụng AI",
+    "useWhen": "Tái sử dụng tools, resources và prompts giữa ứng dụng AI.",
+    "notSuitableWhen": "Khi cần agent độc lập giao việc cho agent khác.",
+    "keyDifference": "Thường giải quyết kết nối AI–tool/dữ liệu."
+  },
+  {
+    "id": "CMP-32",
+    "group": "API vs MCP vs A2A",
+    "concept": "A2A",
+    "mainRole": "Chuẩn mở để các agent độc lập khám phá và cộng tác.",
+    "analogy": "Ngôn ngữ chung giữa các phòng ban",
+    "useWhen": "Kết nối agent khác framework hoặc tổ chức.",
+    "notSuitableWhen": "Khi chỉ cần gọi một hàm dữ liệu đơn giản.",
+    "keyDifference": "Tập trung agent–agent và nhiệm vụ có trạng thái."
+  },
+  {
+    "id": "CMP-33",
+    "group": "OCR vs Document AI vs VLM",
+    "concept": "OCR",
+    "mainRole": "Đọc ký tự trong ảnh thành văn bản.",
+    "analogy": "Máy đánh máy từ ảnh",
+    "useWhen": "Scan giấy tờ và tìm kiếm chữ.",
+    "notSuitableWhen": "Khi cần hiểu bố cục, trường dữ liệu hoặc hỏi đáp ảnh.",
+    "keyDifference": "Đầu ra chính là chữ nhận dạng."
+  },
+  {
+    "id": "CMP-34",
+    "group": "OCR vs Document AI vs VLM",
+    "concept": "Document AI",
+    "mainRole": "Hiểu bố cục và trích xuất trường có cấu trúc từ tài liệu.",
+    "analogy": "Nhân viên nhập liệu có mẫu biểu",
+    "useWhen": "Hóa đơn, hợp đồng, biểu mẫu lặp lại.",
+    "notSuitableWhen": "Câu hỏi hình ảnh mở, không có khuôn trích xuất rõ.",
+    "keyDifference": "Tập trung tài liệu và cấu trúc."
+  },
+  {
+    "id": "CMP-35",
+    "group": "OCR vs Document AI vs VLM",
+    "concept": "Vision-Language Model (VLM)",
+    "mainRole": "Kết hợp hình ảnh và ngôn ngữ để trả lời câu hỏi hoặc mô tả.",
+    "analogy": "Người xem ảnh và trò chuyện về ảnh",
+    "useWhen": "Hỏi đáp ảnh, biểu đồ và tài liệu đa dạng.",
+    "notSuitableWhen": "Đọc số liệu dày đặc cần độ chính xác tuyệt đối mà không kiểm chứng.",
+    "keyDifference": "Linh hoạt nhất nhưng có thể đọc sai chi tiết."
+  },
+  {
+    "id": "CMP-36",
+    "group": "Data Drift vs Concept Drift",
+    "concept": "Data Drift",
+    "mainRole": "Phân bố dữ liệu đầu vào thay đổi.",
+    "analogy": "Nguyên liệu đầu vào đổi",
+    "useWhen": "Theo dõi dữ liệu thực tế khác dữ liệu cũ.",
+    "notSuitableWhen": "Khi chỉ nhìn hiệu quả mà không cần biết dữ liệu đổi ra sao.",
+    "keyDifference": "Đầu vào đổi; quy luật có thể vẫn đúng."
+  },
+  {
+    "id": "CMP-37",
+    "group": "Data Drift vs Concept Drift",
+    "concept": "Concept Drift",
+    "mainRole": "Quan hệ giữa đầu vào và kết quả đúng thay đổi.",
+    "analogy": "Công thức nấu cũ không còn đúng",
+    "useWhen": "Khi hiệu quả giảm vì hành vi hoặc môi trường đổi.",
+    "notSuitableWhen": "Khi chỉ có thay đổi tỷ lệ dữ liệu nhưng quy luật còn nguyên.",
+    "keyDifference": "Quy luật mục tiêu đổi, thường đòi hỏi cập nhật model."
+  }
+]

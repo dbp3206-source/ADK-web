@@ -1,0 +1,925 @@
+[
+  {
+    "id": "FOUND-001",
+    "originalGroup": "Nhóm gốc",
+    "originalLevel": "Mức độ gốc",
+    "term": "Khái niệm",
+    "vietnameseMeaning": "Cách hiểu",
+    "explanation": "Giải thích",
+    "example": "Ví dụ",
+    "application": "Ứng dụng",
+    "note": "Lưu ý",
+    "keywords": [
+      "Từ khóa"
+    ],
+    "readWhen": "Khi nào cần đọc"
+  },
+  {
+    "id": "FOUND-002",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Cốt lõi",
+    "term": "Deep Learning",
+    "vietnameseMeaning": "Học sâu",
+    "explanation": "Deep Learning là một nhánh của Machine Learning dùng mạng nơ-ron có nhiều tầng để học các mẫu phức tạp. Nó đặc biệt hữu ích với ảnh, âm thanh và ngôn ngữ.",
+    "example": "Đời thường: mở khóa bằng khuôn mặt. Công việc: phát hiện lỗi sản phẩm từ ảnh dây chuyền.",
+    "application": "Thị giác máy tính, nhận dạng giọng nói, LLM và AI tạo sinh.",
+    "note": "Deep Learning thường cần nhiều dữ liệu và tài nguyên tính toán hơn ML truyền thống.",
+    "keywords": [
+      "neural network",
+      "transformer",
+      "dữ liệu lớn"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-003",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Mở rộng",
+    "term": "Algorithm",
+    "vietnameseMeaning": "Thuật toán",
+    "explanation": "Algorithm là phương pháp hoặc tập bước dùng để giải một bài toán. Trong Machine Learning, thuật toán quy định cách mô hình học từ dữ liệu.",
+    "example": "Decision Tree học bằng cách tạo chuỗi câu hỏi có/không để phân loại khách hàng.",
+    "application": "Chọn cách học, tối ưu hoặc tìm kiếm phù hợp với bài toán.",
+    "note": "Một thuật toán có thể tạo ra nhiều model khác nhau khi học trên dữ liệu khác nhau.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-004",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Feature",
+    "vietnameseMeaning": "Đặc trưng đầu vào",
+    "explanation": "Thông tin đầu vào mà mô hình dùng để học hoặc dự đoán.",
+    "example": "Tuổi, thu nhập, số lần mua hàng.",
+    "application": "Xây mô hình ML truyền thống.",
+    "note": "Đặc trưng đầu vào tốt giúp mô hình nhìn thấy tín hiệu quan trọng.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-005",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Label",
+    "vietnameseMeaning": "Nhãn / đáp án đúng",
+    "explanation": "Đáp án đúng đi kèm dữ liệu để mô hình học.",
+    "example": "Email này được đánh dấu là spam.",
+    "application": "Supervised learning.",
+    "note": "Tạo nhãn thường cần con người hoặc quy trình kiểm chứng.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-006",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Parameter",
+    "vietnameseMeaning": "Tham số mô hình tự học",
+    "explanation": "Các con số bên trong mô hình được tự điều chỉnh khi học.",
+    "example": "Trọng số trong mạng nơ-ron.",
+    "application": "Lưu kiến thức và quy luật mô hình đã học.",
+    "note": "Mô hình lớn có thể có hàng tỷ parameter.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-007",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Hyperparameter",
+    "vietnameseMeaning": "Thiết lập do người xây chọn",
+    "explanation": "Thiết lập do người xây mô hình chọn trước khi hoặc trong khi huấn luyện.",
+    "example": "Learning rate, số lớp, batch size.",
+    "application": "Điều khiển quá trình huấn luyện.",
+    "note": "Không được mô hình tự học trực tiếp như parameter.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-008",
+    "originalGroup": "1. Bức tranh tổng thể về AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Generalization",
+    "vietnameseMeaning": "Khả năng làm tốt với dữ liệu mới",
+    "explanation": "Khả năng làm tốt với dữ liệu mới chưa từng thấy.",
+    "example": "Học từ ảnh mèo cũ nhưng vẫn nhận ra ảnh mèo mới.",
+    "application": "Đánh giá mô hình có dùng được ngoài thực tế hay không.",
+    "note": "Mục tiêu quan trọng hơn việc chỉ nhớ dữ liệu huấn luyện.",
+    "keywords": [
+      "AI",
+      "mô hình",
+      "dữ liệu",
+      "nền tảng"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-009",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Cốt lõi",
+    "term": "Supervised Learning",
+    "vietnameseMeaning": "Học có giám sát",
+    "explanation": "Supervised Learning là cách học từ dữ liệu đã có đầu vào và đáp án đúng. Mô hình dùng các ví dụ này để học cách dự đoán cho trường hợp mới.",
+    "example": "Dùng thông tin các căn nhà kèm giá bán thật để dự đoán giá căn nhà mới.",
+    "application": "Classification và Regression.",
+    "note": "Cần nhãn đáng tin cậy; nhãn sai sẽ dạy mô hình học sai.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-010",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Cốt lõi",
+    "term": "Unsupervised Learning",
+    "vietnameseMeaning": "Học không giám sát",
+    "explanation": "Unsupervised Learning là cách tìm cấu trúc trong dữ liệu chưa có đáp án đúng sẵn. Hệ thống có thể phát hiện nhóm hoặc mẫu tương đồng.",
+    "example": "Tự gom khách hàng thành các nhóm có hành vi mua sắm gần giống nhau.",
+    "application": "Phân nhóm khách hàng, khám phá dữ liệu và phát hiện bất thường.",
+    "note": "Các nhóm tìm được không tự có ý nghĩa kinh doanh; con người vẫn phải diễn giải.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-011",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Semi-supervised Learning",
+    "vietnameseMeaning": "Học bán giám sát",
+    "explanation": "Học từ một ít dữ liệu có nhãn và nhiều dữ liệu chưa có nhãn.",
+    "example": "1.000 ảnh có nhãn kết hợp 100.000 ảnh chưa gắn nhãn.",
+    "application": "Giảm chi phí gắn nhãn.",
+    "note": "Hữu ích khi dữ liệu nhiều nhưng nhãn đắt.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-012",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Self-supervised Learning",
+    "vietnameseMeaning": "Tự tạo bài tập từ dữ liệu",
+    "explanation": "Tự tạo bài tập từ chính dữ liệu để học biểu diễn.",
+    "example": "Che một từ rồi yêu cầu mô hình đoán từ bị che.",
+    "application": "Huấn luyện nền LLM và mô hình nền tảng.",
+    "note": "Không cần con người gắn nhãn từng mẫu.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-013",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Mở rộng",
+    "term": "Reinforcement Learning (RL)",
+    "vietnameseMeaning": "Học tăng cường",
+    "explanation": "Học bằng thử hành động, nhận thưởng hoặc phạt rồi điều chỉnh.",
+    "example": "AI chơi game và nhận điểm khi thắng.",
+    "application": "Robot, điều khiển, tối ưu chuỗi quyết định.",
+    "note": "Cần thiết kế điểm thưởng cẩn thận.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-014",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Cốt lõi",
+    "term": "Clustering",
+    "vietnameseMeaning": "Phân nhóm tự động",
+    "explanation": "Clustering là cách tự gom các đối tượng giống nhau thành nhóm khi chưa có nhãn đúng sẵn.",
+    "example": "Nhóm khách thành người mua thường xuyên, người săn khuyến mãi và người mới.",
+    "application": "Phân khúc khách hàng, khám phá hành vi và tổ chức dữ liệu.",
+    "note": "Số nhóm và ý nghĩa của nhóm phụ thuộc dữ liệu, phương pháp và mục tiêu.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-015",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Mở rộng",
+    "term": "Time-series Forecasting",
+    "vietnameseMeaning": "Dự báo chuỗi thời gian",
+    "explanation": "Dự đoán tương lai dựa trên dữ liệu thay đổi theo thời gian.",
+    "example": "Dự đoán nhu cầu bán hàng tuần tới.",
+    "application": "Kế hoạch tồn kho, tài chính, vận hành.",
+    "note": "Phải chú ý xu hướng, mùa vụ và sự kiện bất thường.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-016",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Mở rộng",
+    "term": "Transfer Learning",
+    "vietnameseMeaning": "Chuyển giao kiến thức đã học",
+    "explanation": "Lấy mô hình đã học việc lớn rồi điều chỉnh cho việc nhỏ hơn.",
+    "example": "Dùng mô hình ảnh có sẵn để nhận diện sản phẩm của công ty.",
+    "application": "Tiết kiệm dữ liệu và thời gian huấn luyện.",
+    "note": "Hiệu quả khi nhiệm vụ mới gần với kiến thức cũ.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-017",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Online Learning",
+    "vietnameseMeaning": "Học cập nhật liên tục",
+    "explanation": "Mô hình cập nhật dần khi dữ liệu mới đến.",
+    "example": "Hệ thống gian lận học từ giao dịch mới mỗi ngày.",
+    "application": "Môi trường thay đổi liên tục.",
+    "note": "Cần kiểm soát dữ liệu xấu và mô hình drift.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-018",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Active Learning",
+    "vietnameseMeaning": "Chủ động chọn mẫu cần gắn nhãn",
+    "explanation": "Mô hình chọn những mẫu khó nhất để nhờ con người gắn nhãn.",
+    "example": "Chỉ gửi các ảnh mô hình không chắc chắn cho chuyên gia.",
+    "application": "Giảm công sức gắn nhãn.",
+    "note": "Tập trung ngân sách vào dữ liệu có giá trị nhất.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-019",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Ensemble Learning",
+    "vietnameseMeaning": "Kết hợp nhiều mô hình",
+    "explanation": "Kết hợp nhiều mô hình để ra quyết định tốt hơn.",
+    "example": "Nhiều cây quyết định cùng bỏ phiếu.",
+    "application": "Tăng độ chính xác và ổn định.",
+    "note": "Mạnh hơn nhưng phức tạp và tốn tài nguyên hơn.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-020",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Decision Tree",
+    "vietnameseMeaning": "Cây quyết định",
+    "explanation": "Mô hình hỏi liên tiếp các câu hỏi có/không để đi tới kết luận.",
+    "example": "Thu nhập cao? Nợ nhiều? rồi quyết định rủi ro.",
+    "application": "Phân loại, chấm điểm, giải thích quyết định.",
+    "note": "Dễ hiểu nhưng cây quá sâu dễ học thuộc.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-021",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Random Forest",
+    "vietnameseMeaning": "Rừng cây quyết định",
+    "explanation": "Nhiều Decision Tree cùng bỏ phiếu.",
+    "example": "100 cây cùng dự đoán khách có rời bỏ không.",
+    "application": "Dữ liệu bảng, dự đoán mạnh và ổn định.",
+    "note": "Ít dễ overfit hơn một cây đơn.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-022",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Gradient Boosting",
+    "vietnameseMeaning": "Học nối tiếp để sửa lỗi",
+    "explanation": "Các mô hình nhỏ học nối tiếp để sửa lỗi của mô hình trước.",
+    "example": "XGBoost dự đoán rủi ro tín dụng.",
+    "application": "Dữ liệu bảng, thi đấu ML, scoring.",
+    "note": "Rất mạnh nhưng cần tinh chỉnh cẩn thận.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-023",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "K-Nearest Neighbors (KNN)",
+    "vietnameseMeaning": "K láng giềng gần nhất",
+    "explanation": "Nhìn những hàng xóm gần nhất rồi đoán theo số đông.",
+    "example": "Một khách mới giống nhóm khách thường mua gói Premium.",
+    "application": "Phân loại đơn giản, tìm tương đồng.",
+    "note": "Dễ hiểu nhưng chậm khi dữ liệu lớn.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-024",
+    "originalGroup": "2. Machine Learning cơ bản",
+    "originalLevel": "Kỹ thuật",
+    "term": "Support Vector Machine (SVM)",
+    "vietnameseMeaning": "Máy vector hỗ trợ",
+    "explanation": "Tìm đường ranh giới tách các nhóm càng rõ càng tốt.",
+    "example": "Tách email spam và không spam.",
+    "application": "Phân loại dữ liệu vừa và nhỏ.",
+    "note": "Hiệu quả với đặc trưng đầu vào tốt; khó mở rộng cho dữ liệu rất lớn.",
+    "keywords": [
+      "Machine Learning",
+      "dự đoán",
+      "phân loại"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-025",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Cốt lõi",
+    "term": "Training",
+    "vietnameseMeaning": "Huấn luyện mô hình",
+    "explanation": "Training là giai đoạn huấn luyện: hệ thống xem nhiều ví dụ và điều chỉnh các con số bên trong mô hình để giảm sai số.",
+    "example": "Giống như luyện nhiều bài mẫu trước kỳ thi. Công việc: cho mô hình học từ lịch sử giao dịch.",
+    "application": "Tạo hoặc cập nhật mô hình trước khi đưa vào sử dụng.",
+    "note": "Training thường tốn thời gian và tài nguyên hơn việc chạy mô hình đã học.",
+    "keywords": [
+      "dataset",
+      "parameter",
+      "loss",
+      "optimization"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-026",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Cốt lõi",
+    "term": "Inference",
+    "vietnameseMeaning": "Chạy mô hình để tạo kết quả",
+    "explanation": "Inference là giai đoạn chạy mô hình đã huấn luyện để tạo kết quả cho dữ liệu mới.",
+    "example": "Sau khi học từ ảnh cũ, mô hình nhận một ảnh mới và dự đoán đó là chó.",
+    "application": "Phục vụ người dùng thật: dự đoán, trả lời, tạo ảnh hoặc chấm điểm.",
+    "note": "Training là học; inference là sử dụng điều đã học.",
+    "keywords": [
+      "model serving",
+      "latency",
+      "prediction"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-027",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Kỹ thuật",
+    "term": "Loss Function",
+    "vietnameseMeaning": "Hàm đo sai số",
+    "explanation": "Thước đo mô hình đang sai bao nhiêu.",
+    "example": "So sánh giá dự đoán với giá thật.",
+    "application": "Hướng dẫn mô hình điều chỉnh khi huấn luyện.",
+    "note": "Huấn luyện cố gắng làm loss giảm xuống.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-028",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Kỹ thuật",
+    "term": "Optimization",
+    "vietnameseMeaning": "Quá trình giảm sai số",
+    "explanation": "Quá trình điều chỉnh parameter để mô hình bớt sai.",
+    "example": "Gradient descent cập nhật trọng số.",
+    "application": "Huấn luyện mô hình.",
+    "note": "Chọn cách tối ưu ảnh hưởng tốc độ và độ ổn định.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-029",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Mở rộng",
+    "term": "Train / Validation / Test Split",
+    "vietnameseMeaning": "Chia dữ liệu học / chỉnh / thi",
+    "explanation": "Chia dữ liệu thành phần để học, chỉnh và thi cuối.",
+    "example": "70% train, 15% validation, 15% test.",
+    "application": "Đánh giá mô hình công bằng.",
+    "note": "Không để dữ liệu test lọt vào huấn luyện.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-030",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Kỹ thuật",
+    "term": "Cross-validation",
+    "vietnameseMeaning": "Kiểm định chéo",
+    "explanation": "Cho mô hình thi nhiều lần trên các phần dữ liệu khác nhau.",
+    "example": "Chia dữ liệu thành 5 phần và luân phiên phần kiểm tra.",
+    "application": "Đánh giá ổn định khi dữ liệu không quá lớn.",
+    "note": "Tốn thời gian hơn một lần chia dữ liệu.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-031",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Cốt lõi",
+    "term": "Overfitting",
+    "vietnameseMeaning": "Học thuộc, kém với dữ liệu mới",
+    "explanation": "Overfitting xảy ra khi mô hình nhớ quá kỹ dữ liệu luyện tập nhưng làm kém với dữ liệu mới. Có thể hình dung như học thuộc đáp án thay vì hiểu cách làm.",
+    "example": "Điểm trên dữ liệu huấn luyện rất cao nhưng dự đoán khách hàng mới lại sai nhiều.",
+    "application": "Chẩn đoán vì sao mô hình trông tốt trong thử nghiệm nhưng kém ngoài thực tế.",
+    "note": "Có thể giảm bằng dữ liệu tốt hơn, kiểm tra đúng cách, regularization hoặc mô hình đơn giản hơn.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-032",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Mở rộng",
+    "term": "Underfitting",
+    "vietnameseMeaning": "Chưa học đủ quy luật",
+    "explanation": "Mô hình quá đơn giản nên cả bài cũ lẫn bài mới đều làm kém.",
+    "example": "Dùng một đường thẳng cho quan hệ rất phức tạp.",
+    "application": "Chẩn đoán mô hình chưa học đủ.",
+    "note": "Cần mô hình mạnh hơn, đặc trưng đầu vào tốt hơn hoặc huấn luyện lâu hơn.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-033",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Kỹ thuật",
+    "term": "ROC-AUC",
+    "vietnameseMeaning": "Điểm đo khả năng xếp hạng của bộ phân loại",
+    "explanation": "Đo khả năng mô hình xếp trường hợp dương cao hơn trường hợp âm qua nhiều ngưỡng.",
+    "example": "So sánh hai mô hình chấm điểm rủi ro.",
+    "application": "Đánh giá ranking của classifier.",
+    "note": "Không luôn phản ánh tốt hiệu quả ở lớp cực hiếm.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-034",
+    "originalGroup": "3. Training, inference & đánh giá model",
+    "originalLevel": "Kỹ thuật",
+    "term": "Bias–Variance Trade-off",
+    "vietnameseMeaning": "Cân bằng đơn giản và nhạy dữ liệu",
+    "explanation": "Cân bằng giữa mô hình quá đơn giản và mô hình quá nhạy với dữ liệu.",
+    "example": "Chọn độ sâu cây quyết định vừa đủ.",
+    "application": "Thiết kế mô hình tổng quát tốt.",
+    "note": "Liên quan trực tiếp tới underfitting và overfitting.",
+    "keywords": [
+      "huấn luyện",
+      "inference",
+      "đánh giá",
+      "metric"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-035",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Mở rộng",
+    "term": "Neural Network",
+    "vietnameseMeaning": "Mạng nơ-ron",
+    "explanation": "Mạng gồm nhiều nút tính toán nối nhau, học cách biến đầu vào thành đầu ra.",
+    "example": "Nhận ảnh và dự đoán loại sản phẩm.",
+    "application": "Ảnh, âm thanh, ngôn ngữ, dự đoán phức tạp.",
+    "note": "Học bằng cách điều chỉnh trọng số.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-036",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "Layer",
+    "vietnameseMeaning": "Tầng xử lý",
+    "explanation": "Một tầng xử lý trong mạng nơ-ron.",
+    "example": "Tầng đầu nhận nét ảnh, tầng sau nhận hình dạng.",
+    "application": "Xây mạng nơ-ron.",
+    "note": "Nhiều layer tạo nên deep learning.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-037",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Mở rộng",
+    "term": "Transformer",
+    "vietnameseMeaning": "Kiến trúc nền tảng của nhiều LLM",
+    "explanation": "Kiến trúc giúp mô hình chú ý các phần quan trọng trong dữ liệu.",
+    "example": "Khi đọc câu dài, mô hình liên kết đại từ với đúng danh từ.",
+    "application": "LLM, dịch máy, hình ảnh, âm thanh.",
+    "note": "Là nền tảng của phần lớn LLM hiện đại.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-038",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "Attention",
+    "vietnameseMeaning": "Cơ chế tập trung vào phần liên quan",
+    "explanation": "Cơ chế cho mô hình biết nên tập trung vào phần nào khi xử lý.",
+    "example": "Trong câu hỏi, chú ý tên người và mốc thời gian.",
+    "application": "Hiểu ngữ cảnh và quan hệ xa.",
+    "note": "Không đồng nghĩa với ý thức hay sự chú ý của con người.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-039",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Mở rộng",
+    "term": "Foundation Model",
+    "vietnameseMeaning": "Mô hình nền tảng",
+    "explanation": "Mô hình nền tảng học rộng rồi được dùng cho nhiều nhiệm vụ.",
+    "example": "Một mô hình vừa viết, dịch, tóm tắt và phân tích.",
+    "application": "Xây nhiều sản phẩm trên cùng một nền.",
+    "note": "Có thể được fine-tune hoặc kết nối công cụ.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-040",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Mở rộng",
+    "term": "Fine-tuning",
+    "vietnameseMeaning": "Huấn luyện bổ sung",
+    "explanation": "Fine-tuning là huấn luyện bổ sung một mô hình đã có bằng dữ liệu chuyên biệt để thay đổi hành vi, phong cách hoặc năng lực cho một nhiệm vụ.",
+    "example": "Huấn luyện thêm để mô hình luôn phân loại ticket theo bộ nhãn riêng của công ty.",
+    "application": "Chuẩn hóa phong cách, định dạng hoặc kỹ năng chuyên biệt lặp lại.",
+    "note": "Không phải lựa chọn tốt nhất để cập nhật kiến thức thay đổi thường xuyên; RAG thường phù hợp hơn cho tài liệu mới.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-041",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "Instruction Tuning",
+    "vietnameseMeaning": "Huấn luyện để làm theo chỉ dẫn",
+    "explanation": "Fine-tuning bằng nhiều cặp hướng dẫn và câu trả lời để mô hình biết làm theo yêu cầu.",
+    "example": "Học cách tóm tắt, phân loại và trả lời.",
+    "application": "Biến base mô hình thành trợ lý hữu ích.",
+    "note": "Thường là bước trước các kỹ thuật căn chỉnh khác.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-042",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "RLHF",
+    "vietnameseMeaning": "Căn chỉnh bằng phản hồi con người",
+    "explanation": "Dùng phản hồi của con người làm tín hiệu thưởng để chỉnh mô hình.",
+    "example": "Con người chọn câu trả lời tốt hơn giữa hai phương án.",
+    "application": "Căn chỉnh mô hình với mong đợi người dùng.",
+    "note": "Tốn dữ liệu phản hồi và thiết kế điểm thưởng.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-043",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "DPO",
+    "vietnameseMeaning": "Căn chỉnh từ cặp câu trả lời được ưa thích",
+    "explanation": "Căn chỉnh mô hình trực tiếp từ các cặp câu trả lời được thích và không được thích.",
+    "example": "Học từ lựa chọn A tốt hơn B.",
+    "application": "Alignment đơn giản hơn một số quy trình RLHF.",
+    "note": "Vẫn phụ thuộc chất lượng dữ liệu preference.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-044",
+    "originalGroup": "4. Deep Learning, GenAI & LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "Mixture of Experts (MoE)",
+    "vietnameseMeaning": "Mô hình gồm nhiều nhóm chuyên gia",
+    "explanation": "Mô hình có nhiều nhóm chuyên gia nhưng mỗi yêu cầu chỉ kích hoạt một số nhóm.",
+    "example": "Câu hỏi code dùng chuyên gia khác câu hỏi ngôn ngữ.",
+    "application": "Tăng năng lực mà không dùng toàn bộ parameter mỗi lần.",
+    "note": "Routing và vận hành phức tạp.",
+    "keywords": [
+      "deep learning",
+      "GenAI",
+      "LLM"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-045",
+    "originalGroup": "5. Prompt & cách làm việc với LLM",
+    "originalLevel": "Kỹ thuật",
+    "term": "Top-p Sampling",
+    "vietnameseMeaning": "Giới hạn nhóm lựa chọn có xác suất cao",
+    "explanation": "Chỉ cho mô hình chọn trong nhóm token có tổng xác suất đủ lớn.",
+    "example": "Giới hạn lựa chọn vào phần từ có khả năng cao.",
+    "application": "Điều chỉnh độ đa dạng đầu ra.",
+    "note": "Thường điều chỉnh cùng hoặc thay cho temperature.",
+    "keywords": [
+      "prompt",
+      "token",
+      "ngữ cảnh",
+      "đầu ra"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-046",
+    "originalGroup": "8. Multimodal AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Image Segmentation",
+    "vietnameseMeaning": "Tách vùng ảnh theo từng điểm ảnh",
+    "explanation": "Tô chính xác từng vùng hoặc pixel thuộc đối tượng nào.",
+    "example": "Tách phần khối u khỏi ảnh chụp.",
+    "application": "Y tế hỗ trợ, xe tự hành, chỉnh ảnh.",
+    "note": "Chi tiết hơn object detection.",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-047",
+    "originalGroup": "8. Multimodal AI",
+    "originalLevel": "Mở rộng",
+    "term": "Diffusion Model",
+    "vietnameseMeaning": "Mô hình khuếch tán tạo ảnh",
+    "explanation": "Mô hình tạo ảnh bằng cách học cách biến nhiễu thành hình rõ dần.",
+    "example": "Tạo ảnh minh họa từ mô tả.",
+    "application": "Sinh ảnh, chỉnh ảnh, video.",
+    "note": "Mạnh về chất lượng hình ảnh nhưng thường tốn nhiều bước tính toán.",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-048",
+    "originalGroup": "8. Multimodal AI",
+    "originalLevel": "Kỹ thuật",
+    "term": "Speaker Diarization",
+    "vietnameseMeaning": "Phân đoạn người nói",
+    "explanation": "Xác định đoạn nào do người nào nói.",
+    "example": "Gắn Người A, Người B trong biên bản họp.",
+    "application": "Phân tích cuộc gọi và họp.",
+    "note": "Không nhất thiết biết danh tính thật của người nói.",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-049",
+    "originalGroup": "8. Multimodal AI",
+    "originalLevel": "Mở rộng",
+    "term": "Machine Translation",
+    "vietnameseMeaning": "Dịch máy",
+    "explanation": "Dịch tự động giữa các ngôn ngữ.",
+    "example": "Dịch tài liệu Anh–Việt.",
+    "application": "Giao tiếp và bản địa hóa.",
+    "note": "Cần kiểm tra thuật ngữ chuyên ngành và sắc thái.",
+    "keywords": [
+      "ảnh",
+      "âm thanh",
+      "văn bản",
+      "multimodal"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-050",
+    "originalGroup": "10. An toàn, quyền riêng tư & quản trị",
+    "originalLevel": "Mở rộng",
+    "term": "Explainability (XAI)",
+    "vietnameseMeaning": "Khả năng giải thích",
+    "explanation": "Giúp con người hiểu yếu tố nào ảnh hưởng quyết định mô hình.",
+    "example": "Cho biết thu nhập và lịch sử nợ ảnh hưởng điểm rủi ro.",
+    "application": "Tín dụng, y tế hỗ trợ, kiểm toán.",
+    "note": "Giải thích có thể là xấp xỉ, không phải toàn bộ suy nghĩ của mô hình.",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-051",
+    "originalGroup": "10. An toàn, quyền riêng tư & quản trị",
+    "originalLevel": "Mở rộng",
+    "term": "Fairness",
+    "vietnameseMeaning": "Công bằng",
+    "explanation": "Kiểm tra mô hình có đối xử bất hợp lý với nhóm nào không.",
+    "example": "So sánh tỷ lệ sai giữa các nhóm người dùng.",
+    "application": "Giảm phân biệt đối xử.",
+    "note": "Có nhiều định nghĩa fairness và đôi khi xung đột nhau.",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-052",
+    "originalGroup": "10. An toàn, quyền riêng tư & quản trị",
+    "originalLevel": "Kỹ thuật",
+    "term": "Data Anonymization",
+    "vietnameseMeaning": "Ẩn danh dữ liệu",
+    "explanation": "Loại hoặc biến đổi thông tin để khó nhận diện cá nhân.",
+    "example": "Thay tên thật bằng mã ngẫu nhiên.",
+    "application": "Chia sẻ dữ liệu an toàn hơn.",
+    "note": "Ẩn danh không đúng cách vẫn có thể bị tái nhận diện.",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  },
+  {
+    "id": "FOUND-053",
+    "originalGroup": "10. An toàn, quyền riêng tư & quản trị",
+    "originalLevel": "Mở rộng",
+    "term": "Model Card",
+    "vietnameseMeaning": "Hồ sơ mô hình",
+    "explanation": "Tài liệu mô tả mô hình, mục đích, giới hạn và kết quả đánh giá.",
+    "example": "Nêu mô hình dùng cho gì và không nên dùng cho gì.",
+    "application": "Minh bạch và governance.",
+    "note": "Nên cập nhật theo phiên bản mô hình.",
+    "keywords": [
+      "an toàn",
+      "riêng tư",
+      "quản trị",
+      "rủi ro"
+    ],
+    "readWhen": "Khi tự huấn luyện/tinh chỉnh model, làm Data Science hoặc cần hiểu kiến trúc bên dưới."
+  }
+]

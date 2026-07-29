@@ -2,52 +2,58 @@
 
 ## Audience and viewing context
 
-Recruiters need to understand scope and authentic outputs within minutes. Engineers need source, tests, observable events and failure behavior. Learners need a friendly bilingual path through AI Agent and Google ADK concepts on desktop and mobile.
+Recruiters and collaborators should understand the six-project progression in a few minutes. Engineers can inspect process, source and failure behavior. Learners need a practical, bilingual path that works from 320 px mobile screens through wide desktop.
 
 ## Core message
 
-Không phải sáu chatbot. Sáu bước kiến trúc hướng tới một hệ sinh thái agent — now inspectable through source, verified replay, artifacts and guided learning.
+One request can evolve through six architectural steps into an inspectable agent ecosystem.
 
 ## Desired reaction or action
 
-Visitors should choose a project or learning path, replay a recorded case, inspect the exact `root_agent` and output, then continue to the related system view, lesson or contact route.
+Visitors should identify the project that matches their problem, run its deterministic simulator, inspect the output, continue into one of three learning tracks, and use a real contact action.
 
 ## Source authority
 
-- Current website source is implementation truth.
-- `ADK_Ecosystem_Web_V2_2_Revision_Package` is the approved change specification.
-- The five explicitly supplied agent-project directories are source evidence.
-- Only actual repository files, test results and sanitized captured outputs may support verified labels.
+- Current Next.js source in this repository is implementation truth.
+- `ADK_Web_ChatGPT_Work_V3_3_Lite_Revision` is the approved V3.3 change package.
+- `adk_agent_project` contains the supplied agent source and tests.
+- Prepared JSON in `data/ai_practical` and `data/project_track` is the learning-content source.
+- `AI_Cheatsheet_de_hieu_v4_17_AI_System_Concepts.xlsx` is the source authority for Track C's 17 AI system concepts.
+- Public UI must distinguish deterministic samples from live execution.
 
 ## Content hierarchy
 
-1. Six-step architecture thesis.
-2. Verified replay and exact source.
-3. Project-specific artifacts and architecture.
-4. Learning Center with six paths, 60 flashcards and 90 questions.
-5. Owner/contact actions only when real config values exist.
+1. Interactive Agent Field Guide and six-step ecosystem path.
+2. Problem-led project discovery and six complete case studies.
+3. Input, explainable process and project-specific output.
+4. Three learning tracks: practical AI work, project exploration and AI system concepts.
+5. Real owner/contact actions.
 
 ## Visual territory
 
-Signal Editorial: strong cover typography, dark execution control planes, paper source/output surfaces, cyan active signals and project-specific accents. Learning uses original code-native technical illustrations with one memorable concept per card.
+Interactive Agent Field Guide: signal-editorial typography, dark execution surfaces, light evidence paper, restrained depth, semantic signal motion and a distinct motif for each project.
 
 ## Brand and system constraints
 
-Preserve the current typography, editorial rhythm, bilingual routing, focus system, reduced-motion support and static-export architecture. Use existing V3 tokens and accessible controls as the base.
+Preserve Space Grotesk, Inter and JetBrains Mono; the cyan focus signal; six project accents; 4-point spacing; static export; VI/EN routes; visible focus; reduced motion; and honest simulation labels.
 
 ## Anti-goals
 
-- No generic SaaS card grid.
-- No gradients, glassmorphism, heavy glow, AI orb, robot mascot, custom cursor or scroll hijacking.
-- No copied flashcard characters or layouts.
-- No fake live execution, latency, tests, paths, commits, outputs or chain-of-thought.
-- No internal blockers or production-hardening notes in public pages.
+- No generic AI gradients, glass cards, decorative motion, heavy WebGL, custom cursor or scroll hijacking.
+- No full System Explorer on Home.
+- No chain-of-thought, fake live output, fake confidence or public `null`.
+- No appearance scoring, diagnosis or sensitive-trait inference.
+- No time-sensitive World Cup claim without a fixed dataset or verification date.
+- No nested vertical scroll for prose.
 
 ## Output contract
 
-Target: Next.js static-export website on branch `revision/interactive-v2-2`, bilingual VI/EN, responsive at 320–1440 px, with verified source/replay data bundled as sanitized static fixtures. Deliver browser screenshots, QA evidence and a real preview URL. Do not deploy production.
+Next.js static-export source on branch `codex/v3.3-lite-revision`; responsive at 320, 768 and 1440 px; VI/EN routes; desktop/tablet/mobile screenshots; and a production ChatGPT Sites deployment shareable by link.
 
 ## Reference interpretation
 
-Retain the current cover hierarchy, typography, asymmetry and editorial discipline. Replace passive evidence/report sections with interactive replay, source and learning layers. Flashcard screenshots contribute only the principles of one concept, a memorable action and large readable terms; their characters, colors and composition are not copied.
+Keep the existing technical editorial identity and component ownership. Replace V2.2-heavy evidence surfaces with a clearer field-guide journey, stronger outputs and task-first learning. The V3.3 package guides structure and content, not verbatim page copy.
 
+## Rollback
+
+Baseline is `main` at commit `234d39f`. Return to that branch/commit to recover the pre-V3.3 website; keep this revision branch for further fixes.

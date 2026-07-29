@@ -1,0 +1,102 @@
+[
+  {
+    "id": "single-choice",
+    "label": "Một đáp án",
+    "bestFor": "Khái niệm và lựa chọn kỹ thuật"
+  },
+  {
+    "id": "multiple-choice",
+    "label": "Nhiều đáp án",
+    "bestFor": "Checklist và điều kiện"
+  },
+  {
+    "id": "true-false-repair",
+    "label": "Đúng/sai và sửa câu",
+    "bestFor": "Điểm dễ nhầm"
+  },
+  {
+    "id": "matching",
+    "label": "Ghép cặp",
+    "bestFor": "Role, tool, khái niệm"
+  },
+  {
+    "id": "ordering",
+    "label": "Sắp xếp",
+    "bestFor": "Workflow và agent loop"
+  },
+  {
+    "id": "workflow-builder",
+    "label": "Xây quy trình",
+    "bestFor": "Thiết kế flow"
+  },
+  {
+    "id": "state-diff",
+    "label": "Đọc thay đổi dữ liệu",
+    "bestFor": "State và tool mutation"
+  },
+  {
+    "id": "code-hotspot",
+    "label": "Click vào source",
+    "bestFor": "root_agent, tools, sub_agents"
+  },
+  {
+    "id": "technique-selector",
+    "label": "Chọn kỹ thuật",
+    "bestFor": "Tình huống công việc"
+  },
+  {
+    "id": "debug-trace",
+    "label": "Tìm lỗi trong trace",
+    "bestFor": "Failure handling"
+  },
+  {
+    "id": "tool-agent-match",
+    "label": "Ghép tool với agent",
+    "bestFor": "Project architecture"
+  },
+  {
+    "id": "fill-output-key",
+    "label": "Điền output key",
+    "bestFor": "Handoff contract"
+  },
+  {
+    "id": "claim-row-link",
+    "label": "Nối kết luận với dữ liệu",
+    "bestFor": "Dashboard QA"
+  },
+  {
+    "id": "architecture-compare",
+    "label": "So sánh kiến trúc",
+    "bestFor": "Trade-off"
+  },
+  {
+    "id": "risk-classification",
+    "label": "Phân loại rủi ro",
+    "bestFor": "Safety và quyền"
+  },
+  {
+    "id": "metric-selection",
+    "label": "Chọn metric",
+    "bestFor": "Evals và vận hành"
+  },
+  {
+    "id": "failure-simulation",
+    "label": "Mô phỏng lỗi",
+    "bestFor": "Retry/fallback"
+  },
+  {
+    "id": "open-rubric",
+    "label": "Câu trả lời mở",
+    "bestFor": "Reasoning tự kiểm"
+  },
+  {
+    "id": "design-review",
+    "label": "Mini design review",
+    "bestFor": "Checklist ứng dụng AI"
+  },
+  {
+    "id": "interview-mode",
+    "label": "Phỏng vấn",
+    "bestFor": "Giải thích project"
+  }
+]

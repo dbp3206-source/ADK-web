@@ -1,31 +1,42 @@
 {
-  "target_output": "Vietnamese-default, English-complete interactive V2 portfolio for six Google ADK / Python agent projects",
+  "target_output": "ADK Agent Ecosystem Portfolio V3.3 Lite revision with Track C, Vietnamese-default with English parity, prepared for ChatGPT Sites production sharing",
   "source_files": [
-    "all 82 files in ADK_Ecosystem_Web_V2_Revision_Package",
-    "all existing implementation files in the website repository"
+    "ADK_Web_ChatGPT_Work_V3_3_Lite_Revision learning and project-track JSON resources",
+    "existing Next.js website source",
+    "six local ADK agent project source trees",
+    "AI_Cheatsheet_de_hieu_v4_17_AI_System_Concepts.xlsx"
   ],
   "primary_skill": "hallmark",
-  "specialist_skills": ["pdf"],
-  "mcp_tools_used": ["Sites source-version workflow"],
+  "specialist_skills": [],
+  "mcp_tools_used": [
+    "Chrome DevTools MCP",
+    "Node REPL with Playwright and installed Google Chrome"
+  ],
   "commands_run": [
-    "npm run typecheck",
-    "npm test",
-    "npm run build",
-    "npm run test:e2e",
-    "node scripts/capture-v2.mjs",
-    "npx --yes lighthouse@latest http://127.0.0.1:4173/vi/"
+    "npm.cmd run typecheck",
+    "npm.cmd test",
+    "npm.cmd run build",
+    "node scripts/static-server.mjs",
+    "browser route, interaction, console, network, overflow and screenshot checks"
   ],
   "repository_defined_outputs": [
     "Next.js App Router source",
     "static export in out/",
-    "design-work design brief, content outline, screenshots and QA evidence"
+    "design-work brief, outline, screenshots and QA evidence"
   ],
   "delivered_outputs": [
-    "workspace source tree",
+    "workspace source tree on codex/v3.3-lite-revision",
     "out/",
-    "design-work/qa/v2/screenshots/",
-    "design-work/qa/v2/lighthouse-home-mobile-stable.json",
-    "design-work/qa/validation/playwright-report/"
+    "design-work/qa/v3.3/changed-files.txt",
+    "design-work/qa/v3.3/screenshots/home-desktop.png",
+    "design-work/qa/v3.3/screenshots/home-tablet.png",
+    "design-work/qa/v3.3/screenshots/home-mobile.png",
+    "design-work/qa/v3.3/screenshots/revision-contact-desktop.png",
+    "design-work/qa/v3.3/screenshots/revision-dashboard-mobile.png",
+    "design-work/qa/v3.3/screenshots/revision-home-541.png",
+    "design-work/qa/v3.3/screenshots/revision-system-desktop.png",
+    "design-work/qa/v3.3/screenshots/revision-track-c-desktop.png",
+    "design-work/qa/v3.3/screenshots/revision-track-c-mobile.png"
   ],
   "verification": {
     "structural": true,
@@ -34,13 +45,12 @@
     "content_fidelity": true,
     "target_environment": true
   },
-  "quality_score": 87,
+  "quality_score": 92,
   "known_limitations": [
-    "Owner name, verified profile, contact address, CV and dossier are not supplied.",
-    "GitHub, LinkedIn and six project repository URLs are not supplied, so those actions are hidden.",
-    "Repository source paths, verified excerpts, screenshots, project tests and commit hashes remain pending.",
-    "Lighthouse mobile throttled performance score is 66 and simulated LCP is 7.0 seconds; further bundle and CSS reduction remains useful.",
-    "No live AI-agent backend is included; traces and labs are deterministic architecture-derived simulations.",
-    "No production deployment was created because preview approval is required first."
+    "No live agent backend, database, login or live sports feed was added; public demos are deterministic.",
+    "Historical source snapshots remain inspectable and are explicitly labelled where their original instructions are stale or unsafe.",
+    "Contact uses the supplied real email and GitHub repository; no unprovided CV or LinkedIn URL was invented.",
+    "No new Lighthouse performance audit was run in this revision.",
+    "ChatGPT Sites public access is blocked because internet publishing is not enabled for this workspace."
   ]
 }

@@ -13,13 +13,20 @@ export function ProjectsBrowserV2({ locale }: { locale: Locale }) {
   const [view, setView] = useState<"ladder" | "table">("ladder");
   const shown = useMemo(() => projects.filter((project) => {
     const copy = localizeProject(project, locale);
-    const haystack = `${copy.title} ${copy.thesis} ${copy.lesson} ${getProjectFilters(project.slug).join(" ")}`.toLowerCase();
+    const haystack = `${copy.title} ${copy.problem} ${copy.thesis} ${copy.lesson} ${copy.artifact} ${getProjectFilters(project.slug).join(" ")}`.toLowerCase();
     return haystack.includes(query.toLowerCase()) && selected.every((pattern) => getProjectFilters(project.slug).includes(pattern as never));
   }), [locale, query, selected]);
   const toggle = (pattern: string) => setSelected((current) => current.includes(pattern) ? current.filter((item) => item !== pattern) : [...current, pattern]);
 
   return (
     <div className="projects-browser-v2">
+      <div className="problem-starters" aria-label={locale === "vi" ? "Chọn theo việc cần làm" : "Choose by job"}>
+        <span className="mono">{locale === "vi" ? "VIỆC CẦN LÀM" : "START WITH A JOB"}</span>
+        {projects.map((project) => {
+          const copy = localizeProject(project, locale);
+          return <button type="button" onClick={() => { setQuery(copy.problem); setSelected([]); }} key={project.slug}>{copy.problem}</button>;
+        })}
+      </div>
       <div className="project-controls-v2">
         <label><span>{dict.projects.search}</span><input name="project-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} /></label>
         <fieldset><legend>{dict.projects.filters}</legend><div>{filterPatterns.map((pattern) => <button type="button" aria-pressed={selected.includes(pattern)} onClick={() => toggle(pattern)} key={pattern}>{pattern}</button>)}</div></fieldset>
@@ -36,8 +43,8 @@ export function ProjectsBrowserV2({ locale }: { locale: Locale }) {
           return <li className={`project-${project.slug}`} key={project.slug}>
             <a href={localizedPath(locale, `/projects/${project.slug}`)}>
               <span className="project-number-v2 mono">{String(project.index).padStart(2, "0")}</span>
-              <span><small className="mono">{project.verb} · {patternByProject[project.slug]}</small><strong>{copy.title}</strong><p>{copy.thesis}</p></span>
-              <dl><div><dt>{dict.projects.pattern}</dt><dd>{getProjectFilters(project.slug).join(" · ")}</dd></div><div><dt>{dict.projects.maturity}</dt><dd>{copy.maturity}</dd></div><div><dt>{dict.projects.evidence}</dt><dd>{dict.evidence.labels.documented}</dd></div></dl>
+              <span><small className="mono">{project.verb} · {patternByProject[project.slug]}</small><strong>{copy.title}</strong><p>{copy.problem}</p></span>
+              <dl><div><dt>{locale === "vi" ? "Agent làm gì" : "What it does"}</dt><dd>{copy.thesis}</dd></div><div><dt>Output</dt><dd>{copy.artifact}</dd></div><div><dt>{dict.projects.pattern}</dt><dd>{getProjectFilters(project.slug).join(" · ")}</dd></div></dl>
             </a>
           </li>;
         })}</ol> :

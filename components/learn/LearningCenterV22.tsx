@@ -113,7 +113,7 @@ function LearningHeader({ locale, current }: { locale: Locale; current: string }
   ];
   return (
     <header className="learning-header page-shell-v2">
-      <span className="eyebrow-v2">LEARNING CENTER · V2.2</span>
+      <span className="eyebrow-v2">LEARNING CENTER</span>
       <h1>{t.title}</h1>
       <p>{t.intro}</p>
       <nav aria-label={locale === "vi" ? "Công cụ học tập" : "Learning tools"}>
@@ -128,7 +128,7 @@ export function LearningOverview({ locale }: { locale: Locale }) {
   const [progress, setProgress] = useLearningProgress();
   const complete = Object.keys(progress.flashcards).length + Object.keys(progress.questions).length + progress.practice.length;
   return (
-    <main className="v2-page learning-page">
+    <div className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn" />
       <section className="learning-dashboard page-shell-v2">
         <div className="learning-progress-strip">
@@ -149,7 +149,7 @@ export function LearningOverview({ locale }: { locale: Locale }) {
           })}
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
@@ -175,7 +175,7 @@ export function FlashcardStudio({ locale }: { locale: Locale }) {
     setProgress({ ...progress, flashcards: { ...progress.flashcards, [card.id]: value } });
   }
   return (
-    <main className="v2-page learning-page">
+    <div className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/flashcards" />
       <section className="learning-studio page-shell-v2">
         <div className="learning-toolbar">
@@ -202,7 +202,7 @@ export function FlashcardStudio({ locale }: { locale: Locale }) {
           <button type="button" onClick={() => { setIndex((value) => Math.min(filtered.length - 1, value + 1)); setFlipped(false); }} disabled={index === filtered.length - 1}>{t.next}</button>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
@@ -237,7 +237,7 @@ export function QuestionBank({ locale }: { locale: Locale }) {
   }
   function change(next: number) { setIndex(next); setSelected([]); setChecked(false); }
   return (
-    <main className="v2-page learning-page">
+    <div className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/question-bank" />
       <section className="learning-studio page-shell-v2">
         <div className="learning-toolbar">
@@ -265,7 +265,7 @@ export function QuestionBank({ locale }: { locale: Locale }) {
           <button type="button" onClick={() => change(Math.min(filtered.length - 1, index + 1))} disabled={index === filtered.length - 1}>{t.next}</button>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
@@ -290,7 +290,7 @@ export function PracticeStudio({ locale }: { locale: Locale }) {
   const isDnD = activity?.type === "ordering" || activity?.type === "classification";
 
   return (
-    <main className="v2-page learning-page">
+    <div className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/practice" />
       <section className="practice-studio-v2 page-shell-v2">
         {/* Activity navigation tabs */}
@@ -344,7 +344,7 @@ export function PracticeStudio({ locale }: { locale: Locale }) {
           </article>
         )}
       </section>
-    </main>
+    </div>
   );
 }
 
@@ -365,7 +365,7 @@ export function MockExamStudio({ locale }: { locale: Locale }) {
     setProgress({ ...progress, exams: [...progress.exams, { ...next, date: new Date().toISOString() }] });
   }
   return (
-    <main className="v2-page learning-page">
+    <div className="v2-page learning-page">
       <LearningHeader locale={locale} current="/learn/mock-exam" />
       <section className="exam-studio page-shell-v2">
         {!started ? (
@@ -392,6 +392,6 @@ export function MockExamStudio({ locale }: { locale: Locale }) {
           </>
         )}
       </section>
-    </main>
+    </div>
   );
 }

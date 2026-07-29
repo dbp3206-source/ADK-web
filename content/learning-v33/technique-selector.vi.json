@@ -1,0 +1,103 @@
+[
+  {
+    "id": "TECH-01",
+    "situation": "Chỉ cần viết/tóm tắt dựa trên nội dung đang có",
+    "recommendedApproach": "Prompt + Structured Output",
+    "keyDesignPoint": "Không cần RAG nếu toàn bộ dữ liệu đã nằm trong prompt/context.",
+    "conceptsToRead": [
+      "Prompt",
+      "Structured Output",
+      "Context Window"
+    ]
+  },
+  {
+    "id": "TECH-02",
+    "situation": "Cần trả lời từ tài liệu riêng hoặc thường xuyên thay đổi",
+    "recommendedApproach": "RAG",
+    "keyDesignPoint": "Ưu tiên retrieval, citation và cơ chế từ chối khi thiếu nguồn.",
+    "conceptsToRead": [
+      "RAG",
+      "Hybrid Search",
+      "Reranking",
+      "Citation"
+    ]
+  },
+  {
+    "id": "TECH-03",
+    "situation": "Cần lấy dữ liệu thật hoặc thực hiện một hành động",
+    "recommendedApproach": "Tool Calling / API",
+    "keyDesignPoint": "Không để LLM tự đoán số liệu hoặc trạng thái.",
+    "conceptsToRead": [
+      "Tool Calling",
+      "API",
+      "Structured Output"
+    ]
+  },
+  {
+    "id": "TECH-04",
+    "situation": "Có nhiều tool và nguồn muốn tái sử dụng giữa ứng dụng AI",
+    "recommendedApproach": "MCP",
+    "keyDesignPoint": "Xem xét MCP khi chuẩn hóa kết nối mang lại lợi ích hơn tích hợp API riêng.",
+    "conceptsToRead": [
+      "MCP",
+      "MCP Client",
+      "MCP Server"
+    ]
+  },
+  {
+    "id": "TECH-05",
+    "situation": "Quy trình ổn định, các bước đã biết",
+    "recommendedApproach": "Workflow",
+    "keyDesignPoint": "Ưu tiên workflow trước agent để dễ kiểm thử và kiểm soát.",
+    "conceptsToRead": [
+      "Workflow Agent",
+      "Orchestration",
+      "Callback"
+    ]
+  },
+  {
+    "id": "TECH-06",
+    "situation": "Mục tiêu nhiều bước và đường đi thay đổi theo tình huống",
+    "recommendedApproach": "AI Agent",
+    "keyDesignPoint": "Giới hạn tool, số bước, thời gian, chi phí và điểm cần duyệt.",
+    "conceptsToRead": [
+      "AI Agent",
+      "Planning",
+      "Session State",
+      "Guardrails"
+    ]
+  },
+  {
+    "id": "TECH-07",
+    "situation": "Nhiều agent độc lập cần cộng tác",
+    "recommendedApproach": "A2A / Multi-agent",
+    "keyDesignPoint": "Chỉ dùng khi chuyên môn tách biệt thực sự; tránh tăng phức tạp không cần thiết.",
+    "conceptsToRead": [
+      "A2A",
+      "Agent Card",
+      "Multi-agent System"
+    ]
+  },
+  {
+    "id": "TECH-08",
+    "situation": "Tài liệu scan, hóa đơn hoặc biểu mẫu",
+    "recommendedApproach": "OCR + Document AI",
+    "keyDesignPoint": "VLM hữu ích cho câu hỏi mở nhưng cần kiểm chứng số liệu.",
+    "conceptsToRead": [
+      "OCR",
+      "Document AI",
+      "VLM"
+    ]
+  },
+  {
+    "id": "TECH-09",
+    "situation": "Cần biết hệ thống có tốt lên không",
+    "recommendedApproach": "Evals + Observability",
+    "keyDesignPoint": "Đừng chỉ xem demo; dùng bộ test, trace, metric công việc và lỗi nghiêm trọng.",
+    "conceptsToRead": [
+      "Evaluation / Evals",
+      "Tracing",
+      "Observability"
+    ]
+  }
+]

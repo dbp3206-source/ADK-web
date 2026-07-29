@@ -1,133 +1,131 @@
 "use client";
 
 import { useState } from "react";
-import { projects } from "@/lib/content";
-import { localizeProject } from "@/content/project-copy";
-import { localizedPath, type Locale } from "@/lib/i18n";
+
 import discoveryData from "@/content/discovery.json";
+import { localizeProject } from "@/content/project-copy";
+import { projects } from "@/lib/content";
+import { localizedPath, type Locale } from "@/lib/i18n";
 
 export function ProjectDiscoveryDesk({ locale }: { locale: Locale }) {
-  const data = discoveryData[locale] || discoveryData["en"];
+  const data = discoveryData[locale] || discoveryData.en;
   const [prompt, setPrompt] = useState("");
-  const [result, setResult] = useState<string | null>(null);
-  
-  // Find project based on exact preset ID or keyword matching
-  const findMatch = (text: string) => {
-    if (!text.trim()) return null;
-    
-    const lowerText = text.toLowerCase();
-    
-    // Check if it matches a preset prompt exactly
-    const presetMatch = data.presets.find(p => lowerText === p.prompt.toLowerCase());
-    if (presetMatch) return presetMatch.project;
-    
-    // Fallback to keyword scoring
-    let bestMatch = null;
-    let highestScore = 0;
-    
-    for (const preset of data.presets) {
-      let score = 0;
-      for (const keyword of preset.keywords) {
-        if (lowerText.includes(keyword.toLowerCase())) {
-          score++;
-        }
-      }
-      if (score > highestScore) {
-        highestScore = score;
-        bestMatch = preset.project;
-      }
-    }
-    
-    return highestScore > 0 ? bestMatch : "trip-planner"; // Default to first if typed random text
+  const [results, setResults] = useState<string[]>([]);
+  const [searched, setSearched] = useState(false);
+
+  const findMatches = (text: string) => {
+    const normalized = text.trim().toLowerCase();
+    if (!normalized) return [];
+    const exact = data.presets.find((preset) => preset.prompt.toLowerCase() === normalized);
+    if (exact) return [exact.project];
+
+    const scored = data.presets.map((preset) => ({
+      project: preset.project,
+      score: preset.keywords.reduce(
+        (total, keyword) => total + (normalized.includes(keyword.toLowerCase()) ? 1 : 0),
+        0,
+      ),
+    }));
+    const highest = Math.max(...scored.map((item) => item.score));
+    return highest > 0 ? scored.filter((item) => item.score === highest).map((item) => item.project) : [];
   };
 
-  const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    if (!prompt.trim()) {
-      setResult(null);
-      return;
-    }
-    
-    setResult(findMatch(prompt));
+  const search = (value = prompt) => {
+    setPrompt(value);
+    setResults(findMatches(value));
+    setSearched(true);
   };
-  
-  const handlePreset = (presetPrompt: string) => {
-    setPrompt(presetPrompt);
-    setResult(findMatch(presetPrompt));
-  };
-  
-  // Find project data if result is set
-  const matchedProject = result ? projects.find(p => p.slug === result) : null;
-  const copy = matchedProject ? localizeProject(matchedProject, locale) : null;
+
+  const matched = results
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof projects)[number] => Boolean(project));
 
   return (
-    <section className="discovery-desk-v3 page-shell-v2">
+    <section className="discovery-desk-v3 page-shell-v2" aria-labelledby="discovery-title">
       <div className="discovery-desk-container">
         <header className="discovery-header">
-          <h2>{data.heading}</h2>
+          <p className="eyebrow-v2">PROJECT DISCOVERY DESK</p>
+          <h2 id="discovery-title">
+            {locale === "vi" ? "Bạn đang muốn giải quyết việc gì?" : "What are you trying to solve?"}
+          </h2>
           <p>{data.description}</p>
         </header>
-        
-        <div className="discovery-interactive">
-          <form className="discovery-prompt-box" onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder={data.presets[0].prompt}
-              aria-label={data.heading}
-            />
-            <button type="submit" className="sim-send-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+
+        <form
+          className="discovery-prompt-box"
+          onSubmit={(event) => {
+            event.preventDefault();
+            search();
+          }}
+        >
+          <label className="sr-only" htmlFor="project-discovery-prompt">{data.heading}</label>
+          <input
+            id="project-discovery-prompt"
+            type="search"
+            value={prompt}
+            onChange={(event) => setPrompt(event.target.value)}
+            placeholder={locale === "vi" ? "Ví dụ: kiểm tra insight từ bảng dữ liệu" : "Example: validate an insight from a dataset"}
+          />
+          <button type="submit" className="sim-send-btn">
+            {locale === "vi" ? "Tìm project" : "Find a project"}
+          </button>
+        </form>
+
+        <div className="discovery-presets" aria-label={locale === "vi" ? "Tình huống mẫu" : "Preset situations"}>
+          {data.presets.map((preset) => (
+            <button key={preset.id} type="button" className="practice-tab" onClick={() => search(preset.prompt)}>
+              {preset.label}
             </button>
-          </form>
-          
-          <div className="discovery-presets">
-            {data.presets.map(preset => (
-              <button 
-                key={preset.id}
-                type="button"
-                className="practice-tab"
-                onClick={() => handlePreset(preset.prompt)}
-              >
-                {preset.label}
-              </button>
-            ))}
-          </div>
-          
-          <p className="discovery-trust-label mono">{data.trustLabel}</p>
+          ))}
         </div>
-        
-        {matchedProject && copy && (
-          <div className="discovery-result sim-step-detail">
-            <div className="discovery-result-card">
-              <div className="discovery-result-header">
-                <span className="mono">{matchedProject.verb} · {String(matchedProject.index).padStart(2, '0')}</span>
-                <h3>{copy.title}</h3>
-              </div>
-              
-              <div className="discovery-result-body">
-                <div className="discovery-result-col">
-                  <h4>Vấn đề cốt lõi</h4>
-                  <p>{copy.thesis}</p>
-                </div>
-                <div className="discovery-result-col">
-                  <h4>Giải pháp kỹ thuật</h4>
-                  <p>{copy.lesson}</p>
-                </div>
-              </div>
-              
-              <div className="discovery-result-actions v2-primary-actions">
-                <a href={localizedPath(locale, `/projects/${matchedProject.slug}`)} className="primary-action-v2">
-                  Xem chi tiết kiến trúc
-                </a>
-                <a href={localizedPath(locale, `/projects/${matchedProject.slug}`) + "#simulator"} className="secondary-action-v2">
-                  Chạy mô phỏng (Simulator)
-                </a>
-              </div>
+        <p className="discovery-trust-label mono">{data.trustLabel}</p>
+
+        {searched && matched.length === 0 ? (
+          <div className="discovery-empty" role="status">
+            <strong>{locale === "vi" ? "Chưa có kết quả khớp rõ." : "No clear match yet."}</strong>
+            <p>
+              {locale === "vi"
+                ? "Hãy thử mô tả công việc bằng một trong các ý: ghi nhớ, viết nội dung, tính toán, dữ liệu hoặc điều phối agent."
+                : "Try describing the job with one of these ideas: memory, writing, calculation, data or agent routing."}
+            </p>
+          </div>
+        ) : null}
+
+        {matched.length > 0 ? (
+          <div className="discovery-result" role="status">
+            <div className="discovery-request">
+              <span className="mono">{locale === "vi" ? "PROMPT CỦA BẠN" : "YOUR PROMPT"}</span>
+              <p>{prompt}</p>
+            </div>
+            <div className="discovery-matches">
+              {matched.map((project) => {
+                const copy = localizeProject(project, locale);
+                return (
+                  <article className={`discovery-result-card project-${project.slug}`} key={project.slug}>
+                    <div className={`mini-signal mini-${project.slug}`} aria-hidden="true"><i /><i /><i /><i /></div>
+                    <div className="discovery-result-header">
+                      <span className="mono">{project.verb} · {String(project.index).padStart(2, "0")}</span>
+                      <h3>{copy.title}</h3>
+                    </div>
+                    <dl className="discovery-result-body">
+                      <div><dt>{locale === "vi" ? "Vì sao project tồn tại" : "Why this project exists"}</dt><dd>{copy.problem}</dd></div>
+                      <div><dt>{locale === "vi" ? "Agent sẽ làm gì" : "What the agent does"}</dt><dd>{copy.thesis}</dd></div>
+                      <div><dt>{locale === "vi" ? "Output mẫu" : "Sample output"}</dt><dd>{copy.artifact}</dd></div>
+                    </dl>
+                    <div className="discovery-result-actions">
+                      <a href={localizedPath(locale, `/projects/${project.slug}`)} className="primary-action-v2">
+                        {locale === "vi" ? "Mở case study" : "Open case study"}
+                      </a>
+                      <a href={`${localizedPath(locale, `/projects/${project.slug}`)}#${project.slug}-simulator`} className="secondary-action-v2">
+                        {locale === "vi" ? "Xem demo" : "View demo"}
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </section>
   );

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "WF-01",
+    "title": "1. Hỏi đáp tài liệu nội bộ",
+    "goal": "Người dùng hỏi về chính sách/tài liệu",
+    "flow": [
+      "Prompt",
+      "Query rewriting",
+      "Hybrid search",
+      "Reranking",
+      "LLM",
+      "Citation"
+    ],
+    "techniques": [
+      "RAG",
+      "Retrieval",
+      "Chunking",
+      "Hybrid Search",
+      "Reranking",
+      "Grounding"
+    ],
+    "failureCases": [
+      "Không tìm thấy nguồn",
+      "tài liệu cũ",
+      "trả lời vượt nguồn"
+    ],
+    "metrics": [
+      "Tỷ lệ trả lời có bằng chứng",
+      "độ đúng citation",
+      "tỷ lệ không trả lời khi thiếu nguồn"
+    ]
+  },
+  {
+    "id": "WF-02",
+    "title": "2. Trợ lý xử lý email/ticket",
+    "goal": "Phân loại, tóm tắt và đề xuất hành động",
+    "flow": [
+      "Input",
+      "Classification",
+      "Retrieval hồ sơ",
+      "Draft",
+      "Human approval",
+      "Send"
+    ],
+    "techniques": [
+      "Structured Output",
+      "Tool Calling",
+      "Human-in-the-loop",
+      "Audit Log"
+    ],
+    "failureCases": [
+      "Gửi nhầm",
+      "lộ dữ liệu",
+      "hành động không được duyệt"
+    ],
+    "metrics": [
+      "Thời gian xử lý",
+      "tỷ lệ duyệt",
+      "lỗi gửi nhầm"
+    ]
+  },
+  {
+    "id": "WF-03",
+    "title": "3. Trích xuất hóa đơn/hợp đồng",
+    "goal": "Biến tài liệu thành dữ liệu có cấu trúc",
+    "flow": [
+      "Upload",
+      "OCR/Document AI",
+      "Validation",
+      "Structured Output",
+      "Review",
+      "Save"
+    ],
+    "techniques": [
+      "OCR",
+      "Document AI",
+      "VLM",
+      "Structured Output",
+      "Guardrails"
+    ],
+    "failureCases": [
+      "Đọc sai số",
+      "thiếu trang",
+      "sai trường dữ liệu"
+    ],
+    "metrics": [
+      "Field accuracy",
+      "tỷ lệ cần sửa",
+      "thời gian xử lý"
+    ]
+  },
+  {
+    "id": "WF-04",
+    "title": "4. Agent tra cứu và cập nhật CRM",
+    "goal": "Tìm hồ sơ, tổng hợp và cập nhật có kiểm soát",
+    "flow": [
+      "User",
+      "Agent",
+      "API/MCP tools",
+      "Plan",
+      "Approval",
+      "Update",
+      "Audit"
+    ],
+    "techniques": [
+      "AI Agent",
+      "MCP",
+      "Tool Calling",
+      "Access Control",
+      "Audit Log"
+    ],
+    "failureCases": [
+      "Sửa nhầm dữ liệu",
+      "quyền quá rộng",
+      "tool timeout"
+    ],
+    "metrics": [
+      "Tỷ lệ hoàn thành",
+      "lỗi tool",
+      "tỷ lệ rollback"
+    ]
+  },
+  {
+    "id": "WF-05",
+    "title": "5. Phân tích báo cáo định kỳ",
+    "goal": "Đọc dữ liệu, phát hiện thay đổi và viết insight",
+    "flow": [
+      "Load data",
+      "Validation",
+      "Code Executor",
+      "Analysis",
+      "QA",
+      "Report"
+    ],
+    "techniques": [
+      "Code Executor",
+      "Workflow Agent",
+      "Reflection",
+      "Evals",
+      "Human-in-the-loop"
+    ],
+    "failureCases": [
+      "Tính sai",
+      "kết luận quá mức",
+      "dữ liệu thiếu"
+    ],
+    "metrics": [
+      "Độ đúng số liệu",
+      "tỷ lệ insight hữu ích",
+      "thời gian tiết kiệm"
+    ]
+  },
+  {
+    "id": "WF-06",
+    "title": "6. Tạo nội dung có kiểm soát",
+    "goal": "Tạo bản nháp theo thương hiệu và dữ liệu thật",
+    "flow": [
+      "Brief",
+      "Retrieval brand guide",
+      "Draft",
+      "Moderation",
+      "Review",
+      "Publish"
+    ],
+    "techniques": [
+      "Prompt",
+      "RAG",
+      "Grounding",
+      "Content Moderation",
+      "Human-in-the-loop"
+    ],
+    "failureCases": [
+      "Bịa số liệu",
+      "sai giọng",
+      "vi phạm chính sách"
+    ],
+    "metrics": [
+      "Tỷ lệ được duyệt",
+      "số vòng sửa",
+      "lỗi factual"
+    ]
+  },
+  {
+    "id": "WF-07",
+    "title": "7. Multi-agent chuyên môn",
+    "goal": "Chuyển việc tới agent phù hợp",
+    "flow": [
+      "Router",
+      "Agent Card/discovery",
+      "Specialist",
+      "Result",
+      "Aggregation/Review"
+    ],
+    "techniques": [
+      "A2A",
+      "Agent Card",
+      "Orchestration",
+      "Multi-agent System",
+      "Tracing"
+    ],
+    "failureCases": [
+      "Chọn sai agent",
+      "context mất",
+      "chi phí và độ trễ cao"
+    ],
+    "metrics": [
+      "Routing accuracy",
+      "latency",
+      "success rate theo agent"
+    ]
+  },
+  {
+    "id": "WF-08",
+    "title": "8. Quy trình ra quyết định rủi ro cao",
+    "goal": "AI chuẩn bị bằng chứng nhưng người chịu trách nhiệm quyết định",
+    "flow": [
+      "Input",
+      "Retrieval/tools",
+      "Risk checks",
+      "Recommendation",
+      "Mandatory approval",
+      "Audit"
+    ],
+    "techniques": [
+      "Guardrails",
+      "Access Control",
+      "Human-in-the-loop",
+      "Audit Log",
+      "Governance"
+    ],
+    "failureCases": [
+      "Tự động hóa quá mức",
+      "thiếu giải thích",
+      "không có rollback"
+    ],
+    "metrics": [
+      "Tỷ lệ tuân thủ",
+      "số override",
+      "sự cố nghiêm trọng"
+    ]
+  }
+]

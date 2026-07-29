@@ -1,0 +1,101 @@
+[
+  {
+    "order": 1,
+    "title": "1. Tư duy chọn bài toán AI",
+    "guidingQuestion": "Bài toán nào đáng dùng AI? Đầu ra cần là văn bản, dự đoán hay hành động?",
+    "learningOutput": "Viết được brief bài toán AI 1 trang.",
+    "mustKnowCount": 2,
+    "shouldKnowCount": 5,
+    "whenNeededCount": 5,
+    "estimatedTime": "30 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 2,
+    "title": "2. Làm việc hiệu quả với LLM",
+    "guidingQuestion": "Làm sao giao việc rõ, giới hạn context và nhận đầu ra máy đọc được?",
+    "learningOutput": "Tạo prompt + schema đầu ra + tiêu chí kiểm tra.",
+    "mustKnowCount": 6,
+    "shouldKnowCount": 6,
+    "whenNeededCount": 0,
+    "estimatedTime": "45 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 3,
+    "title": "3. RAG & hệ thống tri thức",
+    "guidingQuestion": "Khi nào cần RAG? Tài liệu được tìm, xếp hạng và dẫn nguồn ra sao?",
+    "learningOutput": "Vẽ được pipeline RAG và failure cases.",
+    "mustKnowCount": 7,
+    "shouldKnowCount": 6,
+    "whenNeededCount": 3,
+    "estimatedTime": "60 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 4,
+    "title": "4. Tool Calling, API & MCP",
+    "guidingQuestion": "AI lấy dữ liệu thật và dùng công cụ an toàn bằng cách nào?",
+    "learningOutput": "Thiết kế tool/API/MCP contract.",
+    "mustKnowCount": 3,
+    "shouldKnowCount": 5,
+    "whenNeededCount": 1,
+    "estimatedTime": "60 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 5,
+    "title": "5. Agent, workflow & orchestration",
+    "guidingQuestion": "Khi nào dùng workflow, khi nào dùng agent, state và nhiều agent?",
+    "learningOutput": "Thiết kế workflow có retry, approval và audit.",
+    "mustKnowCount": 4,
+    "shouldKnowCount": 8,
+    "whenNeededCount": 0,
+    "estimatedTime": "75 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 6,
+    "title": "6. Đánh giá, quan sát & cải tiến",
+    "guidingQuestion": "Làm sao biết hệ thống tốt, lỗi ở đâu và có cải thiện không?",
+    "learningOutput": "Tạo eval set, metric và trace checklist.",
+    "mustKnowCount": 3,
+    "shouldKnowCount": 9,
+    "whenNeededCount": 3,
+    "estimatedTime": "60 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 7,
+    "title": "7. An toàn, quyền & kiểm soát",
+    "guidingQuestion": "Dữ liệu/quyền/hành động nào phải bị giới hạn?",
+    "learningOutput": "Tạo risk register và guardrail map.",
+    "mustKnowCount": 5,
+    "shouldKnowCount": 5,
+    "whenNeededCount": 2,
+    "estimatedTime": "60 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 8,
+    "title": "8. Triển khai thực tế & tối ưu chi phí",
+    "guidingQuestion": "Hệ thống có chạy nhanh, ổn định và đủ rẻ không?",
+    "learningOutput": "Ước lượng latency, cost và monitoring.",
+    "mustKnowCount": 1,
+    "shouldKnowCount": 6,
+    "whenNeededCount": 7,
+    "estimatedTime": "45 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  },
+  {
+    "order": 9,
+    "title": "9. Multimodal cho công việc",
+    "guidingQuestion": "Tài liệu, ảnh và giọng nói nên dùng OCR, Document AI hay VLM?",
+    "learningOutput": "Chọn đúng pipeline multimodal.",
+    "mustKnowCount": 1,
+    "shouldKnowCount": 4,
+    "whenNeededCount": 7,
+    "estimatedTime": "45 phút",
+    "sourceWorkbook": "AI_Cheatsheet_de_hieu_v3_thuc_chien.xlsx"
+  }
+]

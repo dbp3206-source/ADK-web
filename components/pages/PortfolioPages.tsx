@@ -1,6 +1,8 @@
 import { LearnExplorerV2 } from "@/components/learn/LearnExplorerV2";
+import { CopyEmailButton } from "@/components/contact/CopyEmailButton";
+import { InteractiveContactLink } from "@/components/contact/InteractiveContactLink";
 import { ProjectsBrowserV2 } from "@/components/projects/ProjectsBrowserV2";
-import { SystemExplorerV2 } from "@/components/trace/SystemExplorerV2";
+import { SystemModeExplorer } from "@/components/trace/SystemModeExplorer";
 import { projects } from "@/lib/content";
 import { getDictionary, localizedPath, type Locale } from "@/lib/i18n";
 import { config, getOwnerName, getUtilityLinks, isRealUrl } from "@/lib/site";
@@ -15,7 +17,7 @@ export function SystemPageV2({ locale }: { locale: Locale }) {
   return (
     <div className="v2-page system-page-v2">
       <header className="page-shell-v2 system-cover-v2"><p className="eyebrow-v2">{dict.system.eyebrow}</p><h1>{dict.system.title}</h1><p>{dict.system.subtitle}</p></header>
-      <section className="page-shell-v2"><SystemExplorerV2 locale={locale} /></section>
+      <section className="page-shell-v2"><SystemModeExplorer locale={locale} /></section>
       <section className="system-principles-v2 page-shell-v2">
         <article><span className="mono">01</span><h2>{locale === "vi" ? "Routing phải giải thích được" : "Routing must be explainable"}</h2><p>{locale === "vi" ? "Capability được chọn cùng lý do, contract và fallback — không chỉ đổi màu node." : "A selected capability includes its reason, contract and fallback—not merely a colored node."}</p></article>
         <article><span className="mono">02</span><h2>{locale === "vi" ? "Mọi ranh giới đều có contract" : "Every boundary has a contract"}</h2><p>{locale === "vi" ? "Agent Card, tool/data input và artifact output đều hiện rõ." : "Agent Cards, tool/data inputs and artifact outputs remain visible."}</p></article>
@@ -79,24 +81,34 @@ export function ContactPageV2({ locale }: { locale: Locale }) {
     <div className="v2-page contact-links-page">
       <p className="eyebrow-v2">{dict.contact.eyebrow}</p>
       <h1>{dict.contact.title}</h1>
-      <p className="contact-lede">{dict.contact.body}</p>
-      {owner && <p className="contact-lede" style={{ marginTop: "-2rem" }}>{owner}</p>}
+      <p className="contact-lede">{locale === "vi" ? "Kết nối qua email hoặc xem source frontend và các case study nổi bật." : "Connect by email or inspect the frontend source and featured case studies."}</p>
+      {owner ? <div className="contact-owner"><strong>{owner}</strong><span>{config.owner.headline}</span></div> : null}
       {links.length > 0 ? (
         <ul className="contact-links-list" aria-label={locale === "vi" ? "Liên kết liên hệ" : "Contact links"}>
           {links.map((link) => (
             <li key={link.label} className="contact-link-item">
               <span className="contact-link-label">{link.label}</span>
-              <a href={link.href} target={link.href.startsWith("mailto") ? undefined : "_blank"} rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}>
-                {link.display}
-              </a>
+              <InteractiveContactLink
+                href={link.href}
+                label={link.label}
+                display={link.display}
+                external={!link.href.startsWith("mailto")}
+              />
             </li>
           ))}
         </ul>
-      ) : (
-        <p style={{ color: "var(--text-low)" }}>{dict.common.noContact}</p>
-      )}
-      <div style={{ marginTop: "3rem", borderTop: "1px solid var(--border-hairline)", paddingTop: "2rem" }}>
-        <a href={localizedPath(locale, "/projects")} style={{ color: "var(--accent-cyan)", textDecoration: "none" }}>{dict.nav.projects} →</a>
+      ) : null}
+      {emailDisplay ? <div className="contact-copy"><CopyEmailButton email={emailDisplay} label={locale === "vi" ? "Sao chép email" : "Copy email"} copiedLabel={locale === "vi" ? "Đã sao chép" : "Copied"} /></div> : null}
+      <section className="contact-featured">
+        <h2>{locale === "vi" ? "Hai project nên xem trước" : "Two projects to start with"}</h2>
+        <div>
+          <a href={localizedPath(locale, "/projects/dashboard-insights")}><strong>Dashboard Insights</strong><span>{locale === "vi" ? "Dữ liệu → claim → QA → report" : "Data → claim → QA → report"}</span></a>
+          <a href={localizedPath(locale, "/projects/a2a-orchestrator")}><strong>A2A Orchestrator</strong><span>{locale === "vi" ? "Request → route → specialist → fallback" : "Request → route → specialist → fallback"}</span></a>
+        </div>
+      </section>
+      <div className="contact-source-link">
+        <a href={config.owner.githubRepository} target="_blank" rel="noopener noreferrer">Frontend repository ↗</a>
+        <a href={localizedPath(locale, "/projects")}>{dict.nav.projects} →</a>
       </div>
     </div>
   );

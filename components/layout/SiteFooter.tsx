@@ -16,7 +16,7 @@ export function SiteFooter({ release }: { release: ReleaseMetadata }) {
     <footer className="site-footer site-footer-v2">
       <div className="footer-thesis">
         <span className="mono">ACT → DELEGATE → COMPUTE → COMPOSE → VERIFY → CONNECT</span>
-        <p>{dict.footer.thesis}</p>
+        <p className="footer-thesis-statement">{dict.footer.thesis}</p>
         <Link href={localizedPath(locale, "/system")}>{dict.footer.trace}</Link>
       </div>
       <div className="footer-map">

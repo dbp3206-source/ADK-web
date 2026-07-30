@@ -113,12 +113,12 @@ export function ProjectsBrowserV2({ locale }: { locale: Locale }) {
                     <small className="mono">{project.verb} · {patternByProject[project.slug]}</small>
                     <strong>{copy.title}</strong>
                   </span>
-                  <dl>
-                    <div><dt>{locale === "vi" ? "Tình huống" : "Situation"}</dt><dd>{situations[project.slug][locale]}</dd></div>
-                    <div><dt>{locale === "vi" ? "Vấn đề" : "Problem"}</dt><dd>{copy.problem}</dd></div>
-                    <div><dt>{locale === "vi" ? "Agent hỗ trợ" : "Agent helps"}</dt><dd>{copy.thesis}</dd></div>
-                    <div><dt>{locale === "vi" ? "Đầu ra" : "Output"}</dt><dd>{copy.artifact}</dd></div>
-                    <div><dt>{locale === "vi" ? "Năng lực mới" : "New capability"}</dt><dd>{copy.whatItProves}</dd></div>
+                  <dl className="project-flow">
+                    <div className="project-flow-step"><dt>{locale === "vi" ? "Tình huống" : "Situation"}</dt><dd>{situations[project.slug][locale]}</dd></div>
+                    <div className="project-flow-step"><dt>{locale === "vi" ? "Vấn đề" : "Problem"}</dt><dd>{copy.problem}</dd></div>
+                    <div className="project-flow-step"><dt>{locale === "vi" ? "Agent hỗ trợ" : "Agent helps"}</dt><dd>{copy.thesis}</dd></div>
+                    <div className="project-flow-step"><dt>{locale === "vi" ? "Đầu ra" : "Output"}</dt><dd>{copy.artifact}</dd></div>
+                    <div className="project-flow-step"><dt>{locale === "vi" ? "Năng lực mới" : "New capability"}</dt><dd>{copy.whatItProves}</dd></div>
                   </dl>
                 </a>
               </li>
